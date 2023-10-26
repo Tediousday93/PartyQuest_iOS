@@ -88,12 +88,10 @@
 		4A1F24622AEA8628005B264F /* PartyQuest_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4A1F24632AEA8628005B264F /* AppDelegate.swift */,
-				4A1F24652AEA8628005B264F /* SceneDelegate.swift */,
-				4A1F24672AEA8628005B264F /* ViewController.swift */,
-				4A1F246C2AEA8629005B264F /* Assets.xcassets */,
-				4A1F246E2AEA8629005B264F /* LaunchScreen.storyboard */,
 				4A1F24712AEA8629005B264F /* Info.plist */,
+				AD5DAB912AEA9AE900DC30B9 /* Application */,
+				AD5DAB902AEA9ACE00DC30B9 /* Presentation */,
+				AD5DAB922AEA9B3000DC30B9 /* Resources */,
 			);
 			path = PartyQuest_iOS;
 			sourceTree = "<group>";
@@ -113,6 +111,56 @@
 				D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD5DAB902AEA9ACE00DC30B9 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAB942AEA9BCF00DC30B9 /* Scenes */,
+				AD5DAB952AEA9BD600DC30B9 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		AD5DAB912AEA9AE900DC30B9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4A1F24632AEA8628005B264F /* AppDelegate.swift */,
+				4A1F24652AEA8628005B264F /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		AD5DAB922AEA9B3000DC30B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4A1F246C2AEA8629005B264F /* Assets.xcassets */,
+				4A1F246E2AEA8629005B264F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AD5DAB932AEA9B7400DC30B9 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				4A1F24672AEA8628005B264F /* ViewController.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		AD5DAB942AEA9BCF00DC30B9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAB932AEA9B7400DC30B9 /* LoginView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AD5DAB952AEA9BD600DC30B9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		EA24F82FE70514D2D97CBEDB /* Pods */ = {

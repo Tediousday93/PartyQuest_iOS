@@ -10,20 +10,39 @@
 		4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24632AEA8628005B264F /* AppDelegate.swift */; };
 		4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24652AEA8628005B264F /* SceneDelegate.swift */; };
 		4A1F24682AEA8628005B264F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24672AEA8628005B264F /* ViewController.swift */; };
-		4A1F246B2AEA8628005B264F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F24692AEA8628005B264F /* Main.storyboard */; };
 		4A1F246D2AEA8629005B264F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F246C2AEA8629005B264F /* Assets.xcassets */; };
 		4A1F24702AEA8629005B264F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F246E2AEA8629005B264F /* LaunchScreen.storyboard */; };
+		4A1F248B2AEA90A2005B264F /* PartyQuest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */; };
+		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
+		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4A1F248C2AEA90A2005B264F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A1F24582AEA8628005B264F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A1F245F2AEA8628005B264F;
+			remoteInfo = PartyQuest_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		14039AD9F28E3F9A6990ED3A /* Pods-PartyQuest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4A1F24602AEA8628005B264F /* PartyQuest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyQuest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F24632AEA8628005B264F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A1F24652AEA8628005B264F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A1F24672AEA8628005B264F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4A1F246A2AEA8628005B264F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A1F246C2AEA8629005B264F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A1F246F2AEA8629005B264F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A1F24712AEA8629005B264F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A1F24882AEA90A2005B264F /* PartyQuest_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyQuest_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyQuest_Tests.swift; sourceTree = "<group>"; };
+		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +50,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A1F24852AEA90A2005B264F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,7 +69,10 @@
 			isa = PBXGroup;
 			children = (
 				4A1F24622AEA8628005B264F /* PartyQuest_iOS */,
+				4A1F24892AEA90A2005B264F /* PartyQuest_Tests */,
 				4A1F24612AEA8628005B264F /* Products */,
+				EA24F82FE70514D2D97CBEDB /* Pods */,
+				9BCB1019C56F897222BD5142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1F24602AEA8628005B264F /* PartyQuest_iOS.app */,
+				4A1F24882AEA90A2005B264F /* PartyQuest_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,12 +91,39 @@
 				4A1F24632AEA8628005B264F /* AppDelegate.swift */,
 				4A1F24652AEA8628005B264F /* SceneDelegate.swift */,
 				4A1F24672AEA8628005B264F /* ViewController.swift */,
-				4A1F24692AEA8628005B264F /* Main.storyboard */,
 				4A1F246C2AEA8629005B264F /* Assets.xcassets */,
 				4A1F246E2AEA8629005B264F /* LaunchScreen.storyboard */,
 				4A1F24712AEA8629005B264F /* Info.plist */,
 			);
 			path = PartyQuest_iOS;
+			sourceTree = "<group>";
+		};
+		4A1F24892AEA90A2005B264F /* PartyQuest_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */,
+			);
+			path = PartyQuest_Tests;
+			sourceTree = "<group>";
+		};
+		9BCB1019C56F897222BD5142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */,
+				D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EA24F82FE70514D2D97CBEDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				14039AD9F28E3F9A6990ED3A /* Pods-PartyQuest_iOS.debug.xcconfig */,
+				D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */,
+				527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */,
+				C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A1F24742AEA8629005B264F /* Build configuration list for PBXNativeTarget "PartyQuest_iOS" */;
 			buildPhases = (
+				0B0CBF133EF042501FCDBE5C /* [CP] Check Pods Manifest.lock */,
 				4A1F245C2AEA8628005B264F /* Sources */,
 				4A1F245D2AEA8628005B264F /* Frameworks */,
 				4A1F245E2AEA8628005B264F /* Resources */,
+				29544447203480E2893D5A9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -86,6 +147,26 @@
 			productName = PartyQuest_iOS;
 			productReference = 4A1F24602AEA8628005B264F /* PartyQuest_iOS.app */;
 			productType = "com.apple.product-type.application";
+		};
+		4A1F24872AEA90A2005B264F /* PartyQuest_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A1F248E2AEA90A2005B264F /* Build configuration list for PBXNativeTarget "PartyQuest_Tests" */;
+			buildPhases = (
+				9700127477813CDC659CB3BE /* [CP] Check Pods Manifest.lock */,
+				4A1F24842AEA90A2005B264F /* Sources */,
+				4A1F24852AEA90A2005B264F /* Frameworks */,
+				4A1F24862AEA90A2005B264F /* Resources */,
+				1A68B61D4DDDB1F94DF3D8BD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A1F248D2AEA90A2005B264F /* PBXTargetDependency */,
+			);
+			name = PartyQuest_Tests;
+			productName = PartyQuest_Tests;
+			productReference = 4A1F24882AEA90A2005B264F /* PartyQuest_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -99,6 +180,10 @@
 				TargetAttributes = {
 					4A1F245F2AEA8628005B264F = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					4A1F24872AEA90A2005B264F = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 4A1F245F2AEA8628005B264F;
 					};
 				};
 			};
@@ -116,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				4A1F245F2AEA8628005B264F /* PartyQuest_iOS */,
+				4A1F24872AEA90A2005B264F /* PartyQuest_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,11 +213,98 @@
 			files = (
 				4A1F24702AEA8629005B264F /* LaunchScreen.storyboard in Resources */,
 				4A1F246D2AEA8629005B264F /* Assets.xcassets in Resources */,
-				4A1F246B2AEA8628005B264F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A1F24862AEA90A2005B264F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B0CBF133EF042501FCDBE5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyQuest_iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1A68B61D4DDDB1F94DF3D8BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29544447203480E2893D5A9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9700127477813CDC659CB3BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PartyQuest_Tests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A1F245C2AEA8628005B264F /* Sources */ = {
@@ -144,17 +317,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4A1F24842AEA90A2005B264F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A1F248B2AEA90A2005B264F /* PartyQuest_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		4A1F24692AEA8628005B264F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A1F246A2AEA8628005B264F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		4A1F248D2AEA90A2005B264F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A1F245F2AEA8628005B264F /* PartyQuest_iOS */;
+			targetProxy = 4A1F248C2AEA90A2005B264F /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		4A1F246E2AEA8629005B264F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +463,7 @@
 		};
 		4A1F24752AEA8629005B264F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14039AD9F28E3F9A6990ED3A /* Pods-PartyQuest_iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,9 +474,10 @@
 				INFOPLIST_FILE = PartyQuest_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,14 +485,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partyQuest.Harry.PartyQuest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4A1F24762AEA8629005B264F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,9 +507,10 @@
 				INFOPLIST_FILE = PartyQuest_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +518,58 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.partyQuest.Harry.PartyQuest-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		4A1F248F2AEA90A2005B264F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS6NMW5G3Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.partyQuest.Harry.PartyQuest-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyQuest_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PartyQuest_iOS";
+			};
+			name = Debug;
+		};
+		4A1F24902AEA90A2005B264F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS6NMW5G3Y;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.partyQuest.Harry.PartyQuest-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PartyQuest_iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PartyQuest_iOS";
 			};
 			name = Release;
 		};
@@ -353,6 +590,15 @@
 			buildConfigurations = (
 				4A1F24752AEA8629005B264F /* Debug */,
 				4A1F24762AEA8629005B264F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A1F248E2AEA90A2005B264F /* Build configuration list for PBXNativeTarget "PartyQuest_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A1F248F2AEA90A2005B264F /* Debug */,
+				4A1F24902AEA90A2005B264F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

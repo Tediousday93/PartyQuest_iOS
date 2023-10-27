@@ -32,7 +32,7 @@ final class WelcomeViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 8
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         return stackView
@@ -45,7 +45,7 @@ final class WelcomeViewController: UIViewController {
                                                blue: 0.827,
                                                alpha: 1).cgColor
         button.layer.cornerRadius = 14
-        button.titleLabel?.text = "로그인"
+        button.setTitle("로그인", for: .normal)
         button.titleLabel?.textColor = UIColor(red: 0.949,
                                                green: 0.949,
                                                blue: 0.965,
@@ -63,7 +63,7 @@ final class WelcomeViewController: UIViewController {
                                                blue: 0.969,
                                                alpha: 1).cgColor
         button.layer.cornerRadius = 14
-        button.titleLabel?.text = "회원가입"
+        button.setTitle("회원가입", for: .normal)
         button.titleLabel?.textColor = .label
         button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +74,7 @@ final class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .systemBackground
         setSubViews()
         setConstraint()
     }
@@ -88,14 +89,20 @@ final class WelcomeViewController: UIViewController {
     }
     
     private func setConstraint() {
+        let safeArea = view.safeAreaLayoutGuide
+        
         NSLayoutConstraint.activate([
+            welcomeImageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            welcomeImageView.bottomAnchor.constraint(equalTo: welcomeLabel.topAnchor,
+                                                     constant: -30),
             welcomeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeImageView.centerYAnchor.constraint(equalTo: view.topAnchor,
-                                                      constant: view.frame.height / 8),
+            
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor,
-                                                  constant: view.frame.height / 6),
+            welcomeLabel.bottomAnchor.constraint(equalTo: buttonStackView.topAnchor,
+                                                 constant: -300),
+            
             buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -30),
             buttonStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             buttonStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15),
         ])

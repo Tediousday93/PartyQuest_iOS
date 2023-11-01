@@ -73,8 +73,13 @@ final class SocialLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureRootView()
         setSubviews()
         setConstraints()
+    }
+    
+    private func configureRootView() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setSubviews() {

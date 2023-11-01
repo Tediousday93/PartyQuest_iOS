@@ -10,7 +10,8 @@ import UIKit
 class WelcomeCoordinator: BaseCoordinator {
     
     override func start() {
-        let welcomeViewController = WelcomeViewController()
+        let welcomeViewModel = WelcomeViewModel(coordinator: self)
+        let welcomeViewController = WelcomeViewController(welcomeViewModel: welcomeViewModel)
         
         navigationController.pushViewController(welcomeViewController, animated: true)
     }

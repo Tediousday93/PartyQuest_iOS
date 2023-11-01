@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class WelcomeViewController: UIViewController {
+    private let viewModel: WelcomeViewModel
+    private let disposeBag = DisposeBag()
+    
     private let welcomeImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "welcome")
@@ -71,12 +76,28 @@ final class WelcomeViewController: UIViewController {
         return button
     }()
     
+    
+    init(welcomeViewModel: WelcomeViewModel) {
+        self.viewModel = welcomeViewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        configureRootView()
         setSubViews()
         setConstraint()
+        setBindings()
+    }
+    
+    private func configureRootView() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setSubViews() {
@@ -106,5 +127,18 @@ final class WelcomeViewController: UIViewController {
             buttonStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
             buttonStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15),
         ])
+    }
+    
+    private func setBindings() {
+        let input = WelcomeViewModel.Input(
+            loginButtonTapped: loginButton.rx.tap.asObservable(),
+            signUpButtonTapped: signUpButton.rx.tap.asObservable()
+        )
+        
+        let output = viewModel.transform(input)
+        
+        output.socialLoginPushed
+            .drive()
+            .disposed(by: disposeBag)
     }
 }

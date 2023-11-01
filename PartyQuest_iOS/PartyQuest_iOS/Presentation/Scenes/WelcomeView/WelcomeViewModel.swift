@@ -28,7 +28,13 @@ extension WelcomeViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        let socialLoginPushed = input.loginButtonTapped
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.coordinateToSocialLogin()
+            }
+            .asDriver(onErrorJustReturn: ())
         
-        return Output()
+        return Output(socialLoginPushed: socialLoginPushed)
     }
 }

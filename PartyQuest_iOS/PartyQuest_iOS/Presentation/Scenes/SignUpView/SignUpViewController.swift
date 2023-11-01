@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class SignUpViewController: UIViewController {
     private let emailTextField: TitledTextfield = {
@@ -37,9 +39,9 @@ final class SignUpViewController: UIViewController {
     }()
     
     private let signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("가입하기", for: .normal)
-        button.setTitleColor(.black, for: .normal)
+        button.tintColor = .label
         button.backgroundColor = .systemGray5
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -57,7 +59,8 @@ final class SignUpViewController: UIViewController {
         return stackView
     }()
     
-    let viewModel: SignUpViewModel
+    private let viewModel: SignUpViewModel
+    private var disposeBag: DisposeBag = .init()
     
     init(signUpViewModel: SignUpViewModel) {
         viewModel = signUpViewModel
@@ -70,6 +73,7 @@ final class SignUpViewController: UIViewController {
     }
     
     deinit {
+        disposeBag = .init()
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
@@ -115,6 +119,41 @@ final class SignUpViewController: UIViewController {
     }
     
     private func setBindings() {
+        let email = emailTextField.textField.rx.text.distinctUntilChanged()
+        let password = passwordTextField.textField.rx.text.distinctUntilChanged()
+        let birthDate = birthDateTextField.textField.rx.text.distinctUntilChanged()
+        let nickName = nickNameTextField.textField.rx.text.distinctUntilChanged()
         
+        let input = SignUpViewModel.Input(
+            email: email,
+            password: password,
+            birthDate: birthDate,
+            nickName: nickName
+        )
+        let output = viewModel.transform(input)
+        
+        output.isEmailValid
+            .drive(with: self, onNext: { owner, isEmailValid in
+                owner.emailTextField.setTextFieldBorder(isRed: isEmailValid)
+            })
+            .disposed(by: disposeBag)
+        
+        output.isPasswordValid
+            .drive(with: self, onNext: { owner, isPasswordValid in
+                owner.passwordTextField.setTextFieldBorder(isRed: isPasswordValid)
+            })
+            .disposed(by: disposeBag)
+        
+        output.isNickNameValid
+            .drive(with: self, onNext: { owner, isNickNameValid in
+                owner.nickNameTextField.setTextFieldBorder(isRed: isNickNameValid)
+            })
+            .disposed(by: disposeBag)
+        
+        output.isEnableSignUpButton
+            .drive(with: self, onNext: { owner, isEnableSignUpButton in
+                owner.signUpButton.isEnabled = isEnableSignUpButton
+            })
+            .disposed(by: disposeBag)
     }
 }

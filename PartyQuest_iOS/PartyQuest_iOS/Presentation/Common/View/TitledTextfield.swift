@@ -68,4 +68,14 @@ final class TitledTextfield: UIView {
     func setTitle(_ title: String?) {
         titleLabel.text = title
     }
+    
+    func setTextFieldBorder(isRed: Bool) {
+        textField.layer.borderWidth = 1
+        
+        if isRed == false {
+            textField.layer.borderColor = UIColor.systemRed.cgColor
+        } else {
+            textField.layer.borderColor = UIColor.systemBackground.cgColor
+        }
+    }
 }

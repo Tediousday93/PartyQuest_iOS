@@ -19,10 +19,10 @@ final class SignUpViewModel {
 
 extension SignUpViewModel: ViewModelType {
     struct Input {
-        let email: Observable<String>
-        let password: Observable<String>
-        let birthDate: Observable<String>
-        let nickName: Observable<String>
+        let email: Observable<String?>
+        let password: Observable<String?>
+        let birthDate: Observable<String?>
+        let nickName: Observable<String?>
     }
     
     struct Output {
@@ -34,20 +34,21 @@ extension SignUpViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         let email = input.email
-            .map { text in
-                return text.isValidEmail()
+            .compactMap { text in
+                return text?.isValidEmail()
             }
+            .debug()
             .asDriver(onErrorJustReturn: false)
         
         let password = input.password
-            .map { text in
-                return text.isValidPassword()
+            .compactMap { text in
+                return text?.isValidPassword()
             }
             .asDriver(onErrorJustReturn: false)
         
         let nickName = input.nickName
-            .map { text in
-                return text.isValidNickname()
+            .compactMap { text in
+                return text?.isValidNickname()
             }
             .asDriver(onErrorJustReturn: false)
         
@@ -55,6 +56,7 @@ extension SignUpViewModel: ViewModelType {
             .map { isEmailValidate, isPasswordValidate, isNickName in
                 return isEmailValidate && isPasswordValidate && isNickName
             }
+            .debug()
         
         return Output(isEmailValid: email,
                       isPasswordValid: password,

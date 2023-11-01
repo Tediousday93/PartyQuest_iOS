@@ -10,7 +10,7 @@ import UIKit
 class AppCoordinator: BaseCoordinator {
     
     override func start() {
-        let coordinator = LogInCoordinator(navigationController: navigationController)
+        let coordinator = WelcomeCoordinator(navigationController: navigationController)
         
         start(coordinator: coordinator)
     }

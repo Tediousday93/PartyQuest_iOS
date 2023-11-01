@@ -72,7 +72,9 @@ final class SocialLoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setSubviews()
+        setConstraints()
     }
     
     private func setSubviews() {

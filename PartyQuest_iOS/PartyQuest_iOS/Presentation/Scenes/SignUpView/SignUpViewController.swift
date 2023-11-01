@@ -2,12 +2,10 @@
 //  SignUpViewController.swift
 //  PartyQuest_iOS
 //
-//  Created by Rowan on 2023/11/01.
+//  Created by Harry on 2023/11/01.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 final class SignUpViewController: UIViewController {
     private let emailTextField: TitledTextfield = {
@@ -58,6 +56,18 @@ final class SignUpViewController: UIViewController {
         
         return stackView
     }()
+    
+    let viewModel: SignUpViewModel
+    
+    init(signUpViewModel: SignUpViewModel) {
+        viewModel = signUpViewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     deinit {
         navigationController?.navigationBar.prefersLargeTitles = false

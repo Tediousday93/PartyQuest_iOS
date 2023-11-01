@@ -21,6 +21,7 @@
 		4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */; };
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
 		4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B52AF23096000CA63F /* SignUpViewController.swift */; };
+		4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */; };
 		AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
@@ -58,6 +59,7 @@
 		4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		4A6A25B52AF23096000CA63F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */,
 				AD5DABA32AF22A7100DC30B9 /* View */,
 				4A1F24992AEBEC0A005B264F /* Coordinator */,
+				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 			files = (
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
+				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */,

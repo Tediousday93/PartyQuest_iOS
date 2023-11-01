@@ -19,6 +19,8 @@ final class TitledTextfield: UIView {
         let textField = UITextField()
         textField.font = .preferredFont(forTextStyle: .body)
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.layer.shadowColor = UIColor.black.cgColor
+        textField.layer.shadowOffset = .init(width: 10, height: 10)
         
         return textField
     }()
@@ -59,7 +61,7 @@ final class TitledTextfield: UIView {
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             
             textField.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            textField.heightAnchor.constraint(equalToConstant: 80)
+            textField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     

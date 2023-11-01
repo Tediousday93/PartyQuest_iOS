@@ -74,12 +74,24 @@ final class SocialLoginViewController: UIViewController {
         super.viewDidLoad()
         
         configureRootView()
+        configureButtons()
         setSubviews()
         setConstraints()
     }
     
     private func configureRootView() {
         view.backgroundColor = .systemBackground
+    }
+    
+    private func configureButtons() {
+        let buttons = [appleLoginButton, googleLoginButton,
+         naverLoginButton, kakaoLoginButton]
+        
+        buttons.forEach { $0.setTitleColor(.systemBlue, for: .normal) }
+        appleLoginButton.setTitle("애플로그인", for: .normal)
+        googleLoginButton.setTitle("구글로그인", for: .normal)
+        naverLoginButton.setTitle("네이버로그인", for: .normal)
+        kakaoLoginButton.setTitle("카카오로그인", for: .normal)
     }
     
     private func setSubviews() {
@@ -101,8 +113,8 @@ final class SocialLoginViewController: UIViewController {
         NSLayoutConstraint.activate([
             outterStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             outterStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            outterStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            outterStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            outterStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            outterStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
         ])
     }
 }

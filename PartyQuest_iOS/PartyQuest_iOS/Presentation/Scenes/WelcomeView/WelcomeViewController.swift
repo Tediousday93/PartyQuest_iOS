@@ -140,5 +140,9 @@ final class WelcomeViewController: UIViewController {
         output.socialLoginPushed
             .drive()
             .disposed(by: disposeBag)
+        
+        output.signUpPushed
+            .drive()
+            .disposed(by: disposeBag)
     }
 }

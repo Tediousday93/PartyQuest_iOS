@@ -21,4 +21,11 @@ class WelcomeCoordinator: BaseCoordinator {
         
         self.start(coordinator: socialLoginCoordinator)
     }
+    
+    func coordinateToSignUp() {
+        // TODO: SignUpCoordinator 만들기
+        let signUpCoordinator = SocialLogInCoordinator(navigationController: navigationController)
+        
+        self.start(coordinator: signUpCoordinator)
+    }
 }

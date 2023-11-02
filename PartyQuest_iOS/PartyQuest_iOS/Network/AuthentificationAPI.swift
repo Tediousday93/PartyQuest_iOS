@@ -1,5 +1,5 @@
 //
-//  PartyQuestAPI.swift
+//  AuthentificationAPI.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/11/02.
@@ -8,12 +8,12 @@
 import Foundation
 import Moya
 
-enum PartyQuestAPI {
+enum AuthentificationAPI {
     case logIn(email: String, password: String)
     case signUp(email: String, password: String, nickname: String, birth: String)
 }
 
-extension PartyQuestAPI: TargetType {
+extension AuthentificationAPI: TargetType {
     var baseURL: URL {
         URL(string: Bundle.main.baseURL)!
     }

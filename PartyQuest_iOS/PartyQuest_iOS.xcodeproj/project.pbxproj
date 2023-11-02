@@ -23,7 +23,7 @@
 		4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B52AF23096000CA63F /* SignUpViewController.swift */; };
 		4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */; };
 		4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */; };
-		4A6A25CD2AF37A12000CA63F /* PartyQuestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */; };
+		4A6A25CD2AF37A12000CA63F /* AuthentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */; };
 		4A6A25D32AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */; };
 		4A6A25D52AF39E23000CA63F /* DefaultAuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D42AF39E23000CA63F /* DefaultAuthentificationService.swift */; };
 		4A6A25D82AF39EA3000CA63F /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D72AF39EA3000CA63F /* AuthentificationService.swift */; };
@@ -69,7 +69,7 @@
 		4A6A25B52AF23096000CA63F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+NetworkInfo.swift"; sourceTree = "<group>"; };
-		4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyQuestAPI.swift; sourceTree = "<group>"; };
+		4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthentificationAPI.swift; sourceTree = "<group>"; };
 		4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationUseCase.swift; sourceTree = "<group>"; };
 		4A6A25D42AF39E23000CA63F /* DefaultAuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationService.swift; sourceTree = "<group>"; };
 		4A6A25D72AF39EA3000CA63F /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 			children = (
 				4A6A25D62AF39E50000CA63F /* Authentification */,
 				4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */,
-				4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */,
+				4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */,
 				AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */,
 			);
 			path = Network;
@@ -516,7 +516,7 @@
 				4A6A25D82AF39EA3000CA63F /* AuthentificationService.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
-				4A6A25CD2AF37A12000CA63F /* PartyQuestAPI.swift in Sources */,
+				4A6A25CD2AF37A12000CA63F /* AuthentificationAPI.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthentificationService.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* SocialLoginCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,

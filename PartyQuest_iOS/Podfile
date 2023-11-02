@@ -6,6 +6,7 @@ target 'PartyQuest_iOS' do
   use_frameworks!
     pod 'RxSwift', '6.6.0'
     pod 'RxCocoa', '6.6.0'
+    pod 'Moya', '~> 15.0'
 
   target 'PartyQuest_Tests' do
     inherit! :search_paths

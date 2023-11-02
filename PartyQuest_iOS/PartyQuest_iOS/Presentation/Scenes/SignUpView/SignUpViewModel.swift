@@ -37,7 +37,6 @@ extension SignUpViewModel: ViewModelType {
             .compactMap { text in
                 return text?.isValidEmail()
             }
-            .debug()
             .asDriver(onErrorJustReturn: false)
         
         let password = input.password
@@ -56,7 +55,6 @@ extension SignUpViewModel: ViewModelType {
             .map { isEmailValidate, isPasswordValidate, isNickName in
                 return isEmailValidate && isPasswordValidate && isNickName
             }
-            .debug()
         
         return Output(isEmailValid: email,
                       isPasswordValid: password,

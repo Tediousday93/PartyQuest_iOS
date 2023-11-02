@@ -22,9 +22,9 @@
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
 		4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B52AF23096000CA63F /* SignUpViewController.swift */; };
 		4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */; };
-		4A6A25BB2AF36BB5000CA63F /* PartyQuestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25BA2AF36BB5000CA63F /* PartyQuestAPI.swift */; };
-		4A6A25BD2AF36F99000CA63F /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A25BC2AF36F99000CA63F /* NetworkInfo.plist */; };
-		4A6A25BF2AF371B1000CA63F /* Bundle+NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25BE2AF371B1000CA63F /* Bundle+NetworkInfo.swift */; };
+		4A6A25CB2AF37A12000CA63F /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A25C82AF37A12000CA63F /* NetworkInfo.plist */; };
+		4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */; };
+		4A6A25CD2AF37A12000CA63F /* PartyQuestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */; };
 		AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
@@ -63,9 +63,9 @@
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		4A6A25B52AF23096000CA63F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
-		4A6A25BA2AF36BB5000CA63F /* PartyQuestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyQuestAPI.swift; sourceTree = "<group>"; };
-		4A6A25BC2AF36F99000CA63F /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
-		4A6A25BE2AF371B1000CA63F /* Bundle+NetworkInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+NetworkInfo.swift"; sourceTree = "<group>"; };
+		4A6A25C82AF37A12000CA63F /* NetworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
+		4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+NetworkInfo.swift"; sourceTree = "<group>"; };
+		4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyQuestAPI.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewController.swift; sourceTree = "<group>"; };
@@ -120,8 +120,8 @@
 		4A1F24622AEA8628005B264F /* PartyQuest_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				4A6A25B92AF36A61000CA63F /* Network */,
 				4A1F24712AEA8629005B264F /* Info.plist */,
+				4A6A25C72AF37A12000CA63F /* Network */,
 				AD5DAB912AEA9AE900DC30B9 /* Application */,
 				AD5DAB902AEA9ACE00DC30B9 /* Presentation */,
 				AD5DAB922AEA9B3000DC30B9 /* Resources */,
@@ -146,12 +146,12 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		4A6A25B92AF36A61000CA63F /* Network */ = {
+		4A6A25C72AF37A12000CA63F /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				4A6A25BA2AF36BB5000CA63F /* PartyQuestAPI.swift */,
-				4A6A25BE2AF371B1000CA63F /* Bundle+NetworkInfo.swift */,
-				4A6A25BC2AF36F99000CA63F /* NetworkInfo.plist */,
+				4A6A25C82AF37A12000CA63F /* NetworkInfo.plist */,
+				4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */,
+				4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1F24702AEA8629005B264F /* LaunchScreen.storyboard in Resources */,
-				4A6A25BD2AF36F99000CA63F /* NetworkInfo.plist in Resources */,
+				4A6A25CB2AF37A12000CA63F /* NetworkInfo.plist in Resources */,
 				4A1F246D2AEA8629005B264F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,7 +448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A6A25BB2AF36BB5000CA63F /* PartyQuestAPI.swift in Sources */,
+				4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
@@ -457,8 +457,8 @@
 				AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
-				4A6A25BF2AF371B1000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
+				4A6A25CD2AF37A12000CA63F /* PartyQuestAPI.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* SocialLoginCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,

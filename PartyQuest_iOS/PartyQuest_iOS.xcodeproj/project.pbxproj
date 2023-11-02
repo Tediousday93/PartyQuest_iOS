@@ -24,11 +24,13 @@
 		4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */; };
 		4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */; };
 		4A6A25CD2AF37A12000CA63F /* PartyQuestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */; };
-		4A6A25D12AF38072000CA63F /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A6A25D02AF38072000CA63F /* NetworkInfo.plist */; };
 		AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
+		AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */; };
+		AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB02AF385D400DC30B9 /* UserData.swift */; };
+		AD5DABB42AF39CA500DC30B9 /* UserAuthentificationUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB32AF39CA500DC30B9 /* UserAuthentificationUsecase.swift */; };
 		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
 		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -65,13 +67,15 @@
 		4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+NetworkInfo.swift"; sourceTree = "<group>"; };
 		4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PartyQuestAPI.swift; sourceTree = "<group>"; };
-		4A6A25D02AF38072000CA63F /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5DAB9B2AEBD22900DC30B9 /* SocialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginViewController.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
+		AD5DABB02AF385D400DC30B9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		AD5DABB32AF39CA500DC30B9 /* UserAuthentificationUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthentificationUsecase.swift; sourceTree = "<group>"; };
 		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,9 +125,10 @@
 			isa = PBXGroup;
 			children = (
 				4A1F24712AEA8629005B264F /* Info.plist */,
-				4A6A25C72AF37A12000CA63F /* Network */,
+				AD5DABAD2AF3836D00DC30B9 /* Domain */,
 				AD5DAB912AEA9AE900DC30B9 /* Application */,
 				AD5DAB902AEA9ACE00DC30B9 /* Presentation */,
+				4A6A25C72AF37A12000CA63F /* Network */,
 				AD5DAB922AEA9B3000DC30B9 /* Resources */,
 			);
 			path = PartyQuest_iOS;
@@ -151,7 +156,7 @@
 			children = (
 				4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */,
 				4A6A25CA2AF37A12000CA63F /* PartyQuestAPI.swift */,
-				4A6A25D02AF38072000CA63F /* NetworkInfo.plist */,
+				AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -251,6 +256,39 @@
 			path = SignUpView;
 			sourceTree = "<group>";
 		};
+		AD5DABAD2AF3836D00DC30B9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DABAF2AF383BB00DC30B9 /* Authentification */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		AD5DABAE2AF3837300DC30B9 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DABB02AF385D400DC30B9 /* UserData.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		AD5DABAF2AF383BB00DC30B9 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DABB22AF39C8A00DC30B9 /* UseCase */,
+				AD5DABAE2AF3837300DC30B9 /* DTO */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		AD5DABB22AF39C8A00DC30B9 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DABB32AF39CA500DC30B9 /* UserAuthentificationUsecase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		EA24F82FE70514D2D97CBEDB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A1F24702AEA8629005B264F /* LaunchScreen.storyboard in Resources */,
-				4A6A25D12AF38072000CA63F /* NetworkInfo.plist in Resources */,
+				AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */,
 				4A1F246D2AEA8629005B264F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +490,7 @@
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
+				AD5DABB42AF39CA500DC30B9 /* UserAuthentificationUsecase.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */,
@@ -466,6 +505,7 @@
 				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
+				AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

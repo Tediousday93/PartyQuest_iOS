@@ -33,6 +33,9 @@
 		AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */; };
 		AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB02AF385D400DC30B9 /* UserData.swift */; };
 		AD5DABB42AF39CA500DC30B9 /* AuthentificationUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB32AF39CA500DC30B9 /* AuthentificationUsecase.swift */; };
+		AD5DABC02AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABBF2AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift */; };
+		AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */; };
+		AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */; };
 		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
 		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,9 @@
 		AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
 		AD5DABB02AF385D400DC30B9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		AD5DABB32AF39CA500DC30B9 /* AuthentificationUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationUsecase.swift; sourceTree = "<group>"; };
+		AD5DABBF2AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
+		AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationUseCaseProvider.swift; sourceTree = "<group>"; };
 		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */,
+				AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */,
+				AD5DABBE2AF4B91900DC30B9 /* UseCase */,
 				4A6A25D62AF39E50000CA63F /* Authentification */,
 				AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */,
 			);
@@ -170,7 +178,6 @@
 			children = (
 				4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */,
 				4A6A25D42AF39E23000CA63F /* DefaultAuthentificationService.swift */,
-				AD5DABBE2AF4B91900DC30B9 /* UseCase */,
 			);
 			path = Authentification;
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5DABB32AF39CA500DC30B9 /* AuthentificationUsecase.swift */,
+				AD5DABBF2AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */,
+				AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -511,8 +520,11 @@
 				4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
+				AD5DABC02AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
+				AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */,
 				AD5DABB42AF39CA500DC30B9 /* AuthentificationUsecase.swift in Sources */,
+				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				AD5DAB9C2AEBD22900DC30B9 /* SocialLoginViewController.swift in Sources */,

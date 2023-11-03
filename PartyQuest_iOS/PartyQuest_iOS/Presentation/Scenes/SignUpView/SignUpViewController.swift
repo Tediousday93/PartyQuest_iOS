@@ -122,31 +122,22 @@ final class SignUpViewController: UIViewController {
         let email = emailTextField.textField.rx.text.distinctUntilChanged()
         let password = passwordTextField.textField.rx.text.distinctUntilChanged()
         let birthDate = birthDateTextField.textField.rx.text.distinctUntilChanged()
-        let nickName = nickNameTextField.textField.rx.text.distinctUntilChanged()
+        let nickname = nickNameTextField.textField.rx.text.distinctUntilChanged()
         
         let input = SignUpViewModel.Input(
             email: email,
             password: password,
             birthDate: birthDate,
-            nickName: nickName
+            nickname: nickname,
+            signUpButtonTapped: signUpButton.rx.tap.asObservable()
         )
         let output = viewModel.transform(input)
         
-        output.isEmailValid
-            .drive(with: self, onNext: { owner, isEmailValid in
-                owner.emailTextField.setTextFieldBorder(isRed: isEmailValid)
-            })
-            .disposed(by: disposeBag)
-        
-        output.isPasswordValid
-            .drive(with: self, onNext: { owner, isPasswordValid in
-                owner.passwordTextField.setTextFieldBorder(isRed: isPasswordValid)
-            })
-            .disposed(by: disposeBag)
-        
-        output.isNickNameValid
-            .drive(with: self, onNext: { owner, isNickNameValid in
-                owner.nickNameTextField.setTextFieldBorder(isRed: isNickNameValid)
+        output.userInputsValidation
+            .drive(with: self, onNext: { owner, validationResult in
+                owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
+                owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
+                owner.nickNameTextField.setTextFieldBorder(isRed: validationResult.2)
             })
             .disposed(by: disposeBag)
         
@@ -154,6 +145,10 @@ final class SignUpViewController: UIViewController {
             .drive(with: self, onNext: { owner, isEnableSignUpButton in
                 owner.signUpButton.isEnabled = isEnableSignUpButton
             })
+            .disposed(by: disposeBag)
+        
+        output.signUpSuccessed
+            .subscribe()
             .disposed(by: disposeBag)
     }
 }

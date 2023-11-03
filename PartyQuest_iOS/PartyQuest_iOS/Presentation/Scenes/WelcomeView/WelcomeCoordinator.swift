@@ -22,6 +22,11 @@ final class WelcomeCoordinator: BaseCoordinator {
         navigationController.pushViewController(welcomeViewController, animated: true)
     }
     
+    override func didFinish(coordinator: Coordinator) {
+        super.didFinish(coordinator: coordinator)
+        navigationController.popViewController(animated: true)
+    }
+    
     func coordinateToLogin() {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,

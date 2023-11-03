@@ -11,7 +11,7 @@ import Moya
 
 protocol AuthentificationService {
     func requestLogIn(email: String, password: String) -> Single<UserData>
-    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<UserData>
+    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<Void>
 }
 
 final class DefaultAuthentificationService: AuthentificationService {
@@ -25,15 +25,16 @@ final class DefaultAuthentificationService: AuthentificationService {
         return provider.rx.request(.logIn(email: email,
                                           password: password))
         .filterSuccessfulStatusCodes()
-        .map(UserData.self)
+        .map(LoginResponse.self)
+        .map { $0.userData.first! }
     }
     
-    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<UserData> {
+    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<Void> {
         return provider.rx.request(.signUp(email: email,
                                            password: password,
                                            nickname: nickname,
                                            birth: birth))
-        .filterSuccessfulStatusCodes()
-        .map(UserData.self)
+        .filter(statusCode: 201)
+        .map { _ in }
     }
 }

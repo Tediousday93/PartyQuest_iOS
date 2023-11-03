@@ -24,15 +24,15 @@ extension WelcomeViewModel: ViewModelType {
     }
     
     struct Output {
-        let socialLoginPushed: Driver<Void>
+        let loginPushed: Driver<Void>
         let signUpPushed: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
-        let socialLoginPushed = input.loginButtonTapped
+        let loginPushed = input.loginButtonTapped
             .withUnretained(self)
             .map { owner, _ in
-                owner.coordinator.coordinateToSocialLogin()
+                owner.coordinator.coordinateToLogin()
             }
             .asDriver(onErrorJustReturn: ())
         
@@ -43,7 +43,7 @@ extension WelcomeViewModel: ViewModelType {
             }
             .asDriver(onErrorJustReturn: ())
         
-        return Output(socialLoginPushed: socialLoginPushed,
+        return Output(loginPushed: loginPushed,
                       signUpPushed: signUpPushed)
     }
 }

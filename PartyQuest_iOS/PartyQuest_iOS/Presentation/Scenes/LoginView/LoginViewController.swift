@@ -1,5 +1,5 @@
 //
-//  SocialLoginViewController.swift
+//  LoginViewController.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/10/27.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class SocialLoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .largeTitle)

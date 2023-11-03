@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AuthentificationUseCaseProvider {
-    func makeDefaultAuthentificationUseCase() -> AuthentificationUsecase
+    func makeDefaultAuthentificationUseCase() -> AuthentificationUseCase
 }

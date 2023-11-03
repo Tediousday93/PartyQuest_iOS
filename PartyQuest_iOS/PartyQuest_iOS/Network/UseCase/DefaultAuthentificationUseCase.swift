@@ -8,7 +8,7 @@
 import Foundation
 import RxSwift
 
-final class DefaultAuthentificationUseCase: AuthentificationUsecase {
+final class DefaultAuthentificationUseCase: AuthentificationUseCase {
     private let service: AuthentificationService
     
     init(service: AuthentificationService) {

@@ -137,7 +137,7 @@ final class WelcomeViewController: UIViewController {
         
         let output = viewModel.transform(input)
         
-        output.socialLoginPushed
+        output.loginPushed
             .drive()
             .disposed(by: disposeBag)
         

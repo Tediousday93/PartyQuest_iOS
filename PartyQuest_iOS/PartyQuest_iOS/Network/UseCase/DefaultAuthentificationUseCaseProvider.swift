@@ -12,7 +12,7 @@ final class DefaultAuthentificationUseCaseProvider: AuthentificationUseCaseProvi
         self.serviceProvider = NetworkServiceProvider()
     }
     
-    func makeDefaultAuthentificationUseCase() -> AuthentificationUsecase {
+    func makeDefaultAuthentificationUseCase() -> AuthentificationUseCase {
         let service = serviceProvider.makeDefaultAuthentificationService()
         
         return DefaultAuthentificationUseCase(service: service)

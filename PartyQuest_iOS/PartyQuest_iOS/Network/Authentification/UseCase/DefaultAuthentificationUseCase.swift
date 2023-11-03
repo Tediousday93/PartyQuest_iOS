@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 final class DefaultAuthentificationUseCase: AuthentificationUsecase {
     private let service: AuthentificationService
@@ -14,11 +15,14 @@ final class DefaultAuthentificationUseCase: AuthentificationUsecase {
         self.service = service
     }
     
-    func logIn(email: String, password: String) {
-        <#code#>
+    func logIn(email: String, password: String) -> Single<UserData> {
+        return service.requestLogIn(email: email, password: password)
     }
     
-    func signUp(email: String, password: String, nickname: String, birth: String) {
-        <#code#>
+    func signUp(email: String, password: String, nickname: String, birth: String) -> Single<Void> {
+        return service.requestSignUp(email: email,
+                                     password: password,
+                                     nickname: nickname,
+                                     birth: birth)
     }
 }

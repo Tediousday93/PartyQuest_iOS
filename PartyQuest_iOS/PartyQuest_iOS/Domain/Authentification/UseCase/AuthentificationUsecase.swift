@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol AuthentificationUsecase {
-    func logIn(email: String, password: String)
-    func signUp(email: String, password: String, nickname: String, birth: String)
+    func logIn(email: String, password: String) -> Single<UserData>
+    func signUp(email: String, password: String, nickname: String, birth: String) -> Single<Void>
 }

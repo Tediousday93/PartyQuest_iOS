@@ -7,7 +7,13 @@
 
 import UIKit
 
-class WelcomeCoordinator: BaseCoordinator {
+final class WelcomeCoordinator: BaseCoordinator {
+    private let useCaseProvider: AuthentificationUseCaseProvider
+    
+    init(navigationController: UINavigationController, useCaseProvider: AuthentificationUseCaseProvider) {
+        self.useCaseProvider = useCaseProvider
+        super.init(navigationController: navigationController)
+    }
     
     override func start() {
         let welcomeViewModel = WelcomeViewModel(coordinator: self)
@@ -16,14 +22,20 @@ class WelcomeCoordinator: BaseCoordinator {
         navigationController.pushViewController(welcomeViewController, animated: true)
     }
     
-    func coordinateToSocialLogin() {
-        let socialLoginCoordinator = SocialLogInCoordinator(navigationController: navigationController)
+    func coordinateToLogin() {
+        let loginCoordinator = LogInCoordinator(
+            navigationController: navigationController,
+            useCaseProvider: useCaseProvider
+        )
         
-        self.start(coordinator: socialLoginCoordinator)
+        self.start(coordinator: loginCoordinator)
     }
     
     func coordinateToSignUp() {
-        let signUpCoordinator = SignUpCoordinator(navigationController: navigationController)
+        let signUpCoordinator = SignUpCoordinator(
+            navigationController: navigationController,
+            useCaseProvider: useCaseProvider
+        )
         
         self.start(coordinator: signUpCoordinator)
     }

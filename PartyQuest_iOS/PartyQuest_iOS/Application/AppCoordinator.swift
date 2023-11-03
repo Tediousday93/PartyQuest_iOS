@@ -7,10 +7,18 @@
 
 import UIKit
 
-class AppCoordinator: BaseCoordinator {
+final class AppCoordinator: BaseCoordinator {
+    private let useCaseProvider: AuthentificationUseCaseProvider
     
+    override init(navigationController: UINavigationController) {
+        self.useCaseProvider = DefaultAuthentificationUseCaseProvider()
+        super.init(navigationController: navigationController)
+    }
     override func start() {
-        let coordinator = WelcomeCoordinator(navigationController: navigationController)
+        let coordinator = WelcomeCoordinator(
+            navigationController: navigationController,
+            useCaseProvider: useCaseProvider
+        )
         
         start(coordinator: coordinator)
     }

@@ -6,11 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
-class SignUpCoordinator: BaseCoordinator {
+final class SignUpCoordinator: BaseCoordinator {
+    private let useCaseProvider: AuthentificationUseCaseProvider
+    
+    init(navigationController: UINavigationController, useCaseProvider: AuthentificationUseCaseProvider) {
+        self.useCaseProvider = useCaseProvider
+        super.init(navigationController: navigationController)
+    }
     
     override func start() {
-        let signUpViewModel = SignUpViewModel(coordinator: self)
+        let signUpViewModel = SignUpViewModel(
+            coordinator: self,
+            useCase: useCaseProvider.makeDefaultAuthentificationUseCase()
+        )
         let signUpViewController = SignUpViewController(signUpViewModel: signUpViewModel)
         
         navigationController.pushViewController(signUpViewController, animated: true)

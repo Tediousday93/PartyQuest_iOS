@@ -22,10 +22,10 @@ final class SignUpViewModel {
 
 extension SignUpViewModel: ViewModelType {
     struct Input {
-        let email: Observable<String?>
-        let password: Observable<String?>
-        let birthDate: Observable<String?>
-        let nickname: Observable<String?>
+        let email: Observable<String>
+        let password: Observable<String>
+        let birthDate: Observable<String>
+        let nickname: Observable<String>
         let signUpButtonTapped: Observable<Void>
     }
     
@@ -37,19 +37,28 @@ extension SignUpViewModel: ViewModelType {
     
     func transform(_ input: Input) -> Output {
         let userInputs = Observable.combineLatest(
-            input.email.compactMap { $0 },
-            input.password.compactMap { $0 },
-            input.nickname.compactMap { $0 },
-            input.birthDate.compactMap { $0 }
+            input.email,
+            input.password,
+            input.nickname,
+            input.birthDate
         )
+            .share()
         
         let userInputsValidation = userInputs
             .map { email, password, nickname, _ in
-                return (email.isValidEmail(),
-                        password.isValidPassword(),
-                        nickname.isValidNickname())
+                var validation = (true, true, true)
+                if email.isEmpty == false {
+                    validation.0 = email.isValidEmail()
+                }
+                if password.isEmpty == false {
+                    validation.1 = password.isValidPassword()
+                }
+                if nickname.isEmpty == false {
+                    validation.2 = nickname.isValidNickname()
+                }
+                return validation
             }
-            .asDriver(onErrorJustReturn: (false, false, false))
+            .asDriver(onErrorJustReturn: (true, true, true))
         
         let isEnableSignUpButton = userInputsValidation
             .map { isEmailValid, isPasswordValid, isNicknameValid in

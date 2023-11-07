@@ -53,7 +53,7 @@ final class SignUpViewController: UIViewController {
         stackView.axis = .vertical
         stackView.spacing = 10
         stackView.distribution = .fillProportionally
-        stackView.alignment = .center
+        stackView.alignment = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -90,7 +90,6 @@ final class SignUpViewController: UIViewController {
     private func configureNavigationBar() {
         self.title = "회원가입"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     private func configureRootView() {
@@ -119,10 +118,18 @@ final class SignUpViewController: UIViewController {
     }
     
     private func setBindings() {
-        let email = emailTextField.textField.rx.text.distinctUntilChanged()
-        let password = passwordTextField.textField.rx.text.distinctUntilChanged()
-        let birthDate = birthDateTextField.textField.rx.text.distinctUntilChanged()
-        let nickname = nickNameTextField.textField.rx.text.distinctUntilChanged()
+        let email = emailTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let password = passwordTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let birthDate = birthDateTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let nickname = nickNameTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
         
         let input = SignUpViewModel.Input(
             email: email,

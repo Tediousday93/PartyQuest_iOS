@@ -14,7 +14,7 @@ final class LogInCoordinator: BaseCoordinator {
     init(navigationController: UINavigationController, useCaseProvider: AuthentificationUseCaseProvider) {
         self.useCaseProvider = useCaseProvider
         super.init(navigationController: navigationController)
-    }    
+    }
     
     override func start() {
         let socialLoginViewController = LoginViewController()

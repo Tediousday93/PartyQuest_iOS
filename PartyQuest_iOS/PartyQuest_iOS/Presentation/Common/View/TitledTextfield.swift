@@ -47,6 +47,8 @@ final class TitledTextfield: UIView {
     }
     
     private func setSubviews() {
+        textField.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 50))
+        textField.leftViewMode = .always
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(textField)
         
@@ -70,12 +72,13 @@ final class TitledTextfield: UIView {
     }
     
     func setTextFieldBorder(isRed: Bool) {
-        textField.layer.borderWidth = 1
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 4
         
         if isRed == false {
             textField.layer.borderColor = UIColor.systemRed.cgColor
         } else {
-            textField.layer.borderColor = UIColor.systemBackground.cgColor
+            textField.layer.borderColor = UIColor.systemGray4.cgColor
         }
     }
 }

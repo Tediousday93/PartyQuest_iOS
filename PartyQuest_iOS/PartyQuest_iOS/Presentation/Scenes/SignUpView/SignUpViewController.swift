@@ -20,6 +20,7 @@ final class SignUpViewController: UIViewController {
     private let passwordTextField: TitledTextfield = {
         let textField = TitledTextfield()
         textField.setTitle("패스워드")
+        textField.textField.isSecureTextEntry = true
         
         return textField
     }()

@@ -30,7 +30,7 @@ extension SignUpViewModel: ViewModelType {
     }
     
     struct Output {
-        let userInputsValidation: Driver<(Bool, Bool, Bool)>
+        let userInputsValidation: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
         let signUpSuccessed: Observable<Void>
     }
@@ -45,8 +45,8 @@ extension SignUpViewModel: ViewModelType {
             .share()
         
         let userInputsValidation = userInputs
-            .map { email, password, nickname, _ in
-                var validation = (true, true, true)
+            .map { email, password, nickname, birthDate in
+                var validation = (true, true, true, true)
                 if email.isEmpty == false {
                     validation.0 = email.isValidEmail()
                 }
@@ -56,13 +56,16 @@ extension SignUpViewModel: ViewModelType {
                 if nickname.isEmpty == false {
                     validation.2 = nickname.isValidNickname()
                 }
+                if birthDate.isEmpty == false {
+                    validation.3 = birthDate.isValidBirthDate()
+                }
                 return validation
             }
-            .asDriver(onErrorJustReturn: (true, true, true))
+            .asDriver(onErrorJustReturn: (true, true, true, true))
         
         let isEnableSignUpButton = userInputsValidation
-            .map { isEmailValid, isPasswordValid, isNicknameValid in
-                return isEmailValid && isPasswordValid && isNicknameValid
+            .map { isEmailValid, isPasswordValid, isNicknameValid, isValidBirthDate in
+                return isEmailValid && isPasswordValid && isNicknameValid && isValidBirthDate
             }
         
         let signUpSuccessed = input.signUpButtonTapped

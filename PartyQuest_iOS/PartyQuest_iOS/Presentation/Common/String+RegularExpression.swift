@@ -28,4 +28,11 @@ extension String {
         
         return predicate.evaluate(with: self)
     }
+    
+    func isValidBirthDate() -> Bool {
+        let birthDateRegex = #"^(19|20)\d\d(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])$"#
+        let predicate = NSPredicate(format: "SELF MATCHES %@", birthDateRegex)
+        
+        return predicate.evaluate(with: self)
+    }
 }

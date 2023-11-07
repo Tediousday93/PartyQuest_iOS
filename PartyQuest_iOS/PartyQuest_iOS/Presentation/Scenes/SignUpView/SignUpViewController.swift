@@ -145,6 +145,7 @@ final class SignUpViewController: UIViewController {
                 owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
                 owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
                 owner.nickNameTextField.setTextFieldBorder(isRed: validationResult.2)
+                owner.birthDateTextField.setTextFieldBorder(isRed: validationResult.3)
             })
             .disposed(by: disposeBag)
         

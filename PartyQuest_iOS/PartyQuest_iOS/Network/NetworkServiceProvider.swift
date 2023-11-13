@@ -9,7 +9,7 @@ import Foundation
 import Moya
 
 struct NetworkServiceProvider {
-    func makeDefaultAuthentificationService() -> AuthentificationService {
-        return DefaultAuthentificationService(provider: MoyaProvider<AuthentificationAPI>())
+    func makeDefaultAuthenticationService() -> AuthenticationService {
+        return DefaultAuthenticationService(provider: MoyaProvider<AuthenticationAPI>())
     }
 }

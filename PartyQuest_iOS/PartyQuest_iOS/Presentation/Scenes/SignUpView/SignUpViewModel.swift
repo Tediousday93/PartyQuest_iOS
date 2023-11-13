@@ -11,10 +11,10 @@ import RxCocoa
 
 final class SignUpViewModel {
     private let coordinator: SignUpCoordinator
-    private let useCase: AuthentificationUseCase
+    private let useCase: AuthenticationUseCase
     
     init(coordinator: SignUpCoordinator,
-         useCase: AuthentificationUseCase) {
+         useCase: AuthenticationUseCase) {
         self.coordinator = coordinator
         self.useCase = useCase
     }

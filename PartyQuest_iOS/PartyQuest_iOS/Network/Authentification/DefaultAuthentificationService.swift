@@ -1,5 +1,5 @@
 //
-//  DefaultAuthentificationService.swift
+//  DefaultAuthenticationService.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/11/02.
@@ -9,15 +9,15 @@ import Foundation
 import RxSwift
 import Moya
 
-protocol AuthentificationService {
+protocol AuthenticationService {
     func requestLogIn(email: String, password: String) -> Single<UserData>
     func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<Void>
 }
 
-final class DefaultAuthentificationService: AuthentificationService {
-    private let provider: MoyaProvider<AuthentificationAPI>
+final class DefaultAuthenticationService: AuthenticationService {
+    private let provider: MoyaProvider<AuthenticationAPI>
     
-    init(provider: MoyaProvider<AuthentificationAPI>) {
+    init(provider: MoyaProvider<AuthenticationAPI>) {
         self.provider = provider
     }
     

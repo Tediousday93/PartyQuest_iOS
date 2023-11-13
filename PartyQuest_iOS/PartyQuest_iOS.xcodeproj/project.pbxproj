@@ -24,7 +24,7 @@
 		4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */; };
 		4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */; };
 		4A6A25CD2AF37A12000CA63F /* AuthentificationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */; };
-		4A6A25D32AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */; };
+		4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */; };
 		4A6A25D52AF39E23000CA63F /* DefaultAuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D42AF39E23000CA63F /* DefaultAuthentificationService.swift */; };
 		AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
@@ -36,6 +36,11 @@
 		AD5DABC02AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABBF2AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift */; };
 		AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */; };
 		AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */; };
+		AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */; };
+		AD5DAC052B0218F300DC30B9 /* SocialAuthMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC042B0218F300DC30B9 /* SocialAuthMapper.swift */; };
+		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
+		AD5DAC092B0219AD00DC30B9 /* DefaultSocialAuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultSocialAuthUseCase.swift */; };
+		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */; };
 		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
 		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -72,7 +77,7 @@
 		4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RegularExpression.swift"; sourceTree = "<group>"; };
 		4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+NetworkInfo.swift"; sourceTree = "<group>"; };
 		4A6A25CA2AF37A12000CA63F /* AuthentificationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthentificationAPI.swift; sourceTree = "<group>"; };
-		4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationUseCase.swift; sourceTree = "<group>"; };
+		4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		4A6A25D42AF39E23000CA63F /* DefaultAuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationService.swift; sourceTree = "<group>"; };
 		4A6D29BD2B0201F7002E19A5 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +92,11 @@
 		AD5DABBF2AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
 		AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthentificationUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthProvider.swift; sourceTree = "<group>"; };
+		AD5DAC042B0218F300DC30B9 /* SocialAuthMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthMapper.swift; sourceTree = "<group>"; };
+		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
+		AD5DAC082B0219AD00DC30B9 /* DefaultSocialAuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialAuthUseCase.swift; sourceTree = "<group>"; };
+		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUseCaseProvider.swift; sourceTree = "<group>"; };
 		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +151,7 @@
 				AD5DAB912AEA9AE900DC30B9 /* Application */,
 				AD5DAB902AEA9ACE00DC30B9 /* Presentation */,
 				4A6A25C72AF37A12000CA63F /* Network */,
+				AD5DABFD2B0214FF00DC30B9 /* SocialAuthentication */,
 				AD5DAB922AEA9B3000DC30B9 /* Resources */,
 			);
 			path = PartyQuest_iOS;
@@ -316,10 +327,46 @@
 		AD5DABBE2AF4B91900DC30B9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				4A6A25D22AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift */,
+				4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */,
 				AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthentificationUseCaseProvider.swift */,
 			);
 			path = UseCase;
+			sourceTree = "<group>";
+		};
+		AD5DABFD2B0214FF00DC30B9 /* SocialAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAC002B02181D00DC30B9 /* Service */,
+				AD5DAC032B0218B300DC30B9 /* Mapper */,
+				AD5DABFE2B02180A00DC30B9 /* UseCase */,
+			);
+			path = SocialAuthentication;
+			sourceTree = "<group>";
+		};
+		AD5DABFE2B02180A00DC30B9 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAC082B0219AD00DC30B9 /* DefaultSocialAuthUseCase.swift */,
+				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		AD5DAC002B02181D00DC30B9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */,
+				AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		AD5DAC032B0218B300DC30B9 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DAC042B0218F300DC30B9 /* SocialAuthMapper.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		EA24F82FE70514D2D97CBEDB /* Pods */ = {
@@ -521,6 +568,7 @@
 			files = (
 				4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
+				AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				AD5DABC02AF4CEF000DC30B9 /* AuthentificationUseCaseProvider.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
@@ -531,16 +579,20 @@
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
-				4A6A25D32AF39DD9000CA63F /* DefaultAuthentificationUseCase.swift in Sources */,
+				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift in Sources */,
+				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthentificationAPI.swift in Sources */,
+				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
+				AD5DAC092B0219AD00DC30B9 /* DefaultSocialAuthUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthentificationService.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
 				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
+				AD5DAC052B0218F300DC30B9 /* SocialAuthMapper.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */,

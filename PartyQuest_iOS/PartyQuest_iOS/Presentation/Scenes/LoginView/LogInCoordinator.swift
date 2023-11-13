@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 final class LogInCoordinator: BaseCoordinator {
-    private let useCaseProvider: AuthentificationUseCaseProvider
+    private let useCaseProvider: AuthenticationUseCaseProvider
     
-    init(navigationController: UINavigationController, useCaseProvider: AuthentificationUseCaseProvider) {
+    init(navigationController: UINavigationController, useCaseProvider: AuthenticationUseCaseProvider) {
         self.useCaseProvider = useCaseProvider
         super.init(navigationController: navigationController)
     }

@@ -8,10 +8,10 @@
 import UIKit
 
 final class AppCoordinator: BaseCoordinator {
-    private let useCaseProvider: AuthentificationUseCaseProvider
+    private let useCaseProvider: AuthenticationUseCaseProvider
     
     override init(navigationController: UINavigationController) {
-        self.useCaseProvider = DefaultAuthentificationUseCaseProvider()
+        self.useCaseProvider = DefaultAuthenticationUseCaseProvider()
         super.init(navigationController: navigationController)
     }
     override func start() {

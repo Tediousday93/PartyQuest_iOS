@@ -8,10 +8,10 @@
 import Foundation
 import RxSwift
 
-final class DefaultAuthenticationUseCase: AuthentificationUseCase {
-    private let service: AuthentificationService
+final class DefaultAuthenticationUseCase: AuthenticationUseCase {
+    private let service: AuthenticationService
     
-    init(service: AuthentificationService) {
+    init(service: AuthenticationService) {
         self.service = service
     }
     

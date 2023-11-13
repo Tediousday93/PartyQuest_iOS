@@ -7,6 +7,9 @@ target 'PartyQuest_iOS' do
     pod 'RxSwift', '6.6.0'
     pod 'RxCocoa', '6.6.0'
     pod 'Moya/RxSwift', '~> 15.0'
+    pod 'RxKakaoSDKCommon'
+    pod 'RxKakaoSDKAuth'
+    pod 'RxKakaoSDKUser'
 
   target 'PartyQuest_Tests' do
     inherit! :search_paths

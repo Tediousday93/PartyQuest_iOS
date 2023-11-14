@@ -8,16 +8,20 @@
 import UIKit
 
 final class AppCoordinator: BaseCoordinator {
-    private let useCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
+    private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     
     override init(navigationController: UINavigationController) {
-        self.useCaseProvider = DefaultAuthenticationUseCaseProvider()
+        self.authenticationUseCaseProvider = DefaultAuthenticationUseCaseProvider()
+        self.socialUserDataUseCaseProvider = DefaultSocialUserDataUseCaseProvider()
+        
         super.init(navigationController: navigationController)
     }
     override func start() {
         let coordinator = WelcomeCoordinator(
             navigationController: navigationController,
-            useCaseProvider: useCaseProvider
+            authenticationUseCaseProvider: authenticationUseCaseProvider,
+            socialUserDataUseCaseProvider: socialUserDataUseCaseProvider
         )
         
         start(coordinator: coordinator)

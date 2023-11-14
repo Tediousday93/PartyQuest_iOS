@@ -31,7 +31,8 @@
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
 		4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* SocialUserData.swift */; };
 		4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */; };
-		AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */; };
+		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
+		AD5DAB9C2AEBD22900DC30B9 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* LogInViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
@@ -89,9 +90,10 @@
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
 		4AA423872B031AE50092EC27 /* SocialUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
 		4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
+		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AD5DAB9B2AEBD22900DC30B9 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -282,8 +284,9 @@
 		AD5DAB9A2AEBD1F400DC30B9 /* LoginView */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */,
+				AD5DAB9B2AEBD22900DC30B9 /* LogInViewController.swift */,
 				4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */,
+				4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -586,12 +589,13 @@
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
 				AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */,
 				AD5DABB42AF39CA500DC30B9 /* AuthenticationUseCase.swift in Sources */,
+				4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */,
 				4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */,
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
 				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
-				AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */,
+				AD5DAB9C2AEBD22900DC30B9 /* LogInViewController.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,

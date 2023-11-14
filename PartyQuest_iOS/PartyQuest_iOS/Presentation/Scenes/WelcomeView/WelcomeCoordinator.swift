@@ -8,10 +8,14 @@
 import UIKit
 
 final class WelcomeCoordinator: BaseCoordinator {
-    private let useCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
+    private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     
-    init(navigationController: UINavigationController, useCaseProvider: AuthenticationUseCaseProvider) {
-        self.useCaseProvider = useCaseProvider
+    init(navigationController: UINavigationController,
+         authenticationUseCaseProvider: AuthenticationUseCaseProvider,
+         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider) {
+        self.authenticationUseCaseProvider = authenticationUseCaseProvider
+        self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         super.init(navigationController: navigationController)
     }
     
@@ -30,16 +34,17 @@ final class WelcomeCoordinator: BaseCoordinator {
     func coordinateToLogin() {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,
-            useCaseProvider: useCaseProvider
+            authenticationUseCaseProvider: authenticationUseCaseProvider,
+            socialUserDataUseCaseProvider: socialUserDataUseCaseProvider
         )
-        
+
         self.start(coordinator: loginCoordinator)
     }
     
     func coordinateToSignUp() {
         let signUpCoordinator = SignUpCoordinator(
             navigationController: navigationController,
-            useCaseProvider: useCaseProvider
+            useCaseProvider: authenticationUseCaseProvider
         )
         
         self.start(coordinator: signUpCoordinator)

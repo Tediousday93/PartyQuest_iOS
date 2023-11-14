@@ -188,19 +188,19 @@
 				4A6A25C92AF37A12000CA63F /* Bundle+NetworkInfo.swift */,
 				AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */,
 				AD5DABBE2AF4B91900DC30B9 /* UseCase */,
-				4A6A25D62AF39E50000CA63F /* Authentification */,
+				4A6A25D62AF39E50000CA63F /* Authentication */,
 				AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */,
 			);
 			path = Network;
 			sourceTree = "<group>";
 		};
-		4A6A25D62AF39E50000CA63F /* Authentification */ = {
+		4A6A25D62AF39E50000CA63F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */,
 				4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */,
 			);
-			path = Authentification;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		4AA423842B031A370092EC27 /* Entity */ = {

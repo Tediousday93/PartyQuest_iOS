@@ -5,8 +5,6 @@
 //  Created by Rowan on 2023/11/02.
 //
 
-import Foundation
-
 struct LoginResponse: Decodable {
     let time: String
     let httpStatus: String

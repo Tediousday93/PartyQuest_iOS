@@ -30,6 +30,7 @@
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
 		4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* SocialUserData.swift */; };
+		4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */; };
 		AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
@@ -44,7 +45,7 @@
 		AD5DAC052B0218F300DC30B9 /* SocialUserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC042B0218F300DC30B9 /* SocialUserDataRepository.swift */; };
 		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
 		AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */; };
-		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */; };
+		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */; };
 		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
 		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
 		4AA423872B031AE50092EC27 /* SocialUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
+		4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5DAB9B2AEBD22900DC30B9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +106,7 @@
 		AD5DAC042B0218F300DC30B9 /* SocialUserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataRepository.swift; sourceTree = "<group>"; };
 		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
 		AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCase.swift; sourceTree = "<group>"; };
-		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -309,7 +311,7 @@
 		AD5DABAD2AF3836D00DC30B9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DABAF2AF383BB00DC30B9 /* Authentification */,
+				AD5DABAF2AF383BB00DC30B9 /* Authentication */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -323,13 +325,13 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		AD5DABAF2AF383BB00DC30B9 /* Authentification */ = {
+		AD5DABAF2AF383BB00DC30B9 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				AD5DABB22AF39C8A00DC30B9 /* UseCase */,
 				AD5DABAE2AF3837300DC30B9 /* DTO */,
 			);
-			path = Authentification;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		AD5DABB22AF39C8A00DC30B9 /* UseCase */ = {
@@ -338,6 +340,7 @@
 				AD5DABB32AF39CA500DC30B9 /* AuthenticationUseCase.swift */,
 				AD5DABBF2AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift */,
 				4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */,
+				4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -366,7 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */,
-				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift */,
+				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -601,7 +604,7 @@
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				AD5DAB9C2AEBD22900DC30B9 /* LoginViewController.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
-				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUseCaseProvider.swift in Sources */,
+				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
@@ -620,6 +623,7 @@
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
+				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

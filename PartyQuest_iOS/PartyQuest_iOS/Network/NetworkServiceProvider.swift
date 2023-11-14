@@ -5,7 +5,6 @@
 //  Created by Rowan on 2023/11/03.
 //
 
-import Foundation
 import Moya
 
 struct NetworkServiceProvider {

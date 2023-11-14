@@ -5,16 +5,16 @@
 //  Created by Rowan on 2023/11/13.
 //
 
-import Foundation
+import RxSwift
 
-final class DefaultSocialUserDataUseCase {
-    private let repository: SocialUserDataRepository
+final class DefaultSocialUserDataUseCase: SocialUserDataUseCase {
+    private let kakaoAuthRepository: SocialUserDataRepository<KakaoAuthService>
     
-    init(repository: SocialUserDataRepository) {
-        self.repository = repository
+    init(kakaoAuthRepository: SocialUserDataRepository<KakaoAuthService>) {
+        self.kakaoAuthRepository = kakaoAuthRepository
     }
     
-    func socialUserData() {
-        
+    func kakaoSocialUserData() -> Single<SocialUserData> {
+        return kakaoAuthRepository.getSocialUserData()
     }
 }

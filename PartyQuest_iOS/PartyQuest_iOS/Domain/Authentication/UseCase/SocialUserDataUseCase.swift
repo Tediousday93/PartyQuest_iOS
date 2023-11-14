@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol SocialUserDataUseCase {
-    
+    func kakaoSocialUserData() -> Single<SocialUserData>
 }

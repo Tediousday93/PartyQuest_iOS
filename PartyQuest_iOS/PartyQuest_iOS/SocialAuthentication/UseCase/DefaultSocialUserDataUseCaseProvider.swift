@@ -8,8 +8,8 @@
 final class DefaultSocialUserDataUseCaseProvider: SocialUserDataUseCaseProvider {
     private let serviceProvider: SocialAuthProvider
     
-    init(serviceProvider: SocialAuthProvider) {
-        self.serviceProvider = serviceProvider
+    init() {
+        self.serviceProvider = SocialAuthProvider()
     }
     
     func makeKakaoSocialUserDataUseCase() -> SocialUserDataUseCase {

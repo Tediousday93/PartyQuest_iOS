@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import RxSwift
+
+protocol SocialAuthService {
+    associatedtype UserInfo: DomainConvertibleType
+    
+    func requestLogIn() -> Single<UserInfo>
+}

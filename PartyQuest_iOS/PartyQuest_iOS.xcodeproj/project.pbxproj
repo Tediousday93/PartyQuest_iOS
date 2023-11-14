@@ -42,7 +42,6 @@
 		AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */; };
 		AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift */; };
 		AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */; };
-		AD5DAC052B0218F300DC30B9 /* SocialUserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC042B0218F300DC30B9 /* SocialUserDataRepository.swift */; };
 		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
 		AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */; };
 		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */; };
@@ -103,7 +102,6 @@
 		AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
 		AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthProvider.swift; sourceTree = "<group>"; };
-		AD5DAC042B0218F300DC30B9 /* SocialUserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataRepository.swift; sourceTree = "<group>"; };
 		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
 		AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
@@ -359,7 +357,6 @@
 			children = (
 				4AA423842B031A370092EC27 /* Entity */,
 				AD5DAC002B02181D00DC30B9 /* Service */,
-				AD5DAC032B0218B300DC30B9 /* Repository */,
 				AD5DABFE2B02180A00DC30B9 /* UseCase */,
 			);
 			path = SocialAuthentication;
@@ -382,14 +379,6 @@
 				4AA423822B0306480092EC27 /* KakaoAuthService.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		AD5DAC032B0218B300DC30B9 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				AD5DAC042B0218F300DC30B9 /* SocialUserDataRepository.swift */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		EA24F82FE70514D2D97CBEDB /* Pods */ = {
@@ -618,7 +607,6 @@
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
 				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
-				AD5DAC052B0218F300DC30B9 /* SocialUserDataRepository.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */,

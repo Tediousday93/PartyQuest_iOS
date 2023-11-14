@@ -6,5 +6,5 @@
 //
 
 protocol SocialUserDataUseCaseProvider {
-    func makeDefaultSocialUserDataUseCase() -> SocialUserDataUseCase
+    func makeKakaoSocialUserDataUseCase() -> SocialUserDataUseCase
 }

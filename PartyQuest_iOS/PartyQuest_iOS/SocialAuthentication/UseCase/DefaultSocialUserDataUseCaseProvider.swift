@@ -12,10 +12,9 @@ final class DefaultSocialUserDataUseCaseProvider: SocialUserDataUseCaseProvider 
         self.serviceProvider = serviceProvider
     }
     
-    func makeDefaultSocialUserDataUseCase() -> SocialUserDataUseCase {
-        let kakaoAuthService = serviceProvider.makeKakaoAuthService()
-        let kakaoAuthRepository = SocialUserDataRepository(service: kakaoAuthService)
-        
-        return DefaultSocialUserDataUseCase(kakaoAuthRepository: kakaoAuthRepository)
+    func makeKakaoSocialUserDataUseCase() -> SocialUserDataUseCase {
+        return DefaultSocialUserDataUseCase(
+            service: serviceProvider.makeKakaoAuthService()
+        )
     }
 }

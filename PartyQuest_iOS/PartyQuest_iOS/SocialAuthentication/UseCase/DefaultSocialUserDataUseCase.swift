@@ -7,14 +7,15 @@
 
 import RxSwift
 
-final class DefaultSocialUserDataUseCase: SocialUserDataUseCase {
-    private let kakaoAuthRepository: SocialUserDataRepository<KakaoAuthService>
+final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUserDataUseCase where Service.UserInfo.Domain == SocialUserData {
+    private let service: Service
     
-    init(kakaoAuthRepository: SocialUserDataRepository<KakaoAuthService>) {
-        self.kakaoAuthRepository = kakaoAuthRepository
+    init(service: Service) {
+        self.service = service
     }
     
-    func kakaoSocialUserData() -> Single<SocialUserData> {
-        return kakaoAuthRepository.getSocialUserData()
+    func socialUserData() -> Single<SocialUserData> {
+        return service.requestLogIn()
+            .map { $0.toDomain() }
     }
 }

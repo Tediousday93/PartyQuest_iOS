@@ -32,7 +32,7 @@ extension SignUpViewModel: ViewModelType {
     struct Output {
         let userInputsValidation: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
-        let signUpSuccessed: Observable<Void>
+        let signUpSucceeded: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -91,6 +91,6 @@ extension SignUpViewModel: ViewModelType {
         
         return Output(userInputsValidation: userInputsValidation,
                       isEnableSignUpButton: isEnableSignUpButton,
-                      signUpSuccessed: signUpSuccessed)
+                      signUpSucceeded: signUpSuccessed)
     }
 }

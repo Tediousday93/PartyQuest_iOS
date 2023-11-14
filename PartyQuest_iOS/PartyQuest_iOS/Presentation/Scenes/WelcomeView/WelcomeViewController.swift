@@ -10,9 +10,6 @@ import RxSwift
 import RxCocoa
 
 final class WelcomeViewController: UIViewController {
-    private let viewModel: WelcomeViewModel
-    private let disposeBag = DisposeBag()
-    
     private let welcomeImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "welcome")
@@ -70,9 +67,12 @@ final class WelcomeViewController: UIViewController {
         return button
     }()
     
+    private let viewModel: WelcomeViewModel
+    private let disposeBag: DisposeBag
     
     init(welcomeViewModel: WelcomeViewModel) {
         self.viewModel = welcomeViewModel
+        self.disposeBag = .init()
         
         super.init(nibName: nil, bundle: nil)
     }

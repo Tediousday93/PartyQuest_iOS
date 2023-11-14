@@ -61,10 +61,11 @@ final class SignUpViewController: UIViewController {
     }()
     
     private let viewModel: SignUpViewModel
-    private var disposeBag: DisposeBag = .init()
+    private var disposeBag: DisposeBag
     
     init(signUpViewModel: SignUpViewModel) {
         viewModel = signUpViewModel
+        disposeBag = .init()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -156,7 +157,7 @@ final class SignUpViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        output.signUpSuccessed
+        output.signUpSucceeded
             .subscribe()
             .disposed(by: disposeBag)
     }

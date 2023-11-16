@@ -33,6 +33,7 @@ extension LogInViewModel: ViewModelType {
     struct Output {
         let userInputsValidation: Driver<(Bool,Bool)>
         let isEnableLogInButton: Driver<Bool>
+        let kakaoLogIn: Observable<Void>
         let logInSucceeded: Observable<Void>
     }
     
@@ -56,6 +57,13 @@ extension LogInViewModel: ViewModelType {
             return isEmailValid && isPasswordValid
         }
         
+        let kakaoLogIn = input.kakaoLogInButtonTapped
+            .withUnretained(self)
+            .flatMap { owner, _ in
+                owner.kakaoSocialUserDataUseCase.socialUserData()
+            }
+            .map { _ in }
+        
         let logInSucceeded = input.logInButtonTapped.withLatestFrom(userInputs)
             .map { email, password in
                 return (email: email, password: password)
@@ -67,16 +75,9 @@ extension LogInViewModel: ViewModelType {
             }
             .map { _ in }
         
-        let kakaoLogIn = input.kakaoLogInButtonTapped
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.kakaoSocialUserDataUseCase.socialUserData()
-            }
-            .debug()
-        
         return Output(userInputsValidation: userInputsValidation,
                       isEnableLogInButton: isEnableLogInButton,
+                      kakaoLogIn: kakaoLogIn,
                       logInSucceeded: logInSucceeded)
     }
-    
 }

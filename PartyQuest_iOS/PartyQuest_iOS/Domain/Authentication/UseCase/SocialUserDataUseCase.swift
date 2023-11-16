@@ -8,5 +8,5 @@
 import RxSwift
 
 protocol SocialUserDataUseCase {
-    func socialUserData() -> Single<SocialUserData>
+    func socialUserData() -> Observable<SocialUserData>
 }

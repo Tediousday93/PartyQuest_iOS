@@ -161,6 +161,10 @@ final class LogInViewController: UIViewController {
         })
         .disposed(by: disposeBag)
         
+        output.kakaoLogIn
+            .subscribe()
+            .disposed(by: disposeBag)
+        
         output.logInSucceeded
             .subscribe()
             .disposed(by: disposeBag)

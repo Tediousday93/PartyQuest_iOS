@@ -14,7 +14,7 @@ final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUser
         self.service = service
     }
     
-    func socialUserData() -> Single<SocialUserData> {
+    func socialUserData() -> Observable<SocialUserData> {
         return service.requestLogIn()
             .map { $0.toDomain() }
     }

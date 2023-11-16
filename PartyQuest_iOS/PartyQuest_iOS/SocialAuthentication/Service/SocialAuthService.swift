@@ -10,5 +10,5 @@ import RxSwift
 protocol SocialAuthService {
     associatedtype UserInfo: DomainConvertibleType
     
-    func requestLogIn() -> Single<UserInfo>
+    func requestLogIn() -> Observable<UserInfo>
 }

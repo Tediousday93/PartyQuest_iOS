@@ -14,12 +14,17 @@ protocol DomainConvertibleType {
 }
 
 extension KakaoSDKUser.User: DomainConvertibleType {
-    typealias Domain = SocialUserData
+    typealias Domain = SocialLogInRequestModel
     
-    func toDomain() -> SocialUserData {
-        return SocialUserData(id: String(describing: id),
-                        email: kakaoAccount?.email,
-                        nickName: properties?["nickname"],
-                        platform: "Kakao")
+    func toDomain() -> SocialLogInRequestModel {
+        guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
+            fatalError("Can not find Secrets Key ")
+        }
+        
+        return SocialLogInRequestModel(
+            email: kakaoAccount?.email,
+            secrets: secrets,
+            nickName: properties?["nickname"]
+        )
     }
 }

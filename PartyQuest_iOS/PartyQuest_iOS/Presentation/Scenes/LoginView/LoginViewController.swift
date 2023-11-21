@@ -47,16 +47,18 @@ final class LogInViewController: UIViewController {
     }()
     
     private let logInButton: UIButton = .init(type: .system)
-    private let appleLogInButton: UIButton = .init(type: .system)
-    private let kakaoLogInButton: UIButton = .init(type: .system)
-    private let googleLogInButton: UIButton = .init(type: .system)
-    private let naverLogInButton: UIButton = .init(type: .system)
+    private let appleLogInButton: UIButton = SocialLogInButton(platform: .apple)
+    private let kakaoLogInButton: UIButton = SocialLogInButton(platform: .kakao)
+    private let googleLogInButton: UIButton = SocialLogInButton(platform: .google)
+    private let naverLogInButton: UIButton = SocialLogInButton(platform: .naver)
     private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .vertical
+        stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = 5
+        stackView.spacing = 8
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
         
         return stackView
     }()
@@ -65,7 +67,7 @@ final class LogInViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -101,19 +103,10 @@ final class LogInViewController: UIViewController {
     }
     
     private func configureButtons() {
-        let buttons = [logInButton, appleLogInButton, googleLogInButton,
-         naverLogInButton, kakaoLogInButton]
-        
-        buttons.forEach { $0.tintColor = .systemBlue }
         logInButton.setTitle("로그인", for: .normal)
-        appleLogInButton.setTitle("애플로그인", for: .normal)
-        googleLogInButton.setTitle("구글로그인", for: .normal)
-        naverLogInButton.setTitle("네이버로그인", for: .normal)
-        kakaoLogInButton.setTitle("카카오로그인", for: .normal)
     }
     
     private func setSubviews() {
-        buttonStackView.addArrangedSubview(logInButton)
         buttonStackView.addArrangedSubview(appleLogInButton)
         buttonStackView.addArrangedSubview(kakaoLogInButton)
         buttonStackView.addArrangedSubview(googleLogInButton)
@@ -123,6 +116,7 @@ final class LogInViewController: UIViewController {
         outterStackView.addArrangedSubview(descriptionLabel)
         outterStackView.addArrangedSubview(emailTextField)
         outterStackView.addArrangedSubview(passwordTextField)
+        outterStackView.addArrangedSubview(logInButton)
         outterStackView.addArrangedSubview(buttonStackView)
         
         view.addSubview(outterStackView)
@@ -165,6 +159,12 @@ final class LogInViewController: UIViewController {
             .subscribe()
             .disposed(by: disposeBag)
         
+        output.jwtSaved
+            .subscribe { socialUserData in
+                print(socialUserData)
+            }
+            .disposed(by: disposeBag)
+            
         output.logInSucceeded
             .subscribe()
             .disposed(by: disposeBag)

@@ -14,19 +14,18 @@ import KakaoSDKUser
 final class KakaoAuthService: SocialAuthService {
     typealias UserInfo = User
     
-    func requestLogIn() -> Observable<UserInfo> {
+    func requestLogIn() -> Observable<Void> {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             return UserApi.shared.rx.loginWithKakaoTalk()
-                .flatMap { _ in
-                    UserApi.shared.rx.me()
-                }
-                .asObservable()
+                .map { _ in }
         } else {
             return UserApi.shared.rx.loginWithKakaoAccount()
-                .flatMap { _ in
-                    UserApi.shared.rx.me()
-                }
-                .asObservable()
+                .map { _ in }
         }
+    }
+    
+    func getUserInfo() -> Observable<User> {
+        return UserApi.shared.rx.me()
+            .asObservable()
     }
 }

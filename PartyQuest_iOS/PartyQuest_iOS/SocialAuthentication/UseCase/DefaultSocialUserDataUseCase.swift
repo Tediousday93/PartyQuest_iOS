@@ -14,8 +14,18 @@ final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUser
         self.service = service
     }
     
-    func socialUserData() -> Observable<SocialUserData> {
+    func logIn() -> Observable<Result<Void, Error>> {
         return service.requestLogIn()
+            .map { _ in
+                Result<Void, Error>.success(())
+            }
+            .catch { error in
+                Observable.just(Result<Void, Error>.failure(error))
+            }
+    }
+    
+    func socialUserData() -> Observable<SocialUserData> {
+        return service.getUserInfo()
             .map { $0.toDomain() }
     }
 }

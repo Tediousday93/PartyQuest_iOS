@@ -13,6 +13,9 @@ final class LogInViewModel {
     private let authenticationUseCase: AuthenticationUseCase
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
     
+    private let userLogedIn: PublishSubject<Void> = .init()
+    let errorRelay: PublishRelay<Error> = .init()
+    
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,
          kakaoSocialUserDataUseCase: SocialUserDataUseCase) {
@@ -35,6 +38,7 @@ extension LogInViewModel: ViewModelType {
         let isEnableLogInButton: Driver<Bool>
         let kakaoLogIn: Observable<Void>
         let logInSucceeded: Observable<Void>
+        let jwtSaved: Observable<SocialUserData>
     }
     
     func transform(_ input: Input) -> Output {
@@ -60,9 +64,23 @@ extension LogInViewModel: ViewModelType {
         let kakaoLogIn = input.kakaoLogInButtonTapped
             .withUnretained(self)
             .flatMap { owner, _ in
+                owner.kakaoSocialUserDataUseCase.logIn()
+            }
+            .withUnretained(self)
+            .map { owner, result in
+                switch result {
+                case .success():
+                    owner.userLogedIn.onNext(())
+                case .failure(let error):
+                    owner.errorRelay.accept(error)
+                }
+            }
+        
+        let jwtSaved = userLogedIn
+            .withUnretained(self)
+            .flatMap { owner, _ in
                 owner.kakaoSocialUserDataUseCase.socialUserData()
             }
-            .map { _ in }
         
         let logInSucceeded = input.logInButtonTapped.withLatestFrom(userInputs)
             .map { email, password in
@@ -78,6 +96,7 @@ extension LogInViewModel: ViewModelType {
         return Output(userInputsValidation: userInputsValidation,
                       isEnableLogInButton: isEnableLogInButton,
                       kakaoLogIn: kakaoLogIn,
-                      logInSucceeded: logInSucceeded)
+                      logInSucceeded: logInSucceeded,
+                      jwtSaved: jwtSaved)
     }
 }

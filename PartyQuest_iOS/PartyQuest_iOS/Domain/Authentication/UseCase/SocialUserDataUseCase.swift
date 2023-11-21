@@ -8,6 +8,6 @@
 import RxSwift
 
 protocol SocialUserDataUseCase {
-    func logIn() -> Observable<Result<Void, Error>>
+    func logIn() -> Observable<Void>
     func socialUserData() -> Observable<SocialLogInRequestModel>
 }

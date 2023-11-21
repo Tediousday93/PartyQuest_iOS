@@ -36,9 +36,8 @@ extension LogInViewModel: ViewModelType {
     struct Output {
         let userInputsValidation: Driver<(Bool,Bool)>
         let isEnableLogInButton: Driver<Bool>
-        let kakaoLogIn: Observable<Void>
         let logInSucceeded: Observable<Void>
-//        let jwtSaved: Observable<Void>
+        let jwtSaved: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -65,30 +64,27 @@ extension LogInViewModel: ViewModelType {
             .withUnretained(self)
             .flatMap { owner, _ in
                 owner.kakaoSocialUserDataUseCase.logIn()
+                    .materialize()
+                    .do(onNext: { [weak self] event in
+                        if let error = event.error {
+                            self?.errorRelay.accept(error)
+                        }
+                    })
+                    .filter { $0.error == nil }
             }
             .withUnretained(self)
-            .map { owner, result in
-                switch result {
-                case .success:
-                    owner.userLogedIn.onNext(.kakao)
-                case .failure(let error):
-                    owner.errorRelay.accept(error)
-                }
+            .flatMap { owner, _ in
+                owner.kakaoSocialUserDataUseCase.socialUserData()
             }
         
-        let jwtSaved = userLogedIn
+        let jwtSaved = kakaoLogIn
             .withUnretained(self)
-            .flatMap { owner, platform in
-                switch platform {
-                case .kakao:
-                    return owner.kakaoSocialUserDataUseCase.socialUserData()
-                default:
-                    return Observable.just(SocialLogInRequestModel())
-                }
+            .flatMap { owner, requestModel in
+                owner.authenticationUseCase.socialLogIn(requestModel: requestModel)
             }
             .withUnretained(self)
             .map { owner, userData in
-                owner.authenticationUseCase.requestKakaoLogIn(requestData: userData)
+                // userData.accessToken save
             }
         
         let logInSucceeded = input.logInButtonTapped.withLatestFrom(userInputs)
@@ -104,8 +100,7 @@ extension LogInViewModel: ViewModelType {
         
         return Output(userInputsValidation: userInputsValidation,
                       isEnableLogInButton: isEnableLogInButton,
-                      kakaoLogIn: kakaoLogIn,
-                      logInSucceeded: logInSucceeded)
-//                      jwtSaved: jwtSaved)
+                      logInSucceeded: logInSucceeded,
+                      jwtSaved: jwtSaved)
     }
 }

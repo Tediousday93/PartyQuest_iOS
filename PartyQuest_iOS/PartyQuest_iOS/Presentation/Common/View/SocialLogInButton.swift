@@ -7,40 +7,7 @@
 
 import UIKit
 
-class SocialLogInButton: UIButton {
-    enum Platform {
-        case kakao
-        case apple
-        case google
-        case naver
-        
-        var labelText: String {
-            switch self {
-            case .kakao:
-                return "카카오로 로그인"
-            case .apple:
-                return "애플로 로그인"
-            case .google:
-                return "구글로 로그인"
-            case .naver:
-                return "네이버로 로그인"
-            }
-        }
-        
-        var logoImageName: String {
-            switch self {
-            case .kakao:
-                return "kakaoButton_icon"
-            case .apple:
-                return "appleButton_black_icon"
-            case .google:
-                return "googleButton_icon"
-            case .naver:
-                return "naverButton_icon"
-            }
-        }
-    }
-    
+final class SocialLogInButton: UIButton {
     private let socialLogoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -91,5 +58,33 @@ class SocialLogInButton: UIButton {
             socialNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             socialNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+}
+
+private extension Platform {
+    var labelText: String {
+        switch self {
+        case .kakao:
+            return "카카오로 로그인"
+        case .apple:
+            return "애플로 로그인"
+        case .google:
+            return "구글로 로그인"
+        case .naver:
+            return "네이버로 로그인"
+        }
+    }
+    
+    var logoImageName: String {
+        switch self {
+        case .kakao:
+            return "kakaoButton_icon"
+        case .apple:
+            return "appleButton_black_icon"
+        case .google:
+            return "googleButton_icon"
+        case .naver:
+            return "naverButton_icon"
+        }
     }
 }

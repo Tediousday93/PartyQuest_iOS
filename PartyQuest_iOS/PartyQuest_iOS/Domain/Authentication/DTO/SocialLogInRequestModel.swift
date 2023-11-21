@@ -5,10 +5,11 @@
 //  Created by Harry on 2023/11/14.
 //
 
-struct SocialLogInRequestModel: Encodable {
+struct SocialLogInRequestModel {
     var email: String?
     var secrets: String?
     var nickName: String?
+    var platform: Platform
 }
 
 enum Platform {

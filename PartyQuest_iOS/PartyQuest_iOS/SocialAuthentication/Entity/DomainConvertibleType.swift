@@ -24,7 +24,8 @@ extension KakaoSDKUser.User: DomainConvertibleType {
         return SocialLogInRequestModel(
             email: kakaoAccount?.email,
             secrets: secrets,
-            nickName: properties?["nickname"]
+            nickName: properties?["nickname"],
+            platform: .kakao
         )
     }
 }

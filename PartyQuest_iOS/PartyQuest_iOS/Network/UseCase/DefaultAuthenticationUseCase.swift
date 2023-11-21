@@ -24,4 +24,25 @@ final class DefaultAuthenticationUseCase: AuthenticationUseCase {
                                      nickname: nickname,
                                      birth: birth)
     }
+    
+    func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<UserData> {
+        guard let email = requestModel.email,
+              let secrets = requestModel.secrets,
+              let nickName = requestModel.nickName else {
+            return Single.error(AuthenticationError.nilData)
+        }
+    
+        switch requestModel.platform {
+        case .kakao:
+            return service.requestKakaoLogIn(email: email,
+                                             secrets: secrets,
+                                             nickName: nickName)
+        default:
+            fatalError()
+        }
+    }
+}
+
+enum AuthenticationError: Error {
+    case nilData
 }

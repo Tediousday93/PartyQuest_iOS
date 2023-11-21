@@ -11,7 +11,7 @@ import Moya
 enum AuthenticationAPI {
     case logIn(email: String, password: String)
     case signUp(email: String, password: String, nickname: String, birth: String)
-    case kakao(requestData: SocialLogInRequestModel)
+    case kakao(email: String?, secrets: String, nickName: String?)
 }
 
 extension AuthenticationAPI: TargetType {
@@ -59,8 +59,13 @@ extension AuthenticationAPI: TargetType {
             ]
             return .requestParameters(parameters: parameters,
                                       encoding: URLEncoding.queryString)
-        case .kakao(let data):
-            return .requestJSONEncodable(data)
+        case .kakao(let email, let secrets, let nickName):
+            let parameters = [
+                "email": email,
+                "secrets": secrets,
+                "nickName": nickName
+            ]
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }
     

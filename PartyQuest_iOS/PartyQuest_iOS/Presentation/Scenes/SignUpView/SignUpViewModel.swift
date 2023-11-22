@@ -12,6 +12,7 @@ import RxCocoa
 final class SignUpViewModel {
     private let coordinator: SignUpCoordinator
     private let useCase: AuthenticationUseCase
+    let errorRelay: PublishRelay<Error> = .init()
     
     init(coordinator: SignUpCoordinator,
          useCase: AuthenticationUseCase) {
@@ -80,10 +81,16 @@ extension SignUpViewModel: ViewModelType {
             .flatMap { owner, userInputs in
                 owner.useCase.signUp(email: userInputs.email,
                                      password: userInputs.password,
-                                     nickname: userInputs.nickname,
-                                     birth: userInputs.birthDate)
+                                     nickname: userInputs.nickname)
+                .asObservable()
+                .materialize()
+                .do(onNext: { [weak self] event in
+                    if let error = event.error {
+                        self?.errorRelay.accept(error)
+                    }
+                })
+                .filter { $0.error == nil }
             }
-//            .catchAndReturn(())
             .withUnretained(self)
             .compactMap { owner, _ in
                 owner.coordinator.parentCoordinator?.didFinish(coordinator: owner.coordinator)

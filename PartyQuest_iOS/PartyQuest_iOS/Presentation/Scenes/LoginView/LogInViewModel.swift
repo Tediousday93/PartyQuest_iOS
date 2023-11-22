@@ -84,7 +84,7 @@ extension LogInViewModel: ViewModelType {
             }
             .withUnretained(self)
             .map { owner, userData in
-                // userData.accessToken save
+                print(userData)
             }
         
         let logInSucceeded = input.logInButtonTapped.withLatestFrom(userInputs)

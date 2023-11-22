@@ -18,11 +18,10 @@ final class DefaultAuthenticationUseCase: AuthenticationUseCase {
         return service.requestLogIn(email: email, password: password)
     }
     
-    func signUp(email: String, password: String, nickname: String, birth: String) -> Single<Void> {
+    func signUp(email: String, password: String, nickname: String) -> Single<SignUpResponse> {
         return service.requestSignUp(email: email,
                                      password: password,
-                                     nickname: nickname,
-                                     birth: birth)
+                                     nickname: nickname)
     }
     
     func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<UserData> {

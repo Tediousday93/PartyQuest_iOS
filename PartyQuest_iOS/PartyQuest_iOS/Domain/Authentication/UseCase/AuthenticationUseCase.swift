@@ -9,6 +9,6 @@ import RxSwift
 
 protocol AuthenticationUseCase {
     func logIn(email: String, password: String) -> Single<UserData>
-    func signUp(email: String, password: String, nickname: String, birth: String) -> Single<Void>
+    func signUp(email: String, password: String, nickname: String) -> Single<SignUpResponse>
     func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<UserData>
 }

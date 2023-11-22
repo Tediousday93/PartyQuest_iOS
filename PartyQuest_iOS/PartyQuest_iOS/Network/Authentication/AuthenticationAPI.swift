@@ -10,7 +10,7 @@ import Moya
 
 enum AuthenticationAPI {
     case logIn(email: String, password: String)
-    case signUp(email: String, password: String, nickname: String, birth: String)
+    case signUp(email: String, password: String, nickname: String)
     case kakao(email: String?, secrets: String, nickName: String?)
 }
 
@@ -26,7 +26,7 @@ extension AuthenticationAPI: TargetType {
         case .signUp:
             return "auth/signup"
         case .kakao:
-            return "login/oauth/kakao"
+            return "auth/login/oauth/kakao"
         }
     }
     
@@ -49,23 +49,23 @@ extension AuthenticationAPI: TargetType {
                 "password": password
             ]
             return .requestParameters(parameters: parameters,
-                                      encoding: URLEncoding.queryString)
-        case .signUp(let email, let password, let nickname, let birth):
+                                      encoding: JSONEncoding.default)
+        case .signUp(let email, let password, let nickname):
             let parameters = [
                 "email": email,
                 "password": password,
                 "nickname": nickname,
-                "birth": birth
             ]
             return .requestParameters(parameters: parameters,
-                                      encoding: URLEncoding.queryString)
+                                      encoding: JSONEncoding.default)
         case .kakao(let email, let secrets, let nickName):
             let parameters = [
                 "email": email,
                 "secrets": secrets,
-                "nickName": nickName
+                "nickname": nickName
             ]
-            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: parameters as [String : Any],
+                                      encoding: JSONEncoding.default)
         }
     }
     

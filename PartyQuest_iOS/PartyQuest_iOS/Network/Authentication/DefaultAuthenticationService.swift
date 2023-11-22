@@ -10,7 +10,7 @@ import Moya
 
 protocol AuthenticationService {
     func requestLogIn(email: String, password: String) -> Single<UserData>
-    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<Void>
+    func requestSignUp(email: String, password: String, nickname: String) -> Single<SignUpResponse>
     func requestKakaoLogIn(email: String, secrets: String, nickName: String) -> Single<UserData>
 }
 
@@ -29,13 +29,12 @@ final class DefaultAuthenticationService: AuthenticationService {
         .map { $0.userData.first! }
     }
     
-    func requestSignUp(email: String, password: String, nickname: String, birth: String) -> Single<Void> {
+    func requestSignUp(email: String, password: String, nickname: String) -> Single<SignUpResponse> {
         return provider.rx.request(.signUp(email: email,
                                            password: password,
-                                           nickname: nickname,
-                                           birth: birth))
-        .filter(statusCode: 201)
-        .map { _ in }
+                                           nickname: nickname))
+        .filterSuccessfulStatusCodes()
+        .map(SignUpResponse.self)
     }
     
     func requestKakaoLogIn(email: String, secrets: String, nickName: String) -> Single<UserData> {

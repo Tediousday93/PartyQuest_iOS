@@ -17,6 +17,7 @@ final class AppCoordinator: BaseCoordinator {
         
         super.init(navigationController: navigationController)
     }
+    
     override func start() {
         let coordinator = WelcomeCoordinator(
             navigationController: navigationController,

@@ -38,7 +38,7 @@
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
 		AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */; };
-		AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB02AF385D400DC30B9 /* UserData.swift */; };
+		AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */; };
 		AD5DABB42AF39CA500DC30B9 /* AuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB32AF39CA500DC30B9 /* AuthenticationUseCase.swift */; };
 		AD5DABC02AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABBF2AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift */; };
 		AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */; };
@@ -101,7 +101,7 @@
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
-		AD5DABB02AF385D400DC30B9 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInResponse.swift; sourceTree = "<group>"; };
 		AD5DABB32AF39CA500DC30B9 /* AuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCase.swift; sourceTree = "<group>"; };
 		AD5DABBF2AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5DABC12AF4CF3500DC30B9 /* NetworkServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProvider.swift; sourceTree = "<group>"; };
@@ -325,9 +325,9 @@
 		AD5DABAE2AF3837300DC30B9 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DABB02AF385D400DC30B9 /* UserData.swift */,
-				4AA423872B031AE50092EC27 /* SocialLogInRequestModel.swift */,
 				4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */,
+				AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */,
+				4AA423872B031AE50092EC27 /* SocialLogInRequestModel.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -621,7 +621,7 @@
 				4AA423882B031AE50092EC27 /* SocialLogInRequestModel.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
-				AD5DABB12AF385D400DC30B9 /* UserData.swift in Sources */,
+				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,

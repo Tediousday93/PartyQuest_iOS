@@ -14,7 +14,7 @@ final class DefaultAuthenticationUseCase: AuthenticationUseCase {
         self.service = service
     }
     
-    func logIn(email: String, password: String) -> Single<UserData> {
+    func logIn(email: String, password: String) -> Single<ServiceToken> {
         return service.requestLogIn(email: email, password: password)
     }
     
@@ -24,7 +24,7 @@ final class DefaultAuthenticationUseCase: AuthenticationUseCase {
                                      nickname: nickname)
     }
     
-    func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<UserData> {
+    func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<ServiceToken> {
         guard let email = requestModel.email,
               let secrets = requestModel.secrets,
               let nickName = requestModel.nickName else {

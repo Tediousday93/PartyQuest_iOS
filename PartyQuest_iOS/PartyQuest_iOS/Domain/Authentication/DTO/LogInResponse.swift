@@ -8,16 +8,16 @@
 struct LoginResponse: Decodable {
     let time: String
     let httpStatus: String
-    let userData: [UserData]
+    let serviceToken: [ServiceToken]
     
     enum CodingKeys: String, CodingKey {
         case time
         case httpStatus
-        case userData = "data"
+        case serviceToken = "data"
     }
 }
 
-struct UserData: Equatable, Decodable {
+struct ServiceToken: Equatable, Decodable {
     let accessToken: String
     let refreshToken: String
     let email: String

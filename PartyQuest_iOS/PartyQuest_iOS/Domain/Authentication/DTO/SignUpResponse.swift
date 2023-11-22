@@ -5,9 +5,7 @@
 //  Created by Harry on 2023/11/22.
 //
 
-import Foundation
-
-struct SignUpResponse: Codable {
+struct SignUpResponse: Decodable {
     let time, httpStatus: String
     let userInfo: [UserInfo]
     
@@ -18,7 +16,7 @@ struct SignUpResponse: Codable {
     }
 }
 
-struct UserInfo: Codable {
+struct UserInfo: Decodable {
     let id: Int
     let email: String
 }

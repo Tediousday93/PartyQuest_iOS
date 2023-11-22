@@ -14,7 +14,6 @@ final class LogInViewModel {
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
     
     private let userLogedIn: PublishSubject<Platform> = .init()
-    let errorRelay: PublishRelay<Error> = .init()
     
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,
@@ -34,6 +33,7 @@ extension LogInViewModel: ViewModelType {
     }
     
     struct Output {
+        let errorRelay: PublishRelay<Error>
         let userInputsValidation: Driver<(Bool,Bool)>
         let isEnableLogInButton: Driver<Bool>
         let logInSucceeded: Observable<Void>
@@ -41,8 +41,11 @@ extension LogInViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        let errorRelay: PublishRelay<Error> = .init()
+        
         let userInputs = Observable.combineLatest(input.email,
                                                   input.password)
+        
         let userInputsValidation = userInputs.map { email, password in
             var validation = (true, true)
             if email.isEmpty == false {
@@ -65,13 +68,13 @@ extension LogInViewModel: ViewModelType {
             .flatMap { owner, _ in
                 owner.kakaoSocialUserDataUseCase.logIn()
                     .materialize()
-                    .do(onNext: { [weak self] event in
-                        if let error = event.error {
-                            self?.errorRelay.accept(error)
-                        }
-                    })
-                    .filter { $0.error == nil }
             }
+            .do(onNext: { event in
+                if let error = event.error {
+                    errorRelay.accept(error)
+                }
+            })
+            .filter { $0.error == nil }
             .withUnretained(self)
             .flatMap { owner, _ in
                 owner.kakaoSocialUserDataUseCase.socialUserData()
@@ -98,9 +101,12 @@ extension LogInViewModel: ViewModelType {
             }
             .map { _ in }
         
-        return Output(userInputsValidation: userInputsValidation,
-                      isEnableLogInButton: isEnableLogInButton,
-                      logInSucceeded: logInSucceeded,
-                      jwtSaved: jwtSaved)
+        return Output(
+            errorRelay: errorRelay,
+            userInputsValidation: userInputsValidation,
+            isEnableLogInButton: isEnableLogInButton,
+            logInSucceeded: logInSucceeded,
+            jwtSaved: jwtSaved
+        )
     }
 }

@@ -12,7 +12,6 @@ import RxCocoa
 final class SignUpViewModel {
     private let coordinator: SignUpCoordinator
     private let useCase: AuthenticationUseCase
-    let errorRelay: PublishRelay<Error> = .init()
     
     init(coordinator: SignUpCoordinator,
          useCase: AuthenticationUseCase) {
@@ -31,12 +30,15 @@ extension SignUpViewModel: ViewModelType {
     }
     
     struct Output {
+        let errorRelay: PublishRelay<Error>
         let userInputsValidation: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
         let signUpSucceeded: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
+        let errorRelay: PublishRelay<Error> = .init()
+        
         let userInputs = Observable.combineLatest(
             input.email,
             input.password,
@@ -84,20 +86,23 @@ extension SignUpViewModel: ViewModelType {
                                      nickname: userInputs.nickname)
                 .asObservable()
                 .materialize()
-                .do(onNext: { [weak self] event in
-                    if let error = event.error {
-                        self?.errorRelay.accept(error)
-                    }
-                })
-                .filter { $0.error == nil }
             }
+            .do(onNext: { event in
+                if let error = event.error {
+                    errorRelay.accept(error)
+                }
+            })
+            .filter { $0.error == nil }
             .withUnretained(self)
             .compactMap { owner, _ in
                 owner.coordinator.parentCoordinator?.didFinish(coordinator: owner.coordinator)
             }
         
-        return Output(userInputsValidation: userInputsValidation,
-                      isEnableSignUpButton: isEnableSignUpButton,
-                      signUpSucceeded: signUpSuccessed)
+        return Output(
+            errorRelay: errorRelay,
+            userInputsValidation: userInputsValidation,
+            isEnableSignUpButton: isEnableSignUpButton,
+            signUpSucceeded: signUpSuccessed
+        )
     }
 }

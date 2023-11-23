@@ -10,17 +10,23 @@ import UIKit
 final class WelcomeCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
+    private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     
     init(navigationController: UINavigationController,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
-         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider) {
+         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
+         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider) {
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
+        self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         super.init(navigationController: navigationController)
     }
     
     override func start() {
-        let welcomeViewModel = WelcomeViewModel(coordinator: self)
+        let welcomeViewModel = WelcomeViewModel(
+            coordinator: self,
+            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase()
+        )
         let welcomeViewController = WelcomeViewController(welcomeViewModel: welcomeViewModel)
         
         navigationController.pushViewController(welcomeViewController, animated: true)

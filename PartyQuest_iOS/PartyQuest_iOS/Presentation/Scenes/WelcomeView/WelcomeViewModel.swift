@@ -11,14 +11,18 @@ import RxCocoa
 
 final class WelcomeViewModel {
     private let coordinator: WelcomeCoordinator
+    private let serviceTokenUseCase: ServiceTokenUseCase
     
-    init(coordinator: WelcomeCoordinator) {
+    init(coordinator: WelcomeCoordinator,
+         serviceTokenUseCase: ServiceTokenUseCase) {
         self.coordinator = coordinator
+        self.serviceTokenUseCase = serviceTokenUseCase
     }
 }
 
 extension WelcomeViewModel: ViewModelType {
     struct Input {
+        let viewDidLoadEvent: Observable<Void>
         let loginButtonTapped: Observable<Void>
         let signUpButtonTapped: Observable<Void>
     }

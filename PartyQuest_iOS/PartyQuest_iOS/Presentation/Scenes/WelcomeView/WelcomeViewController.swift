@@ -124,7 +124,11 @@ final class WelcomeViewController: UIViewController {
     }
     
     private func setBindings() {
+        let viewDidLoadEvent = rx.methodInvoked(#selector(WelcomeViewController.viewDidLoad))
+            .map { _ in}
+        
         let input = WelcomeViewModel.Input(
+            viewDidLoadEvent: viewDidLoadEvent,
             loginButtonTapped: loginButton.rx.tap.asObservable(),
             signUpButtonTapped: signUpButton.rx.tap.asObservable()
         )

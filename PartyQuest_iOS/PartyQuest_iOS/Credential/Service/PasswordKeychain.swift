@@ -1,5 +1,5 @@
 //
-//  KeychainService.swift
+//  PasswordKeychain.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/11/22.
@@ -9,8 +9,8 @@ import Security
 import Foundation
 
 protocol KeychainService {
-    func saveValue(_ value: String, forKey key: String)
-    func loadValue(forKey key: String) -> String?
+    func saveValue(_ value: Data, forKey key: String)
+    func loadValue(forKey key: String) -> Data?
     func deleteValue(forKey key: String)
 }
 
@@ -21,16 +21,12 @@ final class PasswordKeychain: KeychainService {
         self.service = service
     }
 
-    func saveValue(_ value: String, forKey key: String) {
-        guard let data = value.data(using: .utf8) else {
-            return
-        }
-
+    func saveValue(_ value: Data, forKey key: String) {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
             kSecAttrAccount: key,
-            kSecValueData: data
+            kSecValueData: value
         ]
 
         let status = SecItemAdd(query as CFDictionary, nil)
@@ -43,7 +39,7 @@ final class PasswordKeychain: KeychainService {
             ]
 
             let attributesToUpdate: [CFString: Any] = [
-                kSecValueData: data
+                kSecValueData: value
             ]
 
             SecItemUpdate(updateQuery as CFDictionary, attributesToUpdate as CFDictionary)
@@ -52,7 +48,7 @@ final class PasswordKeychain: KeychainService {
         }
     }
 
-    func loadValue(forKey key: String) -> String? {
+    func loadValue(forKey key: String) -> Data? {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrService: service,
@@ -69,7 +65,7 @@ final class PasswordKeychain: KeychainService {
             return nil
         }
 
-        return String(data: data, encoding: .utf8)
+        return data
     }
 
     func deleteValue(forKey key: String) {

@@ -46,22 +46,24 @@ extension LogInViewModel: ViewModelType {
         let userInputs = Observable.combineLatest(input.email,
                                                   input.password)
         
-        let userInputsValidation = userInputs.map { email, password in
-            var validation = (true, true)
-            if email.isEmpty == false {
-                validation.0 = email.isValidEmail()
+        let userInputsValidation = userInputs
+            .map { email, password in
+                var validation = (true, true)
+                if email.isEmpty == false {
+                    validation.0 = email.isValidEmail()
+                }
+                if password.isEmpty == false {
+                    validation.1 = password.isValidPassword()
+                }
+                
+                return validation
             }
-            if password.isEmpty == false {
-                validation.1 = password.isValidPassword()
-            }
-            
-            return validation
-        }
-        .asDriver(onErrorJustReturn: (true, true))
+            .asDriver(onErrorJustReturn: (true, true))
         
-        let isEnableLogInButton = userInputsValidation.map { isEmailValid, isPasswordValid in
-            return isEmailValid && isPasswordValid
-        }
+        let isEnableLogInButton = userInputsValidation
+            .map { isEmailValid, isPasswordValid in
+                return isEmailValid && isPasswordValid
+            }
         
         let kakaoLogIn = input.kakaoLogInButtonTapped
             .withUnretained(self)
@@ -90,7 +92,8 @@ extension LogInViewModel: ViewModelType {
                 print(userData)
             }
         
-        let logInSucceeded = input.logInButtonTapped.withLatestFrom(userInputs)
+        let logInSucceeded = input.logInButtonTapped
+            .withLatestFrom(userInputs)
             .map { email, password in
                 return (email: email, password: password)
             }

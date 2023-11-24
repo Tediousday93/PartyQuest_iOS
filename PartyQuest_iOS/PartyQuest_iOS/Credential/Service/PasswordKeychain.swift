@@ -62,6 +62,7 @@ final class PasswordKeychain: KeychainService {
 
         guard status == errSecSuccess, let data = dataTypeRef as? Data else {
             print("Error loading from keychain: \(status)")
+            
             return nil
         }
 

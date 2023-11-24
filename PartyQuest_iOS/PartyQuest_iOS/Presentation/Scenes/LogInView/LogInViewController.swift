@@ -131,8 +131,12 @@ final class LogInViewController: UIViewController {
     }
     
     private func setBindings() {
-        let email = emailTextField.textField.rx.text.orEmpty.distinctUntilChanged()
-        let password = passwordTextField.textField.rx.text.orEmpty.distinctUntilChanged()
+        let email = emailTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let password = passwordTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
         let logInButtonTapped = logInButton.rx.tap.asObservable()
         let kakaoLogInButtonTapped = kakaoLogInButton.rx.tap.asObservable()
         
@@ -143,16 +147,18 @@ final class LogInViewController: UIViewController {
         
         let output = viewModel.transform(input)
         
-        output.userInputsValidation.drive(with: self, onNext: { owner, validationResult in
-            owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
-            owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
-        })
-        .disposed(by: disposeBag)
+        output.userInputsValidation
+            .drive(with: self, onNext: { owner, validationResult in
+                owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
+                owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
+            })
+            .disposed(by: disposeBag)
         
-        output.isEnableLogInButton.drive(with: self, onNext: { owner, isEnableLogInButton in
-            owner.logInButton.isEnabled = isEnableLogInButton
-        })
-        .disposed(by: disposeBag)
+        output.isEnableLogInButton
+            .drive(with: self, onNext: { owner, isEnableLogInButton in
+                owner.logInButton.isEnabled = isEnableLogInButton
+            })
+            .disposed(by: disposeBag)
         
         output.jwtSaved
             .subscribe { socialUserData in

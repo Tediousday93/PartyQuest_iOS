@@ -337,7 +337,7 @@
 			children = (
 				AD5DABA52AF22D8900DC30B9 /* SignUpView */,
 				AD5DAB932AEA9B7400DC30B9 /* WelcomeView */,
-				AD5DAB9A2AEBD1F400DC30B9 /* LoginView */,
+				AD5DAB9A2AEBD1F400DC30B9 /* LogInView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -353,14 +353,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		AD5DAB9A2AEBD1F400DC30B9 /* LoginView */ = {
+		AD5DAB9A2AEBD1F400DC30B9 /* LogInView */ = {
 			isa = PBXGroup;
 			children = (
 				AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */,
 				4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */,
 				4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */,
 			);
-			path = LoginView;
+			path = LogInView;
 			sourceTree = "<group>";
 		};
 		AD5DABA32AF22A7100DC30B9 /* View */ = {

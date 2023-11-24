@@ -1,18 +1,18 @@
 //
-//  SocialLogInRequestModel.swift
+//  SocialUserData.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/11/14.
 //
 
-struct SocialLogInRequestModel {
+struct SocialUserData {
     var email: String?
     var secrets: String?
     var nickName: String?
-    var platform: Platform
+    var platform: LogInPlatform
 }
 
-enum Platform {
+enum LogInPlatform {
     case kakao
     case apple
     case google

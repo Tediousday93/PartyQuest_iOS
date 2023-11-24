@@ -24,7 +24,7 @@ final class DefaultAuthenticationUseCase: AuthenticationUseCase {
                                      nickname: nickname)
     }
     
-    func socialLogIn(requestModel: SocialLogInRequestModel) -> Single<LogInResponse> {
+    func socialLogIn(requestModel: SocialUserData) -> Single<LogInResponse> {
         guard let email = requestModel.email,
               let secrets = requestModel.secrets,
               let nickName = requestModel.nickName else {

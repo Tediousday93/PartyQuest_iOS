@@ -11,6 +11,7 @@ final class SocialLogInButton: UIButton {
     private let socialLogoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
         return imageView
     }()
     
@@ -18,17 +19,18 @@ final class SocialLogInButton: UIButton {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .preferredFont(forTextStyle: .caption1)
+        label.setContentHuggingPriority(.required, for: .vertical)
         label.translatesAutoresizingMaskIntoConstraints = false
+        
         return label
     }()
     
-    init(platform: Platform) {
+    init(platform: LogInPlatform) {
         super.init(frame: .zero)
         
         self.configureUI()
         self.setConstraints()
         self.updateLogo(platform)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -38,11 +40,6 @@ final class SocialLogInButton: UIButton {
     private func configureUI() {
         addSubview(socialLogoImageView)
         addSubview(socialNameLabel)
-    }
-    
-    private func updateLogo(_ platform: Platform) {
-        socialLogoImageView.image = UIImage(named: platform.logoImageName)
-        socialNameLabel.text = platform.labelText
     }
     
     private func setConstraints() {
@@ -59,9 +56,14 @@ final class SocialLogInButton: UIButton {
             socialNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
+    
+    private func updateLogo(_ platform: LogInPlatform) {
+        socialLogoImageView.image = UIImage(named: platform.logoImageName)
+        socialNameLabel.text = platform.labelText
+    }
 }
 
-private extension Platform {
+private extension LogInPlatform {
     var labelText: String {
         switch self {
         case .kakao:

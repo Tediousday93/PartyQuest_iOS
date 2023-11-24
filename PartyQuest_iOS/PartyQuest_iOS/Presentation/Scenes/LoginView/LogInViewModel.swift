@@ -13,7 +13,7 @@ final class LogInViewModel {
     private let authenticationUseCase: AuthenticationUseCase
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
     
-    private let userLogedIn: PublishSubject<Platform> = .init()
+    private let userLogedIn: PublishSubject<LogInPlatform> = .init()
     
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,

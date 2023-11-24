@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUserDataUseCase where Service.UserInfo.Domain == SocialLogInRequestModel {
+final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUserDataUseCase where Service.UserInfo.Domain == SocialUserData {
     private let service: Service
     
     init(service: Service) {
@@ -19,7 +19,7 @@ final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUser
             .map { _ in }
     }
     
-    func socialUserData() -> Observable<SocialLogInRequestModel> {
+    func socialUserData() -> Observable<SocialUserData> {
         return service.getUserInfo()
             .map { $0.toDomain() }
     }

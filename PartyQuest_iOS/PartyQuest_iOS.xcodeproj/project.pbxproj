@@ -32,7 +32,7 @@
 		4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
-		4AA423882B031AE50092EC27 /* SocialLogInRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* SocialLogInRequestModel.swift */; };
+		4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* SocialUserData.swift */; };
 		4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */; };
 		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
 		4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */; };
@@ -100,7 +100,7 @@
 		4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
-		4AA423872B031AE50092EC27 /* SocialLogInRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogInRequestModel.swift; sourceTree = "<group>"; };
+		4AA423872B031AE50092EC27 /* SocialUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
 		4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
@@ -396,7 +396,7 @@
 			children = (
 				4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */,
 				AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */,
-				4AA423872B031AE50092EC27 /* SocialLogInRequestModel.swift */,
+				4AA423872B031AE50092EC27 /* SocialUserData.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -691,7 +691,7 @@
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
 				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
-				4AA423882B031AE50092EC27 /* SocialLogInRequestModel.swift in Sources */,
+				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4ADF812A2B0F3AA100A8E027 /* ServiceToken.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,

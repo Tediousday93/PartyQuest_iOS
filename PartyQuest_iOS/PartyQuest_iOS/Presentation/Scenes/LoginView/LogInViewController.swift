@@ -54,7 +54,7 @@ final class LogInViewController: UIViewController {
     private let buttonStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.alignment = .fill
+        stackView.alignment = .center
         stackView.distribution = .fillEqually
         stackView.spacing = 8
         stackView.isLayoutMarginsRelativeArrangement = true
@@ -67,8 +67,8 @@ final class LogInViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fill
-        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 20
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -107,10 +107,10 @@ final class LogInViewController: UIViewController {
     }
     
     private func setSubviews() {
-        buttonStackView.addArrangedSubview(appleLogInButton)
-        buttonStackView.addArrangedSubview(kakaoLogInButton)
-        buttonStackView.addArrangedSubview(googleLogInButton)
-        buttonStackView.addArrangedSubview(naverLogInButton)
+        [appleLogInButton, kakaoLogInButton,
+         googleLogInButton, naverLogInButton].forEach {
+            buttonStackView.addArrangedSubview($0)
+        }
         
         outterStackView.addArrangedSubview(titleLabel)
         outterStackView.addArrangedSubview(descriptionLabel)
@@ -125,7 +125,6 @@ final class LogInViewController: UIViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate([
             outterStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            outterStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             outterStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             outterStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
         ])

@@ -201,6 +201,31 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		4A42AFC62B1473E1005380E7 /* EntranceScenes */ = {
+			isa = PBXGroup;
+			children = (
+				AD5DABA52AF22D8900DC30B9 /* SignUpView */,
+				AD5DAB932AEA9B7400DC30B9 /* WelcomeView */,
+				AD5DAB9A2AEBD1F400DC30B9 /* LogInView */,
+			);
+			path = EntranceScenes;
+			sourceTree = "<group>";
+		};
+		4A42AFC72B147442005380E7 /* TabBarScenes */ = {
+			isa = PBXGroup;
+			children = (
+				4A42AFC82B147490005380E7 /* HomeView */,
+			);
+			path = TabBarScenes;
+			sourceTree = "<group>";
+		};
+		4A42AFC82B147490005380E7 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
 		4A50AA012B0DF40A0026814F /* Credential */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,9 +349,8 @@
 		AD5DAB942AEA9BCF00DC30B9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DABA52AF22D8900DC30B9 /* SignUpView */,
-				AD5DAB932AEA9B7400DC30B9 /* WelcomeView */,
-				AD5DAB9A2AEBD1F400DC30B9 /* LogInView */,
+				4A42AFC62B1473E1005380E7 /* EntranceScenes */,
+				4A42AFC72B147442005380E7 /* TabBarScenes */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

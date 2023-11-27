@@ -16,8 +16,12 @@
 		4A1F248B2AEA90A2005B264F /* PartyQuest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */; };
 		4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24912AEBE14A005B264F /* Coordinator.swift */; };
 		4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */; };
-		4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24952AEBE229005B264F /* AppCoordinator.swift */; };
+		4A1F24962AEBE229005B264F /* EntranceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */; };
 		4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */; };
+		4A40DBF52B147CD30050F3B0 /* PQApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF42B147CD30050F3B0 /* PQApplication.swift */; };
+		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
+		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
+		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
 		4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */; };
@@ -82,8 +86,12 @@
 		4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyQuest_Tests.swift; sourceTree = "<group>"; };
 		4A1F24912AEBE14A005B264F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		4A1F24952AEBE229005B264F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCoordinator.swift; sourceTree = "<group>"; };
 		4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		4A40DBF42B147CD30050F3B0 /* PQApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQApplication.swift; sourceTree = "<group>"; };
+		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
+		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
 		4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
@@ -201,6 +209,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		4A40DBF62B147E0D0050F3B0 /* Uitils */ = {
+			isa = PBXGroup;
+			children = (
+				4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */,
+			);
+			path = Uitils;
+			sourceTree = "<group>";
+		};
 		4A42AFC62B1473E1005380E7 /* EntranceScenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +230,7 @@
 		4A42AFC72B147442005380E7 /* TabBarScenes */ = {
 			isa = PBXGroup;
 			children = (
+				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
 			);
 			path = TabBarScenes;
@@ -222,6 +239,7 @@
 		4A42AFC82B147490005380E7 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -229,6 +247,7 @@
 		4A50AA012B0DF40A0026814F /* Credential */ = {
 			isa = PBXGroup;
 			children = (
+				4A40DBF62B147E0D0050F3B0 /* Uitils */,
 				4ADF81302B0F3CFD00A8E027 /* Service */,
 				4ADF812D2B0F3C0900A8E027 /* UseCase */,
 			);
@@ -322,7 +341,8 @@
 			children = (
 				4A1F24632AEA8628005B264F /* AppDelegate.swift */,
 				4A1F24652AEA8628005B264F /* SceneDelegate.swift */,
-				4A1F24952AEBE229005B264F /* AppCoordinator.swift */,
+				4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */,
+				4A40DBF42B147CD30050F3B0 /* PQApplication.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -369,8 +389,8 @@
 		AD5DAB9A2AEBD1F400DC30B9 /* LogInView */ = {
 			isa = PBXGroup;
 			children = (
-				AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */,
 				4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */,
+				AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */,
 				4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */,
 			);
 			path = LogInView;
@@ -388,9 +408,9 @@
 		AD5DABA52AF22D8900DC30B9 /* SignUpView */ = {
 			isa = PBXGroup;
 			children = (
+				4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */,
 				4A6A25B52AF23096000CA63F /* SignUpViewController.swift */,
 				4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */,
-				4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */,
 			);
 			path = SignUpView;
 			sourceTree = "<group>";
@@ -672,6 +692,7 @@
 				4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */,
+				4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				AD5DABC02AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
@@ -679,6 +700,7 @@
 				AD5DABB42AF39CA500DC30B9 /* AuthenticationUseCase.swift in Sources */,
 				4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */,
 				4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */,
+				4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */,
 				4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */,
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
 				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */,
@@ -689,6 +711,7 @@
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
 				4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */,
+				4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */,
@@ -699,11 +722,12 @@
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
+				4A40DBF52B147CD30050F3B0 /* PQApplication.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
-				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
+				4A1F24962AEBE229005B264F /* EntranceCoordinator.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,

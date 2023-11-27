@@ -41,7 +41,8 @@ final class WelcomeCoordinator: BaseCoordinator {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,
             authenticationUseCaseProvider: authenticationUseCaseProvider,
-            socialUserDataUseCaseProvider: socialUserDataUseCaseProvider
+            socialUserDataUseCaseProvider: socialUserDataUseCaseProvider,
+            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider
         )
 
         self.start(coordinator: loginCoordinator)

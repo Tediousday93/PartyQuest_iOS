@@ -36,7 +36,6 @@
 		4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */; };
 		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
 		4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */; };
-		4ADF812A2B0F3AA100A8E027 /* ServiceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81292B0F3AA100A8E027 /* ServiceToken.swift */; };
 		4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */; };
 		4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */; };
 		4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */; };
@@ -104,7 +103,6 @@
 		4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
-		4ADF81292B0F3AA100A8E027 /* ServiceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceToken.swift; sourceTree = "<group>"; };
 		4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCase.swift; sourceTree = "<group>"; };
 		4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCase.swift; sourceTree = "<group>"; };
 		4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCaseProvider.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 			isa = PBXGroup;
 			children = (
 				4ADF81272B0F393000A8E027 /* UseCase */,
-				4ADF81282B0F3A8400A8E027 /* DTO */,
 			);
 			path = Credential;
 			sourceTree = "<group>";
@@ -257,14 +254,6 @@
 				4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */,
 			);
 			path = UseCase;
-			sourceTree = "<group>";
-		};
-		4ADF81282B0F3A8400A8E027 /* DTO */ = {
-			isa = PBXGroup;
-			children = (
-				4ADF81292B0F3AA100A8E027 /* ServiceToken.swift */,
-			);
-			path = DTO;
 			sourceTree = "<group>";
 		};
 		4ADF812D2B0F3C0900A8E027 /* UseCase */ = {
@@ -693,7 +682,6 @@
 				4A1F24962AEBE229005B264F /* AppCoordinator.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
-				4ADF812A2B0F3AA100A8E027 /* ServiceToken.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,

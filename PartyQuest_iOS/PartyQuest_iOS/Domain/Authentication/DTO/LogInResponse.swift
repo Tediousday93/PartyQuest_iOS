@@ -8,7 +8,7 @@
 struct LogInResponse: Decodable {
     let time: String
     let httpStatus: String
-    let tokenData: [TokenData]
+    let tokenData: [ServiceToken]
     
     enum CodingKeys: String, CodingKey {
         case time
@@ -17,7 +17,9 @@ struct LogInResponse: Decodable {
     }
 }
 
-struct TokenData: Decodable {
+struct ServiceToken: Codable {
+    let accessExpiredAt: String
+    let refreshExpiredAt: String
     let accessToken: String
     let refreshToken: String
     let email: String

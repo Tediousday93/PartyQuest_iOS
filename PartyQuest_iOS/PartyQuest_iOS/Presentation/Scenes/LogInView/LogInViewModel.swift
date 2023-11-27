@@ -12,15 +12,18 @@ final class LogInViewModel {
     private let coordinator: LogInCoordinator
     private let authenticationUseCase: AuthenticationUseCase
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
+    private let serviceTokenUseCase: ServiceTokenUseCase
     
     private let userLogedIn: PublishSubject<LogInPlatform> = .init()
     
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,
-         kakaoSocialUserDataUseCase: SocialUserDataUseCase) {
+         kakaoSocialUserDataUseCase: SocialUserDataUseCase,
+         serviceTokenUseCase: ServiceTokenUseCase) {
         self.coordinator = coordinator
         self.authenticationUseCase = authenticationUseCase
         self.kakaoSocialUserDataUseCase = kakaoSocialUserDataUseCase
+        self.serviceTokenUseCase = serviceTokenUseCase
     }
 }
 
@@ -87,9 +90,14 @@ extension LogInViewModel: ViewModelType {
             .flatMap { owner, requestModel in
                 owner.authenticationUseCase.socialLogIn(requestModel: requestModel)
             }
+            .compactMap { $0.tokenData.first }
             .withUnretained(self)
-            .map { owner, userData in
-                print(userData)
+            .map { owner, serviceToken in
+                try owner.serviceTokenUseCase.saveToken(serviceToken: serviceToken)
+            }
+            .catch { error in
+                debugPrint(error.localizedDescription)
+                return Observable.just(())
             }
         
         let logInSucceeded = input.logInButtonTapped

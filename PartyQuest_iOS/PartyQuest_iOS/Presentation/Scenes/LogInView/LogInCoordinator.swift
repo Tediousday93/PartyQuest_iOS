@@ -11,12 +11,15 @@ import UIKit
 final class LogInCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
+    private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     
     init(navigationController: UINavigationController,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
-         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider) {
+         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
+         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider) {
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
+        self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         super.init(navigationController: navigationController)
     }
     
@@ -24,7 +27,8 @@ final class LogInCoordinator: BaseCoordinator {
         let viewModel = LogInViewModel(
             coordinator: self,
             authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),
-            kakaoSocialUserDataUseCase: socialUserDataUseCaseProvider.makeKakaoSocialUserDataUseCase()
+            kakaoSocialUserDataUseCase: socialUserDataUseCaseProvider.makeKakaoSocialUserDataUseCase(),
+            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase()
         )
         let socialLoginViewController = LogInViewController(viewModel: viewModel)
         

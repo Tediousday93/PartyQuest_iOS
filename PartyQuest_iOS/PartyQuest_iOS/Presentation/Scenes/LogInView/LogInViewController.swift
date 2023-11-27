@@ -161,9 +161,7 @@ final class LogInViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.jwtSaved
-            .subscribe { socialUserData in
-                print(socialUserData)
-            }
+            .subscribe()
             .disposed(by: disposeBag)
             
         output.logInSucceeded

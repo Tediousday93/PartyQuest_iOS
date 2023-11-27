@@ -220,6 +220,7 @@
 		4A42AFC62B1473E1005380E7 /* EntranceScenes */ = {
 			isa = PBXGroup;
 			children = (
+				4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */,
 				AD5DABA52AF22D8900DC30B9 /* SignUpView */,
 				AD5DAB932AEA9B7400DC30B9 /* WelcomeView */,
 				AD5DAB9A2AEBD1F400DC30B9 /* LogInView */,
@@ -341,7 +342,6 @@
 			children = (
 				4A1F24632AEA8628005B264F /* AppDelegate.swift */,
 				4A1F24652AEA8628005B264F /* SceneDelegate.swift */,
-				4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */,
 				4A40DBF42B147CD30050F3B0 /* PQApplication.swift */,
 			);
 			path = Application;

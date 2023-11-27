@@ -7,15 +7,18 @@
 
 import UIKit
 
-final class AppCoordinator: BaseCoordinator {
+final class EntranceCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     
-    override init(navigationController: UINavigationController) {
-        self.authenticationUseCaseProvider = DefaultAuthenticationUseCaseProvider()
-        self.socialUserDataUseCaseProvider = DefaultSocialUserDataUseCaseProvider()
-        self.serviceTokenUseCaseProvider = DefaultServiceTokenUseCaseProvider()
+    init(navigationController: UINavigationController,
+         authenticationUseCaseProvider: AuthenticationUseCaseProvider,
+         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
+         serviceTokenUseCaseProvider:ServiceTokenUseCaseProvider) {
+        self.authenticationUseCaseProvider = authenticationUseCaseProvider
+        self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
+        self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         
         super.init(navigationController: navigationController)
     }

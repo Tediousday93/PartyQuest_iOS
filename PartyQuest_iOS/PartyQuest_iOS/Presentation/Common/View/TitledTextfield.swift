@@ -25,6 +25,14 @@ final class TitledTextfield: UIView {
         return textField
     }()
     
+    let captionLabel: UILabel  = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .caption1)
+        label.textColor = .systemRed
+        
+        return label
+    }()
+    
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -49,8 +57,9 @@ final class TitledTextfield: UIView {
     private func setSubviews() {
         textField.leftView = UIView(frame: .init(x: 0, y: 0, width: 10, height: 50))
         textField.leftViewMode = .always
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(textField)
+        [titleLabel, textField, captionLabel].forEach {
+            stackView.addArrangedSubview($0)
+        }
         
         self.addSubview(stackView)
     }
@@ -71,14 +80,30 @@ final class TitledTextfield: UIView {
         titleLabel.text = title
     }
     
-    func setTextFieldBorder(isRed: Bool) {
+    func setPlaceholder(_ text: String?) {
+        textField.placeholder = text
+    }
+    
+    func setCaption(_ caption: String?) {
+        captionLabel.text = caption
+    }
+    
+    func setTextFieldBorder(state: InputState) {
         textField.layer.borderWidth = 2
         textField.layer.cornerRadius = 4
         
-        if isRed == false {
+        switch state {
+        case .incorrect:
             textField.layer.borderColor = UIColor.systemRed.cgColor
-        } else {
+        case .correct:
             textField.layer.borderColor = UIColor.systemGray4.cgColor
         }
+    }
+}
+
+extension TitledTextfield {
+    enum InputState {
+        case correct
+        case incorrect
     }
 }

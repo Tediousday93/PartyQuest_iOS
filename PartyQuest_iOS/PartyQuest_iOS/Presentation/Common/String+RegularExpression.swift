@@ -23,7 +23,7 @@ extension String {
     }
     
     func isValidNickname() -> Bool {
-        let nicknameRegex = "^[A-Za-z0-9]{2,16}$"
+        let nicknameRegex = "^[A-Za-z0-9가-힣]{2,10}$"
         let predicate = NSPredicate(format: "SELF MATCHES %@", nicknameRegex)
         
         return predicate.evaluate(with: self)

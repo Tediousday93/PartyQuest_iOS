@@ -13,6 +13,8 @@ final class SignUpViewController: UIViewController {
     private let emailTextField: TitledTextfield = {
         let textField = TitledTextfield()
         textField.setTitle("이메일")
+        textField.setPlaceholder("username@example.com")
+        textField.setCaption(" ")
         
         return textField
     }()
@@ -20,6 +22,8 @@ final class SignUpViewController: UIViewController {
     private let passwordTextField: TitledTextfield = {
         let textField = TitledTextfield()
         textField.setTitle("패스워드")
+        textField.setPlaceholder("영문 대/소문자, 특수문자 한 개 이상 포함 8~15자")
+        textField.setCaption(" ")
         textField.textField.isSecureTextEntry = true
         
         return textField
@@ -28,6 +32,8 @@ final class SignUpViewController: UIViewController {
     private let birthDateTextField: TitledTextfield = {
         let textField = TitledTextfield()
         textField.setTitle("생년월일")
+        textField.setPlaceholder("20231129")
+        textField.setCaption(" ")
         
         return textField
     }()
@@ -35,6 +41,8 @@ final class SignUpViewController: UIViewController {
     private let nickNameTextField: TitledTextfield = {
         let textField = TitledTextfield()
         textField.setTitle("닉네임")
+        textField.setPlaceholder("특수문자를 제외한 2~10자")
+        textField.setCaption(" ")
         
         return textField
     }()
@@ -142,12 +150,12 @@ final class SignUpViewController: UIViewController {
         )
         let output = viewModel.transform(input)
         
-        output.userInputsValidation
-            .drive(with: self, onNext: { owner, validationResult in
-                owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
-                owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
-                owner.nickNameTextField.setTextFieldBorder(isRed: validationResult.2)
-                owner.birthDateTextField.setTextFieldBorder(isRed: validationResult.3)
+        output.inputStates
+            .drive(with: self, onNext: { owner, inputStates in
+                owner.emailTextField.setTextFieldBorder(state: inputStates.0)
+                owner.passwordTextField.setTextFieldBorder(state: inputStates.1)
+                owner.nickNameTextField.setTextFieldBorder(state: inputStates.2)
+                owner.birthDateTextField.setTextFieldBorder(state: inputStates.3)
             })
             .disposed(by: disposeBag)
         

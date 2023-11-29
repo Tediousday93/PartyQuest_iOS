@@ -21,6 +21,8 @@ final class SignUpViewModel {
 }
 
 extension SignUpViewModel: ViewModelType {
+    typealias InputState = TitledTextfield.InputState
+    
     struct Input {
         let email: Observable<String>
         let password: Observable<String>
@@ -31,7 +33,7 @@ extension SignUpViewModel: ViewModelType {
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let userInputsValidation: Driver<(Bool, Bool, Bool, Bool)>
+        let inputStates: Driver<(InputState, InputState, InputState, InputState)>
         let isEnableSignUpButton: Driver<Bool>
         let signUpSucceeded: Observable<Void>
     }
@@ -64,12 +66,23 @@ extension SignUpViewModel: ViewModelType {
                 }
                 return validation
             }
+            .share()
             .asDriver(onErrorJustReturn: (true, true, true, true))
+            
+        
+        let inputStates = userInputsValidation
+            .map { validation in
+                var states: (InputState, InputState, InputState, InputState)
+                validation.0 ? (states.0 = .correct) : (states.0 = .incorrect)
+                validation.1 ? (states.1 = .correct) : (states.1 = .incorrect)
+                validation.2 ? (states.2 = .correct) : (states.2 = .incorrect)
+                validation.3 ? (states.3 = .correct) : (states.3 = .incorrect)
+                
+                return states
+            }
         
         let isEnableSignUpButton = userInputsValidation
-            .map { isEmailValid, isPasswordValid, isNicknameValid, isValidBirthDate in
-                return isEmailValid && isPasswordValid && isNicknameValid && isValidBirthDate
-            }
+            .map { $0 && $1 && $2 && $3 }
         
         let signUpSuccessed = input.signUpButtonTapped
             .withLatestFrom(userInputs)
@@ -100,7 +113,7 @@ extension SignUpViewModel: ViewModelType {
         
         return Output(
             errorRelay: errorRelay,
-            userInputsValidation: userInputsValidation,
+            inputStates: inputStates,
             isEnableSignUpButton: isEnableSignUpButton,
             signUpSucceeded: signUpSuccessed
         )

@@ -28,6 +28,8 @@ final class LogInViewModel {
 }
 
 extension LogInViewModel: ViewModelType {
+    typealias InputState = TitledTextfield.InputState
+    
     struct Input {
         let email: Observable<String>
         let password: Observable<String>
@@ -37,7 +39,7 @@ extension LogInViewModel: ViewModelType {
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let userInputsValidation: Driver<(Bool,Bool)>
+        let inputStates: Driver<(InputState, InputState)>
         let isEnableLogInButton: Driver<Bool>
         let logInSucceeded: Observable<Void>
         let jwtSaved: Observable<Void>
@@ -61,7 +63,17 @@ extension LogInViewModel: ViewModelType {
                 
                 return validation
             }
+            .share()
             .asDriver(onErrorJustReturn: (true, true))
+        
+        let inputStates = userInputsValidation
+            .map { validation in
+                var states: (InputState, InputState)
+                validation.0 ? (states.0 = .correct) : (states.0 = .incorrect)
+                validation.1 ? (states.1 = .correct) : (states.1 = .incorrect)
+                
+                return states
+            }
         
         let isEnableLogInButton = userInputsValidation
             .map { isEmailValid, isPasswordValid in
@@ -114,7 +126,7 @@ extension LogInViewModel: ViewModelType {
         
         return Output(
             errorRelay: errorRelay,
-            userInputsValidation: userInputsValidation,
+            inputStates: inputStates,
             isEnableLogInButton: isEnableLogInButton,
             logInSucceeded: logInSucceeded,
             jwtSaved: jwtSaved

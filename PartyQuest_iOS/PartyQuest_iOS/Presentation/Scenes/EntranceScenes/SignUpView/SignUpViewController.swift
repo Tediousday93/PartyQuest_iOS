@@ -63,6 +63,8 @@ final class SignUpViewController: UIViewController {
         stackView.spacing = 10
         stackView.distribution = .fillProportionally
         stackView.alignment = .fill
+        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView

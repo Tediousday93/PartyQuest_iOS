@@ -33,17 +33,22 @@ final class LogInViewController: UIViewController {
     }()
     
     private let emailTextField: TitledTextfield = {
-        let titledTextField = TitledTextfield()
-        titledTextField.setTitle("이메일")
+        let textField = TitledTextfield()
+        textField.setTitle("이메일")
+        textField.setPlaceholder("username@example.com")
+        textField.setCaption(" ")
         
-        return titledTextField
+        return textField
     }()
     
     private let passwordTextField: TitledTextfield = {
-        let titledTextField = TitledTextfield()
-        titledTextField.setTitle("패스워드")
+        let textField = TitledTextfield()
+        textField.setTitle("패스워드")
+        textField.setPlaceholder("영문 대/소문자, 특수문자 한 개 이상 포함 8~15자")
+        textField.setCaption(" ")
+        textField.textField.isSecureTextEntry = true
         
-        return titledTextField
+        return textField
     }()
     
     private let logInButton: UIButton = .init(type: .system)
@@ -69,6 +74,8 @@ final class LogInViewController: UIViewController {
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
         stackView.spacing = 20
+        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.isLayoutMarginsRelativeArrangement = true
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -147,10 +154,10 @@ final class LogInViewController: UIViewController {
         
         let output = viewModel.transform(input)
         
-        output.userInputsValidation
-            .drive(with: self, onNext: { owner, validationResult in
-                owner.emailTextField.setTextFieldBorder(isRed: validationResult.0)
-                owner.passwordTextField.setTextFieldBorder(isRed: validationResult.1)
+        output.inputStates
+            .drive(with: self, onNext: { owner, inputStates in
+                owner.emailTextField.inputStateRelay.accept(inputStates.0)
+                owner.passwordTextField.inputStateRelay.accept(inputStates.1)
             })
             .disposed(by: disposeBag)
         

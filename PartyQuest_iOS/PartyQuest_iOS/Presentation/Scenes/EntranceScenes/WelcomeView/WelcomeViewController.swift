@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WelcomeViewController.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/10/26.
@@ -105,21 +105,28 @@ final class WelcomeViewController: UIViewController {
     
     private func setConstraint() {
         let safeArea = view.safeAreaLayoutGuide
+        let welcomeImageWidth = safeArea.layoutFrame.width * 0.3
+        let welcomeImageHeight = safeArea.layoutFrame.height / 5.5
+        let buttonWidth = safeArea.layoutFrame.width * 0.8
+        let buttonHeight = safeArea.layoutFrame.height * 0.065
         
         NSLayoutConstraint.activate([
             welcomeImageView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             welcomeImageView.bottomAnchor.constraint(equalTo: welcomeLabel.topAnchor,
                                                      constant: -safeArea.layoutFrame.height / 20),
             welcomeImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomeImageView.widthAnchor.constraint(equalToConstant: 124),
-            welcomeImageView.heightAnchor.constraint(equalToConstant: 163),
+            welcomeImageView.widthAnchor.constraint(equalToConstant: welcomeImageWidth),
+            welcomeImageView.heightAnchor.constraint(equalToConstant: welcomeImageHeight),
             
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
+            loginButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            loginButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            signUpButton.widthAnchor.constraint(equalToConstant: buttonWidth),
+            signUpButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            
             buttonStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             buttonStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -30),
-            buttonStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            buttonStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.14),
         ])
     }
     

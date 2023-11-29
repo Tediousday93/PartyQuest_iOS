@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class TitledTextfield: UIView {
     let titleLabel: UILabel = {
@@ -44,10 +46,14 @@ final class TitledTextfield: UIView {
         return stackView
     }()
     
+    let inputStateRelay: PublishRelay<InputState> = .init()
+    private let disposeBag: DisposeBag = .init()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setSubviews()
         setConstraints()
+        setBindings()
     }
     
     required init?(coder: NSCoder) {
@@ -76,19 +82,23 @@ final class TitledTextfield: UIView {
         ])
     }
     
-    func setTitle(_ title: String?) {
-        titleLabel.text = title
+    private func setBindings() {
+        inputStateRelay
+            .asDriver(onErrorJustReturn: .correct)
+            .drive(with: self, onNext: { owner, inputState in
+                owner.setTextFieldBorder(state: inputState)
+                
+                switch inputState {
+                case .correct:
+                    owner.setCaption(" ")
+                case .incorrect:
+                    owner.setCaption("올바르지 않은 형식입니다.")
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
-    func setPlaceholder(_ text: String?) {
-        textField.placeholder = text
-    }
-    
-    func setCaption(_ caption: String?) {
-        captionLabel.text = caption
-    }
-    
-    func setTextFieldBorder(state: InputState) {
+    private func setTextFieldBorder(state: InputState) {
         textField.layer.borderWidth = 2
         textField.layer.cornerRadius = 4
         
@@ -105,5 +115,17 @@ extension TitledTextfield {
     enum InputState {
         case correct
         case incorrect
+    }
+    
+    func setTitle(_ title: String?) {
+        titleLabel.text = title
+    }
+    
+    func setPlaceholder(_ text: String?) {
+        textField.placeholder = text
+    }
+    
+    func setCaption(_ caption: String?) {
+        captionLabel.text = caption
     }
 }

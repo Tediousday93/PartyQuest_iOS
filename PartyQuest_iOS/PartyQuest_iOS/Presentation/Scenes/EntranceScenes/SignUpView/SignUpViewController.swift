@@ -152,10 +152,10 @@ final class SignUpViewController: UIViewController {
         
         output.inputStates
             .drive(with: self, onNext: { owner, inputStates in
-                owner.emailTextField.setTextFieldBorder(state: inputStates.0)
-                owner.passwordTextField.setTextFieldBorder(state: inputStates.1)
-                owner.nickNameTextField.setTextFieldBorder(state: inputStates.2)
-                owner.birthDateTextField.setTextFieldBorder(state: inputStates.3)
+                owner.emailTextField.inputStateRelay.accept(inputStates.0)
+                owner.passwordTextField.inputStateRelay.accept(inputStates.1)
+                owner.nickNameTextField.inputStateRelay.accept(inputStates.2)
+                owner.birthDateTextField.inputStateRelay.accept(inputStates.3)
             })
             .disposed(by: disposeBag)
         

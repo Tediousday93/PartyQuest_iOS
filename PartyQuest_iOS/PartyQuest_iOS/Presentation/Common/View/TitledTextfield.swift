@@ -38,7 +38,7 @@ final class TitledTextfield: UIView {
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fill
         stackView.alignment = .leading
         stackView.spacing = 3
         stackView.translatesAutoresizingMaskIntoConstraints = false

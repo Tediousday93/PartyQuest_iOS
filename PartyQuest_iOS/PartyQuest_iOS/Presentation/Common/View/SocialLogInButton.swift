@@ -8,58 +8,29 @@
 import UIKit
 
 final class SocialLogInButton: UIButton {
-    private let socialLogoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return imageView
-    }()
-    
-    private let socialNameLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = .preferredFont(forTextStyle: .caption1)
-        label.setContentHuggingPriority(.required, for: .vertical)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
     init(platform: LogInPlatform) {
         super.init(frame: .zero)
-        
+
         self.configureUI()
-        self.setConstraints()
-        self.updateLogo(platform)
+        self.updateImage(platform)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     private func configureUI() {
-        addSubview(socialLogoImageView)
-        addSubview(socialNameLabel)
+        self.layer.cornerRadius = 15
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowRadius = 2
+        self.imageView?.contentMode = .scaleAspectFit
     }
     
-    private func setConstraints() {
-        NSLayoutConstraint.activate([
-            socialLogoImageView.topAnchor.constraint(equalTo: topAnchor),
-            socialLogoImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            socialLogoImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            socialLogoImageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.7),
-            socialLogoImageView.widthAnchor.constraint(equalTo: socialLogoImageView.heightAnchor),
-            
-            socialNameLabel.topAnchor.constraint(equalTo: socialLogoImageView.bottomAnchor, constant: 4),
-            socialNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            socialNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            socialNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-    }
-    
-    private func updateLogo(_ platform: LogInPlatform) {
-        socialLogoImageView.image = UIImage(named: platform.logoImageName)
-        socialNameLabel.text = platform.labelText
+    private func updateImage(_ platform: LogInPlatform) {
+        self.setImage(UIImage(named: platform.logoImageName), for: .normal)
     }
 }
 
@@ -80,13 +51,13 @@ private extension LogInPlatform {
     var logoImageName: String {
         switch self {
         case .kakao:
-            return "kakaoButton_icon"
+            return "kakaoid_button"
         case .apple:
-            return "appleButton_black_icon"
+            return "appleid_button_black"
         case .google:
-            return "googleButton_icon"
+            return "googleid_button"
         case .naver:
-            return "naverButton_icon"
+            return "naverid_button"
         }
     }
 }

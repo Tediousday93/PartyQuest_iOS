@@ -15,6 +15,7 @@ final class LogInViewController: UIViewController {
         label.font = .preferredFont(forTextStyle: .largeTitle)
         label.text = "PartyQuest 로그인"
         label.textColor = .black
+        label.numberOfLines = 1
         
         return label
     }()
@@ -51,19 +52,127 @@ final class LogInViewController: UIViewController {
         return textField
     }()
     
-    private let logInButton: UIButton = .init(type: .system)
-    private let appleLogInButton: UIButton = SocialLogInButton(platform: .apple)
-    private let kakaoLogInButton: UIButton = SocialLogInButton(platform: .kakao)
-    private let googleLogInButton: UIButton = SocialLogInButton(platform: .google)
-    private let naverLogInButton: UIButton = SocialLogInButton(platform: .naver)
-    private let buttonStackView: UIStackView = {
+    private let logInButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 0.329,
+                                         green: 0.247,
+                                         blue: 0.827,
+                                         alpha: 1)
+        button.layer.cornerRadius = 15
+        button.setTitle("로그인", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .headline)
+        button.titleLabel?.tintColor = .systemBackground
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
+    private let logInStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 15
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
+    private let findIDButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("아이디 찾기", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.tintColor = .gray
+        
+        return button
+    }()
+    
+    private let findPWButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("비밀번호 찾기", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.tintColor = .gray
+        
+        return button
+    }()
+    
+    private let signUpButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("회원가입", for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .body)
+        button.tintColor = .gray
+        
+        return button
+    }()
+    
+    private let findStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
-        stackView.spacing = 8
+        stackView.spacing = 3
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 20, left: 20, bottom: 20, right: 20)
+        stackView.layoutMargins = .init(top: 0, left: 0, bottom: 60, right: 0)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+                
+        return stackView
+    }()
+    
+    private let appleLogInButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "appleid_button_black"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+    
+    private let kakaoLogInButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "kakaoid_button"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        button.layer.shadowRadius = 2
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
+    private let googleLogInButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "googleid_button"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        button.layer.shadowRadius = 2
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+
+    private let naverLogInButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(UIImage(named: "naverid_button"), for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 1, height: 1)
+        button.layer.shadowRadius = 2
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        return button
+    }()
+    
+    private let socialLoginStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
     }()
@@ -72,13 +181,20 @@ final class LogInViewController: UIViewController {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 20
-        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 10)
+        stackView.distribution = .fill
+        stackView.spacing = 10
         stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 20, bottom: 10, right: 20)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
+    }()
+    
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return scrollView
     }()
     
     private let viewModel: LogInViewModel
@@ -99,41 +215,70 @@ final class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         configureRootView()
-        configureButtons()
         setSubviews()
         setConstraints()
         setBindings()
     }
     
-    private func configureRootView() {
-        view.backgroundColor = .systemBackground
+    private func configureNavigationBar() {
+        self.title = "PartyQuest 로그인"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
     
-    private func configureButtons() {
-        logInButton.setTitle("로그인", for: .normal)
+    private func configureRootView() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(scrollView)
     }
     
     private func setSubviews() {
-        [appleLogInButton, kakaoLogInButton,
-         googleLogInButton, naverLogInButton].forEach {
-            buttonStackView.addArrangedSubview($0)
+        logInStackView.addArrangedSubview(titleLabel)
+        logInStackView.addArrangedSubview(descriptionLabel)
+        logInStackView.addArrangedSubview(emailTextField)
+        logInStackView.addArrangedSubview(passwordTextField)
+        logInStackView.addArrangedSubview(logInButton)
+        
+        [findIDButton, findPWButton, signUpButton].forEach {
+            findStackView.addArrangedSubview($0)
         }
         
-        outterStackView.addArrangedSubview(titleLabel)
-        outterStackView.addArrangedSubview(descriptionLabel)
-        outterStackView.addArrangedSubview(emailTextField)
-        outterStackView.addArrangedSubview(passwordTextField)
-        outterStackView.addArrangedSubview(logInButton)
-        outterStackView.addArrangedSubview(buttonStackView)
+        [appleLogInButton, kakaoLogInButton,
+         googleLogInButton, naverLogInButton].forEach {
+            socialLoginStackView.addArrangedSubview($0)
+        }
         
-        view.addSubview(outterStackView)
+        outterStackView.addArrangedSubview(logInStackView)
+        outterStackView.addArrangedSubview(findStackView)
+        outterStackView.addArrangedSubview(socialLoginStackView)
+        scrollView.addSubview(outterStackView)
     }
     
     private func setConstraints() {
+        let safeArea = view.safeAreaLayoutGuide
+        let buttonHeight = safeArea.layoutFrame.height * 0.065
+        let socialLoginButtonHeight = safeArea.layoutFrame.height * 0.058
+        let scrollContentGuide = scrollView.contentLayoutGuide
+        let scrollFrameGuide = scrollView.frameLayoutGuide
+        
         NSLayoutConstraint.activate([
-            outterStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            outterStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            outterStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            logInButton.heightAnchor.constraint(equalToConstant: buttonHeight),
+            appleLogInButton.heightAnchor.constraint(equalToConstant: socialLoginButtonHeight),
+            kakaoLogInButton.heightAnchor.constraint(equalToConstant: socialLoginButtonHeight),
+            googleLogInButton.heightAnchor.constraint(equalToConstant: socialLoginButtonHeight),
+            naverLogInButton.heightAnchor.constraint(equalToConstant: socialLoginButtonHeight),
+            
+            outterStackView.topAnchor.constraint(equalTo: scrollContentGuide.topAnchor),
+            outterStackView.leadingAnchor.constraint(equalTo: scrollContentGuide.leadingAnchor),
+            outterStackView.trailingAnchor.constraint(equalTo: scrollContentGuide.trailingAnchor),
+            outterStackView.bottomAnchor.constraint(equalTo: scrollContentGuide.bottomAnchor),
+            
+            outterStackView.leadingAnchor.constraint(equalTo: scrollFrameGuide.leadingAnchor),
+            outterStackView.trailingAnchor.constraint(equalTo: scrollFrameGuide.trailingAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
     }
     

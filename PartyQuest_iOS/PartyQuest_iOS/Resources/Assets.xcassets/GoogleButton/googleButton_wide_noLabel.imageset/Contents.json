@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "kakao_login_large_wide 2.png",
+      "filename" : "ios_neutral_sq_SI_noLabel@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "kakao_login_large_wide 1.png",
+      "filename" : "ios_neutral_sq_SI_noLabel@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "kakao_login_large_wide.png",
+      "filename" : "ios_neutral_sq_SI_noLabel@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

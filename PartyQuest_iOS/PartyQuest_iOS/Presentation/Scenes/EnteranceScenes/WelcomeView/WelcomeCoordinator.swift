@@ -6,19 +6,24 @@
 //
 
 import UIKit
+import RxSwift
 
 final class WelcomeCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
+    private let isLoggedIn: PublishSubject<Bool>
     
-    init(navigationController: UINavigationController,
+    init(navigationController: UINavigationController?,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
-         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider) {
+         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
+         isLoggedIn: PublishSubject<Bool>) {
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
+        self.isLoggedIn = isLoggedIn
+        
         super.init(navigationController: navigationController)
     }
     
@@ -29,12 +34,12 @@ final class WelcomeCoordinator: BaseCoordinator {
         )
         let welcomeViewController = WelcomeViewController(welcomeViewModel: welcomeViewModel)
         
-        navigationController.pushViewController(welcomeViewController, animated: true)
+        navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
     override func didFinish(coordinator: Coordinator) {
         super.didFinish(coordinator: coordinator)
-        navigationController.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func coordinateToLogin() {
@@ -42,7 +47,8 @@ final class WelcomeCoordinator: BaseCoordinator {
             navigationController: navigationController,
             authenticationUseCaseProvider: authenticationUseCaseProvider,
             socialUserDataUseCaseProvider: socialUserDataUseCaseProvider,
-            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider
+            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider,
+            isLoggedIn: isLoggedIn
         )
 
         self.start(coordinator: loginCoordinator)

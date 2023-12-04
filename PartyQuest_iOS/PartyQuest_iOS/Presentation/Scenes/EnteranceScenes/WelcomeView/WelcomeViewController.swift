@@ -68,7 +68,7 @@ final class WelcomeViewController: UIViewController {
     }()
     
     private let viewModel: WelcomeViewModel
-    private let disposeBag: DisposeBag
+    private var disposeBag: DisposeBag
     
     init(welcomeViewModel: WelcomeViewModel) {
         self.viewModel = welcomeViewModel
@@ -79,6 +79,11 @@ final class WelcomeViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        disposeBag = .init()
+        print("welcomeViewController deinited")
     }
     
     override func viewDidLoad() {

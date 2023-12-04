@@ -5,21 +5,25 @@
 //  Created by Harry on 2023/11/01.
 //
 
-import Foundation
 import UIKit
+import RxSwift
 
 final class LogInCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
+    private let isLoggedIn: PublishSubject<Bool>
     
-    init(navigationController: UINavigationController,
+    init(navigationController: UINavigationController?,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
-         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider) {
+         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
+         isLoggedIn: PublishSubject<Bool>) {
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
+        self.isLoggedIn = isLoggedIn
+        
         super.init(navigationController: navigationController)
     }
     
@@ -28,10 +32,11 @@ final class LogInCoordinator: BaseCoordinator {
             coordinator: self,
             authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),
             kakaoSocialUserDataUseCase: socialUserDataUseCaseProvider.makeKakaoSocialUserDataUseCase(),
-            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase()
+            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase(),
+            isLoggedIn: isLoggedIn
         )
         let socialLoginViewController = LogInViewController(viewModel: viewModel)
         
-        navigationController.pushViewController(socialLoginViewController, animated: true)
+        navigationController?.pushViewController(socialLoginViewController, animated: true)
     }
 }

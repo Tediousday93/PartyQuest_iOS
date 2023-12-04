@@ -198,7 +198,7 @@ final class LogInViewController: UIViewController {
     }()
     
     private let viewModel: LogInViewModel
-    private let disposeBag: DisposeBag
+    private var disposeBag: DisposeBag
     
     init(viewModel: LogInViewModel) {
         self.viewModel = viewModel
@@ -209,6 +209,11 @@ final class LogInViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        disposeBag = .init()
+        print("LogInViewContorller deinited")
     }
     
     override func viewDidLoad() {

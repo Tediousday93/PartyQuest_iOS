@@ -19,8 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let pqApplication = PQApplication()
-        pqApplication.configureMainInterface(in: window)
+        let appCoordinator = AppCoordinator(window: window)
+        appCoordinator.start()
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

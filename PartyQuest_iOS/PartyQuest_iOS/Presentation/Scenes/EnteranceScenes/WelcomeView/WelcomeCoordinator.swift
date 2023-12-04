@@ -12,15 +12,22 @@ final class WelcomeCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
+    private let isLoggedIn: PublishSubject<Bool>
+    
+    private let disposeBag: DisposeBag = .init()
     
     init(navigationController: UINavigationController,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
-         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider) {
+         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
+         isLoggedIn: PublishSubject<Bool>) {
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
+        self.isLoggedIn = isLoggedIn
+        
         super.init(navigationController: navigationController)
+        setBindings()
     }
     
     override func start() {
@@ -43,7 +50,8 @@ final class WelcomeCoordinator: BaseCoordinator {
             navigationController: navigationController,
             authenticationUseCaseProvider: authenticationUseCaseProvider,
             socialUserDataUseCaseProvider: socialUserDataUseCaseProvider,
-            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider
+            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider,
+            isLoggedIn: isLoggedIn
         )
 
         self.start(coordinator: loginCoordinator)
@@ -56,5 +64,21 @@ final class WelcomeCoordinator: BaseCoordinator {
         )
         
         self.start(coordinator: signUpCoordinator)
+    }
+}
+
+extension WelcomeCoordinator {
+    private func setBindings() {
+        isLoggedIn
+            .debug("Welcome logged in stream")
+            .subscribe(with: self, onNext: { owner, isLoggedIn in
+                if isLoggedIn {
+                    owner.childCoordinators.forEach {
+                        owner.didFinish(coordinator: $0)
+                    }
+                    owner.parentCoordinator?.didFinish(coordinator: self)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }

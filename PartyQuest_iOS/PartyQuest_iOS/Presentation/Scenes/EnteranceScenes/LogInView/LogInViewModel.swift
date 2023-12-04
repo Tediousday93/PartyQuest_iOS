@@ -14,16 +14,18 @@ final class LogInViewModel {
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
     private let serviceTokenUseCase: ServiceTokenUseCase
     
-    private let userLogedIn: PublishSubject<LogInPlatform> = .init()
+    private let isLoggedIn: PublishSubject<Bool>
     
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,
          kakaoSocialUserDataUseCase: SocialUserDataUseCase,
-         serviceTokenUseCase: ServiceTokenUseCase) {
+         serviceTokenUseCase: ServiceTokenUseCase,
+         isLoggedIn: PublishSubject<Bool>) {
         self.coordinator = coordinator
         self.authenticationUseCase = authenticationUseCase
         self.kakaoSocialUserDataUseCase = kakaoSocialUserDataUseCase
         self.serviceTokenUseCase = serviceTokenUseCase
+        self.isLoggedIn = isLoggedIn
     }
 }
 

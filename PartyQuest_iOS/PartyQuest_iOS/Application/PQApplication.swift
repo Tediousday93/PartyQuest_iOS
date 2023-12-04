@@ -21,7 +21,7 @@ final class PQApplication {
     func configureMainInterface(in window: UIWindow?) {
         if TokenUtils.shared.isTokenExpired() {
             let navigationController = UINavigationController()
-            let entranceCoordinator = EntranceCoordinator(
+            let enteranceCoordinator = EnteranceCoordinator(
                 navigationController: navigationController,
                 authenticationUseCaseProvider: authenticationUseCaseProvider,
                 socialUserDataUseCaseProvider: socialUserDataUseCaseProvider,
@@ -30,7 +30,7 @@ final class PQApplication {
             window?.rootViewController = navigationController
             window?.makeKeyAndVisible()
             
-            entranceCoordinator.start()
+            enteranceCoordinator.start()
         } else {
             let tabBar = PQTabBarController()
         }

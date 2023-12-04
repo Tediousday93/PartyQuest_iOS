@@ -14,7 +14,7 @@ final class LogInCoordinator: BaseCoordinator {
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
-    init(navigationController: UINavigationController,
+    init(navigationController: UINavigationController?,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
          serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
@@ -37,6 +37,6 @@ final class LogInCoordinator: BaseCoordinator {
         )
         let socialLoginViewController = LogInViewController(viewModel: viewModel)
         
-        navigationController.pushViewController(socialLoginViewController, animated: true)
+        navigationController?.pushViewController(socialLoginViewController, animated: true)
     }
 }

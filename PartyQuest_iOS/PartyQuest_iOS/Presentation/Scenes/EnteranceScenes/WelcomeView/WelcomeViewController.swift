@@ -83,7 +83,7 @@ final class WelcomeViewController: UIViewController {
     
     deinit {
         disposeBag = .init()
-        print("welcome view controller deinited")
+        print("welcomeViewController deinited")
     }
     
     override func viewDidLoad() {

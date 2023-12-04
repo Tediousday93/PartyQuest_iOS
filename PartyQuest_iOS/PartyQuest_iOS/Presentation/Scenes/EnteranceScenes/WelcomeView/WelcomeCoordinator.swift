@@ -14,9 +14,7 @@ final class WelcomeCoordinator: BaseCoordinator {
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
-    private let disposeBag: DisposeBag = .init()
-    
-    init(navigationController: UINavigationController,
+    init(navigationController: UINavigationController?,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
          serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
@@ -27,7 +25,6 @@ final class WelcomeCoordinator: BaseCoordinator {
         self.isLoggedIn = isLoggedIn
         
         super.init(navigationController: navigationController)
-        setBindings()
     }
     
     override func start() {
@@ -37,12 +34,12 @@ final class WelcomeCoordinator: BaseCoordinator {
         )
         let welcomeViewController = WelcomeViewController(welcomeViewModel: welcomeViewModel)
         
-        navigationController.pushViewController(welcomeViewController, animated: true)
+        navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
     override func didFinish(coordinator: Coordinator) {
         super.didFinish(coordinator: coordinator)
-        navigationController.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     func coordinateToLogin() {
@@ -64,21 +61,5 @@ final class WelcomeCoordinator: BaseCoordinator {
         )
         
         self.start(coordinator: signUpCoordinator)
-    }
-}
-
-extension WelcomeCoordinator {
-    private func setBindings() {
-        isLoggedIn
-            .debug("Welcome logged in stream")
-            .subscribe(with: self, onNext: { owner, isLoggedIn in
-                if isLoggedIn {
-                    owner.childCoordinators.forEach {
-                        owner.didFinish(coordinator: $0)
-                    }
-                    owner.parentCoordinator?.didFinish(coordinator: self)
-                }
-            })
-            .disposed(by: disposeBag)
     }
 }

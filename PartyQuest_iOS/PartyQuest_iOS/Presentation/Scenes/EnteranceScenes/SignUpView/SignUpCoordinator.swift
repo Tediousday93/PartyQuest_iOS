@@ -11,7 +11,8 @@ import UIKit
 final class SignUpCoordinator: BaseCoordinator {
     private let useCaseProvider: AuthenticationUseCaseProvider
     
-    init(navigationController: UINavigationController, useCaseProvider: AuthenticationUseCaseProvider) {
+    init(navigationController: UINavigationController?,
+         useCaseProvider: AuthenticationUseCaseProvider) {
         self.useCaseProvider = useCaseProvider
         super.init(navigationController: navigationController)
     }
@@ -23,6 +24,6 @@ final class SignUpCoordinator: BaseCoordinator {
         )
         let signUpViewController = SignUpViewController(signUpViewModel: signUpViewModel)
         
-        navigationController.pushViewController(signUpViewController, animated: true)
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
 }

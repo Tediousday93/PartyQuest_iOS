@@ -16,7 +16,7 @@
 		4A1F248B2AEA90A2005B264F /* PartyQuest_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */; };
 		4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24912AEBE14A005B264F /* Coordinator.swift */; };
 		4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */; };
-		4A1F24962AEBE229005B264F /* EntranceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */; };
+		4A1F24962AEBE229005B264F /* EnteranceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24952AEBE229005B264F /* EnteranceCoordinator.swift */; };
 		4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */; };
 		4A40DBF52B147CD30050F3B0 /* PQApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF42B147CD30050F3B0 /* PQApplication.swift */; };
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
@@ -86,7 +86,7 @@
 		4A1F248A2AEA90A2005B264F /* PartyQuest_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyQuest_Tests.swift; sourceTree = "<group>"; };
 		4A1F24912AEBE14A005B264F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
-		4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntranceCoordinator.swift; sourceTree = "<group>"; };
+		4A1F24952AEBE229005B264F /* EnteranceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnteranceCoordinator.swift; sourceTree = "<group>"; };
 		4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
 		4A40DBF42B147CD30050F3B0 /* PQApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQApplication.swift; sourceTree = "<group>"; };
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
@@ -217,15 +217,15 @@
 			path = Uitils;
 			sourceTree = "<group>";
 		};
-		4A42AFC62B1473E1005380E7 /* EntranceScenes */ = {
+		4A42AFC62B1473E1005380E7 /* EnteranceScenes */ = {
 			isa = PBXGroup;
 			children = (
-				4A1F24952AEBE229005B264F /* EntranceCoordinator.swift */,
+				4A1F24952AEBE229005B264F /* EnteranceCoordinator.swift */,
 				AD5DABA52AF22D8900DC30B9 /* SignUpView */,
 				AD5DAB932AEA9B7400DC30B9 /* WelcomeView */,
 				AD5DAB9A2AEBD1F400DC30B9 /* LogInView */,
 			);
-			path = EntranceScenes;
+			path = EnteranceScenes;
 			sourceTree = "<group>";
 		};
 		4A42AFC72B147442005380E7 /* TabBarScenes */ = {
@@ -369,7 +369,7 @@
 		AD5DAB942AEA9BCF00DC30B9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4A42AFC62B1473E1005380E7 /* EntranceScenes */,
+				4A42AFC62B1473E1005380E7 /* EnteranceScenes */,
 				4A42AFC72B147442005380E7 /* TabBarScenes */,
 			);
 			path = Scenes;
@@ -727,7 +727,7 @@
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
-				4A1F24962AEBE229005B264F /* EntranceCoordinator.swift in Sources */,
+				4A1F24962AEBE229005B264F /* EnteranceCoordinator.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,

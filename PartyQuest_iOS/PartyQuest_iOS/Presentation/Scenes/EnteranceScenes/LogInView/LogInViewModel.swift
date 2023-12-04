@@ -99,18 +99,27 @@ extension LogInViewModel: ViewModelType {
         
         let jwtSaved = kakaoLogIn
             .withUnretained(self)
-            .flatMap { owner, requestModel in
-                owner.authenticationUseCase.socialLogIn(requestModel: requestModel)
+//            .flatMap { owner, socialUserData in
+//                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
+//                    .compactMap { $0.tokenData.first }
+//                    .map { (owner, $0) }
+//            }
+//            .do(onNext: { owner, serviceToken in
+//                try owner.serviceTokenUseCase.saveToken(serviceToken: serviceToken)
+//            })
+//            .debug()
+//            .materialize()
+//            .do(onNext: { event in
+//                if let error = event.error {
+//                    errorRelay.accept(error)
+//                }
+//            })
+//            .filter { $0.error == nil }
+//            .dematerialize()
+            .map { owner, _ in
+                owner.isLoggedIn.onNext(true)
             }
-            .compactMap { $0.tokenData.first }
-            .withUnretained(self)
-            .map { owner, serviceToken in
-                try owner.serviceTokenUseCase.saveToken(serviceToken: serviceToken)
-            }
-            .catch { error in
-                debugPrint(error.localizedDescription)
-                return Observable.just(())
-            }
+            .debug("LogInViewModel isLoggedIn")
         
         let logInSucceeded = input.logInButtonTapped
             .withLatestFrom(userInputs)

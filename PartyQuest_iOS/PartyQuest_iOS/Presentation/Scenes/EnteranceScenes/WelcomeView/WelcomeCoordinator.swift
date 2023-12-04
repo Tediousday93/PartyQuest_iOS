@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class WelcomeCoordinator: BaseCoordinator {
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider

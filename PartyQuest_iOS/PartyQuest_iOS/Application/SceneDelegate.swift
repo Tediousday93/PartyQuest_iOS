@@ -8,7 +8,7 @@
 import UIKit
 import RxKakaoSDKAuth
 import KakaoSDKAuth
-
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,10 +25,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let url = URLContexts.first?.url {
-            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+            if AuthApi.isKakaoTalkLoginUrl(url) {
                 _ = AuthController.rx.handleOpenUrl(url: url)
+            } else if isNaverLoginUrl(url) {
+                NaverThirdPartyLoginConnection
+                    .getSharedInstance()
+                    .receiveAccessToken(url)
             }
         }
+    }
+    
+    private func isNaverLoginUrl(_ url: URL) -> Bool {
+        let scheme = url.scheme
+        let naverScheme = Bundle.main.infoDictionary?["NAVER_URL_SCHEME"] as? String
+        
+        return scheme == naverScheme
     }
 }
 

@@ -16,6 +16,7 @@ PODS:
   - Moya/RxSwift (15.0.0):
     - Moya/Core
     - RxSwift (~> 6.0)
+  - naveridlogin-sdk-ios (4.2.0)
   - RxAlamofire (6.1.1):
     - RxAlamofire/Core (= 6.1.1)
   - RxAlamofire/Core (6.1.1):
@@ -51,6 +52,7 @@ PODS:
 
 DEPENDENCIES:
   - Moya/RxSwift (~> 15.0)
+  - naveridlogin-sdk-ios
   - RxBlocking (= 6.6.0)
   - RxCocoa (= 6.6.0)
   - RxKakaoSDKAuth
@@ -66,6 +68,7 @@ SPEC REPOS:
     - KakaoSDKCommon
     - KakaoSDKUser
     - Moya
+    - naveridlogin-sdk-ios
     - RxAlamofire
     - RxBlocking
     - RxCocoa
@@ -82,6 +85,7 @@ SPEC CHECKSUMS:
   KakaoSDKCommon: 516f68bc6b223ed502c34a362d6ecc9145e0dcc0
   KakaoSDKUser: 5b0826033381d314f550dd90fbf70d3612044ad6
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  naveridlogin-sdk-ios: 03fa42741249ab10b804f6b2574b56b6d89045ba
   RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxBlocking: fbd1f8501443024f686e556f36dac79b0d5f4d7c
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
@@ -92,6 +96,6 @@ SPEC CHECKSUMS:
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   RxTest: a23f26bb53a5e146a0a69db4f0fa0b69001ce7f4
 
-PODFILE CHECKSUM: fa5efdb9a24bbd696f0e4e60b6a3be18d28f6cd2
+PODFILE CHECKSUM: 2ee71f01256971ff91d2c1811264c23cb30e61b5
 
 COCOAPODS: 1.14.2

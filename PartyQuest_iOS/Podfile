@@ -7,9 +7,12 @@ target 'PartyQuest_iOS' do
     pod 'RxSwift', '6.6.0'
     pod 'RxCocoa', '6.6.0'
     pod 'Moya/RxSwift', '~> 15.0'
+    # KakaoSDK
     pod 'RxKakaoSDKCommon'
     pod 'RxKakaoSDKAuth'
     pod 'RxKakaoSDKUser'
+    # Naver SDK
+    pod 'naveridlogin-sdk-ios'
 
   target 'PartyQuest_Tests' do
     inherit! :search_paths

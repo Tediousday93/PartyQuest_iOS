@@ -18,7 +18,7 @@ extension KakaoSDKUser.User: DomainConvertibleType {
     
     func toDomain() -> SocialUserData {
         guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
-            fatalError("Can not find Secrets Key ")
+            fatalError("Can not find Secrets Key")
         }
         
         return SocialUserData(

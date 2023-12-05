@@ -24,7 +24,7 @@ final class KakaoAuthService: SocialAuthService {
         }
     }
     
-    func getUserInfo() -> Observable<User> {
+    func getUserInfo() -> Observable<UserInfo> {
         return UserApi.shared.rx.me()
             .asObservable()
     }

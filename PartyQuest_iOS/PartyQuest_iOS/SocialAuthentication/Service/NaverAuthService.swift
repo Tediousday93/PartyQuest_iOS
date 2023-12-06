@@ -20,20 +20,20 @@ final class NaverAuthService: NSObject, SocialAuthService {
     typealias UserInfo = NaverUser
     
     private let logInInstance: NaverThirdPartyLoginConnection = NaverThirdPartyLoginConnection.getSharedInstance()
-    private let accessToken: PublishSubject<String> = .init()
+    private let accessTokenArrived: PublishSubject<Void> = .init()
     
     func requestLogIn() -> Observable<Void> {
         logInInstance.requestThirdPartyLogin()
 
-        return accessToken.asObservable()
+        return accessTokenArrived.asObservable()
             .map { _ in }
     }
     
     func getUserInfo() -> Observable<UserInfo> {
-        return accessToken.asObservable()
+        return accessTokenArrived.asObservable()
             .withUnretained(self)
-            .flatMap { owner, token in
-                try owner.requestUserInfo(with: token)
+            .flatMap { owner, _ in
+                try owner.requestUserInfo()
             }
             .map { JSONData in
                 guard let dictionary = JSONData as? [String: Any],
@@ -46,7 +46,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
             }
     }
     
-    private func requestUserInfo(with token: String) throws -> Observable<Any> {
+    private func requestUserInfo() throws -> Observable<Any> {
         if logInInstance.isValidAccessTokenExpireTimeNow() == false {
             throw NaverLogInError.accessTokenExpired
         }
@@ -55,6 +55,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
             throw NaverLogInError.tokenTypeNotFound
         }
         
+        let token: String = logInInstance.accessToken
         let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
         let authorization = "\(tokenType) \(token)"
         
@@ -69,7 +70,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
 extension NaverAuthService: NaverThirdPartyLoginConnectionDelegate {
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("Naver Logged In")
-        accessToken.onNext(logInInstance.accessToken)
+        accessTokenArrived.onNext(())
     }
     
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
@@ -82,6 +83,6 @@ extension NaverAuthService: NaverThirdPartyLoginConnectionDelegate {
     
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print("Naver LogIn Failed with Error: \(error.localizedDescription)")
-        accessToken.onError(error)
+        accessTokenArrived.onError(error)
     }
 }

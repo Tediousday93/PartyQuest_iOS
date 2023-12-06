@@ -12,6 +12,7 @@ final class LogInViewModel {
     private let coordinator: LogInCoordinator
     private let authenticationUseCase: AuthenticationUseCase
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
+    private let naverSocialUserDataUseCase: SocialUserDataUseCase
     private let serviceTokenUseCase: ServiceTokenUseCase
     
     private let isLoggedIn: PublishSubject<Bool>
@@ -19,11 +20,13 @@ final class LogInViewModel {
     init(coordinator: LogInCoordinator,
          authenticationUseCase: AuthenticationUseCase,
          kakaoSocialUserDataUseCase: SocialUserDataUseCase,
+         naverSocialUserDataUseCase: SocialUserDataUseCase,
          serviceTokenUseCase: ServiceTokenUseCase,
          isLoggedIn: PublishSubject<Bool>) {
         self.coordinator = coordinator
         self.authenticationUseCase = authenticationUseCase
         self.kakaoSocialUserDataUseCase = kakaoSocialUserDataUseCase
+        self.naverSocialUserDataUseCase = naverSocialUserDataUseCase
         self.serviceTokenUseCase = serviceTokenUseCase
         self.isLoggedIn = isLoggedIn
     }

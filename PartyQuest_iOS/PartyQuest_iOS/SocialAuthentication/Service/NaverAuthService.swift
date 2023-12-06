@@ -10,60 +10,71 @@ import Alamofire
 import RxAlamofire
 import NaverThirdPartyLogin
 
-enum NaverLogInError: Error {
+enum NaverAuthError: Error {
+    case instanceDeallocated
     case accessTokenExpired
-    case tokenTypeNotFound
     case nilUserData
 }
 
 final class NaverAuthService: NSObject, SocialAuthService {
-    typealias UserInfo = NaverUser
+    typealias UserInfo = NaverUserData
     
-    private let logInInstance: NaverThirdPartyLoginConnection = NaverThirdPartyLoginConnection.getSharedInstance()
+    private let logInInstance: NaverThirdPartyLoginConnection
     private let accessTokenArrived: PublishSubject<Void> = .init()
+    
+    override init() {
+        self.logInInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+        super.init()
+        logInInstance.delegate = self
+    }
     
     func requestLogIn() -> Observable<Void> {
         logInInstance.requestThirdPartyLogin()
-
         return accessTokenArrived.asObservable()
-            .map { _ in }
     }
     
     func getUserInfo() -> Observable<UserInfo> {
-        return accessTokenArrived.asObservable()
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                try owner.requestUserInfo()
+        return Single.create { [weak self] single in
+            guard let self else {
+                single(.failure(NaverAuthError.instanceDeallocated))
+                return Disposables.create()
             }
-            .map { JSONData in
-                guard let dictionary = JSONData as? [String: Any],
-                      let email = dictionary["email"] as? String,
-                      let nickName = dictionary["nickname"] as? String else {
-                    throw NaverLogInError.nilUserData
+            
+            guard logInInstance.isValidAccessTokenExpireTimeNow() else {
+                logInInstance.requestAccessTokenWithRefreshToken()
+                single(.failure(NaverAuthError.accessTokenExpired))
+                return Disposables.create()
+            }
+            
+            let tokenType: String = logInInstance.tokenType
+            let token: String = logInInstance.accessToken
+            let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
+            let authorization = "\(tokenType) \(token)"
+            let request = AF.request(url,
+                                     method: .get,
+                                     parameters: nil,
+                                     encoding: URLEncoding.default,
+                                     headers: ["Authorization": authorization])
+            request.responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let decoder = JSONDecoder()
+                    let naverUserDataResponse = try? decoder.decode(NaverUserDataResponse.self, from: data)
+                    guard let userData = naverUserDataResponse?.userData else {
+                        single(.failure(NaverAuthError.nilUserData))
+                        return
+                    }
+                    single(.success(userData))
+                case .failure(let error):
+                    single(.failure(error))
                 }
-                
-                return NaverUser(email: email, nickName: nickName)
             }
-    }
-    
-    private func requestUserInfo() throws -> Observable<Any> {
-        if logInInstance.isValidAccessTokenExpireTimeNow() == false {
-            throw NaverLogInError.accessTokenExpired
+            
+            return Disposables.create {
+                request.cancel()
+            }
         }
-        
-        guard let tokenType = logInInstance.tokenType else {
-            throw NaverLogInError.tokenTypeNotFound
-        }
-        
-        let token: String = logInInstance.accessToken
-        let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
-        let authorization = "\(tokenType) \(token)"
-        
-        return RxAlamofire.json(.get,
-                                url,
-                                parameters: nil,
-                                encoding: URLEncoding.default,
-                                headers: ["Authorization": authorization])
+        .asObservable()
     }
 }
 
@@ -75,6 +86,7 @@ extension NaverAuthService: NaverThirdPartyLoginConnectionDelegate {
     
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         print("Naver Access Token Refreshed")
+        accessTokenArrived.onNext(())
     }
     
     func oauth20ConnectionDidFinishDeleteToken() {

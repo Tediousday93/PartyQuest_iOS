@@ -17,4 +17,10 @@ final class DefaultSocialUserDataUseCaseProvider: SocialUserDataUseCaseProvider 
             service: serviceProvider.makeKakaoAuthService()
         )
     }
+    
+    func makeNaverSocialUserDataUseCase() -> SocialUserDataUseCase {
+        return DefaultSocialUserDataUseCase(
+            service: serviceProvider.makeNaverAuthService()
+        )
+    }
 }

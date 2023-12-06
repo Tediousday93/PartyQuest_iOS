@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NAVER_CLIENT_SECRET</key>
-	<string>$(NAVER_CLIENT_SECRET)</string>
-	<key>NAVER_CLIENT_ID</key>
-	<string>$(NAVER_CLIENT_ID)</string>
-	<key>NAVER_URL_SCHEME</key>
-	<string>$(NAVER_URL_SCHEME)</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -27,7 +21,7 @@
 			<string>$(APP_BUNDLE_ID)</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>naver$(NAVER_NATIVE_APP_KEY)</string>
+				<string>$(NAVER_URL_SCHEME)</string>
 			</array>
 		</dict>
 	</array>
@@ -41,6 +35,12 @@
 		<string>kakaolink</string>
 		<string>kakaoplus</string>
 	</array>
+	<key>NAVER_CLIENT_ID</key>
+	<string>$(NAVER_CLIENT_ID)</string>
+	<key>NAVER_CLIENT_SECRET</key>
+	<string>$(NAVER_CLIENT_SECRET)</string>
+	<key>NAVER_URL_SCHEME</key>
+	<string>$(NAVER_URL_SCHEME)</string>
 	<key>SERVICE_SECRETS</key>
 	<string>$(SERVICE_SECRETS)</string>
 	<key>UIApplicationSceneManifest</key>

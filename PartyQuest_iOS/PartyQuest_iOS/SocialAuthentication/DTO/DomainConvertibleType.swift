@@ -30,7 +30,7 @@ extension KakaoSDKUser.User: DomainConvertibleType {
     }
 }
 
-extension NaverUser: DomainConvertibleType {
+extension NaverUserData: DomainConvertibleType {
     typealias Domain = SocialUserData
     
     func toDomain() -> SocialUserData {

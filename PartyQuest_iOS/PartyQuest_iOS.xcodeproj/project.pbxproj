@@ -44,7 +44,7 @@
 		4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */; };
 		4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81332B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
-		AD5B59A72B1F081700D02775 /* NaverUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUser.swift */; };
+		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
@@ -118,7 +118,7 @@
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
-		AD5B59A62B1F081700D02775 /* NaverUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUser.swift; sourceTree = "<group>"; };
+		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
@@ -277,13 +277,13 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
-		4AA423842B031A370092EC27 /* Entity */ = {
+		4AA423842B031A370092EC27 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
 				4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */,
-				AD5B59A62B1F081700D02775 /* NaverUser.swift */,
+				AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */,
 			);
-			path = Entity;
+			path = DTO;
 			sourceTree = "<group>";
 		};
 		4ADF81242B0F2DEC00A8E027 /* Credential */ = {
@@ -468,7 +468,7 @@
 		AD5DABFD2B0214FF00DC30B9 /* SocialAuthentication */ = {
 			isa = PBXGroup;
 			children = (
-				4AA423842B031A370092EC27 /* Entity */,
+				4AA423842B031A370092EC27 /* DTO */,
 				AD5DAC002B02181D00DC30B9 /* Service */,
 				AD5DABFE2B02180A00DC30B9 /* UseCase */,
 			);
@@ -738,7 +738,7 @@
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
-				AD5B59A72B1F081700D02775 /* NaverUser.swift in Sources */,
+				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
 			);
@@ -902,7 +902,6 @@
 				INFOPLIST_FILE = PartyQuest_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -935,7 +934,6 @@
 				INFOPLIST_FILE = PartyQuest_iOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

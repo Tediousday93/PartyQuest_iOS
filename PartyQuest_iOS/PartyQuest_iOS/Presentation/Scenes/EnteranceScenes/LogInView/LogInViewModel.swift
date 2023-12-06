@@ -40,6 +40,7 @@ extension LogInViewModel: ViewModelType {
         let password: Observable<String>
         let logInButtonTapped: Observable<Void>
         let kakaoLogInButtonTapped: Observable<Void>
+        let naverLogInButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -102,8 +103,30 @@ extension LogInViewModel: ViewModelType {
                 owner.kakaoSocialUserDataUseCase.socialUserData()
             }
         
-        let jwtSaved = kakaoLogIn
+        let naverLogIn = input.naverLogInButtonTapped
             .withUnretained(self)
+            .flatMap { owner, _ in
+                owner.naverSocialUserDataUseCase.logIn()
+                    .materialize()
+            }
+            .debug("Naver Log In Requested")
+            .do(onNext: { event in
+                if let error = event.error {
+                    errorRelay.accept(error)
+                }
+            })
+            .filter { $0.error == nil }
+            .withUnretained(self)
+            .flatMapLatest { owner, _ in
+                owner.naverSocialUserDataUseCase.socialUserData()
+            }
+        
+        let jwtSaved = Observable.merge(kakaoLogIn, naverLogIn)
+            .withUnretained(self)
+            .do(onNext: { userData in
+                print(userData)
+            })
+            .debug("social user data downStream")
 //            .flatMap { owner, socialUserData in
 //                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
 //                    .compactMap { $0.tokenData.first }

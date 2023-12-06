@@ -296,12 +296,15 @@ final class LogInViewController: UIViewController {
             .distinctUntilChanged()
         let logInButtonTapped = logInButton.rx.tap.asObservable()
         let kakaoLogInButtonTapped = kakaoLogInButton.rx.tap.asObservable()
+        let naverLogInButtonTapped = naverLogInButton.rx.tap.asObservable()
         
-        let input = LogInViewModel.Input(email: email,
-                                         password: password,
-                                         logInButtonTapped: logInButtonTapped,
-                                         kakaoLogInButtonTapped: kakaoLogInButtonTapped)
-        
+        let input = LogInViewModel.Input(
+            email: email,
+            password: password,
+            logInButtonTapped: logInButtonTapped,
+            kakaoLogInButtonTapped: kakaoLogInButtonTapped,
+            naverLogInButtonTapped: naverLogInButtonTapped
+        )
         let output = viewModel.transform(input)
         
         output.inputStates

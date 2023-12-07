@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import GoogleSignIn
 
 final class LogInViewController: UIViewController {
     private let titleLabel: UILabel = {
@@ -296,11 +297,13 @@ final class LogInViewController: UIViewController {
             .distinctUntilChanged()
         let logInButtonTapped = logInButton.rx.tap.asObservable()
         let kakaoLogInButtonTapped = kakaoLogInButton.rx.tap.asObservable()
+        let googleLogInButtonTapped = googleLogInButton.rx.tap.asObservable()
         
         let input = LogInViewModel.Input(email: email,
                                          password: password,
                                          logInButtonTapped: logInButtonTapped,
-                                         kakaoLogInButtonTapped: kakaoLogInButtonTapped)
+                                         kakaoLogInButtonTapped: kakaoLogInButtonTapped,
+                                         googleLogInButtonTapped: googleLogInButtonTapped)
         
         let output = viewModel.transform(input)
         
@@ -323,6 +326,14 @@ final class LogInViewController: UIViewController {
             
         output.logInSucceeded
             .subscribe()
+            .disposed(by: disposeBag)
+        
+        output.googleLogIn
+            .debug("LogInViewController")
+            .subscribe(on: MainScheduler.instance)
+            .subscribe { userData in
+                print("UserData: \(userData)")
+            }
             .disposed(by: disposeBag)
     }
 }

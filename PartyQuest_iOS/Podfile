@@ -10,6 +10,7 @@ target 'PartyQuest_iOS' do
     pod 'RxKakaoSDKCommon'
     pod 'RxKakaoSDKAuth'
     pod 'RxKakaoSDKUser'
+    pod 'GoogleSignIn'
 
   target 'PartyQuest_Tests' do
     inherit! :search_paths

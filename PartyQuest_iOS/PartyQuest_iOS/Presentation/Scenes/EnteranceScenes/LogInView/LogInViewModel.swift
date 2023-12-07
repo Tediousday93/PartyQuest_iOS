@@ -7,7 +7,6 @@
 
 import RxSwift
 import RxCocoa
-import GoogleSignIn
 
 final class LogInViewModel {
     private let coordinator: LogInCoordinator
@@ -54,7 +53,6 @@ extension LogInViewModel: ViewModelType {
         let isEnableLogInButton: Driver<Bool>
         let logInSucceeded: Observable<Void>
         let jwtSaved: Observable<Void>
-        let googleLogIn: Observable<SocialUserData>
     }
     
     func transform(_ input: Input) -> Output {
@@ -185,8 +183,7 @@ extension LogInViewModel: ViewModelType {
             inputStates: inputStates,
             isEnableLogInButton: isEnableLogInButton,
             logInSucceeded: logInSucceeded,
-            jwtSaved: jwtSaved,
-            googleLogIn: googleLogIn
+            jwtSaved: jwtSaved
         )
     }
 }

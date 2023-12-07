@@ -330,13 +330,5 @@ final class LogInViewController: UIViewController {
         output.logInSucceeded
             .subscribe()
             .disposed(by: disposeBag)
-        
-        output.googleLogIn
-            .debug("LogInViewController")
-            .subscribe(on: MainScheduler.instance)
-            .subscribe { userData in
-                print("UserData: \(userData)")
-            }
-            .disposed(by: disposeBag)
     }
 }

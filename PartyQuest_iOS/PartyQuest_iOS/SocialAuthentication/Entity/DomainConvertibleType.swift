@@ -6,6 +6,7 @@
 //
 
 import KakaoSDKUser
+import GoogleSignIn
 
 protocol DomainConvertibleType {
     associatedtype Domain
@@ -27,5 +28,20 @@ extension KakaoSDKUser.User: DomainConvertibleType {
             nickName: properties?["nickname"],
             platform: .kakao
         )
+    }
+}
+
+extension GIDGoogleUser: DomainConvertibleType {
+    typealias Domain = SocialUserData
+    
+    func toDomain() -> SocialUserData {
+        guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
+            fatalError("Can not find Secrets Key ")
+        }
+        
+        return SocialUserData(email: profile?.email,
+                              secrets: secrets,
+                              nickName: profile?.name,
+                              platform: .google)
     }
 }

@@ -17,4 +17,10 @@ final class DefaultSocialUserDataUseCaseProvider: SocialUserDataUseCaseProvider 
             service: serviceProvider.makeKakaoAuthService()
         )
     }
+    
+    func makeGoogleSocialUserDataUseCase() -> SocialUserDataUseCase {
+        return DefaultSocialUserDataUseCase(
+            service: serviceProvider.makeGoogleAuthService()
+        )
+    }
 }

@@ -12,6 +12,8 @@ final class SocialAuthProvider {
     
     func makeGoogleAuthService() -> GoogleAuthService {
         return GoogleAuthService()
+    }
+    
     func makeNaverAuthService() -> NaverAuthService {
         return NaverAuthService()
     }

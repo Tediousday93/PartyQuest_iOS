@@ -7,7 +7,6 @@
 
 import RxSwift
 import Alamofire
-import RxAlamofire
 import NaverThirdPartyLogin
 
 enum NaverAuthError: Error {

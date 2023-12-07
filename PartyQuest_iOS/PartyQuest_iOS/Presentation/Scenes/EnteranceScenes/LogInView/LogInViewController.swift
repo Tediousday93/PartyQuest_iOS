@@ -305,8 +305,8 @@ final class LogInViewController: UIViewController {
             password: password,
             logInButtonTapped: logInButtonTapped,
             kakaoLogInButtonTapped: kakaoLogInButtonTapped,
-            naverLogInButtonTapped: naverLogInButtonTapped,
-			googleLogInButtonTapped: googleLogInButtonTapped
+            googleLogInButtonTapped: googleLogInButtonTapped,
+            naverLogInButtonTapped: naverLogInButtonTapped
         )
         let output = viewModel.transform(input)
         

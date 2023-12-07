@@ -21,6 +21,9 @@ final class DefaultSocialUserDataUseCaseProvider: SocialUserDataUseCaseProvider 
     func makeGoogleSocialUserDataUseCase() -> SocialUserDataUseCase {
         return DefaultSocialUserDataUseCase(
             service: serviceProvider.makeGoogleAuthService()
+        )
+    }
+    
     func makeNaverSocialUserDataUseCase() -> SocialUserDataUseCase {
         return DefaultSocialUserDataUseCase(
             service: serviceProvider.makeNaverAuthService()

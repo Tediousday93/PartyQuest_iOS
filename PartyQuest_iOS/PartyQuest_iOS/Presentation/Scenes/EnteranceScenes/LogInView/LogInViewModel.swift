@@ -109,13 +109,28 @@ extension LogInViewModel: ViewModelType {
                 owner.kakaoSocialUserDataUseCase.socialUserData()
             }
         
+        let googleLogIn = input.googleLogInButtonTapped
+            .withUnretained(self)
+            .flatMap { owner, _ in
+                owner.googleSocialUserDataUseCase.logIn()
+                    .materialize()
+            }
+            .do(onNext: { event in
+                if let error = event.error {
+                    errorRelay.accept(error)
+                }
+            })
+            .withUnretained(self)
+            .flatMap { owner, _ in
+                owner.googleSocialUserDataUseCase.socialUserData()
+            }
+        
         let naverLogIn = input.naverLogInButtonTapped
             .withUnretained(self)
             .flatMap { owner, _ in
                 owner.naverSocialUserDataUseCase.logIn()
                     .materialize()
             }
-            .debug("Naver Log In Requested")
             .do(onNext: { event in
                 if let error = event.error {
                     errorRelay.accept(error)
@@ -127,12 +142,11 @@ extension LogInViewModel: ViewModelType {
                 owner.naverSocialUserDataUseCase.socialUserData()
             }
         
-        let jwtSaved = Observable.merge(kakaoLogIn, naverLogIn)
+        let jwtSaved = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
             .withUnretained(self)
             .do(onNext: { userData in
                 print(userData)
             })
-            .debug("social user data downStream")
 //            .flatMap { owner, socialUserData in
 //                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
 //                    .compactMap { $0.tokenData.first }
@@ -152,22 +166,6 @@ extension LogInViewModel: ViewModelType {
 //            .dematerialize()
             .map { owner, _ in
                 owner.isLoggedIn.onNext(true)
-            }
-        
-        let googleLogIn = input.googleLogInButtonTapped
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.googleSocialUserDataUseCase.logIn()
-                    .materialize()
-            }
-            .do(onNext: { event in
-                if let error = event.error {
-                    errorRelay.accept(error)
-                }
-            })
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.googleSocialUserDataUseCase.socialUserData()
             }
         
         let logInSucceeded = input.logInButtonTapped

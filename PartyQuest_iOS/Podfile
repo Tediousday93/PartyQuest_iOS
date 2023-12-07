@@ -11,6 +11,10 @@ target 'PartyQuest_iOS' do
     pod 'RxKakaoSDKCommon'
     pod 'RxKakaoSDKAuth'
     pod 'RxKakaoSDKUser'
+
+	# GoogleSDK
+    pod 'GoogleSignIn'
+
     # Naver SDK
     pod 'naveridlogin-sdk-ios'
 

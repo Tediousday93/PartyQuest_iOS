@@ -10,6 +10,8 @@ final class SocialAuthProvider {
         return KakaoAuthService()        
     }
     
+    func makeGoogleAuthService() -> GoogleAuthService {
+        return GoogleAuthService()
     func makeNaverAuthService() -> NaverAuthService {
         return NaverAuthService()
     }

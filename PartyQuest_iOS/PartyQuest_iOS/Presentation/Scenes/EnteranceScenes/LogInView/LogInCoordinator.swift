@@ -32,6 +32,7 @@ final class LogInCoordinator: BaseCoordinator {
             coordinator: self,
             authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),
             kakaoSocialUserDataUseCase: socialUserDataUseCaseProvider.makeKakaoSocialUserDataUseCase(),
+            googleSocialUserDataUseCase: socialUserDataUseCaseProvider.makeGoogleSocialUserDataUseCase(),
             naverSocialUserDataUseCase: socialUserDataUseCaseProvider.makeNaverSocialUserDataUseCase(),
             serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase(),
             isLoggedIn: isLoggedIn

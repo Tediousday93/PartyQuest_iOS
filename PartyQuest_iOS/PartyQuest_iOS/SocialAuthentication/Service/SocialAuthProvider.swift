@@ -9,4 +9,8 @@ final class SocialAuthProvider {
     func makeKakaoAuthService() -> KakaoAuthService {
         return KakaoAuthService()        
     }
+    
+    func makeGoogleAuthService() -> GoogleAuthService {
+        return GoogleAuthService()
+    }
 }

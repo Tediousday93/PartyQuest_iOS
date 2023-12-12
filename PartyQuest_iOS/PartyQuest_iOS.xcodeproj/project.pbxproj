@@ -44,6 +44,9 @@
 		4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */; };
 		4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81332B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift */; };
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
+		AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */; };
+		AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9842B284695005BAEEB /* PartyListViewController.swift */; };
+		AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
@@ -119,6 +122,9 @@
 		4AE533E52B1F034700862C09 /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListCoordinator.swift; sourceTree = "<group>"; };
+		AD59A9842B284695005BAEEB /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
+		AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewModel.swift; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
@@ -236,6 +242,7 @@
 			children = (
 				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
+				AD59A9812B28465A005BAEEB /* PartyListView */,
 			);
 			path = TabBarScenes;
 			sourceTree = "<group>";
@@ -330,6 +337,16 @@
 				D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD59A9812B28465A005BAEEB /* PartyListView */ = {
+			isa = PBXGroup;
+			children = (
+				AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */,
+				AD59A9842B284695005BAEEB /* PartyListViewController.swift */,
+				AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */,
+			);
+			path = PartyListView;
 			sourceTree = "<group>";
 		};
 		AD5DAB902AEA9ACE00DC30B9 /* Presentation */ = {
@@ -711,6 +728,7 @@
 				4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */,
 				4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */,
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
+				AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */,
 				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
@@ -726,12 +744,14 @@
 				4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
+				AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
 				4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,
+				AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,

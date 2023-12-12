@@ -19,7 +19,6 @@ final class SocialLogInButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-
     private func configureUI() {
         self.layer.cornerRadius = 15
         self.layer.shadowColor = UIColor.gray.cgColor

@@ -9,7 +9,6 @@ import UIKit
 import RxKakaoSDKAuth
 import KakaoSDKAuth
 import GoogleSignIn
-
 import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -51,7 +51,6 @@ extension LogInViewModel: ViewModelType {
         let errorRelay: PublishRelay<Error>
         let inputStates: Driver<(InputState, InputState)>
         let isEnableLogInButton: Driver<Bool>
-        let logInSucceeded: Observable<Void>
         let jwtSaved: Observable<Void>
     }
     
@@ -140,16 +139,32 @@ extension LogInViewModel: ViewModelType {
                 owner.naverSocialUserDataUseCase.socialUserData()
             }
         
-        let jwtSaved = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
+        let socialJWT = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
             .withUnretained(self)
             .do(onNext: { userData in
                 print(userData)
             })
-//            .flatMap { owner, socialUserData in
-//                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
-//                    .compactMap { $0.tokenData.first }
-//                    .map { (owner, $0) }
-//            }
+            .flatMap { owner, socialUserData in
+                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
+                    .compactMap { $0.tokenData.first }
+                    .map { (owner, $0) }
+            }
+        
+        let serverJWT = input.logInButtonTapped
+            .withLatestFrom(userInputs)
+            .map { email, password in
+                return (email: email, password: password)
+            }
+            .withUnretained(self)
+            .flatMap { owner, userInputs in
+                owner.authenticationUseCase.logIn(email: userInputs.email,
+                                                  password: userInputs.password)
+                .asObservable()
+                .compactMap { $0.tokenData.first }
+                .map { (owner, $0) }
+            }
+        
+        let jwtSaved = Observable.merge(socialJWT, serverJWT)
 //            .do(onNext: { owner, serviceToken in
 //                try owner.serviceTokenUseCase.saveToken(serviceToken: serviceToken)
 //            })
@@ -166,23 +181,10 @@ extension LogInViewModel: ViewModelType {
                 owner.isLoggedIn.onNext(true)
             }
         
-        let logInSucceeded = input.logInButtonTapped
-            .withLatestFrom(userInputs)
-            .map { email, password in
-                return (email: email, password: password)
-            }
-            .withUnretained(self)
-            .flatMap { owner, userInputs in
-                owner.authenticationUseCase.logIn(email: userInputs.email,
-                                                  password: userInputs.password)
-            }
-            .map { _ in }
-        
         return Output(
             errorRelay: errorRelay,
             inputStates: inputStates,
             isEnableLogInButton: isEnableLogInButton,
-            logInSucceeded: logInSucceeded,
             jwtSaved: jwtSaved
         )
     }

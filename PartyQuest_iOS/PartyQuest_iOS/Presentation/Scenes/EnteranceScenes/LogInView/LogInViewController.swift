@@ -64,6 +64,7 @@ final class LogInViewController: UIViewController {
         button.titleLabel?.font = .preferredFont(forTextStyle: .headline)
         button.titleLabel?.tintColor = .systemBackground
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
         
         return button
     }()

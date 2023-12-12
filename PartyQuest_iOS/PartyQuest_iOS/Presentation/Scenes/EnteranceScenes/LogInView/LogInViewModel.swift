@@ -57,25 +57,27 @@ extension LogInViewModel: ViewModelType {
     func transform(_ input: Input) -> Output {
         let errorRelay: PublishRelay<Error> = .init()
         
-        let userInputs = Observable.combineLatest(input.email,
-                                                  input.password)
+        let userInputs = Observable
+            .combineLatest(input.email, input.password)
+            .share()
         
-        let userInputsValidation = userInputs
+        let inputStates = userInputs
             .map { email, password in
-                var validation = (true, true)
+                var validation = (false, false)
                 if email.isEmpty == false {
                     validation.0 = email.isValidEmail()
+                } else {
+                    validation.0 = true
                 }
                 if password.isEmpty == false {
                     validation.1 = password.isValidPassword()
+                } else {
+                    validation.1 = true
                 }
                 
                 return validation
             }
-            .share()
-            .asDriver(onErrorJustReturn: (true, true))
-        
-        let inputStates = userInputsValidation
+            .asDriver(onErrorJustReturn: (false, false))
             .map { validation in
                 var states: (InputState, InputState)
                 validation.0 ? (states.0 = .correct) : (states.0 = .incorrect)
@@ -84,10 +86,19 @@ extension LogInViewModel: ViewModelType {
                 return states
             }
         
-        let isEnableLogInButton = userInputsValidation
-            .map { isEmailValid, isPasswordValid in
-                return isEmailValid && isPasswordValid
+        let isEnableLogInButton = userInputs
+            .map { email, password in
+                var validation = (false, false)
+                if email.isEmpty == false {
+                    validation.0 = email.isValidEmail()
+                }
+                if password.isEmpty == false {
+                    validation.1 = password.isValidPassword()
+                }
+                return validation
             }
+            .map { $0 && $1 }
+            .asDriver(onErrorJustReturn: false)
         
         let kakaoLogIn = input.kakaoLogInButtonTapped
             .withUnretained(self)

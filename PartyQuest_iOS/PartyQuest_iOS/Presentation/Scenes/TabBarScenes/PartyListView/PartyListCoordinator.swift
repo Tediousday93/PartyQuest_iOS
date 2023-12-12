@@ -12,6 +12,6 @@ final class PartyListCoordinator: BaseCoordinator {
         let partyListViewModel = PartyListViewModel()
         let partyListViewController = PartyListViewController()
         
-        navigationController.pushViewController(partyListViewController, animated: true)
+        navigationController?.pushViewController(partyListViewController, animated: true)
     }
 }

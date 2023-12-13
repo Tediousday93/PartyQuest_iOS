@@ -39,14 +39,14 @@ final class NaverAuthService: NSObject, SocialAuthService {
                 return Disposables.create()
             }
             
-            guard logInInstance.isValidAccessTokenExpireTimeNow() else {
-                logInInstance.requestAccessTokenWithRefreshToken()
+            guard self.logInInstance.isValidAccessTokenExpireTimeNow() else {
+                self.logInInstance.requestAccessTokenWithRefreshToken()
                 single(.failure(NaverAuthError.accessTokenExpired))
                 return Disposables.create()
             }
             
-            let tokenType: String = logInInstance.tokenType
-            let token: String = logInInstance.accessToken
+            let tokenType: String = self.logInInstance.tokenType
+            let token: String = self.logInInstance.accessToken
             let url = URL(string: "https://openapi.naver.com/v1/nid/me")!
             let authorization = "\(tokenType) \(token)"
             let request = AF.request(url,

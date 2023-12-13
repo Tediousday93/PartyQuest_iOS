@@ -1,5 +1,5 @@
 //
-//  QuestStateLabel.swift
+//  LeftImageLabel.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/12/12.
@@ -38,6 +38,11 @@ final class LeftImageLabel: UIView {
         setConstraints()
     }
     
+    convenience init(imageName: String) {
+        self.init()
+        setImage(assetName: imageName)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -62,7 +67,7 @@ final class LeftImageLabel: UIView {
         setNeedsLayout()
     }
     
-    func setText(_ text: String) {
+    func setText(_ text: String?) {
         textLabel.text = text
     }
 }

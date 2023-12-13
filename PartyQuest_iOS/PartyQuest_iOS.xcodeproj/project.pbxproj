@@ -49,7 +49,7 @@
 		AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */; };
 		AD59A98B2B2848E2005BAEEB /* PartyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98A2B2848E2005BAEEB /* PartyCell.swift */; };
 		AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98C2B284AC1005BAEEB /* Reusable.swift */; };
-		AD59A98F2B285037005BAEEB /* QuestStateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98E2B285037005BAEEB /* QuestStateLabel.swift */; };
+		AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
@@ -130,7 +130,7 @@
 		AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewModel.swift; sourceTree = "<group>"; };
 		AD59A98A2B2848E2005BAEEB /* PartyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCell.swift; sourceTree = "<group>"; };
 		AD59A98C2B284AC1005BAEEB /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		AD59A98E2B285037005BAEEB /* QuestStateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestStateLabel.swift; sourceTree = "<group>"; };
+		AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftImageLabel.swift; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
@@ -428,7 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */,
-				AD59A98E2B285037005BAEEB /* QuestStateLabel.swift */,
+				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyCell.swift */,
 			);
@@ -748,7 +748,7 @@
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
 				4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */,
 				4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */,
-				AD59A98F2B285037005BAEEB /* QuestStateLabel.swift in Sources */,
+				AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */,

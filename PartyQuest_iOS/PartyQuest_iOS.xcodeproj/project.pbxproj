@@ -17,7 +17,11 @@
 		4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24912AEBE14A005B264F /* Coordinator.swift */; };
 		4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */; };
 		4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */; };
+		4A224C7A2B28479300D22E81 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C792B28479300D22E81 /* UserProfile.swift */; };
+		4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */; };
+		4A224C7E2B297A4D00D22E81 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */; };
 		4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */; };
+		4A224C842B29919600D22E81 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C832B29919600D22E81 /* Reusable.swift */; };
 		4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */; };
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
 		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
@@ -90,7 +94,11 @@
 		4A1F24912AEBE14A005B264F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		4A224C792B28479300D22E81 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
+		4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
+		4A224C832B29919600D22E81 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +253,10 @@
 		4A42AFC82B147490005380E7 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */,
 				4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */,
+				4A224C792B28479300D22E81 /* UserProfile.swift */,
+				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -389,6 +400,7 @@
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
 				AD5DABA32AF22A7100DC30B9 /* View */,
 				4A1F24992AEBEC0A005B264F /* Coordinator */,
+				4A224C832B29919600D22E81 /* Reusable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -724,12 +736,15 @@
 				4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */,
 				4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
+				4A224C7E2B297A4D00D22E81 /* HomeCoordinator.swift in Sources */,
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */,
+				4A224C7A2B28479300D22E81 /* UserProfile.swift in Sources */,
 				4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */,
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
+				4A224C842B29919600D22E81 /* Reusable.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
@@ -744,6 +759,7 @@
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
+				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,

@@ -17,6 +17,7 @@
 		4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24912AEBE14A005B264F /* Coordinator.swift */; };
 		4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */; };
 		4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */; };
+		4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */; };
 		4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */; };
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
 		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
@@ -95,6 +96,7 @@
 		4A1F24912AEBE14A005B264F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4A1F24932AEBE1CB005B264F /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		4A1F24972AEBE2A6005B264F /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 		AD5DAB952AEA9BD600DC30B9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */,
 				AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */,
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
 				AD59A98C2B284AC1005BAEEB /* Reusable.swift */,
@@ -771,6 +774,7 @@
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
+				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,

@@ -7,9 +7,7 @@
 
 import UIKit
 
-final class UserProfileCell: UICollectionViewCell {
-    static let id = "MyProfileCell"
-    
+final class UserProfileCell: UICollectionViewCell {    
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         

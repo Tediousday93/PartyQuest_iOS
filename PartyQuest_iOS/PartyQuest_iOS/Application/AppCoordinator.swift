@@ -36,7 +36,8 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+//        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+        coordinateToHome()
     }
     
     override func didFinish(coordinator: Coordinator) {
@@ -82,5 +83,12 @@ extension AppCoordinator {
         self.tabBarController = PQTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        let homeNavigationController = UINavigationController()
+        let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
+        
+        tabBarController?.viewControllers = [homeNavigationController]
+        
+        start(coordinator: homeCoordinator)
     }
 }

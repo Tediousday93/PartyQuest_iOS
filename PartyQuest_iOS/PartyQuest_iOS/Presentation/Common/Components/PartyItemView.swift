@@ -107,7 +107,7 @@ final class PartyItemView: UIView {
     }
     
     func setContents(
-        topImage: UIImage,
+        topImage: UIImage?,
         title: String?,
         memberCount: String?,
         todoQuestCount: String?,

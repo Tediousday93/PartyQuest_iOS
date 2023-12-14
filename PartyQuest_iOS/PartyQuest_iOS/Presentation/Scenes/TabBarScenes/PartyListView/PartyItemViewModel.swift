@@ -9,7 +9,7 @@ import UIKit.UIImage
 import Foundation
 
 struct PartyItemViewModel: Hashable {
-    let topImage: UIImage
+    let topImage: UIImage?
     let title: String?
     let memberCount: String?
     let todoQuestCount: String?

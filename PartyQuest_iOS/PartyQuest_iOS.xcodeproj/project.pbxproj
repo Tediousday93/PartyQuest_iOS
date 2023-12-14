@@ -401,9 +401,9 @@
 				4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */,
 				AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */,
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
+				4A224C832B29919600D22E81 /* Reusable.swift */,
 				AD5DABA32AF22A7100DC30B9 /* View */,
 				4A1F24992AEBEC0A005B264F /* Coordinator */,
-				4A224C832B29919600D22E81 /* Reusable.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

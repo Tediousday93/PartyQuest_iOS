@@ -9,7 +9,8 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
-    typealias SnapShot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
+    typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfile>
     
     private var dataSource: DataSource?
     
@@ -26,7 +27,8 @@ final class HomeViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let colletionView = UICollectionView(frame: .zero,
                                              collectionViewLayout: createCollectionViewLayout())
-        
+        colletionView.backgroundColor = .red
+        colletionView.translatesAutoresizingMaskIntoConstraints = false
         
         return colletionView
     }()
@@ -53,12 +55,14 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
-        DispatchQueue.global().async {
+        
+        DispatchQueue.global().async { [weak self] in
             let data = try? Data(
                 contentsOf: URL(string: "https://tistory1.daumcdn.net/tistory/2767662/attach/f8d3ddae9ef442ada2aa8d8631c5c9b2")!
             )
-            self.harryProfile.imageData = data
+            self?.harryProfile.imageData = data
         }
+        
         setTabBarItem()
         setConstraint()
         configureDataSource()
@@ -69,7 +73,7 @@ final class HomeViewController: UIViewController {
         let tabBarImage = UIImage(systemName: "house")
         let tabBarSelectedImage = UIImage(systemName: "house.fill")
         
-        self.tabBarItem = .init(title: "Home", image: tabBarImage, selectedImage: tabBarSelectedImage)
+        self.tabBarItem = .init(title: nil, image: tabBarImage, selectedImage: tabBarSelectedImage)
     }
     
     private func setConstraint() {
@@ -87,40 +91,41 @@ final class HomeViewController: UIViewController {
         UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
             switch section {
             default:
-                var config = UICollectionLayoutListConfiguration(appearance: .plain)
-                let section = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
-                
-                return section
+                let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+                let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
+                listSection.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
+
+                return listSection
             }
         }
     }
     
     private func configureDataSource() {
+        let userProfileCellRegistration = UserProfileCellRegistration { cell, indexPath, userProfile in
+            cell.accessories = [.disclosureIndicator()]
+            cell.configure(userProfile)
+        }
+        
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item in
             if let profile = item as? UserProfile {
-                guard let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: UserProfileCell.reuseID,
-                    for: indexPath
-                ) as? UserProfileCell else { return UICollectionViewCell() }
-                
-                cell.configure(profile)
-                return cell
+                return collectionView.dequeueConfiguredReusableCell(using: userProfileCellRegistration,
+                                                                        for: indexPath,
+                                                                        item: profile)
             }
             
-            return nil
+            return UICollectionViewCell()
         }
     }
     
     private func applyInitialSnapshot() {
-        var snapShot = SnapShot()
-//        snapShot.appendSections(Section.allCases)
-        snapShot.appendSections([.myProfile])
-        snapShot.appendItems([harryProfile])
-        
+        var snapshot = Snapshot()
+        snapshot.appendSections([.myProfile])
+        snapshot.appendItems([harryProfile])
+        self.dataSource?.apply(snapshot)
     }
-
 }
 
 enum Section: CaseIterable {
     case myProfile
+    case thisWeekActivity
 }

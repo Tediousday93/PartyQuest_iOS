@@ -7,22 +7,23 @@
 
 import UIKit
 
-final class UserProfileCell: UICollectionViewCell {    
+final class UserProfileCell: UICollectionViewListCell {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        
         
         return imageView
     }()
     
     private let nickNameLabel: UILabel = {
         let label = UILabel()
+        label.font = PQFont.subTitle
         
         return label
     }()
     
     private let emailLabel: UILabel = {
         let label = UILabel()
+        label.font = PQFont.basic
         
         return label
     }()
@@ -31,14 +32,17 @@ final class UserProfileCell: UICollectionViewCell {
         let stackView = UIStackView()
         stackView.spacing = 8
         stackView.axis = .vertical
+        stackView.isLayoutMarginsRelativeArrangement = true
+//        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 0)
         
         return stackView
     }()
     
     private let outerStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 6
+        stackView.spacing = 15
         stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = .init(top: 10, left: 10, bottom: 10, right: 10)
@@ -48,7 +52,7 @@ final class UserProfileCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         setSubViews()
         setConstraints()
     }
@@ -56,9 +60,10 @@ final class UserProfileCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func configure(_ userProfile: UserProfile) {
-        profileImageView.image = UIImage(data: userProfile.imageData!)
+//        profileImageView.image = UIImage(data: userProfile.imageData!)
+        profileImageView.image = UIImage(systemName: "house")
         nickNameLabel.text = userProfile.nickName
         emailLabel.text = userProfile.email
     }
@@ -76,6 +81,12 @@ final class UserProfileCell: UICollectionViewCell {
         let safe = contentView.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
+            profileImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor,
+                                                    multiplier: 0.2),
+            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor,
+                                                     multiplier: 0.8
+                                                    ),
+            
             outerStackView.topAnchor.constraint(equalTo: safe.topAnchor),
             outerStackView.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
             outerStackView.trailingAnchor.constraint(equalTo: safe.trailingAnchor),

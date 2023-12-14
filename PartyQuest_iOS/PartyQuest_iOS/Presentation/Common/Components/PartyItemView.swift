@@ -1,5 +1,5 @@
 //
-//  PartyCell.swift
+//  PartyItemView.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/12/12.

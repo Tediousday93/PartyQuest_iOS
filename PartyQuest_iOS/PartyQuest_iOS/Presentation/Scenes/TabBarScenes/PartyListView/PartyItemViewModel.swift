@@ -8,7 +8,7 @@
 import UIKit.UIImage
 import Foundation
 
-struct PartyItemViewModel {
+struct PartyItemViewModel: Hashable {
     let topImage: UIImage
     let title: String?
     let memberCount: String?

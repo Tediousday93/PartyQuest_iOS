@@ -5,12 +5,12 @@
 //  Created by Rowan on 2023/12/12.
 //
 
-import Foundation
+import UIKit
 
 final class PartyListCoordinator: BaseCoordinator {
     override func start() {
         let partyListViewModel = PartyListViewModel()
-        let partyListViewController = PartyListViewController()
+        let partyListViewController = PartyListViewController(viewModel: partyListViewModel)
         
         navigationController?.pushViewController(partyListViewController, animated: true)
     }

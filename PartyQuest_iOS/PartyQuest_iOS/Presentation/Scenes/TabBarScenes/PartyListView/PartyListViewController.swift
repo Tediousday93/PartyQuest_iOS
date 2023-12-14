@@ -94,6 +94,22 @@ final class PartyListViewController: UIViewController {
     }
     
     private func setBindings() {
+        let viewDidLoadEvent = rx.methodInvoked(#selector(WelcomeViewController.viewDidLoad))
+            .map { _ in}
+        let input = PartyListViewModel.Input(viewDidLoadEvent: viewDidLoadEvent)
+        let output = viewModel.transform(input)
         
+        output.partyItemViewModels
+            .subscribe(with: self, onNext: { owner, items in
+                owner.applySnapshot(items: items)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func applySnapshot(items: [PartyItemViewModel]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(items)
+        dataSource.apply(snapshot)
     }
 }

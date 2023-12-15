@@ -12,6 +12,7 @@ final class PartyCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureShape()
         setSubviews()
         setConstraints()
     }
@@ -24,7 +25,13 @@ final class PartyCollectionViewCell: UICollectionViewCell {
         partyItemView.resetContents()
     }
     
+    private func configureShape() {
+        self.backgroundColor = .systemGray5
+        self.layer.cornerRadius = 15
+    }
+    
     private func setSubviews() {
+        partyItemView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(partyItemView)
     }
     

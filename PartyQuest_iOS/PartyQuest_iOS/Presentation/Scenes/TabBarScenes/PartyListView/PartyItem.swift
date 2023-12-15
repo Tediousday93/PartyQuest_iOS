@@ -1,5 +1,5 @@
 //
-//  PartyItemViewModel.swift
+//  PartyItem.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/12/13.
@@ -8,7 +8,7 @@
 import UIKit.UIImage
 import Foundation
 
-struct PartyItemViewModel: Hashable {
+struct PartyItem: Hashable {
     let topImage: UIImage?
     let title: String?
     let memberCount: String?

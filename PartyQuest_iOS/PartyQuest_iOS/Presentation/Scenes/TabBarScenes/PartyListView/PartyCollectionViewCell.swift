@@ -44,14 +44,14 @@ final class PartyCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func bind(_ viewModel: PartyItemViewModel) {
-        partyItemView.setContents(topImage: viewModel.topImage,
-                                  title: viewModel.title,
-                                  memberCount: viewModel.memberCount,
-                                  todoQuestCount: viewModel.todoQuestCount,
-                                  doingQuestCount: viewModel.doingQuestCount,
-                                  doneQuestCount: viewModel.doneQuestCount,
-                                  partyMaster: viewModel.partyMaster,
-                                  creationDate: viewModel.creationDate)
+    func configure(with partyItem: PartyItem) {
+        partyItemView.setContents(topImage: partyItem.topImage,
+                                  title: partyItem.title,
+                                  memberCount: partyItem.memberCount,
+                                  todoQuestCount: partyItem.todoQuestCount,
+                                  doingQuestCount: partyItem.doingQuestCount,
+                                  doneQuestCount: partyItem.doneQuestCount,
+                                  partyMaster: partyItem.partyMaster,
+                                  creationDate: partyItem.creationDate)
     }
 }

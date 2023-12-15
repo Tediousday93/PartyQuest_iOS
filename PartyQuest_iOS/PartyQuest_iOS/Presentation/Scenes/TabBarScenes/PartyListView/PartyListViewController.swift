@@ -14,8 +14,8 @@ final class PartyListViewController: UIViewController {
         case main
     }
     
-    private typealias DataSource = UICollectionViewDiffableDataSource<Section, PartyItemViewModel>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PartyItemViewModel>
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, PartyItem>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PartyItem>
     
     private let collectionView: UICollectionView = .init()
     private var dataSource: DataSource!
@@ -87,7 +87,7 @@ final class PartyListViewController: UIViewController {
                 withReuseIdentifier: PartyCollectionViewCell.reuseID,
                 for: indexPath
             ) as! PartyCollectionViewCell
-            cell.bind(item)
+            cell.configure(with: item)
             
             return cell
         }
@@ -106,7 +106,7 @@ final class PartyListViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func applySnapshot(items: [PartyItemViewModel]) {
+    private func applySnapshot(items: [PartyItem]) {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)

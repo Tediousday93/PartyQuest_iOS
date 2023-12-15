@@ -32,11 +32,16 @@ final class AppCoordinator: BaseCoordinator {
     
     deinit {
         disposeBag = .init()
-        print("enterance coordinator deinited")
+        print("enterance coordinator deinit")
     }
     
     override func start() {
-        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+//        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+        self.navigationController = UINavigationController()
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        let coordinator = PartyListCoordinator(navigationController: navigationController)
+        self.start(coordinator: coordinator)
     }
     
     override func didFinish(coordinator: Coordinator) {

@@ -29,10 +29,10 @@ final class PartyItemView: UIView {
         
         return label
     }()
-    let todoLabel: LeftImageLabel = LeftImageLabel(imageName: "todo")
-    let doingLabel: LeftImageLabel = LeftImageLabel(imageName: "doing")
-    let doneLabel: LeftImageLabel = LeftImageLabel(imageName: "done")
-    let partyMasterLabel: LeftImageLabel = LeftImageLabel(imageName: "partyMaster")
+    let todoLabel: LeftImageLabel = LeftImageLabel(imageName: "todoBadge")
+    let doingLabel: LeftImageLabel = LeftImageLabel(imageName: "doingBadge")
+    let doneLabel: LeftImageLabel = LeftImageLabel(imageName: "doneBadge")
+    let partyMasterLabel: LeftImageLabel = LeftImageLabel(imageName: "partyMasterBadge")
     let creationDateLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -46,6 +46,8 @@ final class PartyItemView: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 20, bottom: 0, right: 20)
         
         return stackView
     }()
@@ -54,6 +56,8 @@ final class PartyItemView: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 30, bottom: 0, right: 30)
         
         return stackView
     }()
@@ -62,6 +66,8 @@ final class PartyItemView: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 20, bottom: 0, right: 20)
         
         return stackView
     }()
@@ -71,6 +77,7 @@ final class PartyItemView: UIView {
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
         stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
     }()

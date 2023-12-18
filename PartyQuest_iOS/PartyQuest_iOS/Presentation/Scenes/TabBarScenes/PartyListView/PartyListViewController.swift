@@ -17,7 +17,8 @@ final class PartyListViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, PartyItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PartyItem>
     
-    private let collectionView: UICollectionView = .init()
+    private lazy var collectionView: UICollectionView = .init(frame: .zero,
+                                                              collectionViewLayout: collectionViewLayout())
     private var dataSource: DataSource!
     private let viewModel: PartyListViewModel
     private let disposeBag: DisposeBag
@@ -34,11 +35,21 @@ final class PartyListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavigationBar()
+        configureRootView()
         setSubviews()
         setConstraints()
         configureCollectionView()
         configureDataSource()
         setBindings()
+    }
+    
+    private func configureNavigationBar() {
+        self.title = "PartyQuest"
+    }
+    
+    private func configureRootView() {
+        view.backgroundColor = .systemBackground
     }
     
     private func setSubviews() {
@@ -55,7 +66,7 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView.setCollectionViewLayout(collectionViewLayout(), animated: true)
+        collectionView.backgroundColor = .systemBackground
         collectionView.register(
             PartyCollectionViewCell.self,
             forCellWithReuseIdentifier: PartyCollectionViewCell.reuseID
@@ -69,14 +80,17 @@ final class PartyListViewController: UIViewController {
             heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = .init(top: 15, leading: 15, bottom: 15, trailing: 15)
+        
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.95),
+            widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(0.3)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 15
+        section.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
         
         return UICollectionViewCompositionalLayout(section: section)
     }
@@ -94,12 +108,15 @@ final class PartyListViewController: UIViewController {
     }
     
     private func setBindings() {
-        let viewDidLoadEvent = rx.methodInvoked(#selector(WelcomeViewController.viewDidLoad))
+        let viewWillAppearEvent = rx.sentMessage(#selector(PartyListViewController.viewWillAppear))
             .map { _ in}
-        let input = PartyListViewModel.Input(viewDidLoadEvent: viewDidLoadEvent)
+        let input = PartyListViewModel.Input(
+            viewWillAppearEvent: viewWillAppearEvent
+        )
         let output = viewModel.transform(input)
         
         output.partyItemViewModels
+            .observe(on: MainScheduler.instance)
             .subscribe(with: self, onNext: { owner, items in
                 owner.applySnapshot(items: items)
             })

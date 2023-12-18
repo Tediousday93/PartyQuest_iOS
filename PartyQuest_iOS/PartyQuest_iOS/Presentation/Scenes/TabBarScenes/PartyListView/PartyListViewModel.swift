@@ -14,7 +14,7 @@ final class PartyListViewModel {
 
 extension PartyListViewModel: ViewModelType {
     struct Input {
-        let viewDidLoadEvent: Observable<Void>
+        let viewWillAppearEvent: Observable<Void>
     }
     
     struct Output {
@@ -22,7 +22,7 @@ extension PartyListViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
-        let partyItemViewModels = input.viewDidLoadEvent
+        let partyItemViewModels = input.viewWillAppearEvent
             .map { _ in
                 [
                     PartyItem(topImage: nil,

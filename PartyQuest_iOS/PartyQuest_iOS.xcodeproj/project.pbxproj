@@ -29,6 +29,7 @@
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
+		4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */; };
 		4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */; };
 		4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */; };
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
@@ -107,6 +108,7 @@
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
+		4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderView.swift; sourceTree = "<group>"; };
 		4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				4A224C792B28479300D22E81 /* UserProfile.swift */,
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
+				4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
+				4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,

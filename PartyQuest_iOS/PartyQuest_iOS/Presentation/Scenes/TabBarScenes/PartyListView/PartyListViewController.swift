@@ -60,7 +60,7 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureRootView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
     }
     
     private func setSubviews() {
@@ -81,7 +81,7 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        collectionView.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     

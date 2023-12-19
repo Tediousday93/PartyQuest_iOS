@@ -75,8 +75,9 @@ final class PartyItemView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 8
+        stackView.distribution = .equalSpacing
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 0, left: 0, bottom: 10, right: 0)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView
@@ -106,6 +107,8 @@ final class PartyItemView: UIView {
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
+            topImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.35),
+            
             outterStackView.topAnchor.constraint(equalTo: self.topAnchor),
             outterStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             outterStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

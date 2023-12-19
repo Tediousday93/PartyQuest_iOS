@@ -47,6 +47,7 @@
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
+		AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */; };
 		AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */; };
 		AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9842B284695005BAEEB /* PartyListViewController.swift */; };
 		AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */; };
@@ -131,6 +132,7 @@
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCardCell.swift; sourceTree = "<group>"; };
 		AD1BAD002B29A05000329C53 /* PartyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyItem.swift; sourceTree = "<group>"; };
+		AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListHeaderView.swift; sourceTree = "<group>"; };
 		AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListCoordinator.swift; sourceTree = "<group>"; };
 		AD59A9842B284695005BAEEB /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewModel.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */,
 				AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */,
 				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
+				AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */,
 			);
 			path = PartyListView;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */,
+				AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */,
 				AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,

@@ -26,8 +26,12 @@ final class PartyCardCell: UICollectionViewCell {
     }
     
     private func configureShape() {
-        self.backgroundColor = .systemGray5
+        self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 15
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowOpacity = 0.8
+        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowRadius = 2
     }
     
     private func setSubviews() {

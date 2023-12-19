@@ -61,7 +61,7 @@ final class UserProfileCell: UICollectionViewListCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(_ userProfile: UserProfile) {
+    func configure(with userProfile: UserProfile) {
 //        profileImageView.image = UIImage(data: userProfile.imageData!)
         profileImageView.image = UIImage(systemName: "house")
         nickNameLabel.text = userProfile.nickName

@@ -235,10 +235,11 @@ final class LogInViewController: UIViewController {
     
     private func configureRootView() {
         view.backgroundColor = .systemBackground
-        view.addSubview(scrollView)
     }
     
     private func setSubviews() {
+        view.addSubview(scrollView)
+        
         logInStackView.addArrangedSubview(titleLabel)
         logInStackView.addArrangedSubview(descriptionLabel)
         logInStackView.addArrangedSubview(emailTextField)

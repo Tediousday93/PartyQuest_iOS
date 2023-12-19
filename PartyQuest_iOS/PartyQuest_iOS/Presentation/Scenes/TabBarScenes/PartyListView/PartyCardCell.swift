@@ -1,5 +1,5 @@
 //
-//  PartyCollectionViewCell.swift
+//  PartyCardCell.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/12/13.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PartyCollectionViewCell: UICollectionViewCell {
+final class PartyCardCell: UICollectionViewCell {
     private let partyItemView: PartyItemView = .init()
     
     override init(frame: CGRect) {

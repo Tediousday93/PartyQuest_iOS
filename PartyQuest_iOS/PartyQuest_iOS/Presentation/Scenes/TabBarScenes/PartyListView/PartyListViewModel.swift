@@ -25,7 +25,7 @@ extension PartyListViewModel: ViewModelType {
         let partyItemViewModels = input.viewWillAppearEvent
             .map { _ in
                 [
-                    PartyItem(topImage: nil,
+                    PartyItem(topImage: UIImage(named: "party_card_image"),
                               title: "알고리즘 스터디",
                               memberCount: "5/10",
                               todoQuestCount: "2",
@@ -33,7 +33,7 @@ extension PartyListViewModel: ViewModelType {
                               doneQuestCount: "1",
                               partyMaster: "Harry",
                               creationDate: "생성일 2023.10.01"),
-                    PartyItem(topImage: nil,
+                    PartyItem(topImage: UIImage(named: "party_card_image"),
                               title: "독서파티",
                               memberCount: "5/10",
                               todoQuestCount: "2",

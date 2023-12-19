@@ -21,6 +21,15 @@ final class PartyListViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = .init(frame: .zero,
                                                               collectionViewLayout: collectionViewLayout())
+    private let plusButton: UIButton = {
+        let button = UIButton(type: .custom)
+        let image = UIImage(named: "floatingPlus_button")
+        button.setImage(image, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     private var dataSource: DataSource!
     private let viewModel: PartyListViewModel
     private let disposeBag: DisposeBag
@@ -47,7 +56,7 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        self.title = "PartyQuest"
+        title = "PartyQuest"
     }
     
     private func configureRootView() {
@@ -56,6 +65,7 @@ final class PartyListViewController: UIViewController {
     
     private func setSubviews() {
         view.addSubview(collectionView)
+        view.addSubview(plusButton)
     }
     
     private func setConstraints() {
@@ -64,6 +74,9 @@ final class PartyListViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            plusButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            plusButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
         ])
     }
     

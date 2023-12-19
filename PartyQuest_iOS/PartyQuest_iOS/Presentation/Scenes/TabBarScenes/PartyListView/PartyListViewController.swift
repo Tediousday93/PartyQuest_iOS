@@ -16,6 +16,8 @@ final class PartyListViewController: UIViewController {
     
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, PartyItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PartyItem>
+    private typealias PartyCardCellRegistration = UICollectionView.CellRegistration<PartyCardCell, PartyItem>
+    private typealias PartyListHeaderRegistration = UICollectionView.SupplementaryRegistration<PartyListHeaderView>
     
     private lazy var collectionView: UICollectionView = .init(frame: .zero,
                                                               collectionViewLayout: collectionViewLayout())
@@ -67,10 +69,6 @@ final class PartyListViewController: UIViewController {
     
     private func configureCollectionView() {
         collectionView.backgroundColor = .systemBackground
-        collectionView.register(
-            PartyCollectionViewCell.self,
-            forCellWithReuseIdentifier: PartyCollectionViewCell.reuseID
-        )
         collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -88,7 +86,19 @@ final class PartyListViewController: UIViewController {
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
+        
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(70)
+        )
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
         let section = NSCollectionLayoutSection(group: group)
+        section.boundarySupplementaryItems = [sectionHeader]
         section.interGroupSpacing = 15
         section.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
         
@@ -96,14 +106,29 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        dataSource = .init(collectionView: collectionView) { collectionView, indexPath, item in
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: PartyCollectionViewCell.reuseID,
-                for: indexPath
-            ) as! PartyCollectionViewCell
+        let cellRegistration = PartyCardCellRegistration { cell, indexPath, item in
             cell.configure(with: item)
-            
+        }
+        dataSource = .init(collectionView: collectionView) { collectionView, indexPath, item in
+            let cell = collectionView.dequeueConfiguredReusableCell(
+                using: cellRegistration,
+                for: indexPath,
+                item: item
+            )
             return cell
+        }
+        
+        let headerRegistration = PartyListHeaderRegistration(
+            elementKind: UICollectionView.elementKindSectionHeader
+        ) { supplementaryView, elementKind, indexPath in
+            supplementaryView.setTitle("파티 목록")
+        }
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            let headerView = collectionView.dequeueConfiguredReusableSupplementary(
+                using: headerRegistration,
+                for: indexPath
+            )
+            return headerView
         }
     }
     

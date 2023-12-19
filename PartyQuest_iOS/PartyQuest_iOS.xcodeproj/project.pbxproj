@@ -48,6 +48,10 @@
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
 		AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */; };
+		AD1BAD142B31716E00329C53 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD132B31716E00329C53 /* CreatePartyViewController.swift */; };
+		AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD152B31718300329C53 /* CreatePartyCoordinator.swift */; };
+		AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD172B31718D00329C53 /* CreatePartyViewModel.swift */; };
+		AD1BAD1A2B31759800329C53 /* TitledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD192B31759800329C53 /* TitledTextView.swift */; };
 		AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */; };
 		AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9842B284695005BAEEB /* PartyListViewController.swift */; };
 		AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */; };
@@ -133,6 +137,10 @@
 		AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCardCell.swift; sourceTree = "<group>"; };
 		AD1BAD002B29A05000329C53 /* PartyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyItem.swift; sourceTree = "<group>"; };
 		AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListHeaderView.swift; sourceTree = "<group>"; };
+		AD1BAD132B31716E00329C53 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
+		AD1BAD152B31718300329C53 /* CreatePartyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyCoordinator.swift; sourceTree = "<group>"; };
+		AD1BAD172B31718D00329C53 /* CreatePartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewModel.swift; sourceTree = "<group>"; };
+		AD1BAD192B31759800329C53 /* TitledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextView.swift; sourceTree = "<group>"; };
 		AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListCoordinator.swift; sourceTree = "<group>"; };
 		AD59A9842B284695005BAEEB /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewModel.swift; sourceTree = "<group>"; };
@@ -257,6 +265,7 @@
 				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
 				AD59A9812B28465A005BAEEB /* PartyListView */,
+				AD1BAD122B31711600329C53 /* CreatePartyView */,
 			);
 			path = TabBarScenes;
 			sourceTree = "<group>";
@@ -353,6 +362,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD1BAD122B31711600329C53 /* CreatePartyView */ = {
+			isa = PBXGroup;
+			children = (
+				AD1BAD152B31718300329C53 /* CreatePartyCoordinator.swift */,
+				AD1BAD132B31716E00329C53 /* CreatePartyViewController.swift */,
+				AD1BAD172B31718D00329C53 /* CreatePartyViewModel.swift */,
+			);
+			path = CreatePartyView;
+			sourceTree = "<group>";
+		};
 		AD59A9812B28465A005BAEEB /* PartyListView */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */,
+				AD1BAD192B31759800329C53 /* TitledTextView.swift */,
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
@@ -742,6 +762,7 @@
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				AD5DABC02AF4CEF000DC30B9 /* AuthenticationUseCaseProvider.swift in Sources */,
 				AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */,
+				AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
 				AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */,
 				AD5DABB42AF39CA500DC30B9 /* AuthenticationUseCase.swift in Sources */,
@@ -752,6 +773,8 @@
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
 				AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */,
 				AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */,
+				AD1BAD142B31716E00329C53 /* CreatePartyViewController.swift in Sources */,
+				AD1BAD1A2B31759800329C53 /* TitledTextView.swift in Sources */,
 				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
@@ -791,6 +814,7 @@
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
+				AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */,
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
 			);

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 final class HomeViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
@@ -36,10 +37,12 @@ final class HomeViewController: UIViewController {
     }()
     
     private let viewModel: HomeViewModel
-    
+    private var disposeBag: DisposeBag
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
-        
+        self.disposeBag = .init()
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,28 +51,19 @@ final class HomeViewController: UIViewController {
     }
     
     deinit {
-        print("HomeViewContorller deinited")
+        disposeBag = .init()
+        print("welcomeViewController deinited")
     }
-    
-    var harryProfile = UserProfile(imageData: nil, nickName: "Harry", email: "Harry@naver.com")
-    var weekActivity = WeekActivity(questCount: "10", completeCount: "3", postCount: "2", commentCount: "7")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DispatchQueue.global().async { [weak self] in
-            let data = try? Data(
-                contentsOf: URL(string: "https://tistory1.daumcdn.net/tistory/2767662/attach/f8d3ddae9ef442ada2aa8d8631c5c9b2")!
-            )
-            self?.harryProfile.imageData = data
-        }
         
         configureRootView()
         setSubViews()
         setTabBarItem()
         setConstraint()
         configureDataSource()
-        applyInitialSnapshot()
+        setBindings()
     }
     
     private func configureRootView() {
@@ -144,7 +138,6 @@ final class HomeViewController: UIViewController {
         
         let weekActivityCellRegistration = WeekActivityCellRegistration { cell, indexPath, weekActivity in
             cell.configure(with: weekActivity)
-            cell.achievementRateView.setProgressWithAnimation(duration: 1, value: 0.33)
         }
         
         let profileHeaderRegistration = HeaderRegistration(elementKind: "ProfileHeader") {
@@ -189,19 +182,34 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    private func applyInitialSnapshot() {
+    private func applySnapshot(profiles: [UserProfile], activities: [WeekActivity]) {
         var snapshot = Snapshot()
-        snapshot.appendSections([.myProfile])
-        snapshot.appendItems([harryProfile])
         
-        snapshot.appendSections([.weekActivity])
-        snapshot.appendItems([weekActivity])
+        snapshot.appendSections([.userProfile, .weekActivity])
+        snapshot.appendItems(profiles, toSection: .userProfile)
+        snapshot.appendItems(activities, toSection: .weekActivity)
         
-        self.dataSource?.apply(snapshot)
+        self.dataSource.apply(snapshot)
+    }
+    
+    private func setBindings() {
+        let viewWillAppearEvent = rx.sentMessage(#selector(HomeViewController.viewWillAppear))
+            .map { _ in }
+        
+        let input = HomeViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
+        
+        let output = viewModel.transform(input)
+       
+        output.homeItems
+            .withUnretained(self)
+            .subscribe { owner, items in
+                owner.applySnapshot(profiles: [items.userProfile], activities: [items.weekActivity])
+            }
+            .disposed(by: disposeBag)
     }
 }
 
-enum Section: CaseIterable {
-    case myProfile
+enum Section {
+    case userProfile
     case weekActivity
 }

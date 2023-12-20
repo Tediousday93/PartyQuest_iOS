@@ -8,8 +8,12 @@
 import Foundation
 
 struct WeekActivity: Hashable {
-    let questCount: String
-    let completeCount: String
-    let postCount: String
-    let commentCount: String
+    let questCount: Int
+    let completeCount: Int
+    let postCount: Int
+    let commentCount: Int
+    
+    var completeRate: Float {
+        Float(completeCount) / Float(questCount)
+    }
 }

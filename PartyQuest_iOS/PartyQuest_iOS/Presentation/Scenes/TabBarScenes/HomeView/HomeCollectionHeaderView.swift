@@ -11,8 +11,8 @@ final class HomeCollectionHeaderView: UICollectionReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = PQColor.text
+        label.numberOfLines = 1
         label.font = .preferredFont(forTextStyle: .headline)
-        label.text = ""
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -37,6 +37,10 @@ final class HomeCollectionHeaderView: UICollectionReusableView {
     
     func configureTitle(string title: String?) {
         titleLabel.text = title
+    }
+    
+    func setFont(_ font: UIFont) {
+        titleLabel.font = font
     }
     
     private func setConstraints() {

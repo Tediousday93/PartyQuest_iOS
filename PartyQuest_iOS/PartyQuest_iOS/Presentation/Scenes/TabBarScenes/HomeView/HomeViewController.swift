@@ -11,6 +11,7 @@ final class HomeViewController: UIViewController {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfile>
+    typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeekActivityCell, WeekActivity>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HomeCollectionHeaderView>
     
     private var dataSource: DataSource!
@@ -51,7 +52,7 @@ final class HomeViewController: UIViewController {
     }
     
     var harryProfile = UserProfile(imageData: nil, nickName: "Harry", email: "Harry@naver.com")
-    var harryProfile2 = UserProfile(imageData: nil, nickName: "Harry2", email: "Harry2@naver.com")
+    var weekActivity = WeekActivity(questCount: "10", completeCount: "3", postCount: "2", commentCount: "7")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +73,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func configureRootView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = PQColor.lightGray
     }
     
     private func setSubViews() {
@@ -127,7 +128,7 @@ final class HomeViewController: UIViewController {
                     alignment: .top
                 )
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
-                listSection.contentInsets = .init(top: 20, leading: 20, bottom: 20, trailing: 20)
+                listSection.contentInsets = .init(top: 15, leading: 20, bottom: 20, trailing: 20)
                 listSection.boundarySupplementaryItems = [header]
 
                 return listSection
@@ -141,8 +142,14 @@ final class HomeViewController: UIViewController {
             cell.configure(with: userProfile)
         }
         
+        let weekActivityCellRegistration = WeekActivityCellRegistration { cell, indexPath, weekActivity in
+            cell.configure(with: weekActivity)
+            cell.achievementRateView.setProgressWithAnimation(duration: 1, value: 0.33)
+        }
+        
         let profileHeaderRegistration = HeaderRegistration(elementKind: "ProfileHeader") {
             supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.subTitle)
             supplementaryView.configureTitle(string: "Harry님, 환영합니다!")
         }
         
@@ -156,8 +163,8 @@ final class HomeViewController: UIViewController {
                 return collectionView.dequeueConfiguredReusableCell(using: userProfileCellRegistration,
                                                                     for: indexPath,
                                                                     item: profile)
-            } else if let activity = item as? UserProfile {
-                return collectionView.dequeueConfiguredReusableCell(using: userProfileCellRegistration,
+            } else if let activity = item as? WeekActivity {
+                return collectionView.dequeueConfiguredReusableCell(using: weekActivityCellRegistration,
                                                                     for: indexPath,
                                                                     item: activity)
             }
@@ -188,7 +195,7 @@ final class HomeViewController: UIViewController {
         snapshot.appendItems([harryProfile])
         
         snapshot.appendSections([.weekActivity])
-        snapshot.appendItems([harryProfile2])
+        snapshot.appendItems([weekActivity])
         
         self.dataSource?.apply(snapshot)
     }

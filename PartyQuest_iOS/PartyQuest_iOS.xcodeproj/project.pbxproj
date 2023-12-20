@@ -45,6 +45,9 @@
 		4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* SocialUserData.swift */; };
 		4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */; };
 		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
+		4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */; };
+		4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B12B31738C005D554C /* WeekActivity.swift */; };
+		4AB2F7B42B317946005D554C /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B32B317946005D554C /* CircularProgressView.swift */; };
 		4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */; };
 		4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */; };
 		4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */; };
@@ -125,6 +128,9 @@
 		4AA423872B031AE50092EC27 /* SocialUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserData.swift; sourceTree = "<group>"; };
 		4AA423892B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
+		4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekActivityCell.swift; sourceTree = "<group>"; };
+		4AB2F7B12B31738C005D554C /* WeekActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekActivity.swift; sourceTree = "<group>"; };
+		4AB2F7B32B317946005D554C /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
 		4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCase.swift; sourceTree = "<group>"; };
 		4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCase.swift; sourceTree = "<group>"; };
@@ -263,6 +269,9 @@
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
 				4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */,
+				4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */,
+				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
+				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -751,6 +760,7 @@
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				4A224C842B29919600D22E81 /* Reusable.swift in Sources */,
+				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
@@ -766,12 +776,14 @@
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
+				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,
+				4AB2F7B42B317946005D554C /* CircularProgressView.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

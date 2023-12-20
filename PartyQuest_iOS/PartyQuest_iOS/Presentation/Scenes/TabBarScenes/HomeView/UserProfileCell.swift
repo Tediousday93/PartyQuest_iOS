@@ -10,6 +10,7 @@ import UIKit
 final class UserProfileCell: UICollectionViewListCell {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         
         return imageView
     }()
@@ -32,15 +33,13 @@ final class UserProfileCell: UICollectionViewListCell {
         let stackView = UIStackView()
         stackView.spacing = 8
         stackView.axis = .vertical
-        stackView.isLayoutMarginsRelativeArrangement = true
-//        stackView.layoutMargins = .init(top: 0, left: 10, bottom: 0, right: 0)
         
         return stackView
     }()
     
     private let outerStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 15
+        stackView.spacing = 30
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,12 +80,6 @@ final class UserProfileCell: UICollectionViewListCell {
         let safe = contentView.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            profileImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor,
-                                                    multiplier: 0.2),
-            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor,
-                                                     multiplier: 0.8
-                                                    ),
-            
             outerStackView.topAnchor.constraint(equalTo: safe.topAnchor),
             outerStackView.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
             outerStackView.trailingAnchor.constraint(equalTo: safe.trailingAnchor),

@@ -80,7 +80,7 @@ final class CircularProgressView: UIView {
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(
             arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
-            radius: frame.size.width / 4,
+            radius: frame.size.width / 3.5,
             startAngle: CGFloat(-0.5 * Double.pi),
             endAngle: CGFloat(1.5 * Double.pi),
             clockwise: true

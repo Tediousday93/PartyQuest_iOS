@@ -161,17 +161,21 @@ final class WeekActivityCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        questCountLabel.text = ""
+        completeCountLabel.text = ""
+        postCountLabel.text = ""
+        commentCountLabel.text = ""
         achievementRateView.prepareToReuse()
     }
 
     func configure(with weekActivity: WeekActivity) {
-        questCountLabel.text = weekActivity.questCount
-        completeCountLabel.text = weekActivity.completeCount
-        postCountLabel.text = weekActivity.postCount
-        commentCountLabel.text = weekActivity.commentCount
+        questCountLabel.text = "\(weekActivity.questCount)"
+        completeCountLabel.text = "\(weekActivity.completeCount)"
+        postCountLabel.text = "\(weekActivity.postCount)"
+        commentCountLabel.text = "\(weekActivity.commentCount)"
         achievementRateView.setProgressColor = PQColor.buttonMain
         achievementRateView.setTrackColor = PQColor.buttonMain.withAlphaComponent(0.2)
-        achievementRateView.setProgressWithAnimation(duration: 1, value: <#T##Float#>)
+        achievementRateView.setProgressWithAnimation(duration: 1, value: weekActivity.completeRate)
     }
     
     private func configureContentView() {

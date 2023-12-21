@@ -10,8 +10,10 @@ import UIKit
 final class CreatePartyCoordinator: BaseCoordinator {
     override func start() {
         let viewModel = CreatePartyViewModel()
-        let viewController = CreatePartyViewController()
+        let viewController = CreatePartyViewController(viewModel: viewModel)
+        viewController.modalPresentationStyle = .automatic
+        let nc = UINavigationController(rootViewController: viewController)
         
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.present(nc, animated: true)
     }
 }

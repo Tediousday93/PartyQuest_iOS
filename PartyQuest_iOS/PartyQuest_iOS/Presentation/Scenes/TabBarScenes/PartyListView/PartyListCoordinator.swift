@@ -9,9 +9,14 @@ import UIKit
 
 final class PartyListCoordinator: BaseCoordinator {
     override func start() {
-        let partyListViewModel = PartyListViewModel()
+        let partyListViewModel = PartyListViewModel(coordinator: self)
         let partyListViewController = PartyListViewController(viewModel: partyListViewModel)
         
         navigationController?.pushViewController(partyListViewController, animated: true)
+    }
+    
+    func coordinateToCreateParty() {
+        let coordinator = CreatePartyCoordinator(navigationController: navigationController)
+        start(coordinator: coordinator)
     }
 }

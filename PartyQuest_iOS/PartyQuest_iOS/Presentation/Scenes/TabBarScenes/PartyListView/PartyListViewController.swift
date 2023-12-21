@@ -148,8 +148,10 @@ final class PartyListViewController: UIViewController {
     private func setBindings() {
         let viewWillAppearEvent = rx.sentMessage(#selector(PartyListViewController.viewWillAppear))
             .map { _ in}
+        let plusButtonTapped = plusButton.rx.tap.map { _ in }
         let input = PartyListViewModel.Input(
-            viewWillAppearEvent: viewWillAppearEvent
+            viewWillAppearEvent: viewWillAppearEvent,
+            plusButtonTapped: plusButtonTapped
         )
         let output = viewModel.transform(input)
         
@@ -158,6 +160,10 @@ final class PartyListViewController: UIViewController {
             .subscribe(with: self, onNext: { owner, items in
                 owner.applySnapshot(items: items)
             })
+            .disposed(by: disposeBag)
+        
+        output.createPartyPushed
+            .drive()
             .disposed(by: disposeBag)
     }
     

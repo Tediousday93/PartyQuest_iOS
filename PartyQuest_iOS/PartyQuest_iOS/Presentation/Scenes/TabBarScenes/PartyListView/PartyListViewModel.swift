@@ -9,16 +9,22 @@ import RxSwift
 import RxCocoa
 
 final class PartyListViewModel {
+    private let coordinator: PartyListCoordinator
     
+    init(coordinator: PartyListCoordinator) {
+        self.coordinator = coordinator
+    }
 }
 
 extension PartyListViewModel: ViewModelType {
     struct Input {
         let viewWillAppearEvent: Observable<Void>
+        let plusButtonTapped: Observable<Void>
     }
     
     struct Output {
         let partyItemViewModels: Observable<[PartyItem]>
+        let createPartyPushed: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -45,8 +51,16 @@ extension PartyListViewModel: ViewModelType {
             }
             .debug("item created")
         
+        let createPartyPushed = input.plusButtonTapped
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.coordinateToCreateParty()
+            }
+            .asDriver(onErrorJustReturn: ())
+        
         return Output(
-            partyItemViewModels: partyItemViewModels
+            partyItemViewModels: partyItemViewModels,
+            createPartyPushed: createPartyPushed
         )
     }
 }

@@ -43,7 +43,7 @@ final class WeekActivityCell: UICollectionViewCell {
     private let imageStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = PQSpacing.side
         
         return stackView
     }()
@@ -87,7 +87,7 @@ final class WeekActivityCell: UICollectionViewCell {
     private let titleLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = PQSpacing.side
         
         return stackView
     }()
@@ -127,7 +127,7 @@ final class WeekActivityCell: UICollectionViewCell {
     private let countLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
+        stackView.spacing = PQSpacing.side
         
         return stackView
     }()

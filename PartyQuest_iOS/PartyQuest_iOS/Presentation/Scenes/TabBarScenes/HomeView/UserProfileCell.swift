@@ -31,7 +31,7 @@ final class UserProfileCell: UICollectionViewListCell {
     
     private let textStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 8
+        stackView.spacing = 12
         stackView.axis = .vertical
         
         return stackView

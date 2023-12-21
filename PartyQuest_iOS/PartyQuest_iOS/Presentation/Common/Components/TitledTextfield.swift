@@ -1,5 +1,5 @@
 //
-//  TitledTextfield.swift
+//  TitledTextField.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/10/27.

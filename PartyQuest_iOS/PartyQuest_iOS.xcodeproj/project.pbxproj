@@ -124,7 +124,6 @@
 		4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationService.swift; sourceTree = "<group>"; };
-		4A6D29BD2B0201F7002E19A5 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoingQuestCell.swift; sourceTree = "<group>"; };
 		4AB2F7B72B32DD54005D554C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorationView.swift; sourceTree = "<group>"; };
+		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
 		4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCase.swift; sourceTree = "<group>"; };
 		4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCase.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4A1F24712AEA8629005B264F /* Info.plist */,
-				4A6D29BD2B0201F7002E19A5 /* Development.xcconfig */,
+				4AB2F7BD2B3424DE005D554C /* Development.xcconfig */,
 				AD5DABAD2AF3836D00DC30B9 /* Domain */,
 				AD5DAB912AEA9AE900DC30B9 /* Application */,
 				AD5DAB902AEA9ACE00DC30B9 /* Presentation */,
@@ -832,7 +832,6 @@
 /* Begin XCBuildConfiguration section */
 		4A1F24722AEA8629005B264F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A6D29BD2B0201F7002E19A5 /* Development.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

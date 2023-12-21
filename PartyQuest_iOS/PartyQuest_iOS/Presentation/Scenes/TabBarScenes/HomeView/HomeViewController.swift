@@ -38,11 +38,11 @@ final class HomeViewController: UIViewController {
     
     private let viewModel: HomeViewModel
     private var disposeBag: DisposeBag
-
+    
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         self.disposeBag = .init()
-
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,7 +54,7 @@ final class HomeViewController: UIViewController {
         disposeBag = .init()
         print("welcomeViewController deinited")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,7 +93,9 @@ final class HomeViewController: UIViewController {
     }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
+        let sectionDecoration = NSCollectionLayoutDecorationItem
+            .background(elementKind: "ShadowDecoration")
+        let layout = UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
             switch section {
             case 0:
                 let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
@@ -104,9 +106,12 @@ final class HomeViewController: UIViewController {
                     elementKind: "ProfileHeader",
                     alignment: .top
                 )
+                
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
                 listSection.contentInsets = .init(top: 20, leading: 20, bottom: 40, trailing: 20)
                 listSection.boundarySupplementaryItems = [header]
+                sectionDecoration.contentInsets = .init(top: 45, leading: 20, bottom: 40, trailing: 20)
+                listSection.decorationItems = [sectionDecoration]
                 
                 
                 return listSection
@@ -122,6 +127,8 @@ final class HomeViewController: UIViewController {
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
                 listSection.contentInsets = .init(top: 15, leading: 20, bottom: 35, trailing: 20)
                 listSection.boundarySupplementaryItems = [header]
+                sectionDecoration.contentInsets = .init(top: 35, leading: 20, bottom: 35, trailing: 20)
+                listSection.decorationItems = [sectionDecoration]
                 
                 return listSection
                 
@@ -139,10 +146,16 @@ final class HomeViewController: UIViewController {
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
                 listSection.contentInsets = .init(top: 15, leading: 20, bottom: 35, trailing: 20)
                 listSection.boundarySupplementaryItems = [header]
+                sectionDecoration.contentInsets = .init(top: 35, leading: 20, bottom: 35, trailing: 20)
+                listSection.decorationItems = [sectionDecoration]
                 
                 return listSection
             }
         }
+        
+        layout.register(ShadowDecorationView.self, forDecorationViewOfKind: "ShadowDecoration")
+        
+        return layout
     }
     
     private func configureDataSource() {
@@ -233,7 +246,7 @@ final class HomeViewController: UIViewController {
         let input = HomeViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
         
         let output = viewModel.transform(input)
-       
+        
         output.homeItems
             .withUnretained(self)
             .subscribe { owner, items in

@@ -62,7 +62,7 @@
 		AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
-		AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */; };
+		AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */; };
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
 		AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */; };
@@ -153,7 +153,7 @@
 		AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftImageLabel.swift; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
-		AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextfield.swift; sourceTree = "<group>"; };
+		AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
@@ -472,7 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				AD1BAD202B32B50C00329C53 /* DropDownButton */,
-				AD5DAB9D2AEBD36600DC30B9 /* TitledTextfield.swift */,
+				AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */,
 				AD1BAD192B31759800329C53 /* TitledTextView.swift */,
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
@@ -805,7 +805,7 @@
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */,
 				4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */,
-				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
+				AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */,
 				AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */,

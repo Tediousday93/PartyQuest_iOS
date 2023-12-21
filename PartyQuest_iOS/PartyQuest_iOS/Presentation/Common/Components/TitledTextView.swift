@@ -75,14 +75,7 @@ extension TitledTextView {
         titleLabel.text = text
     }
     
-    func setTextFieldBorder(flag: Bool) {
-        textView.layer.borderWidth = 2
-        textView.layer.cornerRadius = 4
-        
-        if flag == true {
-            textView.layer.borderColor = UIColor.systemGray4.cgColor
-        } else {
-            textView.layer.borderColor = UIColor.systemRed.cgColor
-        }
+    func setTextViewBorder(color: UIColor) {
+        textView.layer.borderColor = color.cgColor
     }
 }

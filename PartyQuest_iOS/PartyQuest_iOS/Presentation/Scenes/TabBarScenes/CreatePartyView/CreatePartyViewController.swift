@@ -23,9 +23,10 @@ final class CreatePartyViewController: UIViewController {
         action: nil
     )
     
-    private let partyNameTextField: TitledTextfield = {
-        let titledTextField = TitledTextfield()
+    private let partyNameTextField: TitledTextField = {
+        let titledTextField = TitledTextField()
         titledTextField.setTitle("파티 이름")
+        titledTextField.setTextFieldBorder(color: .systemGray4)
         
         return titledTextField
     }()
@@ -33,7 +34,7 @@ final class CreatePartyViewController: UIViewController {
     private let introductionTextView: TitledTextView = {
         let textView = TitledTextView()
         textView.setTitle("파티 소개")
-        textView.setTextFieldBorder(flag: true)
+        textView.setTextViewBorder(color: .systemGray4)
         
         return textView
     }()

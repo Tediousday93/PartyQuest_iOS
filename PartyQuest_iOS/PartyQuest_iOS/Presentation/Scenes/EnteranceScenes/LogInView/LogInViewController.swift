@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import GoogleSignIn
 
 final class LogInViewController: UIViewController {
     private let titleLabel: UILabel = {
@@ -34,20 +33,20 @@ final class LogInViewController: UIViewController {
         return label
     }()
     
-    private let emailTextField: TitledTextfield = {
-        let textField = TitledTextfield()
+    private let emailTextField: TitledTextField = {
+        let textField = TitledTextField()
         textField.setTitle("이메일")
         textField.setPlaceholder("username@example.com")
-        textField.setCaption(" ")
+        textField.setTextFieldBorder(color: .systemGray4)
         
         return textField
     }()
     
-    private let passwordTextField: TitledTextfield = {
-        let textField = TitledTextfield()
+    private let passwordTextField: TitledTextField = {
+        let textField = TitledTextField()
         textField.setTitle("패스워드")
         textField.setPlaceholder("영문 대/소문자, 특수문자 한 개 이상 포함 8~15자")
-        textField.setCaption(" ")
+        textField.setTextFieldBorder(color: .systemGray4)
         textField.textField.isSecureTextEntry = true
         
         return textField
@@ -311,10 +310,10 @@ final class LogInViewController: UIViewController {
         )
         let output = viewModel.transform(input)
         
-        output.inputStates
-            .drive(with: self, onNext: { owner, inputStates in
-                owner.emailTextField.inputStateRelay.accept(inputStates.0)
-                owner.passwordTextField.inputStateRelay.accept(inputStates.1)
+        output.inputValidation
+            .drive(with: self, onNext: { owner, inputValidations in
+                owner.setBorder(of: owner.emailTextField, for: inputValidations.0)
+                owner.setBorder(of: owner.passwordTextField, for: inputValidations.1)
             })
             .disposed(by: disposeBag)
         
@@ -327,5 +326,13 @@ final class LogInViewController: UIViewController {
         output.jwtSaved
             .subscribe()
             .disposed(by: disposeBag)
+    }
+    
+    private func setBorder(of textField: TitledTextField, for validation: Bool) {
+        if validation {
+            textField.setTextFieldBorder(color: .systemGray4)
+        } else {
+            textField.setTextFieldBorder(color: .systemRed)
+        }
     }
 }

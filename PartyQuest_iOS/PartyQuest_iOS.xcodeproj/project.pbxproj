@@ -21,7 +21,6 @@
 		4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */; };
 		4A224C7E2B297A4D00D22E81 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */; };
 		4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */; };
-		4A224C842B29919600D22E81 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C832B29919600D22E81 /* Reusable.swift */; };
 		4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A224C852B29955500D22E81 /* HomeViewModel.swift */; };
 		4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */; };
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
@@ -51,6 +50,7 @@
 		4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */; };
 		4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B72B32DD54005D554C /* Quest.swift */; };
 		4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */; };
+		4AB2F7C12B3425E6005D554C /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7C02B3425E6005D554C /* Reusable.swift */; };
 		4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */; };
 		4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */; };
 		4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */; };
@@ -106,7 +106,6 @@
 		4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCell.swift; sourceTree = "<group>"; };
 		4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
-		4A224C832B29919600D22E81 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4A224C852B29955500D22E81 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		4A40DBF42B147CD30050F3B0 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		4AB2F7B72B32DD54005D554C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorationView.swift; sourceTree = "<group>"; };
 		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		4AB2F7C02B3425E6005D554C /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
 		4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCase.swift; sourceTree = "<group>"; };
 		4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCase.swift; sourceTree = "<group>"; };
@@ -422,7 +422,7 @@
 				4A224C7F2B297BCB00D22E81 /* StyleSheet.swift */,
 				AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */,
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
-				4A224C832B29919600D22E81 /* Reusable.swift */,
+				4AB2F7C02B3425E6005D554C /* Reusable.swift */,
 				AD5DABA32AF22A7100DC30B9 /* View */,
 				4A1F24992AEBEC0A005B264F /* Coordinator */,
 			);
@@ -770,7 +770,6 @@
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextfield.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
-				4A224C842B29919600D22E81 /* Reusable.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
@@ -783,6 +782,7 @@
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */,
+				4AB2F7C12B3425E6005D554C /* Reusable.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,

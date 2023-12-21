@@ -63,6 +63,9 @@ final class TitledTextView: UIView {
             stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
+            textView.widthAnchor.constraint(equalTo: stackView.widthAnchor),
+            textView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
 }
@@ -70,5 +73,16 @@ final class TitledTextView: UIView {
 extension TitledTextView {
     func setTitle(_ text: String?) {
         titleLabel.text = text
+    }
+    
+    func setTextFieldBorder(flag: Bool) {
+        textView.layer.borderWidth = 2
+        textView.layer.cornerRadius = 4
+        
+        if flag == true {
+            textView.layer.borderColor = UIColor.systemGray4.cgColor
+        } else {
+            textView.layer.borderColor = UIColor.systemRed.cgColor
+        }
     }
 }

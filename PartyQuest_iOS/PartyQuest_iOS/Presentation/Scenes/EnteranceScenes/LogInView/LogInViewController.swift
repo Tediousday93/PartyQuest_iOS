@@ -228,7 +228,6 @@ final class LogInViewController: UIViewController {
     
     private func configureNavigationBar() {
         self.title = "PartyQuest 로그인"
-        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
     }
     

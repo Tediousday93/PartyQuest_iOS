@@ -16,12 +16,18 @@ final class CreatePartyViewController: UIViewController {
         target: nil,
         action: nil
     )
-    private let completeButton: UIBarButtonItem = .init(
-        title: "완료",
-        style: .plain,
-        target: nil,
-        action: nil
-    )
+    
+    private let completeButton: UIBarButtonItem = {
+        let item = UIBarButtonItem(
+            title: "완료",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        item.isEnabled = false
+        
+        return item
+    }()
     
     private let partyNameTextField: TitledTextField = {
         let titledTextField = TitledTextField()
@@ -92,6 +98,7 @@ final class CreatePartyViewController: UIViewController {
         configureRootView()
         setSubviews()
         setConstraints()
+        setBindings()
     }
     
     private func configureNavigationBar() {
@@ -127,5 +134,38 @@ final class CreatePartyViewController: UIViewController {
             dropDownButton.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.3),
             dropDownButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func setBindings() {
+        let cancelBarButtonTapped = cancelButton.rx.tap.map { _ in }
+        let partyName = partyNameTextField.textField.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let introduction = introductionTextView.textView.rx.text
+            .orEmpty
+            .distinctUntilChanged()
+        let memberCount = dropDownButton.tableView.rx.itemSelected
+            .withUnretained(self)
+            .compactMap { owner, _ in
+                owner.dropDownButton.titleButton.currentTitle
+            }
+            .distinctUntilChanged()
+        let input = CreatePartyViewModel.Input(
+            cancelBarButtonTapped: cancelBarButtonTapped,
+            partyName: partyName,
+            introduction: introduction,
+            memberCount: memberCount
+        )
+        let output = viewModel.transform(input)
+        
+        output.dismiss
+            .drive()
+            .disposed(by: disposeBag)
+        
+        output.isEnableCompleteBarButton
+            .drive(with: self, onNext: { owner, isEnable in
+                owner.completeButton.isEnabled = isEnable
+            })
+            .disposed(by: disposeBag)
     }
 }

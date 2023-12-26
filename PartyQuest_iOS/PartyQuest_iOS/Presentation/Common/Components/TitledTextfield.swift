@@ -78,22 +78,6 @@ final class TitledTextField: UIView {
             textField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
-//    private func setBindings() {
-//        inputStateRelay
-//            .asDriver(onErrorJustReturn: .correct)
-//            .drive(with: self, onNext: { owner, inputState in
-//                owner.setTextFieldBorder(state: inputState)
-//
-//                switch inputState {
-//                case .correct:
-//                    owner.setCaption(" ")
-//                case .incorrect:
-//                    owner.setCaption("올바르지 않은 형식입니다.")
-//                }
-//            })
-//            .disposed(by: disposeBag)
-//    }
 }
 
 extension TitledTextField {

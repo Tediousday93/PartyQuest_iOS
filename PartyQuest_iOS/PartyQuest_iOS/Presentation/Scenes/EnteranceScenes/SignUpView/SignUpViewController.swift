@@ -52,6 +52,7 @@ final class SignUpViewController: UIViewController {
         button.setTitle("가입하기", for: .normal)
         button.tintColor = .label
         button.backgroundColor = .systemGray5
+        button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -142,13 +143,15 @@ final class SignUpViewController: UIViewController {
         let nickname = nickNameTextField.textField.rx.text
             .orEmpty
             .distinctUntilChanged()
+        let willDeinit = rx.deallocating
         
         let input = SignUpViewModel.Input(
             email: email,
             password: password,
             birthDate: birthDate,
             nickname: nickname,
-            signUpButtonTapped: signUpButton.rx.tap.asObservable()
+            signUpButtonTapped: signUpButton.rx.tap.asObservable(),
+            willDeinit: willDeinit
         )
         let output = viewModel.transform(input)
         
@@ -167,7 +170,11 @@ final class SignUpViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        output.signUpSucceeded
+        output.signUpSuccessed
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        output.popViewController
             .subscribe()
             .disposed(by: disposeBag)
     }

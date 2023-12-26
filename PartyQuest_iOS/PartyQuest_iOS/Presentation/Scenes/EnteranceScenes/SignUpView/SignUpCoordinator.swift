@@ -26,4 +26,9 @@ final class SignUpCoordinator: BaseCoordinator {
         
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
+    
+    func finish() {
+        parentCoordinator?.didFinish(coordinator: self)
+        navigationController?.popViewController(animated: true)
+    }
 }

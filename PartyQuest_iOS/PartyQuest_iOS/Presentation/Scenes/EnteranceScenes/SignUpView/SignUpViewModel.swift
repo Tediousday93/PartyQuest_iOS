@@ -27,13 +27,15 @@ extension SignUpViewModel: ViewModelType {
         let birthDate: Observable<String>
         let nickname: Observable<String>
         let signUpButtonTapped: Observable<Void>
+        let willDeinit: Observable<Void>
     }
     
     struct Output {
         let errorRelay: PublishRelay<Error>
         let inputValidations: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
-        let signUpSucceeded: Observable<Void>
+        let signUpSuccessed: Observable<Void>
+        let popViewController: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -108,6 +110,13 @@ extension SignUpViewModel: ViewModelType {
                 }
             })
             .filter { $0.error == nil }
+            .map { _ in }
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.finish()
+            }
+        
+        let popViewController = input.willDeinit
             .withUnretained(self)
             .compactMap { owner, _ in
                 owner.coordinator.parentCoordinator?.didFinish(coordinator: owner.coordinator)
@@ -117,7 +126,8 @@ extension SignUpViewModel: ViewModelType {
             errorRelay: errorRelay,
             inputValidations: inputValidations,
             isEnableSignUpButton: isEnableSignUpButton,
-            signUpSucceeded: signUpSuccessed
+            signUpSuccessed: signUpSuccessed,
+            popViewController: popViewController
         )
     }
 }

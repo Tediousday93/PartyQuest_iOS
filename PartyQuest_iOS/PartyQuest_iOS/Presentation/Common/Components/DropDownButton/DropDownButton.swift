@@ -8,12 +8,12 @@
 import UIKit
 
 final class DropDownButton: UIView {
-    private let titleButton: UIButton = {
+    let titleButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setTitle("선택", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = PQColor.white
-        button.contentHorizontalAlignment = .leading
+        button.contentHorizontalAlignment = .center
         button.layer.cornerRadius = 15
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +21,7 @@ final class DropDownButton: UIView {
         return button
     }()
     
-    private let arrowIndicatorView: UIImageView = {
+    let arrowIndicatorView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: "chevron.down"))
         imageView.tintColor = .black
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +29,7 @@ final class DropDownButton: UIView {
         return imageView
     }()
     
-    private let tableView: UITableView = .init()
+    let tableView: UITableView = .init()
     
     private var menuItems: [String]
     
@@ -58,7 +58,7 @@ final class DropDownButton: UIView {
             titleButton.heightAnchor.constraint(equalToConstant: 50),
             
             arrowIndicatorView.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
-            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
         ])
     }
     

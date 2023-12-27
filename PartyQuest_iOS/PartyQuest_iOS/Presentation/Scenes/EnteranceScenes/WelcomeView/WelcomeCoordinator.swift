@@ -8,7 +8,17 @@
 import UIKit
 import RxSwift
 
-final class WelcomeCoordinator: BaseCoordinator {
+protocol WelcomeCoordinatorType: Coordinator {
+    func toLogIn()
+    func toSignUp()
+}
+
+final class WelcomeCoordinator: WelcomeCoordinatorType {
+    var navigationController: UINavigationController?
+        
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
@@ -19,15 +29,14 @@ final class WelcomeCoordinator: BaseCoordinator {
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
          serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
+        self.navigationController = navigationController
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         self.isLoggedIn = isLoggedIn
-        
-        super.init(navigationController: navigationController)
     }
     
-    override func start() {
+    func start() {
         let welcomeViewModel = WelcomeViewModel(
             coordinator: self,
             serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase()
@@ -37,7 +46,7 @@ final class WelcomeCoordinator: BaseCoordinator {
         navigationController?.pushViewController(welcomeViewController, animated: true)
     }
     
-    func coordinateToLogin() {
+    func toLogIn() {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,
             authenticationUseCaseProvider: authenticationUseCaseProvider,
@@ -46,15 +55,15 @@ final class WelcomeCoordinator: BaseCoordinator {
             isLoggedIn: isLoggedIn
         )
 
-        self.start(coordinator: loginCoordinator)
+        start(child: loginCoordinator)
     }
     
-    func coordinateToSignUp() {
+    func toSignUp() {
         let signUpCoordinator = SignUpCoordinator(
             navigationController: navigationController,
             useCaseProvider: authenticationUseCaseProvider
         )
         
-        self.start(coordinator: signUpCoordinator)
+        start(child: signUpCoordinator)
     }
 }

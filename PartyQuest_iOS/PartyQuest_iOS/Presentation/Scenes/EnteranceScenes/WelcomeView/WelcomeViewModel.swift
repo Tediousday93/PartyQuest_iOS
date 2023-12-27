@@ -10,10 +10,10 @@ import RxSwift
 import RxCocoa
 
 final class WelcomeViewModel {
-    private let coordinator: WelcomeCoordinator
+    private let coordinator: WelcomeCoordinatorType
     private let serviceTokenUseCase: ServiceTokenUseCase
     
-    init(coordinator: WelcomeCoordinator,
+    init(coordinator: WelcomeCoordinatorType,
          serviceTokenUseCase: ServiceTokenUseCase) {
         self.coordinator = coordinator
         self.serviceTokenUseCase = serviceTokenUseCase
@@ -36,14 +36,14 @@ extension WelcomeViewModel: ViewModelType {
         let loginPushed = input.loginButtonTapped
             .withUnretained(self)
             .map { owner, _ in
-                owner.coordinator.coordinateToLogin()
+                owner.coordinator.toLogIn()
             }
             .asDriver(onErrorJustReturn: ())
         
         let signUpPushed = input.signUpButtonTapped
             .withUnretained(self)
             .map { owner, _ in
-                owner.coordinator.coordinateToSignUp()
+                owner.coordinator.toSignUp()
             }
             .asDriver(onErrorJustReturn: ())
         

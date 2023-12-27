@@ -5,19 +5,27 @@
 //  Created by Harry on 2023/11/01.
 //
 
-import Foundation
 import UIKit
 
-final class SignUpCoordinator: BaseCoordinator {
+protocol SignUpCoordinatorType: Coordinator {
+    func toWelcome()
+}
+
+final class SignUpCoordinator: SignUpCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
     private let useCaseProvider: AuthenticationUseCaseProvider
     
     init(navigationController: UINavigationController?,
          useCaseProvider: AuthenticationUseCaseProvider) {
+        self.navigationController = navigationController
         self.useCaseProvider = useCaseProvider
-        super.init(navigationController: navigationController)
     }
     
-    override func start() {
+    func start() {
         let signUpViewModel = SignUpViewModel(
             coordinator: self,
             useCase: useCaseProvider.makeDefaultAuthenticationUseCase()
@@ -27,8 +35,8 @@ final class SignUpCoordinator: BaseCoordinator {
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
     
-    func finish() {
-        parentCoordinator?.didFinish(coordinator: self)
+    func toWelcome() {
+        finish()
         navigationController?.popViewController(animated: true)
     }
 }

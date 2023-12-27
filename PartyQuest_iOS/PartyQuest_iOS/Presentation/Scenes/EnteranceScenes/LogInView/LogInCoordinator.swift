@@ -8,7 +8,14 @@
 import UIKit
 import RxSwift
 
-final class LogInCoordinator: BaseCoordinator {
+protocol LogInCoordinatorType: Coordinator {}
+
+final class LogInCoordinator: LogInCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
@@ -19,15 +26,14 @@ final class LogInCoordinator: BaseCoordinator {
          socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
          serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
+        self.navigationController = navigationController
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
         self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         self.isLoggedIn = isLoggedIn
-        
-        super.init(navigationController: navigationController)
     }
     
-    override func start() {
+    func start() {
         let viewModel = LogInViewModel(
             coordinator: self,
             authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),

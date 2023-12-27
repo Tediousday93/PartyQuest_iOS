@@ -9,7 +9,7 @@ import RxSwift
 import RxCocoa
 
 final class LogInViewModel {
-    private let coordinator: LogInCoordinator
+    private let coordinator: LogInCoordinatorType
     private let authenticationUseCase: AuthenticationUseCase
     private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
     private let googleSocialUserDataUseCase: SocialUserDataUseCase
@@ -18,7 +18,7 @@ final class LogInViewModel {
     
     private let isLoggedIn: PublishSubject<Bool>
     
-    init(coordinator: LogInCoordinator,
+    init(coordinator: LogInCoordinatorType,
          authenticationUseCase: AuthenticationUseCase,
          kakaoSocialUserDataUseCase: SocialUserDataUseCase,
          googleSocialUserDataUseCase: SocialUserDataUseCase,
@@ -43,6 +43,7 @@ extension LogInViewModel: ViewModelType {
         let kakaoLogInButtonTapped: Observable<Void>
         let googleLogInButtonTapped: Observable<Void>
         let naverLogInButtonTapped: Observable<Void>
+        let willDeallocated: Observable<Void>
     }
     
     struct Output {
@@ -50,6 +51,7 @@ extension LogInViewModel: ViewModelType {
         let inputValidation: Driver<(Bool, Bool)>
         let isEnableLogInButton: Driver<Bool>
         let jwtSaved: Observable<Void>
+        let coordinatorFinished: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -180,14 +182,22 @@ extension LogInViewModel: ViewModelType {
 //            .filter { $0.error == nil }
 //            .dematerialize()
             .map { owner, _ in
+                owner.coordinator.finish()
                 owner.isLoggedIn.onNext(true)
+            }
+        
+        let coordinatorFinished = input.willDeallocated
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.finish()
             }
         
         return Output(
             errorRelay: errorRelay,
             inputValidation: inputValidation,
             isEnableLogInButton: isEnableLogInButton,
-            jwtSaved: jwtSaved
+            jwtSaved: jwtSaved,
+            coordinatorFinished: coordinatorFinished
         )
     }
 }

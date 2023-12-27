@@ -299,6 +299,7 @@ final class LogInViewController: UIViewController {
         let kakaoLogInButtonTapped = kakaoLogInButton.rx.tap.asObservable()
         let naverLogInButtonTapped = naverLogInButton.rx.tap.asObservable()
         let googleLogInButtonTapped = googleLogInButton.rx.tap.asObservable()
+        let willDeallocated = self.rx.deallocating
         
         let input = LogInViewModel.Input(
             email: email,
@@ -306,7 +307,8 @@ final class LogInViewController: UIViewController {
             logInButtonTapped: logInButtonTapped,
             kakaoLogInButtonTapped: kakaoLogInButtonTapped,
             googleLogInButtonTapped: googleLogInButtonTapped,
-            naverLogInButtonTapped: naverLogInButtonTapped
+            naverLogInButtonTapped: naverLogInButtonTapped,
+            willDeallocated: willDeallocated
         )
         let output = viewModel.transform(input)
         
@@ -324,6 +326,10 @@ final class LogInViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.jwtSaved
+            .subscribe()
+            .disposed(by: disposeBag)
+        
+        output.coordinatorFinished
             .subscribe()
             .disposed(by: disposeBag)
     }

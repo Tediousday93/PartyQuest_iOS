@@ -10,10 +10,10 @@ import RxSwift
 import RxCocoa
 
 final class SignUpViewModel {
-    private let coordinator: SignUpCoordinator
+    private let coordinator: SignUpCoordinatorType
     private let useCase: AuthenticationUseCase
     
-    init(coordinator: SignUpCoordinator,
+    init(coordinator: SignUpCoordinatorType,
          useCase: AuthenticationUseCase) {
         self.coordinator = coordinator
         self.useCase = useCase
@@ -35,7 +35,7 @@ extension SignUpViewModel: ViewModelType {
         let inputValidations: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
         let signUpSuccessed: Observable<Void>
-        let popViewController: Observable<Void>
+        let coordinatorFinished: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -113,13 +113,13 @@ extension SignUpViewModel: ViewModelType {
             .map { _ in }
             .withUnretained(self)
             .map { owner, _ in
-                owner.coordinator.finish()
+                owner.coordinator.toWelcome()
             }
         
-        let popViewController = input.willDeinit
+        let coordinatorFinished = input.willDeinit
             .withUnretained(self)
             .compactMap { owner, _ in
-                owner.coordinator.parentCoordinator?.didFinish(coordinator: owner.coordinator)
+                owner.coordinator.finish()
             }
         
         return Output(
@@ -127,7 +127,7 @@ extension SignUpViewModel: ViewModelType {
             inputValidations: inputValidations,
             isEnableSignUpButton: isEnableSignUpButton,
             signUpSuccessed: signUpSuccessed,
-            popViewController: popViewController
+            coordinatorFinished: coordinatorFinished
         )
     }
 }

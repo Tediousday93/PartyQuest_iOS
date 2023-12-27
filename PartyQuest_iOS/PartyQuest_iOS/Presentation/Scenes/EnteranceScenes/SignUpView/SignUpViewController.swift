@@ -143,14 +143,15 @@ final class SignUpViewController: UIViewController {
         let nickname = nickNameTextField.textField.rx.text
             .orEmpty
             .distinctUntilChanged()
-        let willDeinit = rx.deallocating
+        let signUpButtonTapped = signUpButton.rx.tap.asObservable()
+        let willDeinit = self.rx.deallocating
         
         let input = SignUpViewModel.Input(
             email: email,
             password: password,
             birthDate: birthDate,
             nickname: nickname,
-            signUpButtonTapped: signUpButton.rx.tap.asObservable(),
+            signUpButtonTapped: signUpButtonTapped,
             willDeinit: willDeinit
         )
         let output = viewModel.transform(input)
@@ -174,7 +175,7 @@ final class SignUpViewController: UIViewController {
             .subscribe()
             .disposed(by: disposeBag)
         
-        output.popViewController
+        output.coordinatorFinished
             .subscribe()
             .disposed(by: disposeBag)
     }

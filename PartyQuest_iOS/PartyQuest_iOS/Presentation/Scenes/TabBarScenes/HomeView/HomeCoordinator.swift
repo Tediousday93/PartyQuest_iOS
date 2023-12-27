@@ -5,9 +5,23 @@
 //  Created by Harry on 2023/12/13.
 //
 
-final class HomeCoordinator: BaseCoordinator {
- 
-    override func start() {
+import UIKit
+
+protocol HomeCoordinatorType: Coordinator {
+    
+}
+
+final class HomeCoordinator: HomeCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
         let viewModel = HomeViewModel(coordinator: self)
         let homeViewController = HomeViewController(viewModel: viewModel)
         

@@ -27,7 +27,7 @@ extension SignUpViewModel: ViewModelType {
         let birthDate: Observable<String>
         let nickname: Observable<String>
         let signUpButtonTapped: Observable<Void>
-        let willDeinit: Observable<Void>
+        let willDeallocated: Observable<Void>
     }
     
     struct Output {
@@ -116,9 +116,9 @@ extension SignUpViewModel: ViewModelType {
                 owner.coordinator.toWelcome()
             }
         
-        let coordinatorFinished = input.willDeinit
+        let coordinatorFinished = input.willDeallocated
             .withUnretained(self)
-            .compactMap { owner, _ in
+            .map { owner, _ in
                 owner.coordinator.finish()
             }
         

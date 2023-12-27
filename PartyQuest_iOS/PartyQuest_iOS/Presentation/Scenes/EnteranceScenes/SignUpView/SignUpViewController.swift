@@ -144,7 +144,7 @@ final class SignUpViewController: UIViewController {
             .orEmpty
             .distinctUntilChanged()
         let signUpButtonTapped = signUpButton.rx.tap.asObservable()
-        let willDeinit = self.rx.deallocating
+        let willDeallocated = self.rx.deallocating
         
         let input = SignUpViewModel.Input(
             email: email,
@@ -152,7 +152,7 @@ final class SignUpViewController: UIViewController {
             birthDate: birthDate,
             nickname: nickname,
             signUpButtonTapped: signUpButtonTapped,
-            willDeinit: willDeinit
+            willDeallocated: willDeallocated
         )
         let output = viewModel.transform(input)
         

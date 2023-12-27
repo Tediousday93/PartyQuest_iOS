@@ -150,11 +150,14 @@ final class CreatePartyViewController: UIViewController {
                 owner.dropDownButton.titleButton.currentTitle
             }
             .distinctUntilChanged()
+        let willDeallocated = self.rx.deallocating
+        
         let input = CreatePartyViewModel.Input(
             cancelBarButtonTapped: cancelBarButtonTapped,
             partyName: partyName,
             introduction: introduction,
-            memberCount: memberCount
+            memberCount: memberCount,
+            willDeallocated: willDeallocated
         )
         let output = viewModel.transform(input)
         
@@ -166,6 +169,10 @@ final class CreatePartyViewController: UIViewController {
             .drive(with: self, onNext: { owner, isEnable in
                 owner.completeButton.isEnabled = isEnable
             })
+            .disposed(by: disposeBag)
+        
+        output.coordinatorFinished
+            .subscribe()
             .disposed(by: disposeBag)
     }
 }

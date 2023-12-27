@@ -22,11 +22,13 @@ extension CreatePartyViewModel: ViewModelType {
         let partyName: Observable<String>
         let introduction: Observable<String>
         let memberCount: Observable<String>
+        let willDeallocated: Observable<Void>
     }
     
     struct Output {
         let dismiss: Driver<Void>
         let isEnableCompleteBarButton: Driver<Bool>
+        let coordinatorFinished: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -43,9 +45,16 @@ extension CreatePartyViewModel: ViewModelType {
             }
             .asDriver(onErrorJustReturn: false)
         
+        let coordinatorFinished = input.willDeallocated
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.finish()
+            }
+        
         return Output(
             dismiss: dismiss,
-            isEnableCompleteBarButton: isEnableCompleteBarButton
+            isEnableCompleteBarButton: isEnableCompleteBarButton,
+            coordinatorFinished: coordinatorFinished
         )
     }
 }

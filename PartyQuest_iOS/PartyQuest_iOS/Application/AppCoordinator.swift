@@ -80,15 +80,41 @@ extension AppCoordinator {
     }
     
     private func coordinateToHome() {
-        self.tabBarController = PQTabBarController()
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
+//        let partyListTabBarItem = UITabBarItem(title: nil,
+//                                          image: UIImage(systemName: "person.2"),
+//                                          selectedImage: UIImage(systemName: "person.2.fill"))
+//        let searchTabBarItem = UITabBarItem(title: nil,
+//                                          image: UIImage(systemName: "magnifyingglass"),
+//                                          selectedImage: nil)
+//        let alertTabBarItem = UITabBarItem(title: nil,
+//                                          image: UIImage(systemName: "bell"),
+//                                          selectedImage: UIImage(systemName: "bell.fill"))
         
         let homeNavigationController = UINavigationController()
+        homeNavigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "home"),
+            selectedImage: UIImage(systemName: "home.fill")
+        )
         let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
-        
-        tabBarController?.viewControllers = [homeNavigationController]
-        
         start(coordinator: homeCoordinator)
+        
+        let settingNavigationController = UINavigationController()
+        settingNavigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "gearshape"),
+            selectedImage: UIImage(systemName: "gearshape.fill")
+        )
+        let settingCoordinator = SettingCoordinator(navigationController: settingNavigationController)
+        start(coordinator: settingCoordinator)
+        
+        self.tabBarController = PQTabBarController()
+        tabBarController?.viewControllers = [
+            homeNavigationController,
+            settingNavigationController
+        ]
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 }

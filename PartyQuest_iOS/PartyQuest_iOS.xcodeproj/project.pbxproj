@@ -38,6 +38,9 @@
 		4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */; };
 		4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */; };
 		4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */; };
+		4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */; };
+		4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */; };
+		4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */; };
 		4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
@@ -123,6 +126,9 @@
 		4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationService.swift; sourceTree = "<group>"; };
+		4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
@@ -262,6 +268,7 @@
 			children = (
 				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
+				4A94CFD02B3ABD03007B48CB /* SettingView */,
 			);
 			path = TabBarScenes;
 			sourceTree = "<group>";
@@ -314,6 +321,16 @@
 				4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4A94CFD02B3ABD03007B48CB /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */,
+				4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */,
+				4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */,
+			);
+			path = SettingView;
 			sourceTree = "<group>";
 		};
 		4AA423842B031A370092EC27 /* DTO */ = {
@@ -755,7 +772,9 @@
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
+				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
 				4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */,
+				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
@@ -788,6 +807,7 @@
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
 				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,
+				4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */,
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */,

@@ -8,9 +8,9 @@
 import RxSwift
 
 final class HomeViewModel {
-    private let coordinator: HomeCoordinator
+    private let coordinator: HomeCoordinatorType
     
-    init(coordinator: HomeCoordinator) {
+    init(coordinator: HomeCoordinatorType) {
         self.coordinator = coordinator
     }
 }

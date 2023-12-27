@@ -7,8 +7,21 @@
 
 import UIKit
 
-final class CreatePartyCoordinator: BaseCoordinator {
-    override func start() {
+protocol CreatePartyCoordinatorType: Coordinator {
+    func toPartyList()
+}
+
+final class CreatePartyCoordinator: CreatePartyCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
         let viewModel = CreatePartyViewModel(coordinator: self)
         let viewController = CreatePartyViewController(viewModel: viewModel)
         viewController.modalPresentationStyle = .automatic
@@ -17,8 +30,8 @@ final class CreatePartyCoordinator: BaseCoordinator {
         navigationController?.present(nc, animated: true)
     }
     
-    func dismiss() {
+    func toPartyList() {
+        finish()
         navigationController?.dismiss(animated: true)
-        parentCoordinator?.didFinish(coordinator: self)
     }
 }

@@ -9,9 +9,9 @@ import RxSwift
 import RxCocoa
 
 final class CreatePartyViewModel {
-    let coordinator: CreatePartyCoordinator
+    let coordinator: CreatePartyCoordinatorType
     
-    init(coordinator: CreatePartyCoordinator) {
+    init(coordinator: CreatePartyCoordinatorType) {
         self.coordinator = coordinator
     }
 }
@@ -33,7 +33,7 @@ extension CreatePartyViewModel: ViewModelType {
         let dismiss = input.cancelBarButtonTapped
             .withUnretained(self)
             .compactMap { owner, _ in
-                owner.coordinator.dismiss()
+                owner.coordinator.toPartyList()
             }
             .asDriver(onErrorJustReturn: ())
         

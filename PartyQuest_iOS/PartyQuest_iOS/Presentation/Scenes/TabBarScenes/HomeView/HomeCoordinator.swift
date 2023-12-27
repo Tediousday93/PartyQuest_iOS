@@ -17,7 +17,7 @@ final class HomeCoordinator: HomeCoordinatorType {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     

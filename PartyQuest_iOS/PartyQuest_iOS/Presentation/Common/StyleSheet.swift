@@ -47,6 +47,9 @@ enum PQColor {
     /// white
     static let white = UIColor.white
     
+    /// systemGray6
+    static let lightGray = UIColor.systemGray6
+    
 }
 
 enum PQFont {

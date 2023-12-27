@@ -1,15 +1,13 @@
 //
-//  TitledTextfield.swift
+//  TitledTextField.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/10/27.
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-final class TitledTextfield: UIView {
+final class TitledTextField: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .callout)
@@ -23,6 +21,9 @@ final class TitledTextfield: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOffset = .init(width: 10, height: 10)
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 4
+        textField.backgroundColor = PQColor.white
         
         return textField
     }()
@@ -46,14 +47,10 @@ final class TitledTextfield: UIView {
         return stackView
     }()
     
-    let inputStateRelay: PublishRelay<InputState> = .init()
-    private let disposeBag: DisposeBag = .init()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setSubviews()
         setConstraints()
-        setBindings()
     }
     
     required init?(coder: NSCoder) {
@@ -81,48 +78,19 @@ final class TitledTextfield: UIView {
             textField.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
-    
-    private func setBindings() {
-        inputStateRelay
-            .asDriver(onErrorJustReturn: .correct)
-            .drive(with: self, onNext: { owner, inputState in
-                owner.setTextFieldBorder(state: inputState)
-                
-                switch inputState {
-                case .correct:
-                    owner.setCaption(" ")
-                case .incorrect:
-                    owner.setCaption("올바르지 않은 형식입니다.")
-                }
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    private func setTextFieldBorder(state: InputState) {
-        textField.layer.borderWidth = 2
-        textField.layer.cornerRadius = 4
-        
-        switch state {
-        case .incorrect:
-            textField.layer.borderColor = UIColor.systemRed.cgColor
-        case .correct:
-            textField.layer.borderColor = UIColor.systemGray4.cgColor
-        }
-    }
 }
 
-extension TitledTextfield {
-    enum InputState {
-        case correct
-        case incorrect
-    }
-    
+extension TitledTextField {
     func setTitle(_ title: String?) {
         titleLabel.text = title
     }
     
     func setPlaceholder(_ text: String?) {
         textField.placeholder = text
+    }
+    
+    func setTextFieldBorder(color: UIColor) {
+        textField.layer.borderColor = color.cgColor
     }
     
     func setCaption(_ caption: String?) {

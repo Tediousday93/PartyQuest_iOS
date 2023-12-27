@@ -32,7 +32,7 @@ final class AppCoordinator: BaseCoordinator {
     
     deinit {
         disposeBag = .init()
-        print("enterance coordinator deinited")
+        print("enterance coordinator deinit")
     }
     
     override func start() {

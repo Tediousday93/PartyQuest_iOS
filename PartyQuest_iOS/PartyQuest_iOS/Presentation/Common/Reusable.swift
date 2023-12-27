@@ -2,10 +2,9 @@
 //  Reusable.swift
 //  PartyQuest_iOS
 //
-//  Created by Harry on 2023/12/21.
+//  Created by Rowan, Harry on 2023/12/12.
 //
 
-import Foundation
 import UIKit
 
 protocol Reusable {
@@ -19,3 +18,7 @@ extension Reusable {
 }
 
 extension UICollectionViewCell: Reusable {}
+
+extension PartyListHeaderView: Reusable {}
+
+extension DropDownCell: Reusable {}

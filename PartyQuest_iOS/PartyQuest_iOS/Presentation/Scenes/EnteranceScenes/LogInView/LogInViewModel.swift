@@ -36,8 +36,6 @@ final class LogInViewModel {
 }
 
 extension LogInViewModel: ViewModelType {
-    typealias InputState = TitledTextfield.InputState
-    
     struct Input {
         let email: Observable<String>
         let password: Observable<String>
@@ -49,7 +47,7 @@ extension LogInViewModel: ViewModelType {
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let inputStates: Driver<(InputState, InputState)>
+        let inputValidation: Driver<(Bool, Bool)>
         let isEnableLogInButton: Driver<Bool>
         let jwtSaved: Observable<Void>
     }
@@ -61,9 +59,9 @@ extension LogInViewModel: ViewModelType {
             .combineLatest(input.email, input.password)
             .share()
         
-        let inputStates = userInputs
+        let inputValidation = userInputs
             .map { email, password in
-                var validation = (false, false)
+                var validation = (true, true)
                 if email.isEmpty == false {
                     validation.0 = email.isValidEmail()
                 } else {
@@ -77,14 +75,7 @@ extension LogInViewModel: ViewModelType {
                 
                 return validation
             }
-            .asDriver(onErrorJustReturn: (false, false))
-            .map { validation in
-                var states: (InputState, InputState)
-                validation.0 ? (states.0 = .correct) : (states.0 = .incorrect)
-                validation.1 ? (states.1 = .correct) : (states.1 = .incorrect)
-                
-                return states
-            }
+            .asDriver(onErrorJustReturn: (true, true))
         
         let isEnableLogInButton = userInputs
             .map { email, password in
@@ -194,7 +185,7 @@ extension LogInViewModel: ViewModelType {
         
         return Output(
             errorRelay: errorRelay,
-            inputStates: inputStates,
+            inputValidation: inputValidation,
             isEnableLogInButton: isEnableLogInButton,
             jwtSaved: jwtSaved
         )

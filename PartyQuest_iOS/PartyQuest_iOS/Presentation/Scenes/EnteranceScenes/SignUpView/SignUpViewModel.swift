@@ -21,21 +21,21 @@ final class SignUpViewModel {
 }
 
 extension SignUpViewModel: ViewModelType {
-    typealias InputState = TitledTextfield.InputState
-    
     struct Input {
         let email: Observable<String>
         let password: Observable<String>
         let birthDate: Observable<String>
         let nickname: Observable<String>
         let signUpButtonTapped: Observable<Void>
+        let willDeinit: Observable<Void>
     }
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let inputStates: Driver<(InputState, InputState, InputState, InputState)>
+        let inputValidations: Driver<(Bool, Bool, Bool, Bool)>
         let isEnableSignUpButton: Driver<Bool>
-        let signUpSucceeded: Observable<Void>
+        let signUpSuccessed: Observable<Void>
+        let popViewController: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -49,7 +49,7 @@ extension SignUpViewModel: ViewModelType {
         )
             .share()
         
-        let userInputsValidation = userInputs
+        let inputValidations = userInputs
             .map { email, password, nickname, birthDate in
                 var validation = (true, true, true, true)
                 if email.isEmpty == false {
@@ -66,23 +66,27 @@ extension SignUpViewModel: ViewModelType {
                 }
                 return validation
             }
-            .share()
             .asDriver(onErrorJustReturn: (true, true, true, true))
-            
         
-        let inputStates = userInputsValidation
-            .map { validation in
-                var states: (InputState, InputState, InputState, InputState)
-                validation.0 ? (states.0 = .correct) : (states.0 = .incorrect)
-                validation.1 ? (states.1 = .correct) : (states.1 = .incorrect)
-                validation.2 ? (states.2 = .correct) : (states.2 = .incorrect)
-                validation.3 ? (states.3 = .correct) : (states.3 = .incorrect)
-                
-                return states
+        let isEnableSignUpButton = userInputs
+            .map { email, password, nickname, birthDate in
+                var validation = (false, false, false, false)
+                if email.isEmpty == false {
+                    validation.0 = email.isValidEmail()
+                }
+                if password.isEmpty == false {
+                    validation.1 = password.isValidPassword()
+                }
+                if nickname.isEmpty == false {
+                    validation.2 = nickname.isValidNickname()
+                }
+                if birthDate.isEmpty == false {
+                    validation.3 = birthDate.isValidBirthDate()
+                }
+                return validation
             }
-        
-        let isEnableSignUpButton = userInputsValidation
             .map { $0 && $1 && $2 && $3 }
+            .asDriver(onErrorJustReturn: false)
         
         let signUpSuccessed = input.signUpButtonTapped
             .withLatestFrom(userInputs)
@@ -106,6 +110,13 @@ extension SignUpViewModel: ViewModelType {
                 }
             })
             .filter { $0.error == nil }
+            .map { _ in }
+            .withUnretained(self)
+            .map { owner, _ in
+                owner.coordinator.finish()
+            }
+        
+        let popViewController = input.willDeinit
             .withUnretained(self)
             .compactMap { owner, _ in
                 owner.coordinator.parentCoordinator?.didFinish(coordinator: owner.coordinator)
@@ -113,9 +124,10 @@ extension SignUpViewModel: ViewModelType {
         
         return Output(
             errorRelay: errorRelay,
-            inputStates: inputStates,
+            inputValidations: inputValidations,
             isEnableSignUpButton: isEnableSignUpButton,
-            signUpSucceeded: signUpSuccessed
+            signUpSuccessed: signUpSuccessed,
+            popViewController: popViewController
         )
     }
 }

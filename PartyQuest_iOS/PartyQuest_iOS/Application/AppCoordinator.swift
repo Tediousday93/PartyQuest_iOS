@@ -8,9 +8,14 @@
 import UIKit
 import RxSwift
 
-final class AppCoordinator: BaseCoordinator {
+final class AppCoordinator: Coordinator {
+    var navigationController: UINavigationController?
+    var tabBarController: PQTabBarController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
     private let window: UIWindow?
-    private var tabBarController: PQTabBarController?
     
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
     private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
@@ -26,23 +31,16 @@ final class AppCoordinator: BaseCoordinator {
         self.serviceTokenUseCaseProvider = DefaultServiceTokenUseCaseProvider()
         self.tabBarController = nil
         
-        super.init(navigationController: nil)
         setBindings()
     }
     
     deinit {
         disposeBag = .init()
-        print("enterance coordinator deinit")
     }
     
-    override func start() {
+    func start() {
 //        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
-        coordinateToHome()
-    }
-    
-    override func didFinish(coordinator: Coordinator) {
-        super.didFinish(coordinator: coordinator)
-        navigationController?.popViewController(animated: true)
+        toHome()
     }
 }
 
@@ -52,18 +50,20 @@ extension AppCoordinator {
             .subscribe(with: self, onNext: { owner, emitter in
                 switch emitter {
                 case true:
+                    owner.childCoordinators.removeAll()
                     owner.navigationController?.viewControllers.removeAll()
                     owner.navigationController = nil
-                    owner.coordinateToHome()
+                    owner.toHome()
                 case false:
+                    owner.childCoordinators.removeAll()
                     owner.tabBarController?.dismiss(animated: true)
-                    owner.coordinateToWelcome()
+                    owner.toWelcome()
                 }
             })
             .disposed(by: disposeBag)
     }
     
-    private func coordinateToWelcome() {
+    private func toWelcome() {
         self.navigationController = UINavigationController()
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
@@ -76,10 +76,10 @@ extension AppCoordinator {
             isLoggedIn: isLoggedIn
         )
         
-        start(coordinator: coordinator)
+        start(child: coordinator)
     }
     
-    private func coordinateToHome() {
+    private func toHome() {
         self.tabBarController = PQTabBarController()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
@@ -89,6 +89,6 @@ extension AppCoordinator {
         
         tabBarController?.viewControllers = [homeNavigationController]
         
-        start(coordinator: homeCoordinator)
+        start(child: homeCoordinator)
     }
 }

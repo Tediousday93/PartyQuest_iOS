@@ -9,9 +9,9 @@ import RxSwift
 import RxCocoa
 
 final class PartyListViewModel {
-    private let coordinator: PartyListCoordinator
+    private let coordinator: PartyListCoordinatorType
     
-    init(coordinator: PartyListCoordinator) {
+    init(coordinator: PartyListCoordinatorType) {
         self.coordinator = coordinator
     }
 }
@@ -54,7 +54,7 @@ extension PartyListViewModel: ViewModelType {
         let createPartyPushed = input.plusButtonTapped
             .withUnretained(self)
             .map { owner, _ in
-                owner.coordinator.coordinateToCreateParty()
+                owner.coordinator.toCreateParty()
             }
             .asDriver(onErrorJustReturn: ())
         

@@ -7,16 +7,29 @@
 
 import UIKit
 
-final class PartyListCoordinator: BaseCoordinator {
-    override func start() {
+protocol PartyListCoordinatorType: Coordinator {
+    func toCreateParty()
+}
+
+final class PartyListCoordinator: PartyListCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
         let partyListViewModel = PartyListViewModel(coordinator: self)
         let partyListViewController = PartyListViewController(viewModel: partyListViewModel)
         
         navigationController?.pushViewController(partyListViewController, animated: true)
     }
     
-    func coordinateToCreateParty() {
+    func toCreateParty() {
         let coordinator = CreatePartyCoordinator(navigationController: navigationController)
-        start(coordinator: coordinator)
+        start(child: coordinator)
     }
 }

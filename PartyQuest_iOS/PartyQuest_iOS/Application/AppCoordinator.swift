@@ -36,12 +36,7 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     override func start() {
-//        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
-        self.navigationController = UINavigationController()
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-        let coordinator = PartyListCoordinator(navigationController: navigationController)
-        self.start(coordinator: coordinator)
+        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
     }
     
     override func didFinish(coordinator: Coordinator) {

@@ -10,8 +10,6 @@ import RxSwift
 import RxCocoa
 
 final class PartyCardCollectionViewController: UIViewController {
-    let items: BehaviorRelay<[PartyItem]> = .init(value: [])
-    
     private enum Section {
         case main
     }
@@ -22,6 +20,8 @@ final class PartyCardCollectionViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = .init(frame: .zero,
                                                               collectionViewLayout: collectionViewLayout())
+    
+    let items: BehaviorRelay<[PartyItem]> = .init(value: [])
     
     private var dataSource: DataSource!
     private var disposeBag: DisposeBag

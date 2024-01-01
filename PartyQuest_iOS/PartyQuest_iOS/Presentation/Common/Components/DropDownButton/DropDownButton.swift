@@ -32,9 +32,11 @@ final class DropDownButton: UIView {
     let tableView: UITableView = .init()
     
     private var menuItems: [String]
+    private let menuHeight: CGFloat
     
-    init(menuItems: [String]) {
+    init(menuItems: [String], menuHeight: CGFloat) {
         self.menuItems = menuItems
+        self.menuHeight = menuHeight
         super.init(frame: .zero)
         configureSubviews()
         setSubviews()
@@ -89,7 +91,7 @@ final class DropDownButton: UIView {
                 x: buttonFrame.origin.x,
                 y: buttonFrame.origin.y + buttonFrame.height,
                 width: buttonFrame.width,
-                height: CGFloat(200)
+                height: self.menuHeight
             )
         }
     }

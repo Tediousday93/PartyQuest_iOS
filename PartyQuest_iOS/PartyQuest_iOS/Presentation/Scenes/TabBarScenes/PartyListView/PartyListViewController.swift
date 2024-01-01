@@ -17,7 +17,6 @@ final class PartyListViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, PartyItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, PartyItem>
     private typealias PartyCardCellRegistration = UICollectionView.CellRegistration<PartyCardCell, PartyItem>
-    private typealias PartyListHeaderRegistration = UICollectionView.SupplementaryRegistration<PartyListHeaderView>
     
     private lazy var collectionView: UICollectionView = .init(frame: .zero,
                                                               collectionViewLayout: collectionViewLayout())
@@ -124,19 +123,6 @@ final class PartyListViewController: UIViewController {
                 item: item
             )
             return cell
-        }
-        
-        let headerRegistration = PartyListHeaderRegistration(
-            elementKind: UICollectionView.elementKindSectionHeader
-        ) { supplementaryView, elementKind, indexPath in
-            supplementaryView.setTitle("파티 목록")
-        }
-        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
-            let headerView = collectionView.dequeueConfiguredReusableSupplementary(
-                using: headerRegistration,
-                for: indexPath
-            )
-            return headerView
         }
     }
     

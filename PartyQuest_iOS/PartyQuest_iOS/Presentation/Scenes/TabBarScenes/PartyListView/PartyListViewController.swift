@@ -56,11 +56,17 @@ final class PartyListViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        title = "PartyQuest"
+        let navigationTitleLabel = UILabel()
+        navigationTitleLabel.textAlignment = .left
+        navigationTitleLabel.font = .boldSystemFont(ofSize: 25)
+        navigationTitleLabel.text = "파티 목록"
+        navigationTitleLabel.textColor = .black
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: navigationTitleLabel)
     }
     
     private func configureRootView() {
-        view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemBackground
     }
     
     private func setSubviews() {
@@ -100,18 +106,7 @@ final class PartyListViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])
         
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .estimated(70)
-        )
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        
         let section = NSCollectionLayoutSection(group: group)
-        section.boundarySupplementaryItems = [sectionHeader]
         section.interGroupSpacing = 15
         section.contentInsets = .init(top: 0, leading: 15, bottom: 0, trailing: 15)
         

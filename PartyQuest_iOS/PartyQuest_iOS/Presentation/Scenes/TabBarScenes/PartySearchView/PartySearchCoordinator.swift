@@ -17,7 +17,14 @@ final class PartySearchCoordinator: PartySearchCoordinatorType {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
     func start() {
+        let viewModel = PartySearchViewModel()
+        let viewController = PartySearchViewController(viewModel: viewModel)
         
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -23,12 +23,12 @@ extension PartyListViewModel: ViewModelType {
     }
     
     struct Output {
-        let partyItemViewModels: Observable<[PartyItem]>
+        let partyItems: Observable<[PartyItem]>
         let createPartyPushed: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
-        let partyItemViewModels = input.viewWillAppearEvent
+        let partyItems = input.viewWillAppearEvent
             .map { _ in
                 [
                     PartyItem(topImage: UIImage(named: "party_card_image"),
@@ -49,7 +49,6 @@ extension PartyListViewModel: ViewModelType {
                               creationDate: "생성일 2023.10.02"),
                 ]
             }
-            .debug("item created")
         
         let createPartyPushed = input.plusButtonTapped
             .withUnretained(self)
@@ -59,7 +58,7 @@ extension PartyListViewModel: ViewModelType {
             .asDriver(onErrorJustReturn: ())
         
         return Output(
-            partyItemViewModels: partyItemViewModels,
+            partyItems: partyItems,
             createPartyPushed: createPartyPushed
         )
     }

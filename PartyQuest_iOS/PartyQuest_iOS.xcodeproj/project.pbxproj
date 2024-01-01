@@ -428,8 +428,6 @@
 				AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */,
 				AD59A9842B284695005BAEEB /* PartyListViewController.swift */,
 				AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */,
-				AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */,
-				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
 			);
 			path = PartyListView;
 			sourceTree = "<group>";
@@ -621,6 +619,8 @@
 			isa = PBXGroup;
 			children = (
 				ADCBA2632B4292AE00A56097 /* PartyCardCollectionViewController.swift */,
+				AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */,
+				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
 			);
 			path = PartyCardCollectionView;
 			sourceTree = "<group>";

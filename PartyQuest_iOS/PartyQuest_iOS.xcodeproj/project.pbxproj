@@ -57,7 +57,6 @@
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
-		AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */; };
 		AD1BAD142B31716E00329C53 /* CreatePartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD132B31716E00329C53 /* CreatePartyViewController.swift */; };
 		AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD152B31718300329C53 /* CreatePartyCoordinator.swift */; };
 		AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD172B31718D00329C53 /* CreatePartyViewModel.swift */; };
@@ -158,7 +157,6 @@
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCardCell.swift; sourceTree = "<group>"; };
 		AD1BAD002B29A05000329C53 /* PartyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyItem.swift; sourceTree = "<group>"; };
-		AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListHeaderView.swift; sourceTree = "<group>"; };
 		AD1BAD132B31716E00329C53 /* CreatePartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewController.swift; sourceTree = "<group>"; };
 		AD1BAD152B31718300329C53 /* CreatePartyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyCoordinator.swift; sourceTree = "<group>"; };
 		AD1BAD172B31718D00329C53 /* CreatePartyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePartyViewModel.swift; sourceTree = "<group>"; };
@@ -423,7 +421,6 @@
 				AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */,
 				AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */,
 				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
-				AD1BAD0A2B30292E00329C53 /* PartyListHeaderView.swift */,
 			);
 			path = PartyListView;
 			sourceTree = "<group>";
@@ -842,7 +839,6 @@
 				AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */,
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */,
-				AD1BAD0B2B30292E00329C53 /* PartyListHeaderView.swift in Sources */,
 				AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,

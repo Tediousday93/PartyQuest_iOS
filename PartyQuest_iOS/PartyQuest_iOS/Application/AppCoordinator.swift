@@ -86,9 +86,15 @@ extension AppCoordinator {
         
         let homeNavigationController = UINavigationController()
         let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
+        let partyListNavigationController = UINavigationController()
+        let partyListCoordinator = PartyListCoordinator(navigationController: partyListNavigationController)
+        let tabBarImage = UIImage(systemName: "person.2")
+        let tabBarSelectedImage = UIImage(systemName: "person.2.fill")
+        partyListNavigationController.tabBarItem = .init(title: nil, image: tabBarImage, selectedImage: tabBarSelectedImage)
         
-        tabBarController?.viewControllers = [homeNavigationController]
+        tabBarController?.viewControllers = [homeNavigationController, partyListNavigationController]
         
         start(child: homeCoordinator)
+        start(child: partyListCoordinator)
     }
 }

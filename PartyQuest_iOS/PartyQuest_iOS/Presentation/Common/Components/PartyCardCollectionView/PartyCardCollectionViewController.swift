@@ -51,7 +51,7 @@ final class PartyCardCollectionViewController: UIViewController {
     
     private func configureRootView() {
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .clear
     }
     
     private func setSubviews() {
@@ -68,7 +68,7 @@ final class PartyCardCollectionViewController: UIViewController {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.3)
+            heightDimension: .fractionalWidth(0.6)
         )
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                        subitems: [item])

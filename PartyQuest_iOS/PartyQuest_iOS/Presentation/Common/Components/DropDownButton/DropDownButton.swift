@@ -73,7 +73,7 @@ final class DropDownButton: UIView {
     }
     
     @objc
-    func showDropDownMenu() {
+    private func showDropDownMenu() {
         let buttonFrame = titleButton.frame
         self.addSubview(tableView)
         tableView.layer.cornerRadius = 5
@@ -95,7 +95,7 @@ final class DropDownButton: UIView {
     }
     
     @objc
-    func removeDropDownMenu() {
+    private func removeDropDownMenu() {
         let buttonFrame = titleButton.frame
         
         UIView.animate(

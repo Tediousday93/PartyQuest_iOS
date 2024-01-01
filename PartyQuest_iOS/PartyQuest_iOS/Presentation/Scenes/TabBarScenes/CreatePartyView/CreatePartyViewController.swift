@@ -174,5 +174,33 @@ final class CreatePartyViewController: UIViewController {
         output.coordinatorFinished
             .subscribe()
             .disposed(by: disposeBag)
+        
+        partyNameTextField.textField.rx.controlEvent(.editingDidBegin)
+            .asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.partyNameTextField.setTextFieldBorder(color: PQColor.buttonMain)
+            })
+            .disposed(by: disposeBag)
+        
+        partyNameTextField.textField.rx.controlEvent(.editingDidEnd)
+            .asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.partyNameTextField.setTextFieldBorder(color: .systemGray4)
+            })
+            .disposed(by: disposeBag)
+        
+        introductionTextView.textView.rx.didBeginEditing
+            .asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.introductionTextView.setTextViewBorder(color: PQColor.buttonMain)
+            })
+            .disposed(by: disposeBag)
+        
+        introductionTextView.textView.rx.didEndEditing
+            .asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.introductionTextView.setTextViewBorder(color: .systemGray4)
+            })
+            .disposed(by: disposeBag)
     }
 }

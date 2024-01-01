@@ -58,6 +58,7 @@ final class CreatePartyViewController: UIViewController {
         let menuItems = Array(1...30).map { String($0) }
         let button = DropDownButton(menuItems: menuItems,
                                     menuHeight: 200)
+        button.setButton(title: "선택")
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button

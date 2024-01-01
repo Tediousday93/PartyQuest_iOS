@@ -10,7 +10,6 @@ import UIKit
 final class DropDownButton: UIView {
     let titleButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("선택", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = PQColor.white
         button.contentHorizontalAlignment = .center
@@ -114,6 +113,12 @@ final class DropDownButton: UIView {
                 height: 0
             )
         }
+    }
+}
+
+extension DropDownButton {
+    func setButton(title: String) {
+        titleButton.setTitle(title, for: .normal)
     }
 }
 

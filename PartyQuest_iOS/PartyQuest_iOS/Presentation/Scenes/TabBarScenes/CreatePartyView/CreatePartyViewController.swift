@@ -59,6 +59,7 @@ final class CreatePartyViewController: UIViewController {
         let button = DropDownButton(menuItems: menuItems,
                                     menuHeight: 200)
         button.setButton(title: "선택")
+        button.setTitleInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
@@ -134,7 +135,7 @@ final class CreatePartyViewController: UIViewController {
             
             dropDownButton.leadingAnchor.constraint(equalTo: partyNameTextField.leadingAnchor),
             dropDownButton.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.3),
-            dropDownButton.heightAnchor.constraint(equalToConstant: 200)
+            dropDownButton.heightAnchor.constraint(equalToConstant: 250)
         ])
     }
     

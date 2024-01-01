@@ -12,8 +12,8 @@ final class DropDownButton: UIView {
         let button = UIButton(type: .custom)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = PQColor.white
-        button.contentHorizontalAlignment = .center
-        button.layer.cornerRadius = 15
+        button.contentHorizontalAlignment = .leading
+        button.layer.cornerRadius = 10
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -59,7 +59,7 @@ final class DropDownButton: UIView {
             titleButton.heightAnchor.constraint(equalToConstant: 50),
             
             arrowIndicatorView.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
-            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
         ])
     }
     
@@ -119,6 +119,16 @@ final class DropDownButton: UIView {
 extension DropDownButton {
     func setButton(title: String) {
         titleButton.setTitle(title, for: .normal)
+    }
+    
+    func setTitleInsets(top: CGFloat, leading: CGFloat, bottom: CGFloat, trailing: CGFloat) {
+        if #available(iOS 15, *) {
+            var config = UIButton.Configuration.plain()
+            config.contentInsets = .init(top: top, leading: leading, bottom: bottom, trailing: trailing)
+            titleButton.configuration = config
+        } else {
+            titleButton.titleEdgeInsets = .init(top: top, left: leading, bottom: bottom, right: trailing)
+        }
     }
 }
 

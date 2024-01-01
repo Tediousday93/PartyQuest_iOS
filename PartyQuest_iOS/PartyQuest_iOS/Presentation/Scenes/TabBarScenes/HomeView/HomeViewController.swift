@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
     typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfile>
     typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeekActivityCell, WeekActivity>
     typealias DoingQuestCellRegistration = UICollectionView.CellRegistration<DoingQuestCell, Quest>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HomeCollectionHeaderView>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
     
     private var dataSource: DataSource!
     

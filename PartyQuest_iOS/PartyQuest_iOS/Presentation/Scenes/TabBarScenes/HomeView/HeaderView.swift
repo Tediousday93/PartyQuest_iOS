@@ -7,13 +7,12 @@
 
 import UIKit
 
-final class HomeCollectionHeaderView: UICollectionReusableView {
+final class HeaderView: UICollectionReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = PQColor.text
         label.numberOfLines = 1
         label.font = .preferredFont(forTextStyle: .headline)
-        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -41,6 +40,10 @@ final class HomeCollectionHeaderView: UICollectionReusableView {
     
     func setFont(_ font: UIFont) {
         titleLabel.font = font
+    }
+    
+    func setAlignment(_ alignment: NSTextAlignment) {
+        titleLabel.textAlignment = alignment
     }
     
     private func setConstraints() {

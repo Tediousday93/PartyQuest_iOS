@@ -28,7 +28,7 @@
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
-		4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */; };
+		4A636B2A2B2AE34C004FEF52 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* HeaderView.swift */; };
 		4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */; };
 		4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */; };
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
@@ -41,6 +41,8 @@
 		4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */; };
 		4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */; };
 		4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */; };
+		4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */; };
+		4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */; };
 		4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
@@ -116,7 +118,7 @@
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
-		4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderView.swift; sourceTree = "<group>"; };
+		4A636B292B2AE34C004FEF52 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 		4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
@@ -281,7 +285,7 @@
 				4A224C792B28479300D22E81 /* UserProfile.swift */,
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
-				4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */,
+				4A636B292B2AE34C004FEF52 /* HeaderView.swift */,
 				4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */,
 				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
 				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
@@ -329,6 +333,8 @@
 				4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */,
 				4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */,
 				4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */,
+				4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */,
+				4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */,
 			);
 			path = SettingView;
 			sourceTree = "<group>";
@@ -790,6 +796,7 @@
 				4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
+				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
@@ -798,9 +805,10 @@
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
+				4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
-				4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */,
+				4A636B2A2B2AE34C004FEF52 /* HeaderView.swift in Sources */,
 				4AB2F7C12B3425E6005D554C /* Reusable.swift in Sources */,
 				4A1F24942AEBE1CB005B264F /* BaseCoordinator.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,

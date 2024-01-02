@@ -5,9 +5,23 @@
 //  Created by Harry on 2023/12/26.
 //
 
-final class SettingCoordinator: BaseCoordinator {
- 
-    override func start() {
+import UIKit
+
+protocol SettingCoordinatorType: Coordinator {
+    
+}
+
+final class SettingCoordinator: SettingCoordinatorType {
+    var navigationController: UINavigationController?
+    
+    var parentCoordinator: Coordinator?
+    var childCoordinators: [Coordinator] = []
+    
+    init(navigationController: UINavigationController?) {
+        self.navigationController = navigationController
+    }
+    
+    func start() {
         let viewModel = SettingViewModel(coordinator: self)
         let settingViewController = SettingViewController(viewModel: viewModel)
         

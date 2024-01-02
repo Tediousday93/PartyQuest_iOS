@@ -1,30 +1,29 @@
 //
-//  PartyListViewModel.swift
+//  PartySearchViewModel.swift
 //  PartyQuest_iOS
 //
-//  Created by Rowan on 2023/11/29.
+//  Created by Rowan on 2024/01/01.
 //
 
+import Foundation
 import RxSwift
 import RxCocoa
 
-final class PartyListViewModel {
-    private let coordinator: PartyListCoordinatorType
+final class PartySearchViewModel {
+    private let coordinator: PartySearchCoordinatorType
     
-    init(coordinator: PartyListCoordinatorType) {
+    init(coordinator: PartySearchCoordinatorType) {
         self.coordinator = coordinator
     }
 }
 
-extension PartyListViewModel: ViewModelType {
+extension PartySearchViewModel: ViewModelType {
     struct Input {
         let viewWillAppearEvent: Observable<Void>
-        let plusButtonTapped: Observable<Void>
     }
     
     struct Output {
         let partyItems: Observable<[PartyItem]>
-        let createPartyPushed: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -50,16 +49,8 @@ extension PartyListViewModel: ViewModelType {
                 ]
             }
         
-        let createPartyPushed = input.plusButtonTapped
-            .withUnretained(self)
-            .map { owner, _ in
-                owner.coordinator.toCreateParty()
-            }
-            .asDriver(onErrorJustReturn: ())
-        
         return Output(
-            partyItems: partyItems,
-            createPartyPushed: createPartyPushed
+            partyItems: partyItems
         )
     }
 }

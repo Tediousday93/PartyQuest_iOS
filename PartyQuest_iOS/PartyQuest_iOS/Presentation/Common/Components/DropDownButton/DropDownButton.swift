@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class DropDownButton: UIView {
     let titleButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setTitle("선택", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = PQColor.white
-        button.contentHorizontalAlignment = .center
-        button.layer.cornerRadius = 15
+        button.contentHorizontalAlignment = .leading
+        button.layer.cornerRadius = 10
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -31,18 +32,41 @@ final class DropDownButton: UIView {
     
     let tableView: UITableView = .init()
     
-    private var menuItems: [String]
+    lazy var transparentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.9)
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+        return view
+    }()
     
-    init(menuItems: [String]) {
-        self.menuItems = menuItems
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    
+    private let menuItems: BehaviorRelay<[String]> = .init(value: [])
+    private let menuHeight: CGFloat
+    private let rootView: UIView
+    private var disposeBag: DisposeBag
+    
+    init(menuItems: [String],
+         menuHeight: CGFloat,
+         rootView: UIView) {
+        self.menuItems.accept(menuItems)
+        self.menuHeight = menuHeight
+        self.rootView = rootView
+        self.disposeBag = .init()
         super.init(frame: .zero)
-        configureSubviews()
+        configureTableView()
         setSubviews()
         setConstraints()
+        setBindings()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        self.disposeBag = .init()
     }
     
     private func setSubviews() {
@@ -58,25 +82,56 @@ final class DropDownButton: UIView {
             titleButton.heightAnchor.constraint(equalToConstant: 50),
             
             arrowIndicatorView.centerYAnchor.constraint(equalTo: titleButton.centerYAnchor),
-            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            arrowIndicatorView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
         ])
     }
     
-    private func configureSubviews() {
-        tableView.dataSource = self
-        tableView.delegate = self
+    private func configureTableView() {
         tableView.separatorInset = .zero
+        tableView.rowHeight = 50
+        tableView.layer.cornerRadius = 5
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(DropDownCell.self, forCellReuseIdentifier: DropDownCell.reuseID)
-        
-        titleButton.addTarget(self, action: #selector(showDropDownMenu), for: .touchUpInside)
     }
     
-    @objc
+    private func setBindings() {
+        self.menuItems
+            .bind(to: tableView.rx.items) { tableView, row, item in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DropDownCell.reuseID) as? DropDownCell else {
+                    return UITableViewCell()
+                }
+                cell.menuLabel.text = item
+                
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        titleButton.rx.tap.asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.showDropDownMenu()
+            })
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.asDriver()
+            .drive(with: self, onNext: { owner, indexPath in
+                owner.titleButton.setTitle(owner.menuItems.value[indexPath.row], for: .normal)
+                owner.removeDropDownMenu()
+            })
+            .disposed(by: disposeBag)
+        
+        tapGestureRecognizer.rx.event.asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.removeDropDownMenu()
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func showDropDownMenu() {
         let buttonFrame = titleButton.frame
+        rootView.insertSubview(transparentView, belowSubview: self)
         self.addSubview(tableView)
-        tableView.layer.cornerRadius = 5
+        transparentView.frame = rootView.frame
+        transparentView.alpha = 0
         
         UIView.animate(
             withDuration: 0.4,
@@ -89,12 +144,12 @@ final class DropDownButton: UIView {
                 x: buttonFrame.origin.x,
                 y: buttonFrame.origin.y + buttonFrame.height,
                 width: buttonFrame.width,
-                height: CGFloat(200)
+                height: self.menuHeight
             )
+            self.transparentView.alpha = 0.5
         }
     }
     
-    @objc
     private func removeDropDownMenu() {
         let buttonFrame = titleButton.frame
         
@@ -111,30 +166,23 @@ final class DropDownButton: UIView {
                 width: buttonFrame.width,
                 height: 0
             )
+            self.transparentView.alpha = 0
         }
     }
 }
 
-extension DropDownButton: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuItems.count
+extension DropDownButton {
+    func setButton(title: String) {
+        titleButton.setTitle(title, for: .normal)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DropDownCell.reuseID, for: indexPath) as? DropDownCell else {
-            return UITableViewCell()
+    func setTitleInsets(top: CGFloat, leading: CGFloat, bottom: CGFloat, trailing: CGFloat) {
+        if #available(iOS 15, *) {
+            var config = UIButton.Configuration.plain()
+            config.contentInsets = .init(top: top, leading: leading, bottom: bottom, trailing: trailing)
+            titleButton.configuration = config
+        } else {
+            titleButton.titleEdgeInsets = .init(top: top, left: leading, bottom: bottom, right: trailing)
         }
-        cell.menuLabel.text = menuItems[indexPath.row]
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        titleButton.setTitle(menuItems[indexPath.row], for: .normal)
-        removeDropDownMenu()
     }
 }

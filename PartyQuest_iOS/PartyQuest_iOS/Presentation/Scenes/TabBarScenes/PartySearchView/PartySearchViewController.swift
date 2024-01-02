@@ -10,9 +10,11 @@ import RxSwift
 import RxCocoa
 
 final class PartySearchViewController: UIViewController {
-    private let dropDownButton: DropDownButton = {
+    private lazy var dropDownButton: DropDownButton = {
         let menuItems = ["파티 이름", "파티장"]
-        let button = DropDownButton(menuItems: menuItems, menuHeight: 100)
+        let button = DropDownButton(menuItems: menuItems,
+                                    menuHeight: 100,
+                                    rootView: self.view)
         button.setButton(title: "검색기준")
         button.setTitleInsets(top: 0, leading: 10, bottom: 0, trailing: 0)
         button.translatesAutoresizingMaskIntoConstraints = false

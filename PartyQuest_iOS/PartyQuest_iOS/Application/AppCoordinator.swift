@@ -105,6 +105,7 @@ extension AppCoordinator {
             image: UIImage(systemName: "gearshape"),
             selectedImage: UIImage(systemName: "gearshape.fill")
         )
+        
         let settingCoordinator = SettingCoordinator(navigationController: settingNavigationController)
         start(coordinator: settingCoordinator)
         

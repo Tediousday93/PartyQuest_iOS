@@ -19,7 +19,7 @@ final class PartyCardCollectionViewController: UIViewController {
     private typealias PartyCardCellRegistration = UICollectionView.CellRegistration<PartyCardCell, PartyItem>
     
     lazy var collectionView: UICollectionView = .init(frame: .zero,
-                                                              collectionViewLayout: collectionViewLayout())
+                                                      collectionViewLayout: collectionViewLayout())
     
     let items: BehaviorRelay<[PartyItem]> = .init(value: [])
     

@@ -10,7 +10,11 @@ import RxSwift
 import RxCocoa
 
 final class PartySearchViewModel {
+    private let coordinator: PartySearchCoordinatorType
     
+    init(coordinator: PartySearchCoordinatorType) {
+        self.coordinator = coordinator
+    }
 }
 
 extension PartySearchViewModel: ViewModelType {

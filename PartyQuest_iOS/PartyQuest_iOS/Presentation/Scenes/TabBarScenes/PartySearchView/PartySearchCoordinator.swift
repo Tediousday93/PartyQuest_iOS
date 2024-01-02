@@ -22,7 +22,7 @@ final class PartySearchCoordinator: PartySearchCoordinatorType {
     }
     
     func start() {
-        let viewModel = PartySearchViewModel()
+        let viewModel = PartySearchViewModel(coordinator: self)
         let viewController = PartySearchViewController(viewModel: viewModel)
         
         navigationController?.pushViewController(viewController, animated: true)

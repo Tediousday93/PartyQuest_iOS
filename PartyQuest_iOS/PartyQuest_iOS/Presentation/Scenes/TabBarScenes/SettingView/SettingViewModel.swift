@@ -72,21 +72,22 @@ extension SettingViewModel: ViewModelType {
         }
         
         let autoLogInSetSucceded = input.autoLogInButtonIsOn
-            .map { _ in  }
+            .map { _ in }
         
         let darkModeSetSucceded = input.darkModeButtonIsOn
-            .map { _ in  }
+            .map { _ in }
         
         let alarmSetSucceded = input.alarmButtonIsOn
-            .map { _ in  }
+            .map { _ in }
         
         let logOutSucceded = input.logOutButtonTapped
             
-        
-        return Output(settingItems: settingItems,
-                      autoLogInSetSucceded: autoLogInSetSucceded,
-                      darkModeSetSucceded: darkModeSetSucceded,
-                      alarmSetSucceded: alarmSetSucceded,
-                      logOutSucceded: logOutSucceded)
+        return Output(
+            settingItems: settingItems,
+            autoLogInSetSucceded: autoLogInSetSucceded,
+            darkModeSetSucceded: darkModeSetSucceded,
+            alarmSetSucceded: alarmSetSucceded,
+            logOutSucceded: logOutSucceded
+        )
     }
 }

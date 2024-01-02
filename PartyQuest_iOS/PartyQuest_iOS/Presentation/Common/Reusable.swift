@@ -19,6 +19,4 @@ extension Reusable {
 
 extension UICollectionViewCell: Reusable {}
 
-extension PartyListHeaderView: Reusable {}
-
 extension DropDownCell: Reusable {}

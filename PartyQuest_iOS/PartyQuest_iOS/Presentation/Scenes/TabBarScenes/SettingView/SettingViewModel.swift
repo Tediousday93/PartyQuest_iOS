@@ -18,6 +18,10 @@ final class SettingViewModel {
 extension SettingViewModel: ViewModelType {
     struct Input {
         let viewWillAppearEvent: Observable<Void>
+        let autoLogInButtonIsOn: Observable<Bool>
+        let darkModeButtonIsOn: Observable<Bool>
+        let alarmButtonIsOn: Observable<Bool>
+        let logOutButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -25,6 +29,10 @@ extension SettingViewModel: ViewModelType {
                                       accountTitleList: [String],
                                       deviceInfoList: [DeviceInfo],
                                       etcTitleList: [String])>
+        let autoLogInSetSucceded: Observable<Void>
+        let darkModeSetSucceded: Observable<Void>
+        let alarmSetSucceded: Observable<Void>
+        let logOutSucceded: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -45,8 +53,8 @@ extension SettingViewModel: ViewModelType {
             .map { _ in
                 [
                     DeviceInfo(title: "자동 로그인", isOn: true),
-                    DeviceInfo(title: "다크 모드", isOn: false),
-                    DeviceInfo(title: "알림 설정", isOn: false),
+                    DeviceInfo(title: "다크 모드", isOn: true),
+                    DeviceInfo(title: "알림 설정", isOn: true),
                 ]
             }
         
@@ -63,6 +71,22 @@ extension SettingViewModel: ViewModelType {
                     deviceInfoList: deviceInfoList, etcTitleList: etcTitleList)
         }
         
-        return Output(settingItems: settingItems)
+        let autoLogInSetSucceded = input.autoLogInButtonIsOn
+            .map { _ in  }
+        
+        let darkModeSetSucceded = input.darkModeButtonIsOn
+            .map { _ in  }
+        
+        let alarmSetSucceded = input.alarmButtonIsOn
+            .map { _ in  }
+        
+        let logOutSucceded = input.logOutButtonTapped
+            
+        
+        return Output(settingItems: settingItems,
+                      autoLogInSetSucceded: autoLogInSetSucceded,
+                      darkModeSetSucceded: darkModeSetSucceded,
+                      alarmSetSucceded: alarmSetSucceded,
+                      logOutSucceded: logOutSucceded)
     }
 }

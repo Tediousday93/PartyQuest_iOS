@@ -9,13 +9,21 @@ import UIKit
 import RxSwift
 
 final class SettingViewController: UIViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<SettingSection, AnyHashable>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<SettingSection, AnyHashable>
+    private enum SettingSection {
+        case profileImage
+        case account
+        case device
+        case etc
+    }
+    
+    private typealias DataSource = UICollectionViewDiffableDataSource<SettingSection, AnyHashable>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<SettingSection, AnyHashable>
     typealias ProfileImageCellRegistration = UICollectionView.CellRegistration<ProfileImageCell, String>
     typealias AccountCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
-    typealias DeviceCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, DeviceInfo>
+    typealias DeviceInfoCellRegistration = UICollectionView.CellRegistration<DeviceInfoCell, DeviceInfo>
     typealias EtcCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<TitleHeaderView>
+    typealias FooterRegistration = UICollectionView.SupplementaryRegistration<ButtonFooterView>
     
     private lazy var collectionView: UICollectionView = {
         let colletionView = UICollectionView(frame: .zero,
@@ -143,7 +151,16 @@ final class SettingViewController: UIViewController {
                 
             default:
                 let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+                let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                        heightDimension: .fractionalWidth(0.15))
+                let footer = NSCollectionLayoutBoundarySupplementaryItem(
+                    layoutSize: footerSize,
+                    elementKind: "ButtonFooter",
+                    alignment: .bottom
+                )
+                
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
+                listSection.boundarySupplementaryItems = [footer]
                 
                 return listSection
             }
@@ -165,21 +182,8 @@ final class SettingViewController: UIViewController {
             cell.accessories = [.disclosureIndicator()]
         }
         
-        let deviceCellRegistration = DeviceCellRegistration { cell, indexPath, deviceInfo in
-            var content = UIListContentConfiguration.cell()
-            content.text = deviceInfo.title
-            
-            let switchButton = UISwitch()
-            switchButton.isOn = deviceInfo.isOn
-            
-            let accessoryConfiuration = UICellAccessory.CustomViewConfiguration(
-                customView: switchButton,
-                placement: .trailing()
-            )
-            let switchAceessory = UICellAccessory.customView(configuration: accessoryConfiuration)
-            
-            cell.contentConfiguration = content
-            cell.accessories = [switchAceessory]
+        let deviceCellRegistration = DeviceInfoCellRegistration { cell, indexPath, deviceInfo in
+            cell.configure(with: deviceInfo)
         }
         
         let etcCellRegistration = EtcCellRegistration { cell, indexPath, title in
@@ -188,25 +192,6 @@ final class SettingViewController: UIViewController {
 
             cell.contentConfiguration = content
             cell.accessories = [.disclosureIndicator()]
-        }
-        
-        let profileImageHeaderRegistration = HeaderRegistration(elementKind: "profileImageHeader") {
-            supplementaryView, elementKind, indexPath in
-            supplementaryView.setFont(PQFont.cellTitle)
-            supplementaryView.setAlignment(.center)
-            supplementaryView.configureTitle(string: "설정")
-        }
-        
-        let accountHeaderRegistration = HeaderRegistration(elementKind: "accountHeader") {
-            supplementaryView, elementKind, indexPath in
-            supplementaryView.setFont(PQFont.basicBold)
-            supplementaryView.configureTitle(string: "계정")
-        }
-        
-        let deviceHeaderRegistration = HeaderRegistration(elementKind: "deviceHeader") {
-            supplementaryView, elementKind, indexPath in
-            supplementaryView.setFont(PQFont.basicBold)
-            supplementaryView.configureTitle(string: "기기")
         }
         
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item in
@@ -239,6 +224,31 @@ final class SettingViewController: UIViewController {
             return UICollectionViewCell()
         }
         
+        let profileImageHeaderRegistration = HeaderRegistration(elementKind: "profileImageHeader") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.cellTitle)
+            supplementaryView.setAlignment(.center)
+            supplementaryView.configureTitle(string: "설정")
+        }
+        
+        let accountHeaderRegistration = HeaderRegistration(elementKind: "accountHeader") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.basicBold)
+            supplementaryView.configureTitle(string: "계정")
+        }
+        
+        let deviceHeaderRegistration = HeaderRegistration(elementKind: "deviceHeader") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.basicBold)
+            supplementaryView.configureTitle(string: "기기")
+        }
+        
+        let buttonFooterRegistration = FooterRegistration(elementKind: "ButtonFooter") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setButtonTitle(string: "로그아웃")
+            supplementaryView.setButtonColor(for: PQColor.buttonMain)
+        }
+        
         dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
             if elementKind == "profileImageHeader" {
                 return collectionView.dequeueConfiguredReusableSupplementary(
@@ -253,6 +263,11 @@ final class SettingViewController: UIViewController {
             } else if elementKind == "deviceHeader" {
                 return collectionView.dequeueConfiguredReusableSupplementary(
                     using: deviceHeaderRegistration,
+                    for: indexPath
+                )
+            } else if elementKind == "ButtonFooter" {
+                return collectionView.dequeueConfiguredReusableSupplementary(
+                    using: buttonFooterRegistration,
                     for: indexPath
                 )
             }
@@ -275,13 +290,57 @@ final class SettingViewController: UIViewController {
         
         self.dataSource.apply(snapshot)
     }
-    
+
     private func setBindings() {
         let viewWillAppearEvent = rx.sentMessage(#selector(SettingViewController.viewWillAppear))
             .map { _ in }
+        let willShowCell = collectionView.rx.willDisplayCell.asObservable()
         
-        let input = SettingViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
+        let autoLogInSwitchIsOn = willShowCell
+            .flatMap { cell, indexPath in
+                if let deviceInfoCell = cell as? DeviceInfoCell,
+                   indexPath == IndexPath(item: 0, section: 2) {
+                    return deviceInfoCell.switchButton.rx.isOn.asObservable()
+                }
+                return Observable<Bool>.empty()
+            }
         
+        let darkModeSwitchIsOn = willShowCell
+            .flatMap { cell, indexPath in
+                if let deviceInfoCell = cell as? DeviceInfoCell,
+                   indexPath == IndexPath(item: 1, section: 2) {
+                    return deviceInfoCell.switchButton.rx.isOn.asObservable()
+                }
+                return Observable<Bool>.empty()
+            }
+        
+        let alarmSwitchIsOn = willShowCell
+            .flatMap { cell, indexPath in
+                if let deviceInfoCell = cell as? DeviceInfoCell,
+                   indexPath == IndexPath(item: 2, section: 2) {
+                    return deviceInfoCell.switchButton.rx.isOn.asObservable()
+                }
+                return Observable<Bool>.empty()
+            }
+        
+        let willShowFooterView = collectionView.rx.willDisplaySupplementaryView.asObservable()
+        let logOutButtonTapped = willShowFooterView
+            .flatMap { supplementaryView, elementKind, _ in
+                if elementKind == "ButtonFooter" {
+                    if let buttonFooterView = supplementaryView as? ButtonFooterView {
+                        return buttonFooterView.button.rx.tap
+                            .map { _ in }
+                    }
+                }
+                return Observable.empty()
+            }
+        
+        let input = SettingViewModel.Input(viewWillAppearEvent: viewWillAppearEvent,
+                                           autoLogInButtonIsOn: autoLogInSwitchIsOn,
+                                           darkModeButtonIsOn: darkModeSwitchIsOn,
+                                           alarmButtonIsOn: alarmSwitchIsOn,
+                                           logOutButtonTapped: logOutButtonTapped)
+
         let output = viewModel.transform(input)
         
         output.settingItems
@@ -290,12 +349,31 @@ final class SettingViewController: UIViewController {
                 owner.applySnapshot(items: items)
             }
             .disposed(by: disposeBag)
+        
+        output.autoLogInSetSucceded
+            .subscribe { _ in
+                print("autoLogIn switched")
+            }
+            .disposed(by: disposeBag)
+        
+        output.darkModeSetSucceded
+            .subscribe { _ in
+                print("darkMode switched")
+            }
+            .disposed(by: disposeBag)
+        
+        output.alarmSetSucceded
+            .subscribe { _ in
+                print("alarm switched")
+            }
+            .disposed(by: disposeBag)
+        
+        output.logOutSucceded
+            .subscribe { _ in
+                print("LogOut Button!!")
+            }
+            .disposed(by: disposeBag)
     }
 }
 
-enum SettingSection {
-    case profileImage
-    case account
-    case device
-    case etc
-}
+

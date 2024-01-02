@@ -25,9 +25,11 @@
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
 		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
+		4A4A4F402B429D8C00C99612 /* ButtonFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */; };
+		4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
-		4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */; };
+		4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */; };
 		4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */; };
 		4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */; };
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
@@ -37,6 +39,11 @@
 		4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */; };
 		4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */; };
 		4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */; };
+		4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */; };
+		4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */; };
+		4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */; };
+		4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */; };
+		4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */; };
 		4AA423812B03058C0092EC27 /* SocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
@@ -122,9 +129,11 @@
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
+		4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFooterView.swift; sourceTree = "<group>"; };
+		4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
-		4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionHeaderView.swift; sourceTree = "<group>"; };
+		4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
 		4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +143,11 @@
 		4A6A25CA2AF37A12000CA63F /* AuthenticationAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		4A6A25D22AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCase.swift; sourceTree = "<group>"; };
 		4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationService.swift; sourceTree = "<group>"; };
+		4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
+		4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		4AA423802B03058C0092EC27 /* SocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
@@ -285,6 +299,7 @@
 			children = (
 				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
+				4A94CFD02B3ABD03007B48CB /* SettingView */,
 				AD59A9812B28465A005BAEEB /* PartyListView */,
 				AD1BAD122B31711600329C53 /* CreatePartyView */,
 			);
@@ -299,7 +314,7 @@
 				4A224C792B28479300D22E81 /* UserProfile.swift */,
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
-				4A636B292B2AE34C004FEF52 /* HomeCollectionHeaderView.swift */,
+				4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */,
 				4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */,
 				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
 				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
@@ -339,6 +354,19 @@
 				4A6A25D42AF39E23000CA63F /* DefaultAuthenticationService.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4A94CFD02B3ABD03007B48CB /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				4A94CFD12B3ABD3B007B48CB /* SettingCoordinator.swift */,
+				4A94CFD32B3ABD86007B48CB /* SettingViewModel.swift */,
+				4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */,
+				4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */,
+				4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */,
+				4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */,
+			);
+			path = SettingView;
 			sourceTree = "<group>";
 		};
 		4AA423842B031A370092EC27 /* DTO */ = {
@@ -504,6 +532,7 @@
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
+				4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -823,7 +852,9 @@
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
+				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
 				4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */,
+				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
@@ -842,6 +873,7 @@
 				AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
+				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
 				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
@@ -850,7 +882,9 @@
 				AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
+				4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
+				4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */,
@@ -859,11 +893,13 @@
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
 				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,
+				4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */,
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
+				4A4A4F402B429D8C00C99612 /* ButtonFooterView.swift in Sources */,
 				4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */,
 				AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */,
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,

@@ -85,6 +85,11 @@ extension AppCoordinator {
         window?.makeKeyAndVisible()
         
         let homeNavigationController = UINavigationController()
+        homeNavigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "home"),
+            selectedImage: UIImage(systemName: "home.fill")
+        )
         let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
         let partyListNavigationController = UINavigationController()
         let partyListCoordinator = PartyListCoordinator(navigationController: partyListNavigationController)

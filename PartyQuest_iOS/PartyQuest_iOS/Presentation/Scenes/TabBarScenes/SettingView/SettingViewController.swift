@@ -292,8 +292,7 @@ final class SettingViewController: UIViewController {
     }
 
     private func setBindings() {
-        let viewWillAppearEvent = rx.sentMessage(#selector(SettingViewController.viewWillAppear))
-            .map { _ in }
+        let viewWillAppearEvent = self.rx.viewWillAppear
         let willShowCell = collectionView.rx.willDisplayCell.asObservable()
         
         let autoLogInSwitchIsOn = willShowCell

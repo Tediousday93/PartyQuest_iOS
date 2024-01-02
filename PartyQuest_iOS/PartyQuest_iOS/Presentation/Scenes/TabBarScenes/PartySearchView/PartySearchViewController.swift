@@ -107,8 +107,7 @@ final class PartySearchViewController: UIViewController {
     }
     
     private func setBindings() {
-        let viewWillAppearEvent = rx.sentMessage(#selector(PartyListViewController.viewWillAppear))
-            .map { _ in}
+        let viewWillAppearEvent = self.rx.viewWillAppear
         let input = PartySearchViewModel.Input(
             viewWillAppearEvent: viewWillAppearEvent
         )

@@ -75,8 +75,7 @@ final class PartyListViewController: UIViewController {
     }
     
     private func setBindings() {
-        let viewWillAppearEvent = rx.sentMessage(#selector(PartyListViewController.viewWillAppear))
-            .map { _ in}
+        let viewWillAppearEvent = self.rx.viewWillAppear
         let plusButtonTapped = plusButton.rx.tap.map { _ in }
         let input = PartyListViewModel.Input(
             viewWillAppearEvent: viewWillAppearEvent,

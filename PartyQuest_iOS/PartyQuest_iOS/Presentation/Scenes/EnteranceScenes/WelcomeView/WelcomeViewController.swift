@@ -135,8 +135,7 @@ final class WelcomeViewController: UIViewController {
     }
     
     private func setBindings() {
-        let viewDidLoadEvent = rx.methodInvoked(#selector(WelcomeViewController.viewDidLoad))
-            .map { _ in}
+        let viewDidLoadEvent = self.rx.viewDidLoad
         
         let input = WelcomeViewModel.Input(
             viewDidLoadEvent: viewDidLoadEvent,

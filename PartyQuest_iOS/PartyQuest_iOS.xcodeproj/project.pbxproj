@@ -96,6 +96,7 @@
 		ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */; };
 		ADCBA25C2B42863400A56097 /* PartySearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA25B2B42863400A56097 /* PartySearchCoordinator.swift */; };
 		ADCBA2642B4292AE00A56097 /* PartyCardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2632B4292AE00A56097 /* PartyCardCollectionViewController.swift */; };
+		ADCBA2762B440A2F00A56097 /* Rx+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2752B440A2F00A56097 /* Rx+UIViewController.swift */; };
 		C2B93AD7C0F94311485B3DB7 /* Pods_PartyQuest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */; };
 		D34D7571C39361CF89BCFEE3 /* Pods_PartyQuest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */; };
 /* End PBXBuildFile section */
@@ -207,6 +208,7 @@
 		ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewModel.swift; sourceTree = "<group>"; };
 		ADCBA25B2B42863400A56097 /* PartySearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchCoordinator.swift; sourceTree = "<group>"; };
 		ADCBA2632B4292AE00A56097 /* PartyCardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyCardCollectionViewController.swift; sourceTree = "<group>"; };
+		ADCBA2752B440A2F00A56097 /* Rx+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Rx+UIViewController.swift"; sourceTree = "<group>"; };
 		C69F1ED60EED97E359AF348B /* Pods-PartyQuest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D00E6B97D005B12FFE23F840 /* Pods_PartyQuest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7DDBB315499BE98651B398B /* Pods-PartyQuest_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.release.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -508,6 +510,7 @@
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
 				AD59A98C2B284AC1005BAEEB /* Reusable.swift */,
 				4A1F24912AEBE14A005B264F /* Coordinator.swift */,
+				ADCBA2752B440A2F00A56097 /* Rx+UIViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -928,6 +931,7 @@
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,
 				4AB2F7B42B317946005D554C /* CircularProgressView.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
+				ADCBA2762B440A2F00A56097 /* Rx+UIViewController.swift in Sources */,
 				ADCBA2582B42862100A56097 /* PartySearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

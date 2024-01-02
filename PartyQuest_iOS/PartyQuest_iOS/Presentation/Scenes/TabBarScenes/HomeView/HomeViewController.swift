@@ -246,8 +246,7 @@ final class HomeViewController: UIViewController {
     }
     
     private func setBindings() {
-        let viewWillAppearEvent = rx.sentMessage(#selector(HomeViewController.viewWillAppear))
-            .map { _ in }
+        let viewWillAppearEvent = self.rx.viewWillAppear
         
         let input = HomeViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
         

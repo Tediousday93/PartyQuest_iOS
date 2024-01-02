@@ -276,14 +276,6 @@
 			path = PartyQuest_Tests;
 			sourceTree = "<group>";
 		};
-		4A1F24992AEBEC0A005B264F /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				4A1F24912AEBE14A005B264F /* Coordinator.swift */,
-			);
-			path = Coordinator;
-			sourceTree = "<group>";
-		};
 		4A40DBF62B147E0D0050F3B0 /* Uitils */ = {
 			isa = PBXGroup;
 			children = (
@@ -465,6 +457,7 @@
 			children = (
 				AD5DAB942AEA9BCF00DC30B9 /* Scenes */,
 				AD5DAB952AEA9BD600DC30B9 /* Common */,
+				AD5DABA32AF22A7100DC30B9 /* Components */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -514,8 +507,7 @@
 				AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */,
 				4A6A25B72AF23DD4000CA63F /* String+RegularExpression.swift */,
 				AD59A98C2B284AC1005BAEEB /* Reusable.swift */,
-				AD5DABA32AF22A7100DC30B9 /* Components */,
-				4A1F24992AEBEC0A005B264F /* Coordinator */,
+				4A1F24912AEBE14A005B264F /* Coordinator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -918,7 +910,7 @@
 				4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */,
 				4AA423882B031AE50092EC27 /* SocialUserData.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
-				4A636B2A2B2AE34C004FEF52 /* HomeCollectionHeaderView.swift in Sources */,
+				4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,

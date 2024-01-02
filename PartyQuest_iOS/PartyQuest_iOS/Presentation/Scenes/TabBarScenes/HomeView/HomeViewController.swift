@@ -9,12 +9,18 @@ import UIKit
 import RxSwift
 
 final class HomeViewController: UIViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
+    private enum Section {
+        case userProfile
+        case weekActivity
+        case doingQuest
+    }
+    
+    private typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfile>
     typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeekActivityCell, WeekActivity>
     typealias DoingQuestCellRegistration = UICollectionView.CellRegistration<DoingQuestCell, Quest>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<HeaderView>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<TitleHeaderView>
     
     private var dataSource: DataSource!
     
@@ -256,10 +262,4 @@ final class HomeViewController: UIViewController {
             }
             .disposed(by: disposeBag)
     }
-}
-
-enum Section {
-    case userProfile
-    case weekActivity
-    case doingQuest
 }

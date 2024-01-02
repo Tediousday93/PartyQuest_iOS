@@ -32,13 +32,27 @@ final class DropDownButton: UIView {
     
     let tableView: UITableView = .init()
     
+    lazy var transparentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black.withAlphaComponent(0.9)
+        view.addGestureRecognizer(tapGestureRecognizer)
+        
+        return view
+    }()
+    
+    private let tapGestureRecognizer = UITapGestureRecognizer()
+    
     private let menuItems: BehaviorRelay<[String]> = .init(value: [])
     private let menuHeight: CGFloat
+    private let rootView: UIView
     private var disposeBag: DisposeBag
     
-    init(menuItems: [String], menuHeight: CGFloat) {
+    init(menuItems: [String],
+         menuHeight: CGFloat,
+         rootView: UIView) {
         self.menuItems.accept(menuItems)
         self.menuHeight = menuHeight
+        self.rootView = rootView
         self.disposeBag = .init()
         super.init(frame: .zero)
         configureTableView()
@@ -104,11 +118,20 @@ final class DropDownButton: UIView {
                 owner.removeDropDownMenu()
             })
             .disposed(by: disposeBag)
+        
+        tapGestureRecognizer.rx.event.asDriver()
+            .drive(with: self, onNext: { owner, _ in
+                owner.removeDropDownMenu()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func showDropDownMenu() {
         let buttonFrame = titleButton.frame
+        rootView.insertSubview(transparentView, belowSubview: self)
         self.addSubview(tableView)
+        transparentView.frame = rootView.frame
+        transparentView.alpha = 0
         
         UIView.animate(
             withDuration: 0.4,
@@ -123,6 +146,27 @@ final class DropDownButton: UIView {
                 width: buttonFrame.width,
                 height: self.menuHeight
             )
+            self.transparentView.alpha = 0.5
+        }
+    }
+    
+    private func removeDropDownMenu() {
+        let buttonFrame = titleButton.frame
+        
+        UIView.animate(
+            withDuration: 0.4,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 1,
+            options: .curveEaseInOut
+        ) {
+            self.tableView.frame = CGRect(
+                x: buttonFrame.origin.x,
+                y: buttonFrame.origin.y + buttonFrame.height,
+                width: buttonFrame.width,
+                height: 0
+            )
+            self.transparentView.alpha = 0
         }
     }
 }
@@ -139,25 +183,6 @@ extension DropDownButton {
             titleButton.configuration = config
         } else {
             titleButton.titleEdgeInsets = .init(top: top, left: leading, bottom: bottom, right: trailing)
-        }
-    }
-    
-    func removeDropDownMenu() {
-        let buttonFrame = titleButton.frame
-        
-        UIView.animate(
-            withDuration: 0.4,
-            delay: 0,
-            usingSpringWithDamping: 1,
-            initialSpringVelocity: 1,
-            options: .curveEaseInOut
-        ) {
-            self.tableView.frame = CGRect(
-                x: buttonFrame.origin.x,
-                y: buttonFrame.origin.y + buttonFrame.height,
-                width: buttonFrame.width,
-                height: 0
-            )
         }
     }
 }

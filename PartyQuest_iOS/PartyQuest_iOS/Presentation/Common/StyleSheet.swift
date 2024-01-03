@@ -23,15 +23,15 @@ enum PQColor {
     static let shadow = UIColor.gray.cgColor
     
     /// 9947ff - purple
-    static let buttonMain = UIColor(red: 0.329,
-                                    green: 0.247,
-                                    blue: 0.827,
-                                    alpha: 1)
+    static let buttonMain = UIColor(red: 180/255.0,
+                                    green: 103/255.0,
+                                    blue: 219/255.0,
+                                    alpha: 1.0)
     /// AC9FF0 - light purple
-    static let buttonSub = UIColor(red: 0.3194,
-                                   green: 0.1482,
-                                   blue: 0.5324,
-                                   alpha: 1)
+    static let buttonSub = UIColor(red: 197/255.0,
+                                   green: 156/255.0,
+                                   blue: 251/255.0,
+                                   alpha: 1.0)
     
     /// 00A32A - green
     static let buttonGreen = UIColor(red: 0.37,

@@ -168,6 +168,16 @@ final class WeekActivityCell: UICollectionViewCell {
         achievementRateView.prepareToReuse()
     }
 
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+        guard let completeCount = completeCountLabel.text,
+              let questCount = questCountLabel.text else { return }
+        
+        let rate = (Float(completeCount) ?? 0) / (Float(questCount) ?? 0)
+        achievementRateView.setProgressWithAnimation(duration: 1, value: rate)
+    }
+    
     func configure(with weekActivity: WeekActivity) {
         questCountLabel.text = "\(weekActivity.questCount)"
         completeCountLabel.text = "\(weekActivity.completeCount)"

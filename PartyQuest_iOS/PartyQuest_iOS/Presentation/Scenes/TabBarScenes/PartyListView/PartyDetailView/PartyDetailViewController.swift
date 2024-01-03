@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class PartyDetailViewController: UIViewController {
-    private let segmentedControl: UnderlineSegmentedControl = {
+    private lazy var segmentedControl: UnderlineSegmentedControl = {
         let segmentedControl = UnderlineSegmentedControl(items: ["예정", "진행중", "완료"])
         segmentedControl.setTitleTextAttributes(
             [NSAttributedString.Key.foregroundColor: UIColor.gray],
@@ -23,9 +23,61 @@ final class PartyDetailViewController: UIViewController {
             ],
             for: .selected
         )
+        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         
         return segmentedControl
+    }()
+    
+    private let todoViewController: QuestListViewController = {
+        let viewController = QuestListViewController()
+        viewController.view.backgroundColor = .red
+        
+        return viewController
+    }()
+    
+    private let doingViewController: QuestListViewController = {
+        let viewController = QuestListViewController()
+        viewController.view.backgroundColor = .green
+        
+        return viewController
+    }()
+    
+    private let doneViewController: QuestListViewController = {
+        let viewController = QuestListViewController()
+        viewController.view.backgroundColor = .blue
+        
+        return viewController
+    }()
+    
+    private var pages: [UIViewController] {
+        [todoViewController, doingViewController, doneViewController]
+    }
+    
+    private var currentPage: Int = 0 {
+        didSet {
+            let direction: UIPageViewController.NavigationDirection = oldValue <= currentPage ? .forward : .reverse
+            
+            pageViewController.setViewControllers(
+                [pages[currentPage]],
+                direction: direction,
+                animated: true,
+                completion: nil
+            )
+        }
+    }
+    
+    private lazy var pageViewController: UIPageViewController = {
+        let pageViewController = UIPageViewController(transitionStyle: .scroll,
+                                                      navigationOrientation: .horizontal)
+        pageViewController.setViewControllers([pages[0]],
+                                              direction: .forward,
+                                              animated: true)
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
+        pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return pageViewController
     }()
     
     private let viewModel: PartyDetailViewModel
@@ -57,6 +109,7 @@ final class PartyDetailViewController: UIViewController {
     
     private func setSubviews() {
         view.addSubview(segmentedControl)
+        view.addSubview(pageViewController.view)
     }
     
     private func setConstraints() {
@@ -67,10 +120,54 @@ final class PartyDetailViewController: UIViewController {
             segmentedControl.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 10),
             segmentedControl.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -10),
             segmentedControl.heightAnchor.constraint(equalTo: safe.widthAnchor, multiplier: 0.1),
+            
+            pageViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor,
+                                                         constant: 5),
+            pageViewController.view.leadingAnchor.constraint(equalTo: safe.leadingAnchor,
+                                                             constant: 10),
+            pageViewController.view.trailingAnchor.constraint(equalTo: safe.trailingAnchor,
+                                                              constant: -10),
+            pageViewController.view.bottomAnchor.constraint(equalTo: safe.bottomAnchor)
         ])
     }
     
     private func setBindings() {
+        segmentedControl.rx.value.changed.asDriver()
+            .drive(with: self) { owner, index in
+                owner.currentPage = index
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
+extension PartyDetailViewController: UIPageViewControllerDataSource {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = pages.firstIndex(of: viewController),
+              index - 1 >= 0 else {
+            return nil
+        }
         
+        return pages[index - 1]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = pages.firstIndex(of: viewController),
+              index + 1 < pages.count else {
+            return nil
+        }
+        
+        return pages[index + 1]
+    }
+}
+
+extension PartyDetailViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        guard let viewController = pageViewController.viewControllers?[0],
+              let index = pages.firstIndex(of: viewController) else {
+            return
+        }
+        
+        segmentedControl.selectedSegmentIndex = index
+        currentPage = index
     }
 }

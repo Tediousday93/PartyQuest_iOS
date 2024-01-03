@@ -21,7 +21,7 @@ final class TitledTextField: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.layer.shadowColor = UIColor.black.cgColor
         textField.layer.shadowOffset = .init(width: 10, height: 10)
-        textField.layer.borderWidth = 2
+        textField.layer.borderWidth = 1
         textField.layer.cornerRadius = 4
         textField.backgroundColor = PQColor.white
         

@@ -20,7 +20,7 @@ final class TitledTextView: UIView {
         textView.textContainerInset = .init(top: 5, left: 5, bottom: 5, right: 5)
         textView.font = PQFont.basic
         textView.setContentHuggingPriority(.defaultLow, for: .vertical)
-        textView.layer.borderWidth = 2
+        textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 4
         textView.layer.borderColor = UIColor.systemGray4.cgColor
         textView.translatesAutoresizingMaskIntoConstraints = false

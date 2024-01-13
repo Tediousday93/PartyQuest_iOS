@@ -108,6 +108,14 @@ extension AppCoordinator {
         )
         let partySearchCoordinator = PartySearchCoordinator(navigationController: partySearchNavigationController)
         
+        let pushNotificationNavigationController = UINavigationController()
+        pushNotificationNavigationController.tabBarItem = UITabBarItem(
+            title: nil,
+            image: UIImage(systemName: "bell"),
+            selectedImage: UIImage(systemName: "bell.fill")
+        )
+        let pushNotificationCoordinator = PushNotificationCoordinator(navigationController: pushNotificationNavigationController)
+        
         let settingNavigationController = UINavigationController()
         settingNavigationController.tabBarItem = UITabBarItem(
             title: nil,
@@ -118,12 +126,14 @@ extension AppCoordinator {
         
         tabBarController?.viewControllers = [
             homeNavigationController, partyListNavigationController,
-            partySearchNavigationController, settingNavigationController
+            partySearchNavigationController, pushNotificationNavigationController,
+            settingNavigationController
         ]
         
         start(child: homeCoordinator)
         start(child: partyListCoordinator)
         start(child: partySearchCoordinator)
+        start(child: pushNotificationCoordinator)
         start(child: settingCoordinator)
     }
 }

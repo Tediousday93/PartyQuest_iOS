@@ -16,7 +16,7 @@
 ## ⭐️ 팀원
 | Rowan | Harry |
 | :--------: |  :--------: |
-| <Img src = "https://hackmd.io/_uploads/By_DV2TE6.jpg"  height="200"/> |<img height="200" src="https://i.imgur.com/8pKgxIk.jpg">
+| <Img src = "https://i.imgur.com/S1hlffJ.jpg"  height="200"/> |<img height="200" src="https://i.imgur.com/8pKgxIk.jpg">
 | [Github Profile](https://github.com/Tediousday93) |[Github Profile](https://github.com/HarryHyeon) | 
 
 </br>

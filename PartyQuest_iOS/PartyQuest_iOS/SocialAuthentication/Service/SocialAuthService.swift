@@ -8,8 +8,8 @@
 import RxSwift
 
 protocol SocialAuthService {
-    associatedtype UserInfo: DomainConvertibleType
+    associatedtype SocialUserInfo: DomainConvertibleType
     
     func requestLogIn() -> Observable<Void>
-    func getUserInfo() -> Observable<UserInfo>
+    func getUserInfo() -> Observable<SocialUserInfo>
 }

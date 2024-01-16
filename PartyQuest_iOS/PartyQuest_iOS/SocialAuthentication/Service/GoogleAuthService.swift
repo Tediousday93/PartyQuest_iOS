@@ -15,7 +15,7 @@ enum GoogleAuthError: Error {
 }
 
 final class GoogleAuthService: SocialAuthService {
-    typealias UserInfo = GIDGoogleUser
+    typealias SocialUserInfo = GIDGoogleUser
     
     private let userSubject: ReplaySubject<GIDGoogleUser> = ReplaySubject<GIDGoogleUser>.create(bufferSize: 1)
     

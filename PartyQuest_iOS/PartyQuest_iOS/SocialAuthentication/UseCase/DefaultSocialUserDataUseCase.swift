@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUserDataUseCase where Service.UserInfo.Domain == SocialUserData {
+final class DefaultSocialUserDataUseCase<Service: SocialAuthService>: SocialUserDataUseCase where Service.SocialUserInfo.Domain == SocialUserData {
     private let service: Service
     
     init(service: Service) {

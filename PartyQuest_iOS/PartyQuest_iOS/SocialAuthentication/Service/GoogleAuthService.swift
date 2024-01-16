@@ -15,8 +15,6 @@ enum GoogleAuthError: Error {
 }
 
 final class GoogleAuthService: SocialAuthService {
-    typealias SocialUserInfo = GIDGoogleUser
-    
     private let userSubject: ReplaySubject<GIDGoogleUser> = ReplaySubject<GIDGoogleUser>.create(bufferSize: 1)
     
     func requestLogIn() -> Observable<Void> {
@@ -28,7 +26,8 @@ final class GoogleAuthService: SocialAuthService {
         }
         
         return Observable<Void>.create { observer in
-            GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [weak self] signInResult, error in
+            GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) {
+                [weak self] signInResult, error in
                 if let error = error {
                     observer.onError(GoogleAuthError.logInError(message: error.localizedDescription))
                 } else if let result = signInResult {
@@ -41,7 +40,9 @@ final class GoogleAuthService: SocialAuthService {
         }
     }
     
-    func getUserInfo() -> Observable<GIDGoogleUser> {
-        return userSubject.asObservable()
+    func getUserInfo() -> Observable<UserData> {
+        return userSubject
+            .map { $0.toDomain() }
+            .asObservable()
     }
 }

@@ -16,8 +16,6 @@ enum NaverAuthError: Error {
 }
 
 final class NaverAuthService: NSObject, SocialAuthService {
-    typealias SocialUserInfo = NaverUserData
-    
     private let logInInstance: NaverThirdPartyLoginConnection
     private let accessTokenArrived: PublishSubject<Void> = .init()
     
@@ -32,7 +30,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
         return accessTokenArrived.asObservable()
     }
     
-    func getUserInfo() -> Observable<SocialUserInfo> {
+    func getUserInfo() -> Observable<UserData> {
         return Single.create { [weak self] single in
             guard let self else {
                 single(.failure(NaverAuthError.instanceDeallocated))
@@ -63,7 +61,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
                         single(.failure(NaverAuthError.nilUserData))
                         return
                     }
-                    single(.success(userData))
+                    single(.success(userData.toDomain()))
                 case .failure(let error):
                     single(.failure(error))
                 }

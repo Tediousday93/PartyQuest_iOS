@@ -38,8 +38,6 @@ private extension LogInPlatform {
         switch self {
         case .kakao:
             return "카카오로 로그인"
-        case .apple:
-            return "애플로 로그인"
         case .google:
             return "구글로 로그인"
         case .naver:
@@ -51,8 +49,6 @@ private extension LogInPlatform {
         switch self {
         case .kakao:
             return "kakaoid_button"
-        case .apple:
-            return "appleid_button_black"
         case .google:
             return "googleid_button"
         case .naver:

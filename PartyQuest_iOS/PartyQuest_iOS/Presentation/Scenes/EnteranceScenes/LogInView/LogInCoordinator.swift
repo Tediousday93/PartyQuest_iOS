@@ -17,18 +17,18 @@ final class LogInCoordinator: LogInCoordinatorType {
     var childCoordinators: [Coordinator] = []
 
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
-    private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
+    private let userDataUseCaseProvider: UserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
     init(navigationController: UINavigationController?,
          authenticationUseCaseProvider: AuthenticationUseCaseProvider,
-         socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider,
+         userDataUseCaseProvider: UserDataUseCaseProvider,
          serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
         self.navigationController = navigationController
         self.authenticationUseCaseProvider = authenticationUseCaseProvider
-        self.socialUserDataUseCaseProvider = socialUserDataUseCaseProvider
+        self.userDataUseCaseProvider = userDataUseCaseProvider
         self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         self.isLoggedIn = isLoggedIn
     }
@@ -37,9 +37,7 @@ final class LogInCoordinator: LogInCoordinatorType {
         let viewModel = LogInViewModel(
             coordinator: self,
             authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),
-            kakaoSocialUserDataUseCase: socialUserDataUseCaseProvider.makeKakaoSocialUserDataUseCase(),
-            googleSocialUserDataUseCase: socialUserDataUseCaseProvider.makeGoogleSocialUserDataUseCase(),
-            naverSocialUserDataUseCase: socialUserDataUseCaseProvider.makeNaverSocialUserDataUseCase(),
+            userDataUseCase: userDataUseCaseProvider.makeUserDataUseCase(),
             serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase(),
             isLoggedIn: isLoggedIn
         )

@@ -18,7 +18,7 @@ final class AppCoordinator: Coordinator {
     private let window: UIWindow?
     
     private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
-    private let socialUserDataUseCaseProvider: SocialUserDataUseCaseProvider
+    private let userDataUseCaseProvider: UserDataUseCaseProvider
     private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     
     private let isLoggedIn: PublishSubject<Bool> = .init()
@@ -27,7 +27,7 @@ final class AppCoordinator: Coordinator {
     init(window: UIWindow?) {
         self.window = window
         self.authenticationUseCaseProvider = DefaultAuthenticationUseCaseProvider()
-        self.socialUserDataUseCaseProvider = DefaultSocialUserDataUseCaseProvider()
+        self.userDataUseCaseProvider = DefaultUserDataUseCaseProvider()
         self.serviceTokenUseCaseProvider = DefaultServiceTokenUseCaseProvider()
         self.tabBarController = nil
         
@@ -71,7 +71,7 @@ extension AppCoordinator {
         let coordinator = WelcomeCoordinator(
             navigationController: navigationController,
             authenticationUseCaseProvider: authenticationUseCaseProvider,
-            socialUserDataUseCaseProvider: socialUserDataUseCaseProvider,
+            userDataUseCaseProvider: userDataUseCaseProvider,
             serviceTokenUseCaseProvider: serviceTokenUseCaseProvider,
             isLoggedIn: isLoggedIn
         )

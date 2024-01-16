@@ -91,7 +91,7 @@
 		AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */; };
 		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
 		AD5DAC092B0219AD00DC30B9 /* DefaultUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */; };
-		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */; };
+		AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */; };
 		AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */; };
 		ADCBA2582B42862100A56097 /* PartySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2572B42862100A56097 /* PartySearchViewController.swift */; };
 		ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */; };
@@ -208,7 +208,7 @@
 		AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthProvider.swift; sourceTree = "<group>"; };
 		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
 		AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCase.swift; sourceTree = "<group>"; };
-		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		ADCBA2572B42862100A56097 /* PartySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewController.swift; sourceTree = "<group>"; };
 		ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewModel.swift; sourceTree = "<group>"; };
@@ -632,7 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */,
-				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */,
+				AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -913,7 +913,7 @@
 				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
 				4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */,
 				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
-				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
+				AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
 				4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */,

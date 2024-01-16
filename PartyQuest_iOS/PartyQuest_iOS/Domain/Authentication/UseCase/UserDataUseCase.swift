@@ -8,5 +8,5 @@
 import RxSwift
 
 protocol UserDataUseCase {
-    func getUserData() -> Observable<SocialUserData>
+    func getUserData(for platform: LogInPlatform) -> Observable<UserData>
 }

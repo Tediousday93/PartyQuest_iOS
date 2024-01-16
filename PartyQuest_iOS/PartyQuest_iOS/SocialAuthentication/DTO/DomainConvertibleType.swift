@@ -15,14 +15,14 @@ protocol DomainConvertibleType {
 }
 
 extension KakaoSDKUser.User: DomainConvertibleType {
-    typealias Domain = SocialUserData
+    typealias Domain = UserData
     
-    func toDomain() -> SocialUserData {
+    func toDomain() -> UserData {
         guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
             fatalError("Can not find Secrets Key")
         }
         
-        return SocialUserData(
+        return UserData(
             email: kakaoAccount?.email,
             secrets: secrets,
             nickName: properties?["nickname"],
@@ -32,14 +32,14 @@ extension KakaoSDKUser.User: DomainConvertibleType {
 }
 
 extension GIDGoogleUser: DomainConvertibleType {
-    typealias Domain = SocialUserData
+    typealias Domain = UserData
     
-    func toDomain() -> SocialUserData {
+    func toDomain() -> UserData {
         guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
             fatalError("Can not find Secrets Key ")
         }
         
-        return SocialUserData(email: profile?.email,
+        return UserData(email: profile?.email,
                               secrets: secrets,
                               nickName: profile?.name,
                               platform: .google)
@@ -47,14 +47,14 @@ extension GIDGoogleUser: DomainConvertibleType {
 }
 
 extension NaverUserData: DomainConvertibleType {
-    typealias Domain = SocialUserData
+    typealias Domain = UserData
     
-    func toDomain() -> SocialUserData {
+    func toDomain() -> UserData {
         guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
             fatalError("Can not find Secrets Key")
         }
         
-        return SocialUserData(
+        return UserData(
             email: email,
             secrets: secrets,
             nickName: nickName,

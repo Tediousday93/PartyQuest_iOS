@@ -88,8 +88,8 @@
 		AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift */; };
 		AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */; };
 		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
-		AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */; };
-		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */; };
+		AD5DAC092B0219AD00DC30B9 /* DefaultUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */; };
+		AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */; };
 		AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */; };
 		ADCBA2582B42862100A56097 /* PartySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2572B42862100A56097 /* PartySearchViewController.swift */; };
 		ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */; };
@@ -203,8 +203,8 @@
 		AD5DABC52AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthenticationUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthProvider.swift; sourceTree = "<group>"; };
 		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
-		AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCase.swift; sourceTree = "<group>"; };
-		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCase.swift; sourceTree = "<group>"; };
+		AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		ADCBA2572B42862100A56097 /* PartySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewController.swift; sourceTree = "<group>"; };
 		ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewModel.swift; sourceTree = "<group>"; };
@@ -601,8 +601,8 @@
 		AD5DABFE2B02180A00DC30B9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift */,
-				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift */,
+				AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */,
+				AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -882,7 +882,7 @@
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
 				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
 				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
-				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
+				AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
 				AD5AC1082B566E2C00AA4E49 /* KeychainService.swift in Sources */,
@@ -904,7 +904,7 @@
 				ADCBA27B2B4526C300A56097 /* PushNotificationViewController.swift in Sources */,
 				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
-				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserDataUseCase.swift in Sources */,
+				AD5DAC092B0219AD00DC30B9 /* DefaultUserDataUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* DefaultAuthenticationService.swift in Sources */,
 				4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */,
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,

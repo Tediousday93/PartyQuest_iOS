@@ -12,8 +12,6 @@ import RxKakaoSDKUser
 import KakaoSDKUser
 
 final class KakaoAuthService: SocialAuthService {
-    typealias SocialUserInfo = User
-    
     func requestLogIn() -> Observable<Void> {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             return UserApi.shared.rx.loginWithKakaoTalk()
@@ -24,8 +22,9 @@ final class KakaoAuthService: SocialAuthService {
         }
     }
     
-    func getUserInfo() -> Observable<SocialUserInfo> {
+    func getUserInfo() -> Observable<UserData> {
         return UserApi.shared.rx.me()
+            .map { $0.toDomain() }
             .asObservable()
     }
 }

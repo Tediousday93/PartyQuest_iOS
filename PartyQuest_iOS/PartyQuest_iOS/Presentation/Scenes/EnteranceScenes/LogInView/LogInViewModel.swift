@@ -11,25 +11,19 @@ import RxCocoa
 final class LogInViewModel {
     private let coordinator: LogInCoordinatorType
     private let authenticationUseCase: AuthenticationUseCase
-    private let kakaoSocialUserDataUseCase: SocialUserDataUseCase
-    private let googleSocialUserDataUseCase: SocialUserDataUseCase
-    private let naverSocialUserDataUseCase: SocialUserDataUseCase
+    private let userDataUseCase: UserDataUseCase
     private let serviceTokenUseCase: ServiceTokenUseCase
     
     private let isLoggedIn: PublishSubject<Bool>
     
     init(coordinator: LogInCoordinatorType,
          authenticationUseCase: AuthenticationUseCase,
-         kakaoSocialUserDataUseCase: SocialUserDataUseCase,
-         googleSocialUserDataUseCase: SocialUserDataUseCase,
-         naverSocialUserDataUseCase: SocialUserDataUseCase,
+         userDataUseCase: UserDataUseCase,
          serviceTokenUseCase: ServiceTokenUseCase,
          isLoggedIn: PublishSubject<Bool>) {
         self.coordinator = coordinator
         self.authenticationUseCase = authenticationUseCase
-        self.kakaoSocialUserDataUseCase = kakaoSocialUserDataUseCase
-        self.googleSocialUserDataUseCase = googleSocialUserDataUseCase
-        self.naverSocialUserDataUseCase = naverSocialUserDataUseCase
+        self.userDataUseCase = userDataUseCase
         self.serviceTokenUseCase = serviceTokenUseCase
         self.isLoggedIn = isLoggedIn
     }
@@ -92,67 +86,27 @@ extension LogInViewModel: ViewModelType {
             }
             .map { $0 && $1 }
             .asDriver(onErrorJustReturn: false)
-        
+
         let kakaoLogIn = input.kakaoLogInButtonTapped
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.kakaoSocialUserDataUseCase.logIn()
-                    .materialize()
-            }
-            .do(onNext: { event in
-                if let error = event.error {
-                    errorRelay.accept(error)
-                }
-            })
-            .filter { $0.error == nil }
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.kakaoSocialUserDataUseCase.socialUserData()
-            }
-        
+            .map { LogInPlatform.kakao }
+                    
         let googleLogIn = input.googleLogInButtonTapped
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.googleSocialUserDataUseCase.logIn()
-                    .materialize()
-            }
-            .do(onNext: { event in
-                if let error = event.error {
-                    errorRelay.accept(error)
-                }
-            })
-            .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.googleSocialUserDataUseCase.socialUserData()
-            }
+            .map { LogInPlatform.google }
         
         let naverLogIn = input.naverLogInButtonTapped
+            .map { LogInPlatform.naver }
+        
+        let userData = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
             .withUnretained(self)
-            .flatMap { owner, _ in
-                owner.naverSocialUserDataUseCase.logIn()
-                    .materialize()
-            }
-            .do(onNext: { event in
-                if let error = event.error {
-                    errorRelay.accept(error)
-                }
-            })
-            .filter { $0.error == nil }
-            .withUnretained(self)
-            .flatMapLatest { owner, _ in
-                owner.naverSocialUserDataUseCase.socialUserData()
+            .flatMap { owner, platform in
+                owner.userDataUseCase.getUserData(for: platform)
             }
         
-        let socialJWT = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
+        let socialJWT = userData
             .withUnretained(self)
-            .do(onNext: { userData in
-                print(userData)
-            })
-            .flatMap { owner, socialUserData in
-                owner.authenticationUseCase.socialLogIn(requestModel: socialUserData)
-                    .compactMap { $0.tokenData.first }
-                    .map { (owner, $0) }
-            }
+            .flatMap { owner, userData in
+                owner.authenticationUseCase.socialLogIn(requestModel: userData)
+        }
         
         let serverJWT = input.logInButtonTapped
             .withLatestFrom(userInputs)

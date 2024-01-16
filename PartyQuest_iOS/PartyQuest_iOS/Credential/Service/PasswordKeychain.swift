@@ -8,23 +8,17 @@
 import Security
 import Foundation
 
-protocol KeychainService {
-    func saveValue(_ value: Data, forKey key: String)
-    func loadValue(forKey key: String) -> Data?
-    func deleteValue(forKey key: String)
-}
-
 final class PasswordKeychain: KeychainService {
-    private let service: String
+    private let serviceName: String
 
-    init(service: String) {
-        self.service = service
+    init(serviceName: String) {
+        self.serviceName = serviceName
     }
-
+    
     func saveValue(_ value: Data, forKey key: String) {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrService: service,
+            kSecAttrService: serviceName,
             kSecAttrAccount: key,
             kSecValueData: value
         ]
@@ -34,7 +28,7 @@ final class PasswordKeychain: KeychainService {
         if status == errSecDuplicateItem {
             let updateQuery: [CFString: Any] = [
                 kSecClass: kSecClassGenericPassword,
-                kSecAttrService: service,
+                kSecAttrService: serviceName,
                 kSecAttrAccount: key
             ]
 
@@ -51,7 +45,7 @@ final class PasswordKeychain: KeychainService {
     func loadValue(forKey key: String) -> Data? {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrService: service,
+            kSecAttrService: serviceName,
             kSecAttrAccount: key,
             kSecReturnData: kCFBooleanTrue!,
             kSecMatchLimit: kSecMatchLimitOne
@@ -72,7 +66,7 @@ final class PasswordKeychain: KeychainService {
     func deleteValue(forKey key: String) {
         let query: [CFString: Any] = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrService: service,
+            kSecAttrService: serviceName,
             kSecAttrAccount: key
         ]
 

@@ -56,11 +56,6 @@
 		4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */; };
 		4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B72B32DD54005D554C /* Quest.swift */; };
 		4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */; };
-		4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */; };
-		4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */; };
-		4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */; };
-		4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */; };
-		4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADF81332B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift */; };
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
@@ -77,6 +72,9 @@
 		AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */; };
 		AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98C2B284AC1005BAEEB /* Reusable.swift */; };
 		AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */; };
+		AD5AC1082B566E2C00AA4E49 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1072B566E2C00AA4E49 /* KeychainService.swift */; };
+		AD5AC10A2B566F2F00AA4E49 /* DataConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1092B566F2F00AA4E49 /* DataConvertibleType.swift */; };
+		AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */; };
@@ -171,11 +169,6 @@
 		4AB2F7B72B32DD54005D554C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorationView.swift; sourceTree = "<group>"; };
 		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
-		4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceProvider.swift; sourceTree = "<group>"; };
-		4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCase.swift; sourceTree = "<group>"; };
-		4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCase.swift; sourceTree = "<group>"; };
-		4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTokenUseCaseProvider.swift; sourceTree = "<group>"; };
-		4ADF81332B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceTokenUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AE533E52B1F034700862C09 /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +187,9 @@
 		AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyItemView.swift; sourceTree = "<group>"; };
 		AD59A98C2B284AC1005BAEEB /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftImageLabel.swift; sourceTree = "<group>"; };
+		AD5AC1072B566E2C00AA4E49 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		AD5AC1092B566F2F00AA4E49 /* DataConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertibleType.swift; sourceTree = "<group>"; };
+		AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONDecoder.swift"; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
@@ -342,9 +338,10 @@
 		4A50AA012B0DF40A0026814F /* Credential */ = {
 			isa = PBXGroup;
 			children = (
+				AD5AC1092B566F2F00AA4E49 /* DataConvertibleType.swift */,
+				AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */,
 				4A40DBF62B147E0D0050F3B0 /* Uitils */,
 				4ADF81302B0F3CFD00A8E027 /* Service */,
-				4ADF812D2B0F3C0900A8E027 /* UseCase */,
 			);
 			path = Credential;
 			sourceTree = "<group>";
@@ -393,37 +390,11 @@
 			path = DTO;
 			sourceTree = "<group>";
 		};
-		4ADF81242B0F2DEC00A8E027 /* Credential */ = {
-			isa = PBXGroup;
-			children = (
-				4ADF81272B0F393000A8E027 /* UseCase */,
-			);
-			path = Credential;
-			sourceTree = "<group>";
-		};
-		4ADF81272B0F393000A8E027 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				4ADF812B2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift */,
-				4ADF81312B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		4ADF812D2B0F3C0900A8E027 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				4ADF812E2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift */,
-				4ADF81332B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
 		4ADF81302B0F3CFD00A8E027 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				AD5AC1072B566E2C00AA4E49 /* KeychainService.swift */,
 				4A50AA032B0DF4430026814F /* PasswordKeychain.swift */,
-				4ADF81212B0F2BCA00A8E027 /* KeychainServiceProvider.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -574,7 +545,6 @@
 		AD5DABAD2AF3836D00DC30B9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				4ADF81242B0F2DEC00A8E027 /* Credential */,
 				AD5DABAF2AF383BB00DC30B9 /* Authentication */,
 			);
 			path = Domain;
@@ -896,7 +866,6 @@
 				4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */,
 				4AA423812B03058C0092EC27 /* UserDataUseCase.swift in Sources */,
 				4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */,
-				4ADF81342B0F49F500A8E027 /* DefaultServiceTokenUseCaseProvider.swift in Sources */,
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
 				AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */,
 				ADCBA25C2B42863400A56097 /* PartySearchCoordinator.swift in Sources */,
@@ -909,14 +878,14 @@
 				AD5DABC62AF4D4EE00DC30B9 /* DefaultAuthenticationUseCaseProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4A1F24982AEBE2A6005B264F /* WelcomeCoordinator.swift in Sources */,
+				AD5AC10A2B566F2F00AA4E49 /* DataConvertibleType.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
 				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
-				4ADF812C2B0F3B1E00A8E027 /* ServiceTokenUseCase.swift in Sources */,
 				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserDataUseCaseProvider.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
 				4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */,
-				4ADF81322B0F499E00A8E027 /* ServiceTokenUseCaseProvider.swift in Sources */,
+				AD5AC1082B566E2C00AA4E49 /* KeychainService.swift in Sources */,
 				4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */,
 				AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* DefaultAuthenticationUseCase.swift in Sources */,
@@ -948,12 +917,12 @@
 				4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */,
 				4AA423882B031AE50092EC27 /* UserData.swift in Sources */,
 				ADCBA27D2B4526E600A56097 /* PushNotificationViewModel.swift in Sources */,
+				AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
-				4ADF81222B0F2BCA00A8E027 /* KeychainServiceProvider.swift in Sources */,
 				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,
 				4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */,
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
@@ -964,7 +933,6 @@
 				4A4A4F402B429D8C00C99612 /* ButtonFooterView.swift in Sources */,
 				4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */,
 				AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */,
-				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,
 				4AB2F7B42B317946005D554C /* CircularProgressView.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
 				ADCBA2762B440A2F00A56097 /* Rx+UIViewController.swift in Sources */,

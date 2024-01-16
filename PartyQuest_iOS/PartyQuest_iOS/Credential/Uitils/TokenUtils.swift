@@ -9,28 +9,41 @@ import Foundation
 
 final class TokenUtils {
     static let shared = TokenUtils()
-    private let useCase: ServiceTokenUseCase
+    
+    private let dateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        return formatter
+    }()
+    
+    private let keychain: KeychainService
     
     private init() {
-        self.useCase = DefaultServiceTokenUseCaseProvider().makeDefaultServiceTokenUseCase()
+        self.keychain = PasswordKeychain(serviceName: "PartyQuest")
     }
     
     func isTokenExpired() -> Bool {
-        guard let serviceToken = useCase.loadToken() else {
-            return true
+        guard let serviceToken = loadToken(),
+              let refreshExpiredAt = dateFormatter.date(from: serviceToken.refreshExpiredAt)
+        else { return true }
+        
+        return refreshExpiredAt <= Date()
+    }
+    
+    func saveToken(serviceToken: ServiceToken) {
+        if let data = serviceToken.toData() {
+            keychain.saveValue(data, forKey: "SERVICE_TOKEN")
         }
+    }
+    
+    func loadToken() -> ServiceToken? {
+        guard let data = keychain.loadValue(forKey: "SERVICE_TOKEN") else { return nil }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        guard let refreshExpiredAt = dateFormatter.date(from: serviceToken.refreshExpiredAt) else {
-            return true
-        }
-        
-        if refreshExpiredAt <= Date() {
-            return true
-        }
-        
-        return false
+        return data.decodeJSON(to: ServiceToken.self)
+    }
+    
+    func deleteToken() {
+        keychain.deleteValue(forKey: "SERVICE_TOKEN")
     }
 }

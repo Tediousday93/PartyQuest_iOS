@@ -16,11 +16,3 @@ struct LogInResponse: Decodable {
         case tokenData = "data"
     }
 }
-
-struct ServiceToken: Codable {
-    let accessExpiredAt: String
-    let refreshExpiredAt: String
-    let accessToken: String
-    let refreshToken: String
-    let email: String
-}

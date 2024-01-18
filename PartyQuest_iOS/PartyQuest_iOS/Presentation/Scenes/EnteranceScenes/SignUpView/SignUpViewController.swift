@@ -165,6 +165,12 @@ final class SignUpViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        output.errorRelay
+            .subscribe(onNext: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+        
         output.isEnableSignUpButton
             .drive(with: self, onNext: { owner, isEnableSignUpButton in
                 owner.signUpButton.isEnabled = isEnableSignUpButton

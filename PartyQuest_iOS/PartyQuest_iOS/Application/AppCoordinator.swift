@@ -17,18 +17,16 @@ final class AppCoordinator: Coordinator {
     
     private let window: UIWindow?
     
-    private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationUseCaseProvider: AuthenticationManagerProvider
     private let userDataUseCaseProvider: UserDataUseCaseProvider
-    private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     
     private let isLoggedIn: PublishSubject<Bool> = .init()
     private var disposeBag: DisposeBag = .init()
     
     init(window: UIWindow?) {
         self.window = window
-        self.authenticationUseCaseProvider = DefaultAuthenticationUseCaseProvider()
+        self.authenticationUseCaseProvider = PQAuthManagerProvider()
         self.userDataUseCaseProvider = DefaultUserDataUseCaseProvider()
-        self.serviceTokenUseCaseProvider = DefaultServiceTokenUseCaseProvider()
         self.tabBarController = nil
         
         setBindings()
@@ -39,8 +37,8 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-//        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
-        toHome()
+        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+//        toHome()
     }
 }
 
@@ -70,9 +68,8 @@ extension AppCoordinator {
         
         let coordinator = WelcomeCoordinator(
             navigationController: navigationController,
-            authenticationUseCaseProvider: authenticationUseCaseProvider,
+            authenticationManagerProvider: authenticationUseCaseProvider,
             userDataUseCaseProvider: userDataUseCaseProvider,
-            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider,
             isLoggedIn: isLoggedIn
         )
         

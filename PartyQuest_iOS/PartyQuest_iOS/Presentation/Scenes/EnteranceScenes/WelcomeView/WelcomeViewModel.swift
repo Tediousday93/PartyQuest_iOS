@@ -11,12 +11,9 @@ import RxCocoa
 
 final class WelcomeViewModel {
     private let coordinator: WelcomeCoordinatorType
-    private let serviceTokenUseCase: ServiceTokenUseCase
     
-    init(coordinator: WelcomeCoordinatorType,
-         serviceTokenUseCase: ServiceTokenUseCase) {
+    init(coordinator: WelcomeCoordinatorType) {
         self.coordinator = coordinator
-        self.serviceTokenUseCase = serviceTokenUseCase
     }
 }
 

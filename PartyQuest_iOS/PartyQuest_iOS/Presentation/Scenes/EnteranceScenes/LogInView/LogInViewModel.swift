@@ -10,21 +10,18 @@ import RxCocoa
 
 final class LogInViewModel {
     private let coordinator: LogInCoordinatorType
-    private let authenticationUseCase: AuthenticationUseCase
+    private let authenticationManager: AuthenticationManagable
     private let userDataUseCase: UserDataUseCase
-    private let serviceTokenUseCase: ServiceTokenUseCase
     
     private let isLoggedIn: PublishSubject<Bool>
     
     init(coordinator: LogInCoordinatorType,
-         authenticationUseCase: AuthenticationUseCase,
+         authenticationManager: AuthenticationManagable,
          userDataUseCase: UserDataUseCase,
-         serviceTokenUseCase: ServiceTokenUseCase,
          isLoggedIn: PublishSubject<Bool>) {
         self.coordinator = coordinator
-        self.authenticationUseCase = authenticationUseCase
+        self.authenticationManager = authenticationManager
         self.userDataUseCase = userDataUseCase
-        self.serviceTokenUseCase = serviceTokenUseCase
         self.isLoggedIn = isLoggedIn
     }
 }
@@ -96,45 +93,38 @@ extension LogInViewModel: ViewModelType {
         let naverLogIn = input.naverLogInButtonTapped
             .map { LogInPlatform.naver }
         
-        let userData = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
+        let socialUserData = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
             .withUnretained(self)
             .flatMap { owner, platform in
                 owner.userDataUseCase.getUserData(for: platform)
             }
         
-        let socialJWT = userData
-            .withUnretained(self)
-            .flatMap { owner, userData in
-                owner.authenticationUseCase.socialLogIn(requestModel: userData)
-        }
-        
-        let serverJWT = input.logInButtonTapped
+        let localUserData = input.logInButtonTapped
             .withLatestFrom(userInputs)
             .map { email, password in
-                return (email: email, password: password)
-            }
-            .withUnretained(self)
-            .flatMap { owner, userInputs in
-                owner.authenticationUseCase.logIn(email: userInputs.email,
-                                                  password: userInputs.password)
-                .asObservable()
-                .compactMap { $0.tokenData.first }
-                .map { (owner, $0) }
+                return UserData(email: email, secrets: password)
             }
         
-        let jwtSaved = Observable.merge(socialJWT, serverJWT)
-//            .do(onNext: { owner, serviceToken in
-//                try owner.serviceTokenUseCase.saveToken(serviceToken: serviceToken)
-//            })
-//            .debug()
-//            .materialize()
-//            .do(onNext: { event in
-//                if let error = event.error {
-//                    errorRelay.accept(error)
-//                }
-//            })
-//            .filter { $0.error == nil }
-//            .dematerialize()
+        let jwtSaved = Observable.merge(socialUserData, localUserData)
+            .withUnretained(self)
+            .flatMap { owner, userData in
+                owner.authenticationManager.logIn(userData: userData)
+                    .asObservable()
+                    .compactMap { $0.first }
+                    .map { (owner, $0) }
+            }
+            .do(onNext: { _, serviceToken in
+                TokenUtils.shared.saveToken(serviceToken: serviceToken)
+            })
+            .debug()
+            .materialize()
+            .do(onNext: { event in
+                if let error = event.error {
+                    errorRelay.accept(error)
+                }
+            })
+            .filter { $0.error == nil }
+            .dematerialize()
             .map { owner, _ in
                 owner.coordinator.finish()
                 owner.isLoggedIn.onNext(true)

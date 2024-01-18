@@ -19,28 +19,22 @@ final class WelcomeCoordinator: WelcomeCoordinatorType {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationManagerProvider: AuthenticationManagerProvider
     private let userDataUseCaseProvider: UserDataUseCaseProvider
-    private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
     init(navigationController: UINavigationController?,
-         authenticationUseCaseProvider: AuthenticationUseCaseProvider,
+         authenticationManagerProvider: AuthenticationManagerProvider,
          userDataUseCaseProvider: UserDataUseCaseProvider,
-         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
         self.navigationController = navigationController
-        self.authenticationUseCaseProvider = authenticationUseCaseProvider
+        self.authenticationManagerProvider = authenticationManagerProvider
         self.userDataUseCaseProvider = userDataUseCaseProvider
-        self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         self.isLoggedIn = isLoggedIn
     }
     
     func start() {
-        let welcomeViewModel = WelcomeViewModel(
-            coordinator: self,
-            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase()
-        )
+        let welcomeViewModel = WelcomeViewModel(coordinator: self)
         let welcomeViewController = WelcomeViewController(welcomeViewModel: welcomeViewModel)
         
         navigationController?.pushViewController(welcomeViewController, animated: true)
@@ -49,9 +43,8 @@ final class WelcomeCoordinator: WelcomeCoordinatorType {
     func toLogIn() {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,
-            authenticationUseCaseProvider: authenticationUseCaseProvider,
+            authenticationManagerProvider: authenticationManagerProvider,
             userDataUseCaseProvider: userDataUseCaseProvider,
-            serviceTokenUseCaseProvider: serviceTokenUseCaseProvider,
             isLoggedIn: isLoggedIn
         )
 
@@ -61,7 +54,7 @@ final class WelcomeCoordinator: WelcomeCoordinatorType {
     func toSignUp() {
         let signUpCoordinator = SignUpCoordinator(
             navigationController: navigationController,
-            useCaseProvider: authenticationUseCaseProvider
+            authenticationManagerProvider: authenticationManagerProvider
         )
         
         start(child: signUpCoordinator)

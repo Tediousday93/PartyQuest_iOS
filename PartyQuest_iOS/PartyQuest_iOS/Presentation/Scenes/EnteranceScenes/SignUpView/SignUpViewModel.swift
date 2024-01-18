@@ -11,12 +11,12 @@ import RxCocoa
 
 final class SignUpViewModel {
     private let coordinator: SignUpCoordinatorType
-    private let useCase: AuthenticationUseCase
+    private let authenticationManager: AuthenticationManagable
     
     init(coordinator: SignUpCoordinatorType,
-         useCase: AuthenticationUseCase) {
+         authenticationManager: AuthenticationManagable) {
         self.coordinator = coordinator
-        self.useCase = useCase
+        self.authenticationManager = authenticationManager
     }
 }
 
@@ -91,18 +91,15 @@ extension SignUpViewModel: ViewModelType {
         let signUpSuccessed = input.signUpButtonTapped
             .withLatestFrom(userInputs)
             .map { email, password, birthDate, nickname in
-                return (email: email,
-                        password: password,
-                        birthDate: birthDate,
-                        nickname: nickname)
+                return UserData(email: email,
+                                secrets: password,
+                                nickName: nickname)
             }
             .withUnretained(self)
-            .flatMap { owner, userInputs in
-                owner.useCase.signUp(email: userInputs.email,
-                                     password: userInputs.password,
-                                     nickname: userInputs.nickname)
-                .asObservable()
-                .materialize()
+            .flatMap { owner, userData in
+                owner.authenticationManager.signUp(userData: userData)
+                    .asObservable()
+                    .materialize()
             }
             .do(onNext: { event in
                 if let error = event.error {
@@ -110,7 +107,6 @@ extension SignUpViewModel: ViewModelType {
                 }
             })
             .filter { $0.error == nil }
-            .map { _ in }
             .withUnretained(self)
             .map { owner, _ in
                 owner.coordinator.toWelcome()

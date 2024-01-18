@@ -17,18 +17,18 @@ final class SignUpCoordinator: SignUpCoordinatorType {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
     
-    private let useCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationManagerProvider: AuthenticationManagerProvider
     
     init(navigationController: UINavigationController?,
-         useCaseProvider: AuthenticationUseCaseProvider) {
+         authenticationManagerProvider: AuthenticationManagerProvider) {
         self.navigationController = navigationController
-        self.useCaseProvider = useCaseProvider
+        self.authenticationManagerProvider = authenticationManagerProvider
     }
     
     func start() {
         let signUpViewModel = SignUpViewModel(
             coordinator: self,
-            useCase: useCaseProvider.makeDefaultAuthenticationUseCase()
+            authenticationManager: authenticationManagerProvider.makePQAuthManager()
         )
         let signUpViewController = SignUpViewController(signUpViewModel: signUpViewModel)
         

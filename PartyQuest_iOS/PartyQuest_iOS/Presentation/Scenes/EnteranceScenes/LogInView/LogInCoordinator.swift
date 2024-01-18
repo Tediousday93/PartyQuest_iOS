@@ -16,29 +16,25 @@ final class LogInCoordinator: LogInCoordinatorType {
     var parentCoordinator: Coordinator?
     var childCoordinators: [Coordinator] = []
 
-    private let authenticationUseCaseProvider: AuthenticationUseCaseProvider
+    private let authenticationManagerProvider: AuthenticationManagerProvider
     private let userDataUseCaseProvider: UserDataUseCaseProvider
-    private let serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
     init(navigationController: UINavigationController?,
-         authenticationUseCaseProvider: AuthenticationUseCaseProvider,
+         authenticationManagerProvider: AuthenticationManagerProvider,
          userDataUseCaseProvider: UserDataUseCaseProvider,
-         serviceTokenUseCaseProvider: ServiceTokenUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
         self.navigationController = navigationController
-        self.authenticationUseCaseProvider = authenticationUseCaseProvider
+        self.authenticationManagerProvider = authenticationManagerProvider
         self.userDataUseCaseProvider = userDataUseCaseProvider
-        self.serviceTokenUseCaseProvider = serviceTokenUseCaseProvider
         self.isLoggedIn = isLoggedIn
     }
     
     func start() {
         let viewModel = LogInViewModel(
             coordinator: self,
-            authenticationUseCase: authenticationUseCaseProvider.makeDefaultAuthenticationUseCase(),
+            authenticationManager: authenticationManagerProvider.makePQAuthManager(),
             userDataUseCase: userDataUseCaseProvider.makeUserDataUseCase(),
-            serviceTokenUseCase: serviceTokenUseCaseProvider.makeDefaultServiceTokenUseCase(),
             isLoggedIn: isLoggedIn
         )
         let socialLoginViewController = LogInViewController(viewModel: viewModel)

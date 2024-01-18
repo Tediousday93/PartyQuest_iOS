@@ -8,9 +8,8 @@
 struct UserData {
     var email: String?
     var secrets: String?
-    var nickName: String?
+    var nickName: String? = ""
     var platform: LogInPlatform?
-    var serviceToken: ServiceToken?
 }
 
 enum LogInPlatform {

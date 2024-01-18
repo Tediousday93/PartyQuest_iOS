@@ -39,10 +39,12 @@ extension GIDGoogleUser: DomainConvertibleType {
             fatalError("Can not find Secrets Key ")
         }
         
-        return UserData(email: profile?.email,
-                              secrets: secrets,
-                              nickName: profile?.name,
-                              platform: .google)
+        return UserData(
+            email: profile?.email,
+            secrets: secrets,
+            nickName: profile?.name,
+            platform: .google
+        )
     }
 }
 

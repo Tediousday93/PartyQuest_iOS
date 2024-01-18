@@ -20,3 +20,9 @@ struct UserInfo: Decodable {
     let id: Int
     let email: String
 }
+
+struct SignUpErrorResponse: Decodable {
+    let status: String
+    let message: String
+    let code: String
+}

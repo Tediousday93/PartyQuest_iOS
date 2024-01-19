@@ -6,10 +6,8 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
-final class ButtonReusableView: UICollectionReusableView {
+final class CollectionReusableButton: UICollectionReusableView {
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 15

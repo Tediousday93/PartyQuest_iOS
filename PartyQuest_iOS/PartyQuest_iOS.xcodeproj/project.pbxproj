@@ -334,7 +334,6 @@
 				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
 				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 				4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */,
-				4AB2F7B72B32DD54005D554C /* Quest.swift */,
 				4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */,
 			);
 			path = HomeView;
@@ -591,6 +590,7 @@
 				4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */,
 				AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */,
 				4AA423872B031AE50092EC27 /* SocialUserData.swift */,
+				4AB2F7B72B32DD54005D554C /* Quest.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";

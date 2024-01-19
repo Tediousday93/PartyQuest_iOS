@@ -17,7 +17,7 @@ final class QuestListViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<QuestListSection, Quest>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<QuestListSection, Quest>
     typealias QuestCardCellRegistration = UICollectionView.CellRegistration<QuestCardCell, Quest>
-    typealias AddButtonRegistration = UICollectionView.SupplementaryRegistration<ButtonReusableView>
+    typealias AddButtonRegistration = UICollectionView.SupplementaryRegistration<CollectionReusableButton>
     
     private lazy var collectionView: UICollectionView = {
         let colletionView = UICollectionView(frame: .zero,
@@ -28,12 +28,13 @@ final class QuestListViewController: UIViewController {
     }()
     
     private var dataSource: DataSource!
-    
-    private var disposeBag: DisposeBag = .init()
+    private var disposeBag: DisposeBag
+    let status: QuestStatus
     let items: BehaviorRelay<[Quest]> = .init(value: [])
     
-    init() {
+    init(status: QuestStatus) {
         self.disposeBag = .init()
+        self.status = status
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -76,7 +77,7 @@ final class QuestListViewController: UIViewController {
             let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
             let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
             
-            if self.title == "todoViewController" {
+            if self.status == .todo {
                 let addButtonSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                            heightDimension: .fractionalWidth(0.13))
                 let addButton = NSCollectionLayoutBoundarySupplementaryItem(
@@ -115,7 +116,7 @@ final class QuestListViewController: UIViewController {
         }
         
         dataSource.supplementaryViewProvider = { [weak self] collectionView, elementekind, indexPath in
-            if self?.title == "todoViewController",
+            if self?.status == .todo,
                elementekind == "AddButton" {
                 return collectionView.dequeueConfiguredReusableSupplementary(
                     using: addButtonRegistration,

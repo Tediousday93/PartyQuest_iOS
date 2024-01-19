@@ -30,22 +30,19 @@ final class PartyDetailViewController: UIViewController {
     }()
     
     private let todoViewController: QuestListViewController = {
-        let viewController = QuestListViewController()
-        viewController.title = "todoViewController"
+        let viewController = QuestListViewController(status: .todo)
         
         return viewController
     }()
     
     private let doingViewController: QuestListViewController = {
-        let viewController = QuestListViewController()
-        viewController.title = "doingViewController"
+        let viewController = QuestListViewController(status: .doing)
         
         return viewController
     }()
     
     private let doneViewController: QuestListViewController = {
-        let viewController = QuestListViewController()
-        viewController.title = "doneViewController"
+        let viewController = QuestListViewController(status: .done)
         
         return viewController
     }()

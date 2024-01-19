@@ -28,7 +28,7 @@ final class AppCoordinator: Coordinator {
         self.authenticationUseCaseProvider = PQAuthManagerProvider()
         self.userDataUseCaseProvider = DefaultUserDataUseCaseProvider()
         self.tabBarController = nil
-        
+//        TokenUtils.shared.deleteToken()
         setBindings()
     }
     
@@ -50,7 +50,7 @@ extension AppCoordinator {
                 case true:
                     owner.childCoordinators.removeAll()
                     owner.navigationController?.viewControllers.removeAll()
-                    owner.navigationController = nil
+                    owner.navigationController?.dismiss(animated: true)
                     owner.toHome()
                 case false:
                     owner.childCoordinators.removeAll()

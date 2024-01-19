@@ -25,13 +25,14 @@
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
 		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
-		4A4A4F402B429D8C00C99612 /* ButtonFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */; };
+		4A4A4F402B429D8C00C99612 /* ButtonReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F3F2B429D8C00C99612 /* ButtonReusableView.swift */; };
 		4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */; };
 		4A4A4F462B4526C700C99612 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */; };
 		4A4A4F482B45270F00C99612 /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F472B45270F00C99612 /* UnderlineSegmentedControl.swift */; };
 		4A4A4F4A2B4529E800C99612 /* PartyDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F492B4529E800C99612 /* PartyDetailCoordinator.swift */; };
 		4A4A4F4C2B4529F100C99612 /* PartyDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F4B2B4529F100C99612 /* PartyDetailViewModel.swift */; };
 		4A4A4F4E2B45309B00C99612 /* QuestListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F4D2B45309B00C99612 /* QuestListViewController.swift */; };
+		4A4A4F522B454AE600C99612 /* QuestCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F512B454AE600C99612 /* QuestCardCell.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
 		4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */; };
@@ -139,13 +140,14 @@
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
-		4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFooterView.swift; sourceTree = "<group>"; };
+		4A4A4F3F2B429D8C00C99612 /* ButtonReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonReusableView.swift; sourceTree = "<group>"; };
 		4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
 		4A4A4F472B45270F00C99612 /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		4A4A4F492B4529E800C99612 /* PartyDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailCoordinator.swift; sourceTree = "<group>"; };
 		4A4A4F4B2B4529F100C99612 /* PartyDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailViewModel.swift; sourceTree = "<group>"; };
 		4A4A4F4D2B45309B00C99612 /* QuestListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListViewController.swift; sourceTree = "<group>"; };
+		4A4A4F512B454AE600C99612 /* QuestCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestCardCell.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
 		4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 				4A4A4F492B4529E800C99612 /* PartyDetailCoordinator.swift */,
 				4A4A4F4B2B4529F100C99612 /* PartyDetailViewModel.swift */,
 				4A4A4F4D2B45309B00C99612 /* QuestListViewController.swift */,
+				4A4A4F512B454AE600C99612 /* QuestCardCell.swift */,
 			);
 			path = PartyDetailView;
 			sourceTree = "<group>";
@@ -558,7 +561,7 @@
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
-				4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */,
+				4A4A4F3F2B429D8C00C99612 /* ButtonReusableView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -881,6 +884,7 @@
 				AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */,
 				ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */,
 				AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */,
+				4A4A4F522B454AE600C99612 /* QuestCardCell.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
 				AD5DABC22AF4CF3500DC30B9 /* NetworkServiceProvider.swift in Sources */,
 				4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */,
@@ -953,7 +957,7 @@
 				4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */,
 				4AA4238A2B033FEB0092EC27 /* SocialUserDataUseCaseProvider.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
-				4A4A4F402B429D8C00C99612 /* ButtonFooterView.swift in Sources */,
+				4A4A4F402B429D8C00C99612 /* ButtonReusableView.swift in Sources */,
 				4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */,
 				AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */,
 				4ADF812F2B0F3C3700A8E027 /* DefaultServiceTokenUseCase.swift in Sources */,

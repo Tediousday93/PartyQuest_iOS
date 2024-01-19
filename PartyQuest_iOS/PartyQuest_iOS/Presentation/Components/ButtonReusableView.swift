@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ButtonFooterView: UICollectionReusableView {
+final class ButtonReusableView: UICollectionReusableView {
     let button: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 15
@@ -32,6 +32,10 @@ final class ButtonFooterView: UICollectionReusableView {
     
     func setButtonTitle(string title: String) {
         button.setTitle(title, for: .normal)
+    }
+    
+    func setButtonTitleStyle(size: CGFloat, weight: UIFont.Weight) {
+        button.titleLabel?.font = .systemFont(ofSize: size, weight: weight)
     }
     
     func setButtonColor(for color: UIColor) {

@@ -31,21 +31,21 @@ final class PartyDetailViewController: UIViewController {
     
     private let todoViewController: QuestListViewController = {
         let viewController = QuestListViewController()
-        viewController.view.backgroundColor = .red
+        viewController.title = "todoViewController"
         
         return viewController
     }()
     
     private let doingViewController: QuestListViewController = {
         let viewController = QuestListViewController()
-        viewController.view.backgroundColor = .green
+        viewController.title = "doingViewController"
         
         return viewController
     }()
     
     private let doneViewController: QuestListViewController = {
         let viewController = QuestListViewController()
-        viewController.view.backgroundColor = .blue
+        viewController.title = "doneViewController"
         
         return viewController
     }()
@@ -97,14 +97,23 @@ final class PartyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureNavigationBar()
         configureRootView()
         setSubviews()
         setConstraints()
         setBindings()
     }
     
+    private func configureNavigationBar() {
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .semibold)
+        let line3Image = UIImage(systemName: "line.3.horizontal", withConfiguration: imageConfig)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: line3Image, style: .done, target: nil, action: nil)
+        navigationItem.rightBarButtonItem?.tintColor = .darkGray
+    }
+    
     private func configureRootView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
     }
     
     private func setSubviews() {
@@ -135,6 +144,33 @@ final class PartyDetailViewController: UIViewController {
         segmentedControl.rx.value.changed.asDriver()
             .drive(with: self) { owner, index in
                 owner.currentPage = index
+            }
+            .disposed(by: disposeBag)
+        
+        let viewWillAppearEvent = self.rx.viewWillAppear
+        
+        let input = PartyDetailViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
+        
+        let output = viewModel.transform(input)
+        
+        output.todoQeusts
+            .withUnretained(self)
+            .subscribe { owner, todoQeusts in
+                owner.todoViewController.items.accept(todoQeusts)
+            }
+            .disposed(by: disposeBag)
+        
+        output.doingQeusts
+            .withUnretained(self)
+            .subscribe { owner, doingQeusts in
+                owner.doingViewController.items.accept(doingQeusts)
+            }
+            .disposed(by: disposeBag)
+        
+        output.doneQeusts
+            .withUnretained(self)
+            .subscribe { owner, doneQeusts in
+                owner.doneViewController.items.accept(doneQeusts)
             }
             .disposed(by: disposeBag)
     }

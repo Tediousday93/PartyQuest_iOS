@@ -20,9 +20,9 @@ final class PartyDetailCoordinator: PartyDetailCoordinatorType {
     }
     
     func start() {
-        let partyListViewModel = PartyDetailViewModel(coordinator: self)
-        let partyListViewController = PartyDetailViewController(viewModel: partyListViewModel)
+        let partyDetailViewModel = PartyDetailViewModel(coordinator: self)
+        let partyDetailViewController = PartyDetailViewController(viewModel: partyDetailViewModel)
         
-        navigationController?.pushViewController(partyListViewController, animated: true)
+        navigationController?.pushViewController(partyDetailViewController, animated: true)
     }
 }

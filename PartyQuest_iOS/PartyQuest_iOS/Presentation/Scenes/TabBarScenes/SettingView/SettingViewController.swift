@@ -22,7 +22,7 @@ final class SettingViewController: UIViewController {
     typealias AccountCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
     typealias DeviceInfoCellRegistration = UICollectionView.CellRegistration<DeviceInfoCell, DeviceInfo>
     typealias EtcCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<TitleHeaderView>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<CollectionTitleHeaderView>
     typealias FooterRegistration = UICollectionView.SupplementaryRegistration<ButtonFooterView>
     
     private lazy var collectionView: UICollectionView = {

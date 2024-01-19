@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TitleHeaderView: UICollectionReusableView {
+final class CollectionTitleHeaderView: UICollectionReusableView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = PQColor.text

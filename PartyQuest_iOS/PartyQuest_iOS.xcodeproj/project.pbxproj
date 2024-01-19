@@ -29,7 +29,7 @@
 		4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */; };
 		4A50A9FF2B0DCFDE0026814F /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */; };
 		4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A50AA032B0DF4430026814F /* PasswordKeychain.swift */; };
-		4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */; };
+		4A636B2A2B2AE34C004FEF52 /* CollectionTitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */; };
 		4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */; };
 		4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */; };
 		4A6A25B42AF2303F000CA63F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */; };
@@ -140,7 +140,7 @@
 		4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		4A50AA032B0DF4430026814F /* PasswordKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordKeychain.swift; sourceTree = "<group>"; };
-		4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeaderView.swift; sourceTree = "<group>"; };
+		4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTitleHeaderView.swift; sourceTree = "<group>"; };
 		4A6A25AE2AF21D33000CA63F /* LogInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B12AF22FC1000CA63F /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
 		4A6A25B32AF2303F000CA63F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -322,10 +322,8 @@
 				4A224C792B28479300D22E81 /* UserProfile.swift */,
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
-				4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */,
 				4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */,
 				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
-				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 				4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */,
 				4AB2F7B72B32DD54005D554C /* Quest.swift */,
 				4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */,
@@ -522,6 +520,8 @@
 				ADCBA2622B42926800A56097 /* PartyCardCollectionView */,
 				AD1BAD202B32B50C00329C53 /* DropDownButton */,
 				AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */,
+				4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */,
+				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 				AD1BAD192B31759800329C53 /* TitledTextView.swift */,
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
@@ -915,7 +915,7 @@
 				ADCBA27D2B4526E600A56097 /* PushNotificationViewModel.swift in Sources */,
 				AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
-				4A636B2A2B2AE34C004FEF52 /* TitleHeaderView.swift in Sources */,
+				4A636B2A2B2AE34C004FEF52 /* CollectionTitleHeaderView.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,

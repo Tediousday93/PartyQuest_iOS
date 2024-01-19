@@ -325,6 +325,12 @@ final class LogInViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        output.errorRelay
+            .subscribe(onNext: { error in
+                print(error)
+            })
+            .disposed(by: disposeBag)
+        
         output.jwtSaved
             .subscribe()
             .disposed(by: disposeBag)

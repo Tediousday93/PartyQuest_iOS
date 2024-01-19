@@ -112,12 +112,8 @@ extension LogInViewModel: ViewModelType {
                     .asObservable()
                     .compactMap { $0.first }
                     .map { (owner, $0) }
+                    .materialize()
             }
-            .do(onNext: { _, serviceToken in
-                TokenUtils.shared.saveToken(serviceToken: serviceToken)
-            })
-            .debug()
-            .materialize()
             .do(onNext: { event in
                 if let error = event.error {
                     errorRelay.accept(error)
@@ -125,6 +121,9 @@ extension LogInViewModel: ViewModelType {
             })
             .filter { $0.error == nil }
             .dematerialize()
+            .do(onNext: { _, serviceToken in
+                TokenUtils.shared.saveToken(serviceToken: serviceToken)
+            })
             .map { owner, _ in
                 owner.coordinator.finish()
                 owner.isLoggedIn.onNext(true)

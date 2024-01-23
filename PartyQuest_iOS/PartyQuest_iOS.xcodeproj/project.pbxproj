@@ -519,14 +519,14 @@
 			children = (
 				ADCBA2622B42926800A56097 /* PartyCardCollectionView */,
 				AD1BAD202B32B50C00329C53 /* DropDownButton */,
-				AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */,
-				4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */,
+				4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */,
 				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
+				4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */,
 				AD1BAD192B31759800329C53 /* TitledTextView.swift */,
+				AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */,
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
-				4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";

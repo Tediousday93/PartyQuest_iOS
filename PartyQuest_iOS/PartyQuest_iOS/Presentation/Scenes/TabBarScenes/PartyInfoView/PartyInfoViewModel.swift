@@ -10,6 +10,14 @@ import RxSwift
 import RxCocoa
 
 final class PartyInfoViewModel {
+    let partyItem: BehaviorRelay<PartyItem>
+    
+    private let coordinator: PartyInfoCoordinatorType
+    
+    init(partyItem: PartyItem, coordinator: PartyInfoCoordinatorType) {
+        self.partyItem = .init(value: partyItem)
+        self.coordinator = coordinator
+    }
     
 }
 

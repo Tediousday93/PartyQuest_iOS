@@ -124,3 +124,13 @@ final class PartyCardCollectionViewController: UIViewController {
         dataSource.apply(snapshot)
     }
 }
+
+extension PartyCardCollectionViewController {
+    func selectedItem() -> Observable<PartyItem> {
+        return collectionView.rx.itemSelected
+            .withUnretained(self)
+            .map { owner, indexPath in
+                owner.items.value[indexPath.item]
+            }
+    }
+}

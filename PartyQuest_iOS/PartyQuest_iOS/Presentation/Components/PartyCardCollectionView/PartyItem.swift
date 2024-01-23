@@ -17,4 +17,6 @@ struct PartyItem: Hashable {
     let doneQuestCount: String?
     let partyMaster: String?
     let creationDate: String?
+    let recruitState: String?
+    let introduction: String?
 }

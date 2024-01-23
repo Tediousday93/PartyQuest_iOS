@@ -37,8 +37,8 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
-//        toHome()
+//        self.isLoggedIn.onNext(TokenUtils.shared.isTokenExpired() == false)
+        toHome()
     }
 }
 

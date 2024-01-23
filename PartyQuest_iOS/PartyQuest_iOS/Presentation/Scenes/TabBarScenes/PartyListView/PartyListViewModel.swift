@@ -38,7 +38,9 @@ extension PartyListViewModel: ViewModelType {
                               doingQuestCount: "1",
                               doneQuestCount: "1",
                               partyMaster: "Harry",
-                              creationDate: "생성일 2023.10.01"),
+                              creationDate: "생성일 2023.10.01",
+                              recruitState: nil,
+                              introduction: nil),
                     PartyItem(topImage: UIImage(named: "party_card_image"),
                               title: "독서파티",
                               memberCount: "5/10",
@@ -46,7 +48,9 @@ extension PartyListViewModel: ViewModelType {
                               doingQuestCount: "1",
                               doneQuestCount: "1",
                               partyMaster: "Harry",
-                              creationDate: "생성일 2023.10.02"),
+                              creationDate: "생성일 2023.10.02",
+                              recruitState: nil,
+                              introduction: nil),
                 ]
             }
         

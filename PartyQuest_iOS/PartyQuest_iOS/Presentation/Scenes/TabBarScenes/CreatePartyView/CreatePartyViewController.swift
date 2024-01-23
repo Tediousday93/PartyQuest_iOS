@@ -112,7 +112,7 @@ final class CreatePartyViewController: UIViewController {
     }
     
     private func configureRootView() {
-        view.backgroundColor = UIColor.systemGray6
+        view.backgroundColor = .systemGray6
     }
     
     private func setSubviews() {

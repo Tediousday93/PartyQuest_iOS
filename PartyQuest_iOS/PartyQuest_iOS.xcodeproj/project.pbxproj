@@ -77,6 +77,7 @@
 		AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */; };
 		AD5AC1282B5F87D700AA4E49 /* PartyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */; };
 		AD5AC12A2B5F882900AA4E49 /* PartyInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1292B5F882900AA4E49 /* PartyInfoViewModel.swift */; };
+		AD5AC12C2B5F889600AA4E49 /* PartyInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC12B2B5F889600AA4E49 /* PartyInfoCoordinator.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */; };
@@ -193,6 +194,7 @@
 		AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONDecoder.swift"; sourceTree = "<group>"; };
 		AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInfoViewController.swift; sourceTree = "<group>"; };
 		AD5AC1292B5F882900AA4E49 /* PartyInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInfoViewModel.swift; sourceTree = "<group>"; };
+		AD5AC12B2B5F889600AA4E49 /* PartyInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInfoCoordinator.swift; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 		AD5AC1252B5F87A800AA4E49 /* PartyInfoView */ = {
 			isa = PBXGroup;
 			children = (
+				AD5AC12B2B5F889600AA4E49 /* PartyInfoCoordinator.swift */,
 				AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */,
 				AD5AC1292B5F882900AA4E49 /* PartyInfoViewModel.swift */,
 			);
@@ -947,6 +950,7 @@
 				AD1BAD182B31718D00329C53 /* CreatePartyViewModel.swift in Sources */,
 				4AB2F7B42B317946005D554C /* CircularProgressView.swift in Sources */,
 				4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */,
+				AD5AC12C2B5F889600AA4E49 /* PartyInfoCoordinator.swift in Sources */,
 				ADCBA2762B440A2F00A56097 /* Rx+UIViewController.swift in Sources */,
 				ADCBA2582B42862100A56097 /* PartySearchViewController.swift in Sources */,
 			);

@@ -10,7 +10,7 @@ import UIKit
 final class CenterTitledLabel: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = PQColor.textGray
+        label.textColor = PQColor.text
         label.textAlignment = .center
         label.font = PQFont.basic
         
@@ -25,7 +25,7 @@ final class CenterTitledLabel: UIView {
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 5, left: 5, bottom: 5, right: 5)
+        stackView.layoutMargins = .init(top: 20, left: 5, bottom: 20, right: 5)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackView

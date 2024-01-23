@@ -108,14 +108,20 @@ final class PartySearchViewController: UIViewController {
     
     private func setBindings() {
         let viewWillAppearEvent = self.rx.viewWillAppear
+        let selectedItem = collectionViewController.selectedItem()
         let input = PartySearchViewModel.Input(
-            viewWillAppearEvent: viewWillAppearEvent
+            viewWillAppearEvent: viewWillAppearEvent,
+            selectedItem: selectedItem
         )
         
         let output = viewModel.transform(input)
         
         output.partyItems
             .bind(to: collectionViewController.items)
+            .disposed(by: disposeBag)
+        
+        output.partyInfoPushed
+            .drive()
             .disposed(by: disposeBag)
     }
 }

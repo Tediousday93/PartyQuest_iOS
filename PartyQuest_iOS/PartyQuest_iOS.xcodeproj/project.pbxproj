@@ -75,6 +75,7 @@
 		AD5AC1082B566E2C00AA4E49 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1072B566E2C00AA4E49 /* KeychainService.swift */; };
 		AD5AC10A2B566F2F00AA4E49 /* DataConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1092B566F2F00AA4E49 /* DataConvertibleType.swift */; };
 		AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */; };
+		AD5AC1282B5F87D700AA4E49 /* PartyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */; };
 		AD5B59A52B1F01E300D02775 /* NaverAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */; };
 		AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */; };
 		AD5DAB9E2AEBD36600DC30B9 /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */; };
@@ -189,6 +190,7 @@
 		AD5AC1072B566E2C00AA4E49 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		AD5AC1092B566F2F00AA4E49 /* DataConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConvertibleType.swift; sourceTree = "<group>"; };
 		AD5AC10B2B5671BD00AA4E49 /* Data+JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+JSONDecoder.swift"; sourceTree = "<group>"; };
+		AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInfoViewController.swift; sourceTree = "<group>"; };
 		AD5B59A42B1F01E300D02775 /* NaverAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAuthService.swift; sourceTree = "<group>"; };
 		AD5B59A62B1F081700D02775 /* NaverUserDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverUserDataResponse.swift; sourceTree = "<group>"; };
 		AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				AD59A9812B28465A005BAEEB /* PartyListView */,
 				AD1BAD122B31711600329C53 /* CreatePartyView */,
 				ADCBA2562B4285F200A56097 /* PartySearchView */,
+				AD5AC1252B5F87A800AA4E49 /* PartyInfoView */,
 				ADCBA2792B45267600A56097 /* PushNotificationView */,
 			);
 			path = TabBarScenes;
@@ -441,6 +444,14 @@
 				AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */,
 			);
 			path = PartyListView;
+			sourceTree = "<group>";
+		};
+		AD5AC1252B5F87A800AA4E49 /* PartyInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				AD5AC1272B5F87D700AA4E49 /* PartyInfoViewController.swift */,
+			);
+			path = PartyInfoView;
 			sourceTree = "<group>";
 		};
 		AD5DAB902AEA9ACE00DC30B9 /* Presentation */ = {
@@ -897,6 +908,7 @@
 				AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
+				AD5AC1282B5F87D700AA4E49 /* PartyInfoViewController.swift in Sources */,
 				ADCBA27B2B4526C300A56097 /* PushNotificationViewController.swift in Sources */,
 				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,

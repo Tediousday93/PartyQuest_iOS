@@ -329,10 +329,8 @@
 				4A224C792B28479300D22E81 /* UserProfile.swift */,
 				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
-				4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */,
 				4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */,
 				4AB2F7B12B31738C005D554C /* WeekActivity.swift */,
-				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 				4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */,
 				4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */,
 			);
@@ -559,6 +557,8 @@
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
 				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
+				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
+				4A636B292B2AE34C004FEF52 /* TitleHeaderView.swift */,
 				4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */,
 				4A4A4F472B45270F00C99612 /* UnderlineSegmentedControl.swift */,
 			);

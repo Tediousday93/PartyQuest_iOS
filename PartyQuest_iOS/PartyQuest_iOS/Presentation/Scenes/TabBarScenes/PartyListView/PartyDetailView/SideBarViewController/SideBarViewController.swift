@@ -75,6 +75,7 @@ final class SideBarViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<MenuSection, MenuItem>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<MenuSection, MenuItem>
     private typealias MenuItemCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MenuItem>
+    private typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<CollectionTitleHeaderView>
     
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero,
@@ -105,7 +106,7 @@ final class SideBarViewController: UIViewController {
         setConstraints()
         configureDataSource()
         applySnapshot()
-        //        setBindings()
+//        setBindings()
     }
     
     override func viewDidLayoutSubviews() {
@@ -147,7 +148,7 @@ final class SideBarViewController: UIViewController {
             headerLabel.topAnchor.constraint(equalTo: safe.topAnchor, constant: 80),
             headerLabel.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 15),
             headerLabel.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -10),
-            headerLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
+            headerLabel.bottomAnchor.constraint(equalTo: collectionView.topAnchor, constant: -20),
             
             collectionView.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 15),
             collectionView.trailingAnchor.constraint(equalTo: safe.trailingAnchor),
@@ -162,12 +163,34 @@ final class SideBarViewController: UIViewController {
     private func createCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (section, env) -> NSCollectionLayoutSection? in
             switch section {
+            case 0:
+                var config = UICollectionLayoutListConfiguration(appearance: .plain)
+                config.showsSeparators = false
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                        heightDimension: .estimated(10))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: "PartySectionHeader",
+                                                                         alignment: .top)
+                
+                let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
+                listSection.contentInsets = .init(top: 0, leading: 0, bottom: 20, trailing: 10)
+                listSection.boundarySupplementaryItems = [header]
+                
+                return listSection
             default:
                 var config = UICollectionLayoutListConfiguration(appearance: .plain)
                 config.showsSeparators = false
                 
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                        heightDimension: .estimated(10))
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: "MemberSectionHeader",
+                                                                         alignment: .top)
+                
                 let listSection = NSCollectionLayoutSection.list(using: config, layoutEnvironment: env)
-                listSection.contentInsets = .init(top: 10, leading: 0, bottom: 10, trailing: 10)
+                listSection.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 10)
+                listSection.boundarySupplementaryItems = [header]
                 
                 return listSection
             }
@@ -181,12 +204,16 @@ final class SideBarViewController: UIViewController {
             switch item {
             case .party(let partyItem):
                 var content = UIListContentConfiguration.cell()
-                content.image = UIImage(systemName: partyItem.systemImageName)
+                let sfConfig = UIImage.SymbolConfiguration(pointSize: 17, weight: .medium)
+                content.image = UIImage(systemName: partyItem.systemImageName,
+                                        withConfiguration: sfConfig)
+                content.imageProperties.tintColor = .darkGray
                 content.text = partyItem.title
                 cell.contentConfiguration = content
             case .member(let memberItem):
                 var content = UIListContentConfiguration.cell()
-                content.image = UIImage(systemName: memberItem.imageName)
+                content.image = UIImage(named: memberItem.imageName)
+                content.imageProperties.maximumSize = .init(width: 40, height: 40)
                 content.text = memberItem.title
                 cell.contentConfiguration = content
             }
@@ -196,6 +223,34 @@ final class SideBarViewController: UIViewController {
             return collectionView.dequeueConfiguredReusableCell(using: menuItemCellRegistration,
                                                                 for: indexPath,
                                                                 item: item)
+        }
+        
+        let partySectionHeaderRegistration = HeaderRegistration(elementKind: "PartySectionHeader") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.basic)
+            supplementaryView.setAlignment(.left)
+            supplementaryView.configureTitle(string: "파티")
+        }
+        
+        let memberSectionHeaderRegistration = HeaderRegistration(elementKind: "MemberSectionHeader") {
+            supplementaryView, elementKind, indexPath in
+            supplementaryView.setFont(PQFont.basic)
+            supplementaryView.setAlignment(.left)
+            supplementaryView.configureTitle(string: "멤버")
+        }
+        
+        dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
+            if elementKind == "PartySectionHeader" {
+                return collectionView.dequeueConfiguredReusableSupplementary(
+                    using: partySectionHeaderRegistration,
+                    for: indexPath)
+            } else if elementKind == "MemberSectionHeader" {
+                return collectionView.dequeueConfiguredReusableSupplementary(
+                    using: memberSectionHeaderRegistration,
+                    for: indexPath)
+            }
+            
+            return nil
         }
     }
     
@@ -209,9 +264,11 @@ final class SideBarViewController: UIViewController {
         ]
         
         let memberItems: [MenuItem] = [
-            MenuItem.party(.init(systemImageName: "lightbulb.fill", title: "퀘스트 관리2")),
-            MenuItem.party(.init(systemImageName: "gearshape.fill", title: "파티 설정2")),
-            MenuItem.party(.init(systemImageName: "person.badge.plus", title: "초대하기2"))
+            MenuItem.member(.init(imageName: "Memoji1", title: "Harry")),
+            MenuItem.member(.init(imageName: "Memoji2", title: "Rowan")),
+            MenuItem.member(.init(imageName: "Memoji3", title: "민규")),
+            MenuItem.member(.init(imageName: "Memoji4", title: "David")),
+            MenuItem.member(.init(imageName: "Memoji5", title: "Beckham"))
         ]
         
         snapshot.appendSections([.party, .member])

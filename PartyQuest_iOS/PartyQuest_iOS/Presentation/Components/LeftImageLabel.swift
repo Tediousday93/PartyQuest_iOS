@@ -8,13 +8,13 @@
 import UIKit
 
 final class LeftImageLabel: UIView {
-    private let imageView: UIImageView = {
+    let imageView: UIImageView = {
         let label = UIImageView()
         
         return label
     }()
 
-    private let textLabel: UILabel = {
+    let textLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         

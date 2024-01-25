@@ -84,10 +84,11 @@ extension AppCoordinator {
         let homeNavigationController = UINavigationController()
         homeNavigationController.tabBarItem = UITabBarItem(
             title: nil,
-            image: UIImage(systemName: "home"),
-            selectedImage: UIImage(systemName: "home.fill")
+            image: UIImage(systemName: "house"),
+            selectedImage: UIImage(systemName: "house.fill")
         )
-        let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
+//        let homeCoordinator = HomeCoordinator(navigationController: homeNavigationController)
+        let homeCoordinator = PartyDetailCoordinator(navigationController: homeNavigationController)
         
         let partyListNavigationController = UINavigationController()
         partyListNavigationController.tabBarItem = UITabBarItem(

@@ -22,8 +22,8 @@ final class SettingViewController: UIViewController {
     typealias AccountCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
     typealias DeviceInfoCellRegistration = UICollectionView.CellRegistration<DeviceInfoCell, DeviceInfo>
     typealias EtcCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, String>
-    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<CollectionTitleHeaderView>
-    typealias FooterRegistration = UICollectionView.SupplementaryRegistration<ButtonFooterView>
+    typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<TitleHeaderView>
+    typealias FooterRegistration = UICollectionView.SupplementaryRegistration<CollectionReusableButton>
     
     private lazy var collectionView: UICollectionView = {
         let colletionView = UICollectionView(frame: .zero,
@@ -326,7 +326,7 @@ final class SettingViewController: UIViewController {
         let logOutButtonTapped = willShowFooterView
             .flatMap { supplementaryView, elementKind, _ in
                 if elementKind == "ButtonFooter" {
-                    if let buttonFooterView = supplementaryView as? ButtonFooterView {
+                    if let buttonFooterView = supplementaryView as? CollectionReusableButton {
                         return buttonFooterView.button.rx.tap
                             .map { _ in }
                     }

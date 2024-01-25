@@ -66,7 +66,6 @@ final class HomeViewController: UIViewController {
         
         configureRootView()
         setSubViews()
-        setTabBarItem()
         setConstraint()
         configureDataSource()
         setBindings()
@@ -78,13 +77,6 @@ final class HomeViewController: UIViewController {
     
     private func setSubViews() {
         view.addSubview(collectionView)
-    }
-    
-    private func setTabBarItem() {
-        let tabBarImage = UIImage(systemName: "house")
-        let tabBarSelectedImage = UIImage(systemName: "house.fill")
-        
-        self.tabBarItem = .init(title: nil, image: tabBarImage, selectedImage: tabBarSelectedImage)
     }
     
     private func setConstraint() {

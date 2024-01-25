@@ -574,6 +574,7 @@
 			children = (
 				4AA423872B031AE50092EC27 /* UserData.swift */,
 				AD1FAA002B56582A006516CF /* ServiceToken.swift */,
+				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -651,7 +652,6 @@
 			children = (
 				ADCBA2632B4292AE00A56097 /* PartyCardCollectionViewController.swift */,
 				AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */,
-				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
 			);
 			path = PartyCardCollectionView;
 			sourceTree = "<group>";

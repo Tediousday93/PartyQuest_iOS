@@ -168,8 +168,22 @@ final class PartyDetailViewController: UIViewController {
             .disposed(by: disposeBag)
         
         let viewWillAppearEvent = self.rx.viewWillAppear
+        let willShowAddQuestButton = todoViewController.collectionView
+            .rx.willDisplaySupplementaryView
+            .asObservable()
+        let addQuestButtonTapped = willShowAddQuestButton
+            .flatMap { supplementaryView, elementKind, _ in
+                if elementKind == "AddQuestButton" {
+                    if let addQuestButton = supplementaryView as? CollectionReusableButton {
+                        return addQuestButton.button.rx.tap
+                            .map { _ in }
+                    }
+                }
+                return Observable.empty()
+            }
         
-        let input = PartyDetailViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
+        let input = PartyDetailViewModel.Input(viewWillAppearEvent: viewWillAppearEvent,
+                                               addQuestButtonTapped: addQuestButtonTapped)
         
         let output = viewModel.transform(input)
         
@@ -191,6 +205,11 @@ final class PartyDetailViewController: UIViewController {
             .withUnretained(self)
             .subscribe { owner, doneQeusts in
                 owner.doneViewController.items.accept(doneQeusts)
+            }
+            .disposed(by: disposeBag)
+        
+        output.presentAddQuestView
+            .subscribe { _ in
             }
             .disposed(by: disposeBag)
     }

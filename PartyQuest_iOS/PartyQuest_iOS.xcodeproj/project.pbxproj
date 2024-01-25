@@ -62,6 +62,7 @@
 		4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */; };
 		4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B72B32DD54005D554C /* Quest.swift */; };
 		4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */; };
+		4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEDF2B62383000891134 /* SideBarViewController.swift */; };
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
@@ -180,6 +181,7 @@
 		4AB2F7B72B32DD54005D554C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorationView.swift; sourceTree = "<group>"; };
 		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		4AE4FEDF2B62383000891134 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		4AE533E52B1F034700862C09 /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -350,6 +352,7 @@
 				4A4A4F4B2B4529F100C99612 /* PartyDetailViewModel.swift */,
 				4A4A4F4D2B45309B00C99612 /* QuestListViewController.swift */,
 				4A4A4F512B454AE600C99612 /* QuestCardCell.swift */,
+				4AE4FEDE2B62381800891134 /* SideBarViewController */,
 			);
 			path = PartyDetailView;
 			sourceTree = "<group>";
@@ -417,6 +420,14 @@
 				4A50AA032B0DF4430026814F /* PasswordKeychain.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		4AE4FEDE2B62381800891134 /* SideBarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4AE4FEDF2B62383000891134 /* SideBarViewController.swift */,
+			);
+			path = SideBarViewController;
 			sourceTree = "<group>";
 		};
 		9BCB1019C56F897222BD5142 /* Frameworks */ = {
@@ -543,7 +554,7 @@
 			children = (
 				ADCBA2622B42926800A56097 /* PartyCardCollectionView */,
 				AD1BAD202B32B50C00329C53 /* DropDownButton */,
-				4A4A4F3F2B429D8C00C99612 /* ButtonFooterView.swift */,
+				4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */,
 				4AB2F7B32B317946005D554C /* CircularProgressView.swift */,
 				4A636B292B2AE34C004FEF52 /* CollectionTitleHeaderView.swift */,
 				AD1BAD192B31759800329C53 /* TitledTextView.swift */,
@@ -949,6 +960,7 @@
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* CollectionTitleHeaderView.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
+				4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */,
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,

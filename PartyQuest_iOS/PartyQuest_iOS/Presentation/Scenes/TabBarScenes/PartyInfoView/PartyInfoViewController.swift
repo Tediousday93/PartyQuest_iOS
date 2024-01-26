@@ -12,6 +12,7 @@ import RxCocoa
 final class PartyInfoViewController: UIViewController {
     private let partyMasterLabel: CenterTitledLabel = {
         let label = CenterTitledLabel()
+        label.backgroundColor = .white
         label.setTitle("파티장")
         label.setBodyFont(PQFont.basicBold)
         label.setBodyLeftImage(assetName: "partyMasterBadge")
@@ -22,8 +23,10 @@ final class PartyInfoViewController: UIViewController {
     
     private let partyMemberLabel: CenterTitledLabel = {
         let label = CenterTitledLabel()
+        label.backgroundColor = .white
         label.setTitle("인원")
         label.setBodyFont(PQFont.basicBold)
+        label.bodyLabel.imageView.removeFromSuperview()
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -31,8 +34,10 @@ final class PartyInfoViewController: UIViewController {
     
     private let partyStateLabel: CenterTitledLabel = {
         let label = CenterTitledLabel()
+        label.backgroundColor = .white
         label.setTitle("모집상태")
         label.setBodyFont(PQFont.basicBold)
+        label.bodyLabel.imageView.removeFromSuperview()
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
@@ -46,6 +51,18 @@ final class PartyInfoViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
+    }()
+    
+    private let topStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 2
+        stackView.backgroundColor = .systemGray5
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
     }()
     
     private let recentQuestTitleLabel: UILabel = {
@@ -195,31 +212,29 @@ final class PartyInfoViewController: UIViewController {
     }
     
     private func setSubviews() {
+        [partyMasterLabel, partyMemberLabel, partyStateLabel]
+            .forEach { topStackView.addArrangedSubview($0) }
+        
         [todoCountLabel, doingCountLabel, doneCountLabel]
             .forEach { questCountStackView.addArrangedSubview($0) }
         
-        [
-            partyMasterLabel, partyMemberLabel, partyStateLabel,
-            recentQuestLabel, recentQuestTitleLabel, entireQuestLabel,
-            questCountStackView, partyCreationDateLabel, dateLabel,
-            partyIntroduceLabel, introductionBodyLabel, joinButton
-        ].forEach { view.addSubview($0) }
+        [topStackView, recentQuestLabel, recentQuestTitleLabel, entireQuestLabel,
+         questCountStackView, partyCreationDateLabel, dateLabel,
+         partyIntroduceLabel, introductionBodyLabel, joinButton]
+            .forEach { view.addSubview($0) }
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            partyMasterLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            partyMasterLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            topStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+
             partyMasterLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.35),
             partyMasterLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.25),
             
-            partyMemberLabel.topAnchor.constraint(equalTo: partyMasterLabel.topAnchor),
-            partyMemberLabel.leadingAnchor.constraint(equalTo: partyMasterLabel.trailingAnchor),
             partyMemberLabel.heightAnchor.constraint(equalTo: partyMasterLabel.heightAnchor, multiplier: 1),
             
-            partyStateLabel.topAnchor.constraint(equalTo: partyMasterLabel.topAnchor),
-            partyStateLabel.leadingAnchor.constraint(equalTo: partyMemberLabel.trailingAnchor),
-            partyStateLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             partyStateLabel.widthAnchor.constraint(equalTo: partyMasterLabel.widthAnchor, multiplier: 1),
             partyStateLabel.heightAnchor.constraint(equalTo: partyMasterLabel.heightAnchor, multiplier: 1),
             

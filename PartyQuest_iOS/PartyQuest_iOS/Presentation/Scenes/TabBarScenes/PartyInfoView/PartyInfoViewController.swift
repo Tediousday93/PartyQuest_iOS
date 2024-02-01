@@ -41,49 +41,12 @@ final class PartyInfoViewController: UIViewController {
         self.disposeBag = .init()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        configureNavigationBar()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        resetNavigationBar()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureRootView()
         setSubviews()
         setConstraints()
         setBindings()
-    }
-    
-    private func configureNavigationBar() {
-        let partyItem = viewModel.partyItem.value
-        
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.backgroundImage = partyItem.topImage
-        navigationBarAppearance.backgroundImageContentMode = .redraw
-        
-        let navigationBar = navigationController?.navigationBar
-        navigationBar?.standardAppearance = navigationBarAppearance
-        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
-        navigationBar?.compactAppearance = navigationBarAppearance
-        navigationBar?.prefersLargeTitles = true
-        
-        navigationItem.title = partyItem.title
-    }
-    
-    private func resetNavigationBar() {
-        let defaultAppearance = UINavigationBarAppearance()
-        defaultAppearance.configureWithDefaultBackground()
-        
-        let navigationBar = navigationController?.navigationBar
-        navigationBar?.standardAppearance = defaultAppearance
-        navigationBar?.scrollEdgeAppearance = defaultAppearance
-        navigationBar?.compactAppearance = defaultAppearance
-        navigationBar?.prefersLargeTitles = false
     }
     
     private func configureRootView() {
@@ -116,10 +79,48 @@ final class PartyInfoViewController: UIViewController {
     }
     
     private func setBindings() {
-        viewModel.partyItem.asDriver()
-            .drive(with: self, onNext: { owner, partyItem in
-                owner.partyInfoView.bind(partyItem)
+        let input = PartyInfoViewModel.Input(
+            viewWillAppearEvent: self.rx.viewWillAppear
+        )
+        
+        let output = viewModel.transform(input)
+        
+        output.partyItem
+            .drive(with: self, onNext: { owner, item in
+                owner.partyInfoView.bind(item)
+                owner.configureNavigationBar(with: item)
             })
             .disposed(by: disposeBag)
+        
+        self.rx.viewWillDisappear
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.resetNavigationBar()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func configureNavigationBar(with partyItem: PartyItem) {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.backgroundImage = partyItem.topImage
+        navigationBarAppearance.backgroundImageContentMode = .redraw
+        
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.standardAppearance = navigationBarAppearance
+        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
+        navigationBar?.compactAppearance = navigationBarAppearance
+        navigationBar?.prefersLargeTitles = true
+        
+        navigationItem.title = partyItem.title
+    }
+    
+    private func resetNavigationBar() {
+        let defaultAppearance = UINavigationBarAppearance()
+        defaultAppearance.configureWithDefaultBackground()
+        
+        let navigationBar = navigationController?.navigationBar
+        navigationBar?.standardAppearance = defaultAppearance
+        navigationBar?.scrollEdgeAppearance = defaultAppearance
+        navigationBar?.compactAppearance = defaultAppearance
+        navigationBar?.prefersLargeTitles = false
     }
 }

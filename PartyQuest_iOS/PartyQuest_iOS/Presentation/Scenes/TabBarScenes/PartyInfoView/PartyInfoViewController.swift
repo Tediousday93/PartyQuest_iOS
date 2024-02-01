@@ -10,140 +10,18 @@ import RxSwift
 import RxCocoa
 
 final class PartyInfoViewController: UIViewController {
-    private let partyMasterLabel: CenterTitledLabel = {
-        let label = CenterTitledLabel()
-        label.backgroundColor = .white
-        label.setTitle("파티장")
-        label.setBodyFont(PQFont.basicBold)
-        label.setBodyLeftImage(assetName: "partyMasterBadge")
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private let partyInfoView: PartyInfoView = {
+        let view = PartyInfoView()
+        view.translatesAutoresizingMaskIntoConstraints = false
         
-        return label
+        return view
     }()
     
-    private let partyMemberLabel: CenterTitledLabel = {
-        let label = CenterTitledLabel()
-        label.backgroundColor = .white
-        label.setTitle("인원")
-        label.setBodyFont(PQFont.basicBold)
-        label.bodyLabel.imageView.removeFromSuperview()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         
-        return label
-    }()
-    
-    private let partyStateLabel: CenterTitledLabel = {
-        let label = CenterTitledLabel()
-        label.backgroundColor = .white
-        label.setTitle("모집상태")
-        label.setBodyFont(PQFont.basicBold)
-        label.bodyLabel.imageView.removeFromSuperview()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let recentQuestLabel: UILabel = {
-        let label = UILabel()
-        label.text = "최근 퀘스트"
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let topStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fillProportionally
-        stackView.spacing = 2
-        stackView.backgroundColor = .systemGray5
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackView
-    }()
-    
-    private let recentQuestTitleLabel: UILabel = {
-        let label = UILabel()
-        label.font = PQFont.basic
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let entireQuestLabel: UILabel = {
-        let label = UILabel()
-        label.text = "전체 퀘스트"
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let todoCountLabel: LeftImageLabel = .init(imageName: "todoBadge")
-    private let doingCountLabel: LeftImageLabel = .init(imageName: "doingBadge")
-    private let doneCountLabel: LeftImageLabel = .init(imageName: "doneBadge")
-    private let questCountStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackView
-    }()
-    
-    private let partyCreationDateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "파티 개설일"
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let dateLabel: UILabel = {
-        let label = UILabel()
-        label.font = PQFont.basic
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let partyIntroduceLabel: UILabel = {
-        let label = UILabel()
-        label.text = "파티 소개"
-        label.font = .boldSystemFont(ofSize: 18)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let introductionBodyLabel: UILabel = {
-        let label = UILabel()
-        label.font = PQFont.basic
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private let joinButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.tintColor = .white
-        button.backgroundColor = PQColor.buttonMain
-        button.setTitle("가입하기", for: .normal)
-        button.layer.borderWidth = 2
-        button.layer.borderColor = PQColor.buttonSub.cgColor
-        button.layer.cornerRadius = 8
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
+        return scrollView
     }()
     
     private let viewModel: PartyInfoViewModel
@@ -186,13 +64,14 @@ final class PartyInfoViewController: UIViewController {
         
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.backgroundImage = partyItem.topImage
-        navigationBarAppearance.backgroundImageContentMode = .scaleAspectFill
+        navigationBarAppearance.backgroundImageContentMode = .redraw
         
         let navigationBar = navigationController?.navigationBar
         navigationBar?.standardAppearance = navigationBarAppearance
         navigationBar?.scrollEdgeAppearance = navigationBarAppearance
         navigationBar?.compactAppearance = navigationBarAppearance
         navigationBar?.prefersLargeTitles = true
+        
         navigationItem.title = partyItem.title
     }
     
@@ -212,79 +91,34 @@ final class PartyInfoViewController: UIViewController {
     }
     
     private func setSubviews() {
-        [partyMasterLabel, partyMemberLabel, partyStateLabel]
-            .forEach { topStackView.addArrangedSubview($0) }
-        
-        [todoCountLabel, doingCountLabel, doneCountLabel]
-            .forEach { questCountStackView.addArrangedSubview($0) }
-        
-        [topStackView, recentQuestLabel, recentQuestTitleLabel, entireQuestLabel,
-         questCountStackView, partyCreationDateLabel, dateLabel,
-         partyIntroduceLabel, introductionBodyLabel, joinButton]
-            .forEach { view.addSubview($0) }
+        scrollView.addSubview(partyInfoView)
+        view.addSubview(scrollView)
     }
     
     private func setConstraints() {
+        let contentHeightConstraint = partyInfoView.heightAnchor.constraint(equalTo: scrollView.frameLayoutGuide.heightAnchor, constant: 4)
+        contentHeightConstraint.priority = .defaultLow
+        
         NSLayoutConstraint.activate([
-            topStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            topStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            topStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-
-            partyMasterLabel.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.35),
-            partyMasterLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.25),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
-            partyMemberLabel.heightAnchor.constraint(equalTo: partyMasterLabel.heightAnchor, multiplier: 1),
+            partyInfoView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            partyInfoView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            partyInfoView.leadingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.leadingAnchor),
+            partyInfoView.trailingAnchor.constraint(equalTo: scrollView.contentLayoutGuide.trailingAnchor),
+            partyInfoView.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor),
             
-            partyStateLabel.widthAnchor.constraint(equalTo: partyMasterLabel.widthAnchor, multiplier: 1),
-            partyStateLabel.heightAnchor.constraint(equalTo: partyMasterLabel.heightAnchor, multiplier: 1),
-            
-            recentQuestLabel.topAnchor.constraint(equalTo: partyMasterLabel.bottomAnchor, constant: 20),
-            recentQuestLabel.leadingAnchor.constraint(equalTo: partyMasterLabel.leadingAnchor),
-            
-            recentQuestTitleLabel.centerYAnchor.constraint(equalTo: recentQuestLabel.centerYAnchor),
-            recentQuestTitleLabel.leadingAnchor.constraint(equalTo: recentQuestLabel.trailingAnchor, constant: 15),
-            recentQuestTitleLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            
-            entireQuestLabel.topAnchor.constraint(equalTo: recentQuestLabel.bottomAnchor, constant: 20),
-            entireQuestLabel.leadingAnchor.constraint(equalTo: partyMasterLabel.leadingAnchor),
-            
-            questCountStackView.centerYAnchor.constraint(equalTo: entireQuestLabel.centerYAnchor),
-            questCountStackView.leadingAnchor.constraint(equalTo: entireQuestLabel.trailingAnchor, constant: 15),
-            questCountStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            
-            partyCreationDateLabel.topAnchor.constraint(equalTo: entireQuestLabel.bottomAnchor, constant: 20),
-            partyCreationDateLabel.leadingAnchor.constraint(equalTo: partyMasterLabel.leadingAnchor),
-            
-            dateLabel.centerYAnchor.constraint(equalTo: partyCreationDateLabel.centerYAnchor),
-            dateLabel.leadingAnchor.constraint(equalTo: partyCreationDateLabel.trailingAnchor, constant: 15),
-            dateLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            
-            partyIntroduceLabel.topAnchor.constraint(equalTo: partyCreationDateLabel.bottomAnchor, constant: 20),
-            partyIntroduceLabel.leadingAnchor.constraint(equalTo: partyMasterLabel.leadingAnchor),
-            
-            introductionBodyLabel.topAnchor.constraint(equalTo: partyIntroduceLabel.bottomAnchor, constant: 5),
-            introductionBodyLabel.leadingAnchor.constraint(equalTo: partyIntroduceLabel.leadingAnchor, constant: 5),
-            introductionBodyLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
-            
-            joinButton.topAnchor.constraint(greaterThanOrEqualTo: introductionBodyLabel.bottomAnchor, constant: 10),
-            joinButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            joinButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
-            joinButton.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.25),
-            joinButton.heightAnchor.constraint(equalToConstant: 45),
+            contentHeightConstraint,
         ])
     }
     
     private func setBindings() {
         viewModel.partyItem.asDriver()
             .drive(with: self, onNext: { owner, partyItem in
-                owner.partyMasterLabel.setBodyText(partyItem.partyMaster)
-                owner.partyMemberLabel.setBodyText(partyItem.memberCount)
-                owner.partyStateLabel.setBodyText(partyItem.recruitState)
-                owner.todoCountLabel.setText(partyItem.todoQuestCount)
-                owner.doingCountLabel.setText(partyItem.doingQuestCount)
-                owner.doneCountLabel.setText(partyItem.doneQuestCount)
-                owner.dateLabel.text = partyItem.creationDate
-                owner.introductionBodyLabel.text = partyItem.introduction
+                owner.partyInfoView.bind(partyItem)
             })
             .disposed(by: disposeBag)
     }

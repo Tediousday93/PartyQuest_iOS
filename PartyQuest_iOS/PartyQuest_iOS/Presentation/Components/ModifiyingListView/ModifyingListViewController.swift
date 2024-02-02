@@ -86,7 +86,7 @@ final class ModifyingListViewController: UIViewController {
 extension ModifyingListViewController {
     struct ModifyingItem: Hashable {
         let title: String
-        let body: String
+        let value: String
     }
     
     func applySnapshot(with items: [ModifyingItem]) {

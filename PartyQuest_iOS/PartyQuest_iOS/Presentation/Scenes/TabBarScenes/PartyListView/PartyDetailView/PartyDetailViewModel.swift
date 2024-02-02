@@ -94,8 +94,10 @@ extension PartyDetailViewModel: ViewModelType {
             }
         
         let presentAddQuestView = input.addQuestButtonTapped
-            .map { _ in
+            .withUnretained(self)
+            .map { owner, _ in
                 print("Button Tapped")
+                owner.coordinator.toAddQuest()
             }
         
         return Output(

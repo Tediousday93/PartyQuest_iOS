@@ -25,6 +25,9 @@
 		4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */; };
 		4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */; };
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
+		4A454B502B6CBB91000ED9A0 /* AddQuestTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */; };
+		4A454B522B6CBC61000ED9A0 /* AddQuestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */; };
+		4A454B542B6CC56B000ED9A0 /* DateOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */; };
 		4A4A4F402B429D8C00C99612 /* CollectionReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */; };
 		4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */; };
 		4A4A4F462B4526C700C99612 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */; };
@@ -64,6 +67,8 @@
 		4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */; };
 		4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEDF2B62383000891134 /* SideBarViewController.swift */; };
 		4AE4FEE32B624BD800891134 /* AddQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */; };
+		4AE4FEE52B624C4700891134 /* AddQuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */; };
+		4AE4FEE72B624C9B00891134 /* AddQuestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE62B624C9B00891134 /* AddQuestCoordinator.swift */; };
 		4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE533E52B1F034700862C09 /* GoogleAuthService.swift */; };
 		AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BACFE2B299F1C00329C53 /* PartyCardCell.swift */; };
 		AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD002B29A05000329C53 /* PartyItem.swift */; };
@@ -144,6 +149,9 @@
 		4A40DBF72B147E2C0050F3B0 /* TokenUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUtils.swift; sourceTree = "<group>"; };
 		4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
+		4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestTitleView.swift; sourceTree = "<group>"; };
+		4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestContentView.swift; sourceTree = "<group>"; };
+		4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOptionCell.swift; sourceTree = "<group>"; };
 		4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableButton.swift; sourceTree = "<group>"; };
 		4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +192,8 @@
 		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		4AE4FEDF2B62383000891134 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewController.swift; sourceTree = "<group>"; };
+		4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewModel.swift; sourceTree = "<group>"; };
+		4AE4FEE62B624C9B00891134 /* AddQuestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestCoordinator.swift; sourceTree = "<group>"; };
 		4AE533E52B1F034700862C09 /* GoogleAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthService.swift; sourceTree = "<group>"; };
 		527A54200358CCB2763DFA3F /* Pods-PartyQuest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_Tests.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_Tests/Pods-PartyQuest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8423293F6AD8043BF95A4403 /* Pods_PartyQuest_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PartyQuest_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -436,7 +446,12 @@
 		4AE4FEE12B624B7C00891134 /* AddQuestView */ = {
 			isa = PBXGroup;
 			children = (
+				4AE4FEE62B624C9B00891134 /* AddQuestCoordinator.swift */,
 				4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */,
+				4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */,
+				4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */,
+				4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */,
+				4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */,
 			);
 			path = AddQuestView;
 			sourceTree = "<group>";
@@ -898,6 +913,7 @@
 				4AE4FEE32B624BD800891134 /* AddQuestViewController.swift in Sources */,
 				4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */,
 				ADCBA2812B452EA900A56097 /* PushNotificationCell.swift in Sources */,
+				4A454B502B6CBB91000ED9A0 /* AddQuestTitleView.swift in Sources */,
 				4A4A4F462B4526C700C99612 /* PartyDetailViewController.swift in Sources */,
 				AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */,
 				4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */,
@@ -921,6 +937,7 @@
 				AD1BAD1C2B3186C700329C53 /* DropDownButton.swift in Sources */,
 				AD1BAD142B31716E00329C53 /* CreatePartyViewController.swift in Sources */,
 				AD1BAD222B32B54000329C53 /* DropDownCell.swift in Sources */,
+				4AE4FEE72B624C9B00891134 /* AddQuestCoordinator.swift in Sources */,
 				AD1BAD1A2B31759800329C53 /* TitledTextView.swift in Sources */,
 				AD5DABC62AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
@@ -949,6 +966,7 @@
 				AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */,
 				AD59A98D2B284AC1005BAEEB /* Reusable.swift in Sources */,
 				4A6A25CD2AF37A12000CA63F /* AuthenticationAPI.swift in Sources */,
+				4AE4FEE52B624C4700891134 /* AddQuestViewModel.swift in Sources */,
 				4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */,
 				ADCBA27B2B4526C300A56097 /* PushNotificationViewController.swift in Sources */,
 				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
@@ -961,6 +979,7 @@
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,
 				AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
+				4A454B542B6CC56B000ED9A0 /* DateOptionCell.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
@@ -972,6 +991,7 @@
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* CollectionTitleHeaderView.swift in Sources */,
 				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
+				4A454B522B6CBC61000ED9A0 /* AddQuestContentView.swift in Sources */,
 				4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */,
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,

@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol PartyDetailCoordinatorType: Coordinator { }
+protocol PartyDetailCoordinatorType: Coordinator {
+    func toAddQuest()
+}
 
 final class PartyDetailCoordinator: PartyDetailCoordinatorType {
     var navigationController: UINavigationController?
@@ -24,5 +26,10 @@ final class PartyDetailCoordinator: PartyDetailCoordinatorType {
         let partyDetailViewController = PartyDetailViewController(viewModel: partyDetailViewModel)
         
         navigationController?.pushViewController(partyDetailViewController, animated: true)
+    }
+    
+    func toAddQuest() {
+        let addQuestCoordinator = AddQuestCoordinator(navigationController: navigationController)
+        addQuestCoordinator.start()
     }
 }

@@ -578,7 +578,7 @@
 		AD5DABA32AF22A7100DC30B9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				ADD87BC82B6CB6B10065B9A6 /* ValueModifiyingCollectionView */,
+				ADD87BC82B6CB6B10065B9A6 /* ModifiyingListView */,
 				ADCBA2622B42926800A56097 /* PartyCardCollectionView */,
 				AD1BAD202B32B50C00329C53 /* DropDownButton */,
 				4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */,
@@ -712,13 +712,13 @@
 			path = PushNotificationView;
 			sourceTree = "<group>";
 		};
-		ADD87BC82B6CB6B10065B9A6 /* ValueModifiyingCollectionView */ = {
+		ADD87BC82B6CB6B10065B9A6 /* ModifiyingListView */ = {
 			isa = PBXGroup;
 			children = (
 				ADD87BC92B6CB7F40065B9A6 /* ModifyingListViewController.swift */,
 				ADD87BCB2B6CC3460065B9A6 /* ModifyingListCell.swift */,
 			);
-			path = ValueModifiyingCollectionView;
+			path = ModifiyingListView;
 			sourceTree = "<group>";
 		};
 		EA24F82FE70514D2D97CBEDB /* Pods */ = {

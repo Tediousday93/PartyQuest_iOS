@@ -47,15 +47,10 @@ final class PartyCardCell: UICollectionViewCell {
             partyItemView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
         ])
     }
-    
+}
+
+extension PartyCardCell {
     func configure(with partyItem: PartyItem) {
-        partyItemView.setContents(topImage: partyItem.topImage,
-                                  title: partyItem.title,
-                                  memberCount: partyItem.memberCount,
-                                  todoQuestCount: partyItem.todoQuestCount,
-                                  doingQuestCount: partyItem.doingQuestCount,
-                                  doneQuestCount: partyItem.doneQuestCount,
-                                  partyMaster: partyItem.partyMaster,
-                                  creationDate: partyItem.creationDate)
+        partyItemView.bind(partyItem)
     }
 }

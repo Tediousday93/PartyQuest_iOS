@@ -15,6 +15,7 @@ final class PartyItemView: UIView {
         
         return imageView
     }()
+    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -22,6 +23,7 @@ final class PartyItemView: UIView {
         
         return label
     }()
+    
     let memberCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -29,9 +31,11 @@ final class PartyItemView: UIView {
         
         return label
     }()
+    
     let todoLabel: LeftImageLabel = LeftImageLabel(imageName: "todoBadge")
     let doingLabel: LeftImageLabel = LeftImageLabel(imageName: "doingBadge")
     let doneLabel: LeftImageLabel = LeftImageLabel(imageName: "doneBadge")
+    
     let partyMasterLabel: LeftImageLabel = LeftImageLabel(imageName: "partyMasterBadge")
     let creationDateLabel: UILabel = {
         let label = UILabel()
@@ -51,6 +55,7 @@ final class PartyItemView: UIView {
         
         return stackView
     }()
+    
     private let stateStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -61,6 +66,7 @@ final class PartyItemView: UIView {
         
         return stackView
     }()
+    
     private let partyInfoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -71,6 +77,7 @@ final class PartyItemView: UIView {
         
         return stackView
     }()
+    
     private let outterStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -116,24 +123,15 @@ final class PartyItemView: UIView {
         ])
     }
     
-    func setContents(
-        topImage: UIImage?,
-        title: String?,
-        memberCount: String?,
-        todoQuestCount: String?,
-        doingQuestCount: String?,
-        doneQuestCount: String?,
-        partyMaster: String?,
-        creationDate: String?
-    ) {
-        topImageView.image = topImage
-        titleLabel.text = title
-        memberCountLabel.text = memberCount
-        todoLabel.setText(todoQuestCount)
-        doingLabel.setText(doingQuestCount)
-        doneLabel.setText(doneQuestCount)
-        partyMasterLabel.setText(partyMaster)
-        creationDateLabel.text = creationDate
+    func bind(_ partyItem: PartyItem) {
+        topImageView.image = partyItem.topImage
+        titleLabel.text = partyItem.title
+        memberCountLabel.text = partyItem.memberCount
+        todoLabel.setText(partyItem.todoQuestCount)
+        doingLabel.setText(partyItem.doingQuestCount)
+        doneLabel.setText(partyItem.doneQuestCount)
+        partyMasterLabel.setText(partyItem.partyMaster)
+        creationDateLabel.text = partyItem.creationDate
     }
     
     func resetContents() {

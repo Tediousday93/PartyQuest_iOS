@@ -20,10 +20,12 @@ final class PartySearchViewModel {
 extension PartySearchViewModel: ViewModelType {
     struct Input {
         let viewWillAppearEvent: Observable<Void>
+        let selectedItem: Observable<PartyItem>
     }
     
     struct Output {
         let partyItems: Observable<[PartyItem]>
+        let partyInfoPushed: Driver<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -37,7 +39,9 @@ extension PartySearchViewModel: ViewModelType {
                               doingQuestCount: "1",
                               doneQuestCount: "1",
                               partyMaster: "Harry",
-                              creationDate: "생성일 2023.10.01"),
+                              creationDate: "2023.10.01",
+                              recruitState: "모집중",
+                              introduction: "알고리즘을 풀어요~"),
                     PartyItem(topImage: UIImage(named: "party_card_image"),
                               title: "독서파티",
                               memberCount: "5/10",
@@ -45,12 +49,22 @@ extension PartySearchViewModel: ViewModelType {
                               doingQuestCount: "1",
                               doneQuestCount: "1",
                               partyMaster: "Harry",
-                              creationDate: "생성일 2023.10.02"),
+                              creationDate: "2023.10.02",
+                              recruitState: "모집중",
+                              introduction: "책을 열심히 읽어요~"),
                 ]
             }
         
+        let partyInfoPushed = input.selectedItem
+            .withUnretained(self)
+            .map { owner, item in
+                owner.coordinator.toPartyInfo(partyItem: item)
+            }
+            .asDriver(onErrorJustReturn: ())
+        
         return Output(
-            partyItems: partyItems
+            partyItems: partyItems,
+            partyInfoPushed: partyInfoPushed
         )
     }
 }

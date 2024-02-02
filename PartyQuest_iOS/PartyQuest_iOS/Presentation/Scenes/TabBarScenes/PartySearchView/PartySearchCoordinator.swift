@@ -8,7 +8,7 @@
 import UIKit
 
 protocol PartySearchCoordinatorType: Coordinator {
-    
+    func toPartyInfo(partyItem: PartyItem)
 }
 
 final class PartySearchCoordinator: PartySearchCoordinatorType {
@@ -26,5 +26,13 @@ final class PartySearchCoordinator: PartySearchCoordinatorType {
         let viewController = PartySearchViewController(viewModel: viewModel)
         
         navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func toPartyInfo(partyItem: PartyItem) {
+        let partyInfoCoordinator = PartyInfoCoordinator(
+            navigationController: navigationController,
+            partyItem: partyItem
+        )
+        self.start(child: partyInfoCoordinator)
     }
 }

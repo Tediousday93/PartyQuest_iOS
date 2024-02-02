@@ -44,7 +44,9 @@ extension WelcomeViewModel: ViewModelType {
             }
             .asDriver(onErrorJustReturn: ())
         
-        return Output(loginPushed: loginPushed,
-                      signUpPushed: signUpPushed)
+        return Output(
+            loginPushed: loginPushed,
+            signUpPushed: signUpPushed
+        )
     }
 }

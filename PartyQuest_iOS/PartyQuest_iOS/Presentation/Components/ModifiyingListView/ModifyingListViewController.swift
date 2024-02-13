@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct ModifyingItem: Hashable {
+    let title: String
+    let value: String
+}
+
 final class ModifyingListViewController: UIViewController {
     private enum Section {
         case main
@@ -16,7 +21,7 @@ final class ModifyingListViewController: UIViewController {
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, ModifyingItem>
     private typealias ModifyingListCellRegistration = UICollectionView.CellRegistration<ModifyingListCell, ModifyingItem>
     
-    private let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: .init())
+    let collectionView: UICollectionView = .init(frame: .zero, collectionViewLayout: .init())
     
     private var dataSource: DataSource!
     
@@ -55,17 +60,17 @@ final class ModifyingListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let modifyingListCellRegistration = ModifyingListCellRegistration { cell, indexPath, item in
-            cell.configure(with: item)
+        let modifyingListCellRegistration = ModifyingListCellRegistration {
+            [weak self] cell, indexPath, item in
+            cell.configure(with: item, collectionView: self?.collectionView)
         }
         
         dataSource = .init(collectionView: collectionView) { collectionView, indexPath, item in
-            let cell = collectionView.dequeueConfiguredReusableCell(
+            return collectionView.dequeueConfiguredReusableCell(
                 using: modifyingListCellRegistration,
                 for: indexPath,
                 item: item
             )
-            return cell
         }
     }
     
@@ -84,11 +89,6 @@ final class ModifyingListViewController: UIViewController {
 }
 
 extension ModifyingListViewController {
-    struct ModifyingItem: Hashable {
-        let title: String
-        let value: String
-    }
-    
     func applySnapshot(with items: [ModifyingItem]) {
         var snapshot = Snapshot()
         snapshot.appendSections([.main])

@@ -8,9 +8,7 @@
 import UIKit
 
 final class ModifyingListCell: UICollectionViewListCell {
-    typealias Item = ModifyingListViewController.ModifyingItem
-    
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = PQFont.small
         label.textColor = PQColor.lightGray
@@ -18,7 +16,7 @@ final class ModifyingListCell: UICollectionViewListCell {
         return label
     }()
     
-    let valueLabel: UILabel = {
+    private let valueLabel: UILabel = {
         let label = UILabel()
         label.font = PQFont.basic
         label.textColor = .black
@@ -36,7 +34,7 @@ final class ModifyingListCell: UICollectionViewListCell {
         return stackView
     }()
     
-    let modifyButton: UIButton = {
+    private let modifyButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("수정", for: .normal)
         button.tintColor = .white
@@ -44,6 +42,15 @@ final class ModifyingListCell: UICollectionViewListCell {
         
         return button
     }()
+    
+    private(set) var modifyingItem: ModifyingItem? {
+        didSet(newItem) {
+            titleLabel.text = newItem?.title
+            valueLabel.text = newItem?.value
+        }
+    }
+    
+    private weak var collectionView: UICollectionView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,6 +61,11 @@ final class ModifyingListCell: UICollectionViewListCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        titleLabel.text = ""
+        valueLabel.text = ""
     }
     
     private func setSubviews() {
@@ -83,11 +95,25 @@ final class ModifyingListCell: UICollectionViewListCell {
         
         self.accessories = [trailingModifyButton]
     }
+    
+    @objc
+    private func onModifyButtonTap() {
+        if let collectionView,
+           let indexPath = collectionView.indexPath(for: self) {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+            collectionView.delegate?.collectionView?(collectionView, didSelectItemAt: indexPath)
+        }
+    }
 }
 
 extension ModifyingListCell {
-    func configure(with item: Item) {
-        titleLabel.text = item.title
-        valueLabel.text = item.value
+    var itemTitle: String { titleLabel.text ?? "" }
+    
+    func configure(with item: ModifyingItem, collectionView: UICollectionView?) {
+        self.modifyingItem = item
+        self.collectionView = collectionView
+        self.modifyButton.addTarget(self,
+                                    action: #selector(onModifyButtonTap),
+                                    for: .touchUpInside)
     }
 }

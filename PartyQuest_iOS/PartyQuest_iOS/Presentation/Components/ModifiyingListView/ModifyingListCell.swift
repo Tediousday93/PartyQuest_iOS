@@ -107,8 +107,6 @@ final class ModifyingListCell: UICollectionViewListCell {
 }
 
 extension ModifyingListCell {
-    var itemTitle: String { titleLabel.text ?? "" }
-    
     func configure(with item: ModifyingItem, collectionView: UICollectionView?) {
         self.modifyingItem = item
         self.collectionView = collectionView

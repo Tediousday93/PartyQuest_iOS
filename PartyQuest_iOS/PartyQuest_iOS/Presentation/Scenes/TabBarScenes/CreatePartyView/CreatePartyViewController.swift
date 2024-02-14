@@ -29,54 +29,18 @@ final class CreatePartyViewController: UIViewController {
         return item
     }()
     
-    private let partyNameTextField: TitledTextField = {
-        let titledTextField = TitledTextField()
-        titledTextField.setTitle("파티 이름")
-        titledTextField.setTextFieldBorder(color: .systemGray4)
+    private let partyItemView: PartyItemView = {
+        let partyItemView = PartyItemView()
+        partyItemView.translatesAutoresizingMaskIntoConstraints = false
         
-        return titledTextField
+        return partyItemView
     }()
     
-    private let introductionTextView: TitledTextView = {
-        let textView = TitledTextView()
-        textView.setTitle("파티 소개")
-        textView.setTextViewBorder(color: .systemGray4)
+    private let modifyingListViewController: ModifyingListViewController = {
+        let viewController = ModifyingListViewController()
+        viewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        return textView
-    }()
-    
-    private let memberCountLabel: UILabel = {
-        let label = UILabel()
-        label.text = "인원 수"
-        label.font = .preferredFont(forTextStyle: .callout)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        return label
-    }()
-    
-    private lazy var dropDownButton: DropDownButton = {
-        let menuItems = Array(1...30).map { String($0) }
-        let button = DropDownButton(menuItems: menuItems,
-                                    menuHeight: 200,
-                                    rootView: self.view)
-        button.setButton(title: "선택")
-        button.setTitleInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        
-        return button
-    }()
-    
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .fill
-        stackView.spacing = 10
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = PQSpacing.margin
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return stackView
+        return viewController
     }()
     
     private let viewModel: CreatePartyViewModel
@@ -116,27 +80,23 @@ final class CreatePartyViewController: UIViewController {
     }
     
     private func setSubviews() {
-        stackView.addArrangedSubview(partyNameTextField)
-        stackView.addArrangedSubview(introductionTextView)
-        
-        view.addSubview(stackView)
-        view.addSubview(memberCountLabel)
-        view.addSubview(dropDownButton)
+        [partyItemView, modifyingListViewController.view].forEach {
+            view.addSubview($0)
+        }
     }
     
     private func setConstraints() {
+        let modifyingListView = modifyingListViewController.view!
+        
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: memberCountLabel.topAnchor, constant: -10),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            partyItemView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
+            partyItemView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            partyItemView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-            memberCountLabel.leadingAnchor.constraint(equalTo: partyNameTextField.leadingAnchor),
-            memberCountLabel.bottomAnchor.constraint(equalTo: dropDownButton.topAnchor, constant: -3),
-            
-            dropDownButton.leadingAnchor.constraint(equalTo: partyNameTextField.leadingAnchor),
-            dropDownButton.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: 0.3),
-            dropDownButton.heightAnchor.constraint(equalToConstant: 250)
+            modifyingListView.topAnchor.constraint(equalTo: partyItemView.bottomAnchor, constant: 16),
+            modifyingListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            modifyingListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            modifyingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
     }
     

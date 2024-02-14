@@ -60,9 +60,8 @@ final class ModifyingListViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let modifyingListCellRegistration = ModifyingListCellRegistration {
-            [weak self] cell, indexPath, item in
-            cell.configure(with: item, collectionView: self?.collectionView)
+        let modifyingListCellRegistration = ModifyingListCellRegistration { cell, _, item in
+            cell.configure(with: item)
         }
         
         dataSource = .init(collectionView: collectionView) { collectionView, indexPath, item in

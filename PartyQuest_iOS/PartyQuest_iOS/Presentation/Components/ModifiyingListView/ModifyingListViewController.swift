@@ -34,12 +34,15 @@ final class ModifyingListViewController: UIViewController {
     }
     
     private func configureRootView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .clear
     }
     
     private func configureCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
+        collectionView.isScrollEnabled = false
+        collectionView.allowsSelection = false
+        collectionView.layer.cornerRadius = 8
         
         setCollectionViewLayout()
         configureDataSource()

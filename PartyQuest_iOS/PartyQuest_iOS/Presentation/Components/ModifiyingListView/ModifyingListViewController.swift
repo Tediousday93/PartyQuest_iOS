@@ -47,12 +47,16 @@ final class ModifyingListViewController: UIViewController {
     
     private func setCollectionViewLayout() {
         let layout = UICollectionViewCompositionalLayout { section, environment in
-            let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+            var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+            configuration.showsSeparators = false
+            
             let section = NSCollectionLayoutSection.list(
                 using: configuration,
                 layoutEnvironment: environment
             )
             section.contentInsets = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
+            section.interGroupSpacing = 12
+            
             return section
         }
         

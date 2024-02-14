@@ -11,7 +11,7 @@ final class ModifyingListCell: UICollectionViewListCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = PQFont.small
-        label.textColor = PQColor.lightGray
+        label.textColor = UIColor.systemGray
         
         return label
     }()

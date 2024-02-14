@@ -36,9 +36,17 @@ final class ModifyingListCell: UICollectionViewListCell {
     
     let modifyButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("수정", for: .normal)
+        let title = "수정"
+        let attributedTitle = NSMutableAttributedString(string: title)
+        attributedTitle.addAttribute(.font,
+                           value: UIFont.boldSystemFont(ofSize: 17),
+                           range: (title as NSString).range(of: title))
+        
+        button.setAttributedTitle(attributedTitle, for: .normal)
         button.tintColor = .white
         button.backgroundColor = PQColor.buttonMain
+        button.layer.cornerRadius = 8
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         return button
     }()
@@ -47,7 +55,6 @@ final class ModifyingListCell: UICollectionViewListCell {
         super.init(frame: frame)
         setSubviews()
         setConstraints()
-        setAccessories()
     }
     
     required init?(coder: NSCoder) {
@@ -65,6 +72,7 @@ final class ModifyingListCell: UICollectionViewListCell {
         }
         
         contentView.addSubview(stackView)
+        contentView.addSubview(modifyButton)
     }
     
     private func setConstraints() {
@@ -73,18 +81,11 @@ final class ModifyingListCell: UICollectionViewListCell {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
+            modifyButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            modifyButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            modifyButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.15),
         ])
-    }
-    
-    private func setAccessories() {
-        let accessoryConfiguration = UICellAccessory.CustomViewConfiguration(
-            customView: modifyButton,
-            placement: .trailing()
-        )
-        
-        let trailingModifyButton = UICellAccessory.customView(configuration: accessoryConfiguration)
-        
-        self.accessories = [trailingModifyButton]
     }
 }
 

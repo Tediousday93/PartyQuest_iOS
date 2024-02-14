@@ -101,70 +101,55 @@ final class CreatePartyViewController: UIViewController {
     }
     
     private func setBindings() {
-        let cancelBarButtonTapped = cancelButton.rx.tap.map { _ in }
-        let partyName = partyNameTextField.textField.rx.text
-            .orEmpty
-            .distinctUntilChanged()
-        let introduction = introductionTextView.textView.rx.text
-            .orEmpty
-            .distinctUntilChanged()
-        let memberCount = dropDownButton.tableView.rx.itemSelected
-            .withUnretained(self)
-            .compactMap { owner, _ in
-                owner.dropDownButton.titleButton.currentTitle
+        let cancelBarButtonTapped = cancelButton.rx.tap.asObservable()
+        
+        let modifyButtonTapped = modifyingListViewController.collectionView.rx
+            .willDisplayCell
+            .compactMap { cell, indexPath in
+                if let modifyingListCell = cell as? ModifyingListCell {
+                    return (modifyingListCell, indexPath)
+                }
+                return nil
             }
-            .distinctUntilChanged()
+            .flatMap { (modifyingListCell, indexPath) in
+                modifyingListCell.modifyButton.rx.tap.asObservable()
+                    .flatMap { event in
+                        Observable.just((event: event, itemIndex: indexPath.item))
+                    }
+            }
+        
         let willDeallocated = self.rx.deallocating
         
         let input = CreatePartyViewModel.Input(
             cancelBarButtonTapped: cancelBarButtonTapped,
-            partyName: partyName,
-            introduction: introduction,
-            memberCount: memberCount,
+            modifyButtonTapped: modifyButtonTapped,
             willDeallocated: willDeallocated
         )
         let output = viewModel.transform(input)
+        
+        output.partyInfoItems
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { owner, items in
+                owner.modifyingListViewController.applySnapshot(with: items)
+            })
+            .disposed(by: disposeBag)
         
         output.dismiss
             .drive()
             .disposed(by: disposeBag)
         
+        output.modifyingViewPresented
+            .drive()
+            .disposed(by: disposeBag)
+
         output.isEnableCompleteBarButton
             .drive(with: self, onNext: { owner, isEnable in
                 owner.completeButton.isEnabled = isEnable
             })
             .disposed(by: disposeBag)
-        
+
         output.coordinatorFinished
             .subscribe()
-            .disposed(by: disposeBag)
-        
-        partyNameTextField.textField.rx.controlEvent(.editingDidBegin)
-            .asDriver()
-            .drive(with: self, onNext: { owner, _ in
-                owner.partyNameTextField.setTextFieldBorder(color: PQColor.buttonMain)
-            })
-            .disposed(by: disposeBag)
-        
-        partyNameTextField.textField.rx.controlEvent(.editingDidEnd)
-            .asDriver()
-            .drive(with: self, onNext: { owner, _ in
-                owner.partyNameTextField.setTextFieldBorder(color: .systemGray4)
-            })
-            .disposed(by: disposeBag)
-        
-        introductionTextView.textView.rx.didBeginEditing
-            .asDriver()
-            .drive(with: self, onNext: { owner, _ in
-                owner.introductionTextView.setTextViewBorder(color: PQColor.buttonMain)
-            })
-            .disposed(by: disposeBag)
-        
-        introductionTextView.textView.rx.didEndEditing
-            .asDriver()
-            .drive(with: self, onNext: { owner, _ in
-                owner.introductionTextView.setTextViewBorder(color: .systemGray4)
-            })
             .disposed(by: disposeBag)
     }
 }

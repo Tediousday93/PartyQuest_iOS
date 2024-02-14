@@ -32,6 +32,7 @@ extension CreatePartyViewModel: ViewModelType {
     }
     
     struct Output {
+        let partyItem: Driver<PartyItem>
         let partyInfoItems: BehaviorRelay<[ModifyingItem]>
         let dismiss: Driver<Void>
         let modifyingViewPresented: Driver<Void>
@@ -40,6 +41,31 @@ extension CreatePartyViewModel: ViewModelType {
     }
     
     func transform(_ input: Input) -> Output {
+        let partyItem = partyInfoItems
+            .map { partyInfoItems in
+                PartyItem(topImage: UIImage(named: "party_card_image"),
+                          title: partyInfoItems[1].value,
+                          memberCount: "1/"+String(partyInfoItems[3].value),
+                          todoQuestCount: "0",
+                          doingQuestCount: "0",
+                          doneQuestCount: "0",
+                          partyMaster: "Creating User Name",
+                          creationDate: "2023.10.01",
+                          recruitState: partyInfoItems[4].value,
+                          introduction: partyInfoItems[2].value)
+            }
+            .asDriver(onErrorJustReturn: PartyItem(topImage: UIImage(named: "party_card_image"),
+                                                   title: "",
+                                                   memberCount: "",
+                                                   todoQuestCount: "0",
+                                                   doingQuestCount: "0",
+                                                   doneQuestCount: "0",
+                                                   partyMaster: "Creating User Name",
+                                                   creationDate: "2023.10.01",
+                                                   recruitState: "",
+                                                   introduction: "")
+            )
+        
         let dismiss = input.cancelBarButtonTapped
             .withUnretained(self)
             .compactMap { owner, _ in
@@ -65,6 +91,7 @@ extension CreatePartyViewModel: ViewModelType {
             }
         
         return Output(
+            partyItem: partyItem,
             partyInfoItems: partyInfoItems,
             dismiss: dismiss,
             modifyingViewPresented: modifyingViewPresented,

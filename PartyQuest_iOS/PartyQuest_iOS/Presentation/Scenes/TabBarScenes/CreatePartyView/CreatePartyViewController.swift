@@ -31,6 +31,8 @@ final class CreatePartyViewController: UIViewController {
     
     private let partyItemView: PartyItemView = {
         let partyItemView = PartyItemView()
+        partyItemView.backgroundColor = .white
+        partyItemView.layer.cornerRadius = 8
         partyItemView.translatesAutoresizingMaskIntoConstraints = false
         
         return partyItemView
@@ -94,8 +96,8 @@ final class CreatePartyViewController: UIViewController {
             partyItemView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
             modifyingListView.topAnchor.constraint(equalTo: partyItemView.bottomAnchor, constant: 16),
-            modifyingListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            modifyingListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            modifyingListView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 12),
+            modifyingListView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -12),
             modifyingListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
         ])
     }
@@ -126,6 +128,12 @@ final class CreatePartyViewController: UIViewController {
             willDeallocated: willDeallocated
         )
         let output = viewModel.transform(input)
+        
+        output.partyItem
+            .drive(with: self, onNext: { owner, partyItem in
+                owner.partyItemView.bind(partyItem)
+            })
+            .disposed(by: disposeBag)
         
         output.partyInfoItems
             .observe(on: MainScheduler.instance)

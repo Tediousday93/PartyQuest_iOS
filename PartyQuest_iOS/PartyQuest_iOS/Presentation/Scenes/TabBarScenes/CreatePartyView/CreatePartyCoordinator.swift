@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RxCocoa
 
 protocol CreatePartyCoordinatorType: Coordinator {
     func toPartyList()
+    func presentModifyingView(with itemsRelay: BehaviorRelay<[ModifyingItem]>, itemIndex: Int)
 }
 
 final class CreatePartyCoordinator: CreatePartyCoordinatorType {
@@ -33,5 +35,9 @@ final class CreatePartyCoordinator: CreatePartyCoordinatorType {
     func toPartyList() {
         finish()
         navigationController?.dismiss(animated: true)
+    }
+    
+    func presentModifyingView(with itemsRelay: BehaviorRelay<[ModifyingItem]>, itemIndex: Int) {
+        
     }
 }

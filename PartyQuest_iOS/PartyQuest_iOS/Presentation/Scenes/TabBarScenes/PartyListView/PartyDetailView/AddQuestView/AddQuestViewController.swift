@@ -9,6 +9,21 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+enum DatePickerItem: Hashable {
+    case header(Date?)
+    case picker(Date?, UIAction)
+}
+
+enum TimePickerItem: Hashable {
+    case header(Date?)
+    case picker(Date?, UIAction)
+}
+
+enum DateSection {
+    case date
+    case time
+}
+
 final class AddQuestViewController: UIViewController {
     private let addQuestTitleView = {
         let addQuestTitleView = AddQuestTitleView()
@@ -24,39 +39,17 @@ final class AddQuestViewController: UIViewController {
         return addQuestContentView
     }()
     
-    enum DateOptionSection {
-        case date
-        case time
-    }
-    
-    struct DateItem: Hashable {
-//        let imageName: String
-        let title: String
-        let date: String
-        let isOn: Bool
-    }
-//
-//    struct timeItem: Hashable {
-//        let title: String
-//        let time: String
-//    }
-//
-    enum DateOptionItem: Hashable {
-        case dateOption(DateItem)
-//        case datePicker
-        case timeOption(DateItem)
-//        case timePicker
-    }
-    
-    private typealias DataSource = UICollectionViewDiffableDataSource<DateOptionSection, DateOptionItem>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<DateOptionSection, DateOptionItem>
-    private typealias DateOptionCellRegistration = UICollectionView.CellRegistration<DateOptionCell, DateOptionItem>
+    private typealias DataSource = UICollectionViewDiffableDataSource<DateSection, AnyHashable>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<DateSection, AnyHashable>
+    private typealias DateHeaderCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, DatePickerItem>
+    private typealias TimeHeaderCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, TimePickerItem>
+    private typealias DatePickerCellRegistration = UICollectionView.CellRegistration<DatePickerCell, DatePickerItem>
+    private typealias TimePickerCellRegistration = UICollectionView.CellRegistration<TimePickerCell, TimePickerItem>
     
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero,
                                               collectionViewLayout: createCollectionViewLayout())
         collectionView.layer.cornerRadius = 10
-        collectionView.isScrollEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
@@ -84,7 +77,7 @@ final class AddQuestViewController: UIViewController {
         setSubViews()
         setConstraints()
         configureDataSource()
-        applySnapshot()
+        applyInitialSnapshot()
         setBindings()
     }
     
@@ -115,7 +108,6 @@ final class AddQuestViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: safe.leadingAnchor, constant: 12),
             collectionView.trailingAnchor.constraint(equalTo: safe.trailingAnchor, constant: -12),
             collectionView.bottomAnchor.constraint(equalTo: safe.bottomAnchor)
-            
         ])
     }
     
@@ -135,35 +127,151 @@ final class AddQuestViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let dateOptionCellRegistration = DateOptionCellRegistration { cell, indexPath, item in
-            switch item {
-            case .dateOption(let dateItem):
-                cell.configureToDateCell(with: dateItem)
-            case .timeOption(let timeItem):
-                cell.configureToTimeCell(with: timeItem)
+        let dateHeaderCellRegistration = DateHeaderCellRegistration { cell, indexPath, item in
+            if case let DatePickerItem.header(date) = item {
+                var content = cell.defaultContentConfiguration()
+                content.image = UIImage(named: "Calendar")
+                content.text = "날짜"
+                content.secondaryTextProperties.color = .systemBlue
+                content.secondaryText = date?.description ?? " "
+                cell.contentConfiguration = content
             }
+            
+            let headerDisclosuerOption = UICellAccessory.OutlineDisclosureOptions(style: .header)
+            cell.accessories = [.outlineDisclosure(options: headerDisclosuerOption)]
+            
+        }
+        
+        let timeHeaderCellRegistration = TimeHeaderCellRegistration { cell, indexPath, item in
+            if case let TimePickerItem.header(time) = item {
+                var content = cell.defaultContentConfiguration()
+                content.image = UIImage(named: "Clock")
+                content.text = "시간"
+                content.secondaryTextProperties.color = .systemBlue
+                content.secondaryText = time?.description ?? " "
+                cell.contentConfiguration = content
+            }
+            
+            let headerDisclosuerOption = UICellAccessory.OutlineDisclosureOptions(style: .header)
+            cell.accessories = [.outlineDisclosure(options: headerDisclosuerOption)]
+        }
+        
+        let datePickerCellRegistration = DatePickerCellRegistration { cell, indexPath, item in
+            cell.item = item
+        }
+        
+        let timePickerCellRegistration = TimePickerCellRegistration { cell, indexPath, item in
+            cell.item = item
         }
         
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item in
-            return collectionView.dequeueConfiguredReusableCell(using: dateOptionCellRegistration,
-                                                                for: indexPath,
-                                                                item: item)
+            if let datePickerItem = item as? DatePickerItem {
+                switch datePickerItem {
+                case .header(_):
+                    return collectionView.dequeueConfiguredReusableCell(using: dateHeaderCellRegistration,
+                                                                        for: indexPath,
+                                                                        item: datePickerItem)
+                case .picker(_, _):
+                    return collectionView.dequeueConfiguredReusableCell(using: datePickerCellRegistration,
+                                                                        for: indexPath,
+                                                                        item: datePickerItem)
+                }
+            } else if let timePickerItem = item as? TimePickerItem {
+                switch timePickerItem {
+                case .header(_):
+                    return collectionView.dequeueConfiguredReusableCell(using: timeHeaderCellRegistration,
+                                                                        for: indexPath,
+                                                                        item: timePickerItem)
+                case .picker(_, _):
+                    return collectionView.dequeueConfiguredReusableCell(using: timePickerCellRegistration,
+                                                                        for: indexPath,
+                                                                        item: timePickerItem)
+                }
+            }
+            
+            return UICollectionViewCell()
         }
     }
     
-    private func applySnapshot() {
+    private func applyInitialSnapshot() {
         var snapshot = Snapshot()
-        
-        let dateItem = DateOptionItem.dateOption(.init(title: "날짜", date: "2024년 2월 2일 금요일", isOn: false))
-        let timeItem = DateOptionItem.timeOption(.init(title: "시간", date: "오후 4:04", isOn: true))
-        
         snapshot.appendSections([.date, .time])
-        snapshot.appendItems([dateItem], toSection: .date)
-        snapshot.appendItems([timeItem], toSection: .time)
-        
         dataSource.apply(snapshot)
+        
+        var dateSectionSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        let dateHeader = DatePickerItem.header(nil)
+        dateSectionSnapShot.append([dateHeader])
+        
+        let datePickerAction = UIAction { [weak self] action in
+            guard let picker = action.sender as? UIDatePicker else {
+                return
+            }
+            
+            self?.reloadDateHeader(with: picker.date)
+        }
+        
+        let datePicker = DatePickerItem.picker(nil, datePickerAction)
+        dateSectionSnapShot.append([datePicker], to: dateHeader)
+        
+        var timeSectionSnapShot = NSDiffableDataSourceSectionSnapshot<AnyHashable>()
+        let timeHeader = TimePickerItem.header(nil)
+        timeSectionSnapShot.append([timeHeader])
+    
+        let timePickerAction = UIAction { [weak self] action in
+            guard let picker = action.sender as? UIDatePicker else {
+                return
+            }
+            
+            self?.reloadTimeHeader(with: picker.date)
+        }
+        
+        let timePicker = TimePickerItem.picker(nil, timePickerAction)
+        timeSectionSnapShot.append([timePicker], to: timeHeader)
+        
+        dataSource.apply(dateSectionSnapShot, to: .date, animatingDifferences: false)
+        dataSource.apply(timeSectionSnapShot, to: .time, animatingDifferences: false)
     }
-
+    
+    private func reloadDateHeader(with date: Date) {
+        let dateSectionSnapshot = dataSource.snapshot(for: .date)
+        
+        guard let olderHeaderItem = dateSectionSnapshot.rootItems.first,
+              let datePickerItem = dateSectionSnapshot.snapshot(of: olderHeaderItem).items.first else {
+            return
+        }
+        
+        let newHeaderItem = DatePickerItem.header(date)
+        
+        var newDateSectionSnapshot = dateSectionSnapshot
+        
+        newDateSectionSnapshot.insert([newHeaderItem], before: olderHeaderItem)
+        newDateSectionSnapshot.delete([olderHeaderItem])
+        newDateSectionSnapshot.append([datePickerItem], to: newHeaderItem)
+        newDateSectionSnapshot.expand([newHeaderItem])
+        
+        dataSource.apply(newDateSectionSnapshot, to: .date, animatingDifferences: false)
+    }
+    
+    private func reloadTimeHeader(with date: Date) {
+        let timeSectionSnapshot = dataSource.snapshot(for: .time)
+        
+        guard let olderHeaderItem = timeSectionSnapshot.rootItems.first,
+              let timePickerItem = timeSectionSnapshot.snapshot(of: olderHeaderItem).items.first else {
+                  return
+              }
+        
+        let newHeaderItem = TimePickerItem.header(date)
+        
+        var newTimeSectionSnapshot = timeSectionSnapshot
+        
+        newTimeSectionSnapshot.insert([newHeaderItem], before: olderHeaderItem)
+        newTimeSectionSnapshot.delete([olderHeaderItem])
+        newTimeSectionSnapshot.append([timePickerItem], to: newHeaderItem)
+        newTimeSectionSnapshot.expand([newHeaderItem])
+        
+        dataSource.apply(newTimeSectionSnapshot, to: .time, animatingDifferences: false)
+    }
+    
     private func setBindings() {
         let startEditingTextView = addQuestContentView.descriptionTextView.rx.didBeginEditing.asObservable()
 
@@ -195,6 +303,16 @@ final class AddQuestViewController: UIViewController {
                 return newText.count > maxLength ? previousText : newText
             }
             .bind(to: addQuestContentView.descriptionTextView.rx.text)
+            .disposed(by: disposBag)
+        
+        collectionView.rx.willDisplayCell.asObservable()
+            .subscribe(with: self) { owner, emitter in
+                if emitter.at == IndexPath(item: 0, section: 1) {
+                    return
+                }
+                
+                owner.collectionView.scrollToItem(at: emitter.at, at: .bottom, animated: true)
+            }
             .disposed(by: disposBag)
     }
 }

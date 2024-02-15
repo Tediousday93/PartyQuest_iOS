@@ -29,15 +29,6 @@ final class SignUpViewController: UIViewController {
         return textField
     }()
     
-    private let birthDateTextField: TitledTextField = {
-        let textField = TitledTextField()
-        textField.setTitle("생년월일")
-        textField.setPlaceholder("20231129")
-        textField.setTextFieldBorder(color: .systemGray4)
-        
-        return textField
-    }()
-    
     private let nickNameTextField: TitledTextField = {
         let textField = TitledTextField()
         textField.setTitle("닉네임")
@@ -110,7 +101,7 @@ final class SignUpViewController: UIViewController {
     }
     
     private func setSubviews() {
-        let textFileds = [emailTextField, passwordTextField, birthDateTextField, nickNameTextField]
+        let textFileds = [emailTextField, passwordTextField, nickNameTextField]
         textFileds.forEach { stackView.addArrangedSubview($0) }
         
         view.addSubview(stackView)
@@ -137,9 +128,6 @@ final class SignUpViewController: UIViewController {
         let password = passwordTextField.textField.rx.text
             .orEmpty
             .distinctUntilChanged()
-        let birthDate = birthDateTextField.textField.rx.text
-            .orEmpty
-            .distinctUntilChanged()
         let nickname = nickNameTextField.textField.rx.text
             .orEmpty
             .distinctUntilChanged()
@@ -149,7 +137,6 @@ final class SignUpViewController: UIViewController {
         let input = SignUpViewModel.Input(
             email: email,
             password: password,
-            birthDate: birthDate,
             nickname: nickname,
             signUpButtonTapped: signUpButtonTapped,
             willDeallocated: willDeallocated
@@ -157,11 +144,10 @@ final class SignUpViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.inputValidations
-            .drive(with: self, onNext: { owner, inputValidations in
-                owner.setBorder(of: owner.emailTextField, for: inputValidations.0)
-                owner.setBorder(of: owner.passwordTextField, for: inputValidations.1)
-                owner.setBorder(of: owner.nickNameTextField, for: inputValidations.2)
-                owner.setBorder(of: owner.birthDateTextField, for: inputValidations.3)
+            .drive(with: self, onNext: { owner, isValid in
+                owner.setBorder(of: owner.emailTextField, for: isValid.email)
+                owner.setBorder(of: owner.passwordTextField, for: isValid.password)
+                owner.setBorder(of: owner.nickNameTextField, for: isValid.nickname)
             })
             .disposed(by: disposeBag)
         

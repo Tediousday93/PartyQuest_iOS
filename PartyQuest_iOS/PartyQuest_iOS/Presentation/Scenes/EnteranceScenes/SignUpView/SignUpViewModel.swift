@@ -24,7 +24,6 @@ extension SignUpViewModel: ViewModelType {
     struct Input {
         let email: Observable<String>
         let password: Observable<String>
-        let birthDate: Observable<String>
         let nickname: Observable<String>
         let signUpButtonTapped: Observable<Void>
         let willDeallocated: Observable<Void>
@@ -32,7 +31,7 @@ extension SignUpViewModel: ViewModelType {
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let inputValidations: Driver<(Bool, Bool, Bool, Bool)>
+        let inputValidations: Driver<(email: Bool, password: Bool, nickname: Bool)>
         let isEnableSignUpButton: Driver<Bool>
         let signUpSuccessed: Observable<Void>
         let coordinatorFinished: Observable<Void>
@@ -44,33 +43,33 @@ extension SignUpViewModel: ViewModelType {
         let userInputs = Observable.combineLatest(
             input.email,
             input.password,
-            input.nickname,
-            input.birthDate
+            input.nickname
         )
+            .map { (email: $0, password: $1, nickname: $2) }
             .share()
         
         let inputValidations = userInputs
-            .map { email, password, nickname, birthDate in
-                var validation = (true, true, true, true)
+            .map { email, password, nickname in
+                var validation = (email: true, password: true, nickname: true)
+                
                 if email.isEmpty == false {
-                    validation.0 = email.isValidEmail()
+                    validation.email = email.isValidEmail()
                 }
                 if password.isEmpty == false {
-                    validation.1 = password.isValidPassword()
+                    validation.password = password.isValidPassword()
                 }
                 if nickname.isEmpty == false {
-                    validation.2 = nickname.isValidNickname()
+                    validation.nickname = nickname.isValidNickname()
                 }
-                if birthDate.isEmpty == false {
-                    validation.3 = birthDate.isValidBirthDate()
-                }
+                
                 return validation
             }
-            .asDriver(onErrorJustReturn: (true, true, true, true))
+            .asDriver(onErrorJustReturn: (email: true, password: true, nickname: true))
         
         let isEnableSignUpButton = userInputs
-            .map { email, password, nickname, birthDate in
-                var validation = (false, false, false, false)
+            .map { email, password, nickname in
+                var validation = (false, false, false)
+                
                 if email.isEmpty == false {
                     validation.0 = email.isValidEmail()
                 }
@@ -80,24 +79,19 @@ extension SignUpViewModel: ViewModelType {
                 if nickname.isEmpty == false {
                     validation.2 = nickname.isValidNickname()
                 }
-                if birthDate.isEmpty == false {
-                    validation.3 = birthDate.isValidBirthDate()
-                }
+                
                 return validation
             }
-            .map { $0 && $1 && $2 && $3 }
+            .map { $0 && $1 && $2 }
             .asDriver(onErrorJustReturn: false)
         
         let signUpSuccessed = input.signUpButtonTapped
             .withLatestFrom(userInputs)
-            .map { email, password, birthDate, nickname in
-                return UserData(email: email,
-                                secrets: password,
-                                nickName: nickname)
-            }
             .withUnretained(self)
-            .flatMap { owner, userData in
-                owner.authenticationManager.signUp(userData: userData)
+            .flatMap { owner, userInputs in
+                owner.authenticationManager.signUp(email: userInputs.email,
+                                                   password: userInputs.password,
+                                                   nickname: userInputs.nickname)
                     .asObservable()
                     .materialize()
             }

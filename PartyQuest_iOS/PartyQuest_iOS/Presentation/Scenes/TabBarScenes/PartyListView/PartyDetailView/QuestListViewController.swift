@@ -19,7 +19,7 @@ final class QuestListViewController: UIViewController {
     typealias QuestCardCellRegistration = UICollectionView.CellRegistration<QuestCardCell, Quest>
     typealias AddButtonRegistration = UICollectionView.SupplementaryRegistration<CollectionReusableButton>
     
-    private lazy var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let colletionView = UICollectionView(frame: .zero,
                                              collectionViewLayout: createCollectionViewLayout())
         colletionView.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +82,7 @@ final class QuestListViewController: UIViewController {
                                                            heightDimension: .fractionalWidth(0.13))
                 let addButton = NSCollectionLayoutBoundarySupplementaryItem(
                     layoutSize: addButtonSize,
-                    elementKind: "AddButton",
+                    elementKind: "AddQuestButton",
                     alignment: .top
                 )
                 listSection.boundarySupplementaryItems = [addButton]
@@ -108,7 +108,7 @@ final class QuestListViewController: UIViewController {
                                                                 item: quest)
         }
         
-        let addButtonRegistration = AddButtonRegistration(elementKind: "AddButton") {
+        let addButtonRegistration = AddButtonRegistration(elementKind: "AddQuestButton") {
             supplementaryView, elementKind, indexPath in
             supplementaryView.setButtonTitle(string: "+")
             supplementaryView.setButtonColor(for: PQColor.buttonSub)
@@ -117,7 +117,7 @@ final class QuestListViewController: UIViewController {
         
         dataSource.supplementaryViewProvider = { [weak self] collectionView, elementekind, indexPath in
             if self?.status == .todo,
-               elementekind == "AddButton" {
+               elementekind == "AddQuestButton" {
                 return collectionView.dequeueConfiguredReusableSupplementary(
                     using: addButtonRegistration,
                     for: indexPath

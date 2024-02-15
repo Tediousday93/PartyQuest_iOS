@@ -19,12 +19,14 @@ final class PartyDetailViewModel {
 extension PartyDetailViewModel: ViewModelType {
     struct Input {
         let viewWillAppearEvent: Observable<Void>
+        let addQuestButtonTapped: Observable<Void>
     }
     
     struct Output {
         let todoQeusts: Observable<[Quest]>
         let doingQeusts: Observable<[Quest]>
         let doneQeusts: Observable<[Quest]>
+        let presentAddQuestView: Observable<Void>
     }
     
     func transform(_ input: Input) -> Output {
@@ -91,10 +93,18 @@ extension PartyDetailViewModel: ViewModelType {
                 quests.filter { $0.status == .done }
             }
         
+        let presentAddQuestView = input.addQuestButtonTapped
+            .withUnretained(self)
+            .map { owner, _ in
+                print("Button Tapped")
+                owner.coordinator.toAddQuest()
+            }
+        
         return Output(
             todoQeusts: todoQuest,
             doingQeusts: doingQuest,
-            doneQeusts: doneQuest
+            doneQeusts: doneQuest,
+            presentAddQuestView: presentAddQuestView
         )
     }
 }

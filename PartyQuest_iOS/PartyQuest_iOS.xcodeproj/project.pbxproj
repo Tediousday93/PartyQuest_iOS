@@ -70,6 +70,7 @@
 		4AB2F7B62B32D971005D554C /* DoingQuestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B52B32D971005D554C /* DoingQuestCell.swift */; };
 		4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B72B32DD54005D554C /* Quest.swift */; };
 		4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */; };
+		4ADDAFC92B7DFA1400F6B6D6 /* QuestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDAFC82B7DFA1400F6B6D6 /* QuestItem.swift */; };
 		4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEDF2B62383000891134 /* SideBarViewController.swift */; };
 		4AE4FEE32B624BD800891134 /* AddQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */; };
 		4AE4FEE52B624C4700891134 /* AddQuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */; };
@@ -210,6 +211,7 @@
 		4AB2F7B72B32DD54005D554C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowDecorationView.swift; sourceTree = "<group>"; };
 		4AB2F7BD2B3424DE005D554C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		4ADDAFC82B7DFA1400F6B6D6 /* QuestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestItem.swift; sourceTree = "<group>"; };
 		4AE4FEDF2B62383000891134 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewController.swift; sourceTree = "<group>"; };
 		4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewModel.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				4A42AFC92B14751F005380E7 /* PQTabBarController.swift */,
+				4ADDAFC82B7DFA1400F6B6D6 /* QuestItem.swift */,
 				4A42AFC82B147490005380E7 /* HomeView */,
 				4A94CFD02B3ABD03007B48CB /* SettingView */,
 				AD59A9812B28465A005BAEEB /* PartyListView */,
@@ -1001,6 +1004,7 @@
 				AD5DABC02AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift in Sources */,
 				AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */,
 				ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */,
+				4ADDAFC92B7DFA1400F6B6D6 /* QuestItem.swift in Sources */,
 				AD2D7A352B7DE6AD00F5A7C0 /* PQNotification.swift in Sources */,
 				AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */,
 				4A4A4F522B454AE600C99612 /* QuestCardCell.swift in Sources */,

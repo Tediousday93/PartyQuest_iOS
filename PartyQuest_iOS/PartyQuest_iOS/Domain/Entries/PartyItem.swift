@@ -8,6 +8,7 @@
 import UIKit.UIImage
 import Foundation
 
+// ViewModel nested type으로 옮기기
 struct PartyItem: Hashable {
     let topImage: UIImage?
     let title: String?

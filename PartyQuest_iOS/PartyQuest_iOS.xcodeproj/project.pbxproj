@@ -61,7 +61,7 @@
 		4AA423812B03058C0092EC27 /* UserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* UserDataUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
-		4AA423882B031AE50092EC27 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* UserData.swift */; };
+		4AA423882B031AE50092EC27 /* PQUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* PQUser.swift */; };
 		4AA4238A2B033FEB0092EC27 /* UserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* UserDataUseCaseProvider.swift */; };
 		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
 		4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */; };
@@ -84,7 +84,11 @@
 		AD1BAD1A2B31759800329C53 /* TitledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD192B31759800329C53 /* TitledTextView.swift */; };
 		AD1BAD1C2B3186C700329C53 /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD1B2B3186C700329C53 /* DropDownButton.swift */; };
 		AD1BAD222B32B54000329C53 /* DropDownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1BAD212B32B54000329C53 /* DropDownCell.swift */; };
-		AD1FAA012B56582A006516CF /* ServiceToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1FAA002B56582A006516CF /* ServiceToken.swift */; };
+		AD2D7A2D2B7DE25400F5A7C0 /* SocialUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D7A2C2B7DE25400F5A7C0 /* SocialUser.swift */; };
+		AD2D7A2F2B7DE4B400F5A7C0 /* PartyInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D7A2E2B7DE4B400F5A7C0 /* PartyInformation.swift */; };
+		AD2D7A312B7DE4FD00F5A7C0 /* PartyMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D7A302B7DE4FD00F5A7C0 /* PartyMember.swift */; };
+		AD2D7A332B7DE5F300F5A7C0 /* UserActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D7A322B7DE5F300F5A7C0 /* UserActivity.swift */; };
+		AD2D7A352B7DE6AD00F5A7C0 /* PQNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2D7A342B7DE6AD00F5A7C0 /* PQNotification.swift */; };
 		AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */; };
 		AD59A9852B284695005BAEEB /* PartyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9842B284695005BAEEB /* PartyListViewController.swift */; };
 		AD59A9872B2846A9005BAEEB /* PartyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */; };
@@ -197,7 +201,7 @@
 		4AA423802B03058C0092EC27 /* UserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
-		4AA423872B031AE50092EC27 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		4AA423872B031AE50092EC27 /* PQUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQUser.swift; sourceTree = "<group>"; };
 		4AA423892B033FEB0092EC27 /* UserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekActivityCell.swift; sourceTree = "<group>"; };
@@ -223,7 +227,11 @@
 		AD1BAD192B31759800329C53 /* TitledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextView.swift; sourceTree = "<group>"; };
 		AD1BAD1B2B3186C700329C53 /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		AD1BAD212B32B54000329C53 /* DropDownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCell.swift; sourceTree = "<group>"; };
-		AD1FAA002B56582A006516CF /* ServiceToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceToken.swift; sourceTree = "<group>"; };
+		AD2D7A2C2B7DE25400F5A7C0 /* SocialUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUser.swift; sourceTree = "<group>"; };
+		AD2D7A2E2B7DE4B400F5A7C0 /* PartyInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyInformation.swift; sourceTree = "<group>"; };
+		AD2D7A302B7DE4FD00F5A7C0 /* PartyMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyMember.swift; sourceTree = "<group>"; };
+		AD2D7A322B7DE5F300F5A7C0 /* UserActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActivity.swift; sourceTree = "<group>"; };
+		AD2D7A342B7DE6AD00F5A7C0 /* PQNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQNotification.swift; sourceTree = "<group>"; };
 		AD59A9822B284678005BAEEB /* PartyListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListCoordinator.swift; sourceTree = "<group>"; };
 		AD59A9842B284695005BAEEB /* PartyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewController.swift; sourceTree = "<group>"; };
 		AD59A9862B2846A9005BAEEB /* PartyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyListViewModel.swift; sourceTree = "<group>"; };
@@ -665,6 +673,8 @@
 		AD5DABAD2AF3836D00DC30B9 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AD5DABAE2AF3837300DC30B9 /* Entries */,
+				AD5DABB22AF39C8A00DC30B9 /* UseCase */,
 				AD5DABAF2AF383BB00DC30B9 /* Authentication */,
 			);
 			path = Domain;
@@ -673,10 +683,14 @@
 		AD5DABAE2AF3837300DC30B9 /* Entries */ = {
 			isa = PBXGroup;
 			children = (
-				4AA423872B031AE50092EC27 /* UserData.swift */,
-				AD1FAA002B56582A006516CF /* ServiceToken.swift */,
+				4AA423872B031AE50092EC27 /* PQUser.swift */,
+				AD2D7A2C2B7DE25400F5A7C0 /* SocialUser.swift */,
 				4AB2F7B72B32DD54005D554C /* Quest.swift */,
+				AD2D7A2E2B7DE4B400F5A7C0 /* PartyInformation.swift */,
+				AD2D7A302B7DE4FD00F5A7C0 /* PartyMember.swift */,
 				AD1BAD002B29A05000329C53 /* PartyItem.swift */,
+				AD2D7A322B7DE5F300F5A7C0 /* UserActivity.swift */,
+				AD2D7A342B7DE6AD00F5A7C0 /* PQNotification.swift */,
 			);
 			path = Entries;
 			sourceTree = "<group>";
@@ -686,8 +700,6 @@
 			children = (
 				AD5DABB32AF39CA500DC30B9 /* AuthenticationManagable.swift */,
 				AD5DABBF2AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift */,
-				AD5DABB22AF39C8A00DC30B9 /* UseCase */,
-				AD5DABAE2AF3837300DC30B9 /* Entries */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -980,6 +992,7 @@
 				4A6A25CC2AF37A12000CA63F /* Bundle+NetworkInfo.swift in Sources */,
 				4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */,
 				4AE4FEE32B624BD800891134 /* AddQuestViewController.swift in Sources */,
+				AD2D7A2D2B7DE25400F5A7C0 /* SocialUser.swift in Sources */,
 				4A8C5BA82B7B657C00A5F190 /* DatePickerContentView.swift in Sources */,
 				4AE533E62B1F034700862C09 /* GoogleAuthService.swift in Sources */,
 				ADCBA2812B452EA900A56097 /* PushNotificationCell.swift in Sources */,
@@ -991,6 +1004,7 @@
 				AD5DABC02AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift in Sources */,
 				AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */,
 				ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */,
+				AD2D7A352B7DE6AD00F5A7C0 /* PQNotification.swift in Sources */,
 				AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */,
 				4A4A4F522B454AE600C99612 /* QuestCardCell.swift in Sources */,
 				4A6A25B82AF23DD4000CA63F /* String+RegularExpression.swift in Sources */,
@@ -1008,6 +1022,7 @@
 				AD1BAD1C2B3186C700329C53 /* DropDownButton.swift in Sources */,
 				ADD87BCA2B6CB7F40065B9A6 /* ModifyingListViewController.swift in Sources */,
 				AD1BAD142B31716E00329C53 /* CreatePartyViewController.swift in Sources */,
+				AD2D7A2F2B7DE4B400F5A7C0 /* PartyInformation.swift in Sources */,
 				AD1BAD222B32B54000329C53 /* DropDownCell.swift in Sources */,
 				4AE4FEE72B624C9B00891134 /* AddQuestCoordinator.swift in Sources */,
 				AD1BAD1A2B31759800329C53 /* TitledTextView.swift in Sources */,
@@ -1017,6 +1032,7 @@
 				AD5AC10A2B566F2F00AA4E49 /* DataConvertibleType.swift in Sources */,
 				4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */,
 				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
+				AD2D7A312B7DE4FD00F5A7C0 /* PartyMember.swift in Sources */,
 				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
 				AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */,
 				4A4A4F482B45270F00C99612 /* UnderlineSegmentedControl.swift in Sources */,
@@ -1027,7 +1043,6 @@
 				4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */,
 				AD59A98F2B285037005BAEEB /* LeftImageLabel.swift in Sources */,
 				4A6A25D32AF39DD9000CA63F /* PQAuthManager.swift in Sources */,
-				AD1FAA012B56582A006516CF /* ServiceToken.swift in Sources */,
 				4A224C7E2B297A4D00D22E81 /* HomeCoordinator.swift in Sources */,
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				ADD87BCC2B6CC3460065B9A6 /* ModifyingListCell.swift in Sources */,
@@ -1061,7 +1076,7 @@
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,
 				ADCBA27F2B45271D00A56097 /* PushNotificationCoordinator.swift in Sources */,
 				4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */,
-				4AA423882B031AE50092EC27 /* UserData.swift in Sources */,
+				4AA423882B031AE50092EC27 /* PQUser.swift in Sources */,
 				ADCBA27D2B4526E600A56097 /* PushNotificationViewModel.swift in Sources */,
 				AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
@@ -1073,6 +1088,7 @@
 				AD1BAD012B29A05000329C53 /* PartyItem.swift in Sources */,
 				4A224C802B297BCB00D22E81 /* StyleSheet.swift in Sources */,
 				4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */,
+				AD2D7A332B7DE5F300F5A7C0 /* UserActivity.swift in Sources */,
 				4A94CFD42B3ABD86007B48CB /* SettingViewModel.swift in Sources */,
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,

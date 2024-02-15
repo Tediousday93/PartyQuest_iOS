@@ -30,7 +30,7 @@ final class NaverAuthService: NSObject, SocialAuthService {
         return accessTokenArrived.asObservable()
     }
     
-    func getUserInfo() -> Observable<UserData> {
+    func getSocialUserInfo() -> Observable<SocialUser> {
         return Single.create { [weak self] single in
             guard let self else {
                 single(.failure(NaverAuthError.instanceDeallocated))
@@ -57,11 +57,12 @@ final class NaverAuthService: NSObject, SocialAuthService {
                 case .success(let data):
                     let decoder = JSONDecoder()
                     let naverUserDataResponse = try? decoder.decode(NaverUserDataResponse.self, from: data)
-                    guard let userData = naverUserDataResponse?.userData else {
+                    guard let userData = naverUserDataResponse?.userData,
+                          let socialUser = try? userData.toDomain() else {
                         single(.failure(NaverAuthError.nilUserData))
                         return
                     }
-                    single(.success(userData.toDomain()))
+                    single(.success(socialUser))
                 case .failure(let error):
                     single(.failure(error))
                 }

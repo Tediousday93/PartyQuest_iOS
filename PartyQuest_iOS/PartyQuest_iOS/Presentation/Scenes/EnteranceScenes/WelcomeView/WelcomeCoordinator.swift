@@ -20,16 +20,16 @@ final class WelcomeCoordinator: WelcomeCoordinatorType {
     var childCoordinators: [Coordinator] = []
     
     private let authenticationManagerProvider: AuthenticationManagerProvider
-    private let userDataUseCaseProvider: UserDataUseCaseProvider
+    private let socialUserUseCaseProvider: SocialUserUseCaseProvider
     private let isLoggedIn: PublishSubject<Bool>
     
     init(navigationController: UINavigationController?,
          authenticationManagerProvider: AuthenticationManagerProvider,
-         userDataUseCaseProvider: UserDataUseCaseProvider,
+         socialUserUseCaseProvider: SocialUserUseCaseProvider,
          isLoggedIn: PublishSubject<Bool>) {
         self.navigationController = navigationController
         self.authenticationManagerProvider = authenticationManagerProvider
-        self.userDataUseCaseProvider = userDataUseCaseProvider
+        self.socialUserUseCaseProvider = socialUserUseCaseProvider
         self.isLoggedIn = isLoggedIn
     }
     
@@ -44,7 +44,7 @@ final class WelcomeCoordinator: WelcomeCoordinatorType {
         let loginCoordinator = LogInCoordinator(
             navigationController: navigationController,
             authenticationManagerProvider: authenticationManagerProvider,
-            userDataUseCaseProvider: userDataUseCaseProvider,
+            socialUserUseCaseProvider: socialUserUseCaseProvider,
             isLoggedIn: isLoggedIn
         )
 

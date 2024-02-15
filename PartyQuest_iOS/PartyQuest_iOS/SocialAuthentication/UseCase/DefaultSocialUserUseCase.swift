@@ -1,5 +1,5 @@
 //
-//  DefaultSocialUserDataUseCase.swift
+//  DefaultSocialUserUseCase.swift
 //  PartyQuest_iOS
 //
 //  Created by Rowan on 2023/11/13.
@@ -7,7 +7,7 @@
 
 import RxSwift
 
-final class DefaultUserDataUseCase: UserDataUseCase {
+final class DefaultSocialUserUseCase: SocialUserUseCase {
     private let kakaoAuthService: SocialAuthService
     private let googleAuthService: SocialAuthService
     private let naverAuthService: SocialAuthService
@@ -20,14 +20,14 @@ final class DefaultUserDataUseCase: UserDataUseCase {
         self.naverAuthService = naverAuthService
     }
     
-    func getUserData(for platform: LogInPlatform) -> Observable<UserData> {
+    func getSocialUser(for platform: LogInPlatform) -> Observable<SocialUser> {
         let service = getService(for: platform)
         
         return service.requestLogIn()
             .materialize()
             .filter { $0.error == nil }
             .flatMap { _ in
-                service.getUserInfo()
+                service.getSocialUserInfo()
             }
     }
     
@@ -39,6 +39,8 @@ final class DefaultUserDataUseCase: UserDataUseCase {
             return googleAuthService
         case .naver:
             return naverAuthService
+        default:
+            fatalError("Unsupported social platform: \(platform.rawValue)")
         }
     }
 }

@@ -22,9 +22,9 @@ final class KakaoAuthService: SocialAuthService {
         }
     }
     
-    func getUserInfo() -> Observable<UserData> {
+    func getSocialUserInfo() -> Observable<SocialUser> {
         return UserApi.shared.rx.me()
-            .map { $0.toDomain() }
+            .map { try $0.toDomain() }
             .asObservable()
     }
 }

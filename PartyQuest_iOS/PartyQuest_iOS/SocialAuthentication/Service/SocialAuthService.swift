@@ -9,5 +9,5 @@ import RxSwift
 
 protocol SocialAuthService {
     func requestLogIn() -> Observable<Void>
-    func getUserInfo() -> Observable<UserData>
+    func getSocialUserInfo() -> Observable<SocialUser>
 }

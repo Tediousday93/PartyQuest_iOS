@@ -58,11 +58,11 @@
 		4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */; };
 		4A94CFDA2B3C148D007B48CB /* ProfileImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */; };
 		4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */; };
-		4AA423812B03058C0092EC27 /* UserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* UserDataUseCase.swift */; };
+		4AA423812B03058C0092EC27 /* SocialUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423802B03058C0092EC27 /* SocialUserUseCase.swift */; };
 		4AA423832B0306480092EC27 /* KakaoAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423822B0306480092EC27 /* KakaoAuthService.swift */; };
 		4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */; };
 		4AA423882B031AE50092EC27 /* PQUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423872B031AE50092EC27 /* PQUser.swift */; };
-		4AA4238A2B033FEB0092EC27 /* UserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* UserDataUseCaseProvider.swift */; };
+		4AA4238A2B033FEB0092EC27 /* SocialUserUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA423892B033FEB0092EC27 /* SocialUserUseCaseProvider.swift */; };
 		4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */; };
 		4AB2F7B02B316AE4005D554C /* WeekActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */; };
 		4AB2F7B22B31738C005D554C /* WeekActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB2F7B12B31738C005D554C /* WeekActivity.swift */; };
@@ -112,8 +112,8 @@
 		AD5DABC62AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift */; };
 		AD5DAC022B0218A200DC30B9 /* SocialAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */; };
 		AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */; };
-		AD5DAC092B0219AD00DC30B9 /* DefaultUserDataUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */; };
-		AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */; };
+		AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserUseCase.swift */; };
+		AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserUseCaseProvider.swift */; };
 		AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */; };
 		ADCBA2582B42862100A56097 /* PartySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2572B42862100A56097 /* PartySearchViewController.swift */; };
 		ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */; };
@@ -197,11 +197,11 @@
 		4A94CFD52B3ABE10007B48CB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4A94CFD92B3C148D007B48CB /* ProfileImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCell.swift; sourceTree = "<group>"; };
 		4A94CFDB2B3C1ADC007B48CB /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		4AA423802B03058C0092EC27 /* UserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataUseCase.swift; sourceTree = "<group>"; };
+		4AA423802B03058C0092EC27 /* SocialUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserUseCase.swift; sourceTree = "<group>"; };
 		4AA423822B0306480092EC27 /* KakaoAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthService.swift; sourceTree = "<group>"; };
 		4AA423852B031A4B0092EC27 /* DomainConvertibleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
 		4AA423872B031AE50092EC27 /* PQUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQUser.swift; sourceTree = "<group>"; };
-		4AA423892B033FEB0092EC27 /* UserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataUseCaseProvider.swift; sourceTree = "<group>"; };
+		4AA423892B033FEB0092EC27 /* SocialUserUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialUserUseCaseProvider.swift; sourceTree = "<group>"; };
 		4AA4238B2B0357F70092EC27 /* LogInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewModel.swift; sourceTree = "<group>"; };
 		4AB2F7AF2B316AE4005D554C /* WeekActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekActivityCell.swift; sourceTree = "<group>"; };
 		4AB2F7B12B31738C005D554C /* WeekActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekActivity.swift; sourceTree = "<group>"; };
@@ -254,8 +254,8 @@
 		AD5DABC52AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQAuthManagerProvider.swift; sourceTree = "<group>"; };
 		AD5DAC012B0218A200DC30B9 /* SocialAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthProvider.swift; sourceTree = "<group>"; };
 		AD5DAC062B02197B00DC30B9 /* SocialAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialAuthService.swift; sourceTree = "<group>"; };
-		AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCase.swift; sourceTree = "<group>"; };
-		AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDataUseCaseProvider.swift; sourceTree = "<group>"; };
+		AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserUseCase.swift; sourceTree = "<group>"; };
+		AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSocialUserUseCaseProvider.swift; sourceTree = "<group>"; };
 		AD5FE5912B0C80AE001F17AA /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		ADCBA2572B42862100A56097 /* PartySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewController.swift; sourceTree = "<group>"; };
 		ADCBA2592B42862B00A56097 /* PartySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartySearchViewModel.swift; sourceTree = "<group>"; };
@@ -704,8 +704,8 @@
 		AD5DABB22AF39C8A00DC30B9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				4AA423802B03058C0092EC27 /* UserDataUseCase.swift */,
-				4AA423892B033FEB0092EC27 /* UserDataUseCaseProvider.swift */,
+				4AA423802B03058C0092EC27 /* SocialUserUseCase.swift */,
+				4AA423892B033FEB0092EC27 /* SocialUserUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -730,8 +730,8 @@
 		AD5DABFE2B02180A00DC30B9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				AD5DAC082B0219AD00DC30B9 /* DefaultUserDataUseCase.swift */,
-				AD5DAC0A2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift */,
+				AD5DAC082B0219AD00DC30B9 /* DefaultSocialUserUseCase.swift */,
+				AD5DAC0A2B0219DA00DC30B9 /* DefaultSocialUserUseCaseProvider.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -1009,7 +1009,7 @@
 				4A8C5BA42B7B643E00A5F190 /* DatePickerCell.swift in Sources */,
 				AD5DABB42AF39CA500DC30B9 /* AuthenticationManagable.swift in Sources */,
 				4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */,
-				4AA423812B03058C0092EC27 /* UserDataUseCase.swift in Sources */,
+				4AA423812B03058C0092EC27 /* SocialUserUseCase.swift in Sources */,
 				4A40DBFA2B1483DB0050F3B0 /* HomeViewController.swift in Sources */,
 				4AA423862B031A4B0092EC27 /* DomainConvertibleType.swift in Sources */,
 				AD1BACFF2B299F1C00329C53 /* PartyCardCell.swift in Sources */,
@@ -1031,7 +1031,7 @@
 				4A94CFD22B3ABD3B007B48CB /* SettingCoordinator.swift in Sources */,
 				AD2D7A312B7DE4FD00F5A7C0 /* PartyMember.swift in Sources */,
 				4A94CFD62B3ABE10007B48CB /* SettingViewController.swift in Sources */,
-				AD5DAC0B2B0219DA00DC30B9 /* DefaultUserDataUseCaseProvider.swift in Sources */,
+				AD5DAC0B2B0219DA00DC30B9 /* DefaultSocialUserUseCaseProvider.swift in Sources */,
 				4A4A4F482B45270F00C99612 /* UnderlineSegmentedControl.swift in Sources */,
 				4A4A4F4E2B45309B00C99612 /* QuestListViewController.swift in Sources */,
 				4AB2F7B82B32DD54005D554C /* Quest.swift in Sources */,
@@ -1059,7 +1059,7 @@
 				ADCBA27B2B4526C300A56097 /* PushNotificationViewController.swift in Sources */,
 				4A94CFDC2B3C1ADC007B48CB /* DeviceInfo.swift in Sources */,
 				AD5DAC072B02197B00DC30B9 /* SocialAuthService.swift in Sources */,
-				AD5DAC092B0219AD00DC30B9 /* DefaultUserDataUseCase.swift in Sources */,
+				AD5DAC092B0219AD00DC30B9 /* DefaultSocialUserUseCase.swift in Sources */,
 				4A6A25D52AF39E23000CA63F /* PQAuthenticationService.swift in Sources */,
 				4A40DBF52B147CD30050F3B0 /* AppCoordinator.swift in Sources */,
 				4A4A4F4C2B4529F100C99612 /* PartyDetailViewModel.swift in Sources */,
@@ -1089,7 +1089,7 @@
 				4A224C7C2B2848AE00D22E81 /* UserProfileCell.swift in Sources */,
 				AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */,
 				4A224C862B29955500D22E81 /* HomeViewModel.swift in Sources */,
-				4AA4238A2B033FEB0092EC27 /* UserDataUseCaseProvider.swift in Sources */,
+				4AA4238A2B033FEB0092EC27 /* SocialUserUseCaseProvider.swift in Sources */,
 				AD131B532B5F8C2D00CF75C1 /* CenterTitledLabel.swift in Sources */,
 				AD5B59A72B1F081700D02775 /* NaverUserDataResponse.swift in Sources */,
 				4A4A4F402B429D8C00C99612 /* CollectionReusableButton.swift in Sources */,

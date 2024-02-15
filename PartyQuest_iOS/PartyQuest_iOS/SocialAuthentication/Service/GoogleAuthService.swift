@@ -40,9 +40,9 @@ final class GoogleAuthService: SocialAuthService {
         }
     }
     
-    func getUserInfo() -> Observable<UserData> {
+    func getSocialUserInfo() -> Observable<SocialUser> {
         return userSubject
-            .map { $0.toDomain() }
+            .map { try $0.toDomain() }
             .asObservable()
     }
 }

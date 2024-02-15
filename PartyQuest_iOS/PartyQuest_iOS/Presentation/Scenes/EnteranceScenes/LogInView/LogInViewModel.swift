@@ -11,17 +11,17 @@ import RxCocoa
 final class LogInViewModel {
     private let coordinator: LogInCoordinatorType
     private let authenticationManager: AuthenticationManagable
-    private let userDataUseCase: UserDataUseCase
+    private let socialUserUseCase: SocialUserUseCase
     
     private let isLoggedIn: PublishSubject<Bool>
     
     init(coordinator: LogInCoordinatorType,
          authenticationManager: AuthenticationManagable,
-         userDataUseCase: UserDataUseCase,
+         socialUserUseCase: SocialUserUseCase,
          isLoggedIn: PublishSubject<Bool>) {
         self.coordinator = coordinator
         self.authenticationManager = authenticationManager
-        self.userDataUseCase = userDataUseCase
+        self.socialUserUseCase = socialUserUseCase
         self.isLoggedIn = isLoggedIn
     }
 }

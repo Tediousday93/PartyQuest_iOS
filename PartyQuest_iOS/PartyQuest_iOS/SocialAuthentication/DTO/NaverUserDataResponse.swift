@@ -16,13 +16,13 @@ struct NaverUserDataResponse: Decodable {
 }
 
 struct NaverUserData: Decodable {
-    let email, nickName: String?
+    let email, nickname: String?
     let profileImage: String?
     let age, gender, id, name: String?
     let birthday, birthyear, mobile: String?
 
     enum CodingKeys: String, CodingKey {
-        case email, nickName
+        case email, nickname
         case profileImage = "profile_image"
         case age, gender, id, name, birthday, birthyear, mobile
     }

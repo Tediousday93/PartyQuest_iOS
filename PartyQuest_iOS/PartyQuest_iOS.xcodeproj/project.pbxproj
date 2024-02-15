@@ -27,8 +27,6 @@
 		4A42AFCA2B14751F005380E7 /* PQTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42AFC92B14751F005380E7 /* PQTabBarController.swift */; };
 		4A454B502B6CBB91000ED9A0 /* AddQuestTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */; };
 		4A454B522B6CBC61000ED9A0 /* AddQuestContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */; };
-		4A454B542B6CC56B000ED9A0 /* DateOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */; };
-		4A454B562B6CD27A000ED9A0 /* DateSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A454B552B6CD27A000ED9A0 /* DateSelectionCell.swift */; };
 		4A4A4F402B429D8C00C99612 /* CollectionReusableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */; };
 		4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */; };
 		4A4A4F462B4526C700C99612 /* PartyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */; };
@@ -158,8 +156,6 @@
 		4A42AFC92B14751F005380E7 /* PQTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQTabBarController.swift; sourceTree = "<group>"; };
 		4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestTitleView.swift; sourceTree = "<group>"; };
 		4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestContentView.swift; sourceTree = "<group>"; };
-		4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOptionCell.swift; sourceTree = "<group>"; };
-		4A454B552B6CD27A000ED9A0 /* DateSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionCell.swift; sourceTree = "<group>"; };
 		4A4A4F3F2B429D8C00C99612 /* CollectionReusableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionReusableButton.swift; sourceTree = "<group>"; };
 		4A4A4F412B43D83900C99612 /* DeviceInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoCell.swift; sourceTree = "<group>"; };
 		4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyDetailViewController.swift; sourceTree = "<group>"; };
@@ -487,8 +483,6 @@
 				4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */,
 				4A454B4F2B6CBB91000ED9A0 /* AddQuestTitleView.swift */,
 				4A454B512B6CBC61000ED9A0 /* AddQuestContentView.swift */,
-				4A454B532B6CC56B000ED9A0 /* DateOptionCell.swift */,
-				4A454B552B6CD27A000ED9A0 /* DateSelectionCell.swift */,
 			);
 			path = AddQuestView;
 			sourceTree = "<group>";
@@ -957,7 +951,6 @@
 				4A40DBF82B147E2C0050F3B0 /* TokenUtils.swift in Sources */,
 				AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */,
 				AD5DABC02AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift in Sources */,
-				4A454B562B6CD27A000ED9A0 /* DateSelectionCell.swift in Sources */,
 				AD59A98B2B2848E2005BAEEB /* PartyItemView.swift in Sources */,
 				ADCBA25A2B42862B00A56097 /* PartySearchViewModel.swift in Sources */,
 				AD1BAD162B31718300329C53 /* CreatePartyCoordinator.swift in Sources */,
@@ -1021,7 +1014,6 @@
 				4A6A25AF2AF21D33000CA63F /* LogInCoordinator.swift in Sources */,
 				AD59A9832B284678005BAEEB /* PartyListCoordinator.swift in Sources */,
 				4A6A25B22AF22FC1000CA63F /* SignUpCoordinator.swift in Sources */,
-				4A454B542B6CC56B000ED9A0 /* DateOptionCell.swift in Sources */,
 				4A6A25B62AF23096000CA63F /* SignUpViewController.swift in Sources */,
 				4A4A4F422B43D83900C99612 /* DeviceInfoCell.swift in Sources */,
 				4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */,

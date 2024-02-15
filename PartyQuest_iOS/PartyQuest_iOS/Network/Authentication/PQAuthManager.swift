@@ -14,31 +14,19 @@ final class PQAuthManager: AuthenticationManagable {
         self.service = service
     }
     
-    func signUp(userData: UserData) -> Single<Void> {
-        guard let email = userData.email,
-              let secrets = userData.secrets,
-              let nickname = userData.nickName
-        else { return Single.error(PQUserDataError.insufficientData) }
-        
-        return service.requestSignUp(email: email,
-                                     password: secrets,
-                                     nickname: nickname)
+    func signUp(email: String, password: String, nickname: String) -> Single<Void> {
+        return service.requestSignUp(
+            email: email,
+            password: password,
+            nickname: nickname
+        )
     }
     
-    func logIn(userData: UserData) -> Single<[ServiceToken]> {
-        guard let email = userData.email,
-              let secrets = userData.secrets,
-              let nickname = userData.nickName
-        else { return Single.error(PQUserDataError.insufficientData) }
-        
-        return service.requestLogIn(email: email,
-                                    secrets: secrets,
-                                    nickName: nickname,
-                                    platform: userData.platform)
-        .map { $0.tokenData }
+    func logIn(email: String, password: String?, platform: LogInPlatform) -> Single<PQUser> {
+        return service.requestLogIn(
+            email: email,
+            password: password ?? Bundle.main.serviceSecrets,
+            platform: platform
+        )
     }
-}
-
-enum PQUserDataError: Error {
-    case insufficientData
 }

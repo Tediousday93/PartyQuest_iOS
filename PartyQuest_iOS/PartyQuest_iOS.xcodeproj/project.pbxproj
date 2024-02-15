@@ -107,7 +107,6 @@
 		AD5DABA02AF2215D00DC30B9 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */; };
 		AD5DABA22AF222B200DC30B9 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */; };
 		AD5DABAC2AF3814100DC30B9 /* NetworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */; };
-		AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */; };
 		AD5DABB42AF39CA500DC30B9 /* AuthenticationManagable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABB32AF39CA500DC30B9 /* AuthenticationManagable.swift */; };
 		AD5DABC02AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABBF2AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift */; };
 		AD5DABC62AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5DABC52AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift */; };
@@ -250,7 +249,6 @@
 		AD5DAB9F2AF2215D00DC30B9 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		AD5DABA12AF222B200DC30B9 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		AD5DABAB2AF3814100DC30B9 /* NetworkInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NetworkInfo.plist; sourceTree = "<group>"; };
-		AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInResponse.swift; sourceTree = "<group>"; };
 		AD5DABB32AF39CA500DC30B9 /* AuthenticationManagable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagable.swift; sourceTree = "<group>"; };
 		AD5DABBF2AF4CEF000DC30B9 /* AuthenticationManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManagerProvider.swift; sourceTree = "<group>"; };
 		AD5DABC52AF4D4EE00DC30B9 /* PQAuthManagerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PQAuthManagerProvider.swift; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				4A50A9FE2B0DCFDE0026814F /* SignUpResponse.swift */,
-				AD5DABB02AF385D400DC30B9 /* LogInResponse.swift */,
 			);
 			path = DTO;
 			sourceTree = "<group>";
@@ -1081,7 +1078,6 @@
 				AD5AC10C2B5671BD00AA4E49 /* Data+JSONDecoder.swift in Sources */,
 				4A1F24922AEBE14A005B264F /* Coordinator.swift in Sources */,
 				4A636B2A2B2AE34C004FEF52 /* CollectionTitleHeaderView.swift in Sources */,
-				AD5DABB12AF385D400DC30B9 /* LogInResponse.swift in Sources */,
 				4A454B522B6CBC61000ED9A0 /* AddQuestContentView.swift in Sources */,
 				4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */,
 				4A8C5BA62B7B650300A5F190 /* DatePickerContentConfiguration.swift in Sources */,

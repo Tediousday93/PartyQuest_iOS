@@ -10,7 +10,7 @@ import Moya
 
 protocol AuthenticationService {
     func requestSignUp(email: String, password: String, nickname: String) -> Single<Void>
-    func requestLogIn(email: String, secrets: String, nickName: String, platform: LogInPlatform?) -> Single<LogInResponse>
+    func requestLogIn(email: String, password: String, platform: LogInPlatform) -> Single<PQUser>
 }
 
 final class PQAuthenticationService: AuthenticationService {
@@ -50,35 +50,14 @@ final class PQAuthenticationService: AuthenticationService {
     
     func requestLogIn(
         email: String,
-        secrets: String,
-        nickName: String,
-        platform: LogInPlatform?
-    ) -> Single<LogInResponse> {
-        switch platform {
-        case .kakao:
-            return requestKakaoLogIn(email: email, secrets: secrets, nickName: nickName)
-        default:
-            return requestPQLogIn(email: email, secrets: secrets)
-        }
-    }
-    
-    private func requestPQLogIn(email: String, secrets: String) -> Single<LogInResponse> {
+        password: String,
+        platform: LogInPlatform
+    ) -> Single<PQUser> {
         return provider.rx.request(.logIn(email: email,
-                                          password: secrets))
+                                          password: password,
+                                          platform: platform.rawValue))
         .filterSuccessfulStatusCodes()
-        .map(LogInResponse.self)
-    }
-    
-    private func requestKakaoLogIn(
-        email: String,
-        secrets: String,
-        nickName: String
-    ) -> Single<LogInResponse> {
-        return provider.rx.request(.kakao(email: email,
-                                          secrets: secrets,
-                                          nickName: nickName))
-        .filterSuccessfulStatusCodes()
-        .map(LogInResponse.self)
+        .map(PQUser.self)
     }
 }
 

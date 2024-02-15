@@ -20,4 +20,12 @@ extension Bundle {
         
         return value
     }
+    
+    var serviceSecrets: String {
+        guard let secrets = Bundle.main.infoDictionary?["SERVICE_SECRETS"] as? String else {
+            fatalError("Couldn't find key 'SERVICE_SECRETS' in 'info.plist'.")
+        }
+        
+        return secrets
+    }
 }

@@ -8,6 +8,6 @@
 import RxSwift
 
 protocol AuthenticationManagable {
-    func signUp(userData: UserData) -> Single<Void>
-    func logIn(userData: UserData) -> Single<[ServiceToken]>
+    func signUp(email: String, password: String, nickname: String) -> Single<Void>
+    func logIn(email: String, password: String?, platform: LogInPlatform) -> Single<PQUser>
 }

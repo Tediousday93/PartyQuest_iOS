@@ -314,8 +314,8 @@ final class LogInViewController: UIViewController {
         
         output.inputValidation
             .drive(with: self, onNext: { owner, inputValidations in
-                owner.setBorder(of: owner.emailTextField, for: inputValidations.0)
-                owner.setBorder(of: owner.passwordTextField, for: inputValidations.1)
+                owner.setBorder(of: owner.emailTextField, for: inputValidations.email)
+                owner.setBorder(of: owner.passwordTextField, for: inputValidations.password)
             })
             .disposed(by: disposeBag)
         

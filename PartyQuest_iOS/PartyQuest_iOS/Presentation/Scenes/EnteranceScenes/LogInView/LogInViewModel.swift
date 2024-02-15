@@ -39,7 +39,7 @@ extension LogInViewModel: ViewModelType {
     
     struct Output {
         let errorRelay: PublishRelay<Error>
-        let inputValidation: Driver<(Bool, Bool)>
+        let inputValidation: Driver<(email: Bool, password: Bool)>
         let isEnableLogInButton: Driver<Bool>
         let jwtSaved: Observable<Void>
         let coordinatorFinished: Observable<Void>
@@ -54,21 +54,21 @@ extension LogInViewModel: ViewModelType {
         
         let inputValidation = userInputs
             .map { email, password in
-                var validation = (true, true)
+                var validation = (email: true, password: true)
                 if email.isEmpty == false {
-                    validation.0 = email.isValidEmail()
+                    validation.email = email.isValidEmail()
                 } else {
-                    validation.0 = true
+                    validation.email = true
                 }
                 if password.isEmpty == false {
-                    validation.1 = password.isValidPassword()
+                    validation.password = password.isValidPassword()
                 } else {
-                    validation.1 = true
+                    validation.password = true
                 }
                 
                 return validation
             }
-            .asDriver(onErrorJustReturn: (true, true))
+            .asDriver(onErrorJustReturn: (email: true, password: true))
         
         let isEnableLogInButton = userInputs
             .map { email, password in
@@ -86,32 +86,41 @@ extension LogInViewModel: ViewModelType {
 
         let kakaoLogIn = input.kakaoLogInButtonTapped
             .map { LogInPlatform.kakao }
-                    
         let googleLogIn = input.googleLogInButtonTapped
             .map { LogInPlatform.google }
-        
         let naverLogIn = input.naverLogInButtonTapped
             .map { LogInPlatform.naver }
         
         let socialUserData = Observable.merge(kakaoLogIn, googleLogIn, naverLogIn)
             .withUnretained(self)
             .flatMap { owner, platform in
-                owner.userDataUseCase.getUserData(for: platform)
+                owner.socialUserUseCase.getSocialUser(for: platform)
+                    .map { (socialUser: $0, platform: platform) }
+            }
+            .map { socialUser, platform in
+                let password: String? = nil
+                
+                return (email: socialUser.email,
+                        password: password,
+                        platform: platform)
             }
         
         let localUserData = input.logInButtonTapped
             .withLatestFrom(userInputs)
             .map { email, password in
-                return UserData(email: email, secrets: password)
+                return (email: email,
+                        password: Optional(password),
+                        platform: LogInPlatform.partyQuest)
             }
         
         let jwtSaved = Observable.merge(socialUserData, localUserData)
             .withUnretained(self)
             .flatMap { owner, userData in
-                owner.authenticationManager.logIn(userData: userData)
+                owner.authenticationManager.logIn(email: userData.email,
+                                                  password: userData.password,
+                                                  platform: userData.platform)
                     .asObservable()
-                    .compactMap { $0.first }
-                    .map { (owner, $0) }
+                    .map { (owner, $0.serviceToken) }
                     .materialize()
             }
             .do(onNext: { event in
@@ -121,7 +130,7 @@ extension LogInViewModel: ViewModelType {
             })
             .filter { $0.error == nil }
             .dematerialize()
-            .do(onNext: { _, serviceToken in
+            .do(onNext: { owner, serviceToken in
                 TokenUtils.shared.saveToken(serviceToken: serviceToken)
             })
             .map { owner, _ in

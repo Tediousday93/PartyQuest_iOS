@@ -71,6 +71,7 @@
 		4ADDAFCC2B7F334100F6B6D6 /* UserProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDAFCB2B7F334100F6B6D6 /* UserProfileItem.swift */; };
 		4ADDAFCE2B7F335100F6B6D6 /* WeeklyActiviyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDAFCD2B7F335100F6B6D6 /* WeeklyActiviyItem.swift */; };
 		4ADDAFD02B7F33DB00F6B6D6 /* UrgentQuestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDAFCF2B7F33DB00F6B6D6 /* UrgentQuestItem.swift */; };
+		4ADDAFD32B7F3B3C00F6B6D6 /* QuestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADDAFD22B7F3B3C00F6B6D6 /* QuestItem.swift */; };
 		4AE4FEE02B62383000891134 /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEDF2B62383000891134 /* SideBarViewController.swift */; };
 		4AE4FEE32B624BD800891134 /* AddQuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */; };
 		4AE4FEE52B624C4700891134 /* AddQuestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */; };
@@ -212,6 +213,7 @@
 		4ADDAFCB2B7F334100F6B6D6 /* UserProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileItem.swift; sourceTree = "<group>"; };
 		4ADDAFCD2B7F335100F6B6D6 /* WeeklyActiviyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyActiviyItem.swift; sourceTree = "<group>"; };
 		4ADDAFCF2B7F33DB00F6B6D6 /* UrgentQuestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrgentQuestItem.swift; sourceTree = "<group>"; };
+		4ADDAFD22B7F3B3C00F6B6D6 /* QuestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestItem.swift; sourceTree = "<group>"; };
 		4AE4FEDF2B62383000891134 /* SideBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		4AE4FEE22B624BD800891134 /* AddQuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewController.swift; sourceTree = "<group>"; };
 		4AE4FEE42B624C4700891134 /* AddQuestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestViewModel.swift; sourceTree = "<group>"; };
@@ -379,8 +381,8 @@
 				4ADDAFD12B7F33E400F6B6D6 /* Model */,
 				4A224C7D2B297A4D00D22E81 /* HomeCoordinator.swift */,
 				4A40DBF92B1483DB0050F3B0 /* HomeViewController.swift */,
-				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4A224C852B29955500D22E81 /* HomeViewModel.swift */,
+				4A224C7B2B2848AE00D22E81 /* UserProfileCell.swift */,
 				4AB2F7AF2B316AE4005D554C /* WeeklyActivityCell.swift */,
 				4AB2F7B52B32D971005D554C /* UrgentQuestCell.swift */,
 				4AB2F7B92B341456005D554C /* ShadowDecorationView.swift */,
@@ -391,6 +393,7 @@
 		4A4A4F442B45267500C99612 /* PartyDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				4ADDAFD42B7F3C6E00F6B6D6 /* Model */,
 				4A4A4F492B4529E800C99612 /* PartyDetailCoordinator.swift */,
 				4A4A4F452B4526C700C99612 /* PartyDetailViewController.swift */,
 				4A4A4F4B2B4529F100C99612 /* PartyDetailViewModel.swift */,
@@ -484,6 +487,14 @@
 				4ADDAFCB2B7F334100F6B6D6 /* UserProfileItem.swift */,
 				4ADDAFCD2B7F335100F6B6D6 /* WeeklyActiviyItem.swift */,
 				4ADDAFCF2B7F33DB00F6B6D6 /* UrgentQuestItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4ADDAFD42B7F3C6E00F6B6D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4ADDAFD22B7F3B3C00F6B6D6 /* QuestItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1020,6 +1031,7 @@
 				4AB2F7BA2B341456005D554C /* ShadowDecorationView.swift in Sources */,
 				4A8C5BA42B7B643E00A5F190 /* DatePickerCell.swift in Sources */,
 				AD5DABB42AF39CA500DC30B9 /* AuthenticationManagable.swift in Sources */,
+				4ADDAFD32B7F3B3C00F6B6D6 /* QuestItem.swift in Sources */,
 				4AA4238C2B0357F70092EC27 /* LogInViewModel.swift in Sources */,
 				4AA423812B03058C0092EC27 /* SocialUserUseCase.swift in Sources */,
 				4ADDAFD02B7F33DB00F6B6D6 /* UrgentQuestItem.swift in Sources */,

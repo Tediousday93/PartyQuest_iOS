@@ -18,7 +18,7 @@ final class HomeViewController: UIViewController {
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
     typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfileItem>
-    typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeeklyActivityCell, WeeklyActivityItem>
+    typealias WeeklyActivityCellRegistration = UICollectionView.CellRegistration<WeeklyActivityCell, WeeklyActivityItem>
     typealias UrgentQuestCellRegistration = UICollectionView.CellRegistration<UrgentQuestCell, UrgentQuestItem>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<CollectionTitleHeaderView>
     
@@ -38,7 +38,7 @@ final class HomeViewController: UIViewController {
         let colletionView = UICollectionView(frame: .zero,
                                              collectionViewLayout: createCollectionViewLayout())
         colletionView.translatesAutoresizingMaskIntoConstraints = false
-        
+
         return colletionView
     }()
     
@@ -161,31 +161,31 @@ final class HomeViewController: UIViewController {
             cell.accessories = [.disclosureIndicator()]
             cell.configure(with: userProfile)
         }
-        
-        let weeklyActivityCellRegistration = WeekActivityCellRegistration { cell, indexPath, weeklyActivity in
+
+        let weeklyActivityCellRegistration = WeeklyActivityCellRegistration { cell, indexPath, weeklyActivity in
             cell.configure(with: weeklyActivity)
         }
-        
+
         let urgentQuestCellRegistration = UrgentQuestCellRegistration { cell, indexPath, urgentQuest in
             cell.configure(with: urgentQuest)
         }
-        
+
         let profileHeaderRegistration = HeaderRegistration(elementKind: "ProfileHeader") {
             supplementaryView, elementKind, indexPath in
             supplementaryView.setFont(PQFont.subTitle)
             supplementaryView.configureTitle(string: "Harry님, 환영합니다!")
         }
-        
+
         let activityHeaderRegistration = HeaderRegistration(elementKind: "ActivityHeader") {
             supplementaryView, elementKind, indexPath in
             supplementaryView.configureTitle(string: "이번주 활동")
         }
-        
+
         let doingQuestHeaderRegistration = HeaderRegistration(elementKind: "DoingQuestHeader") {
             supplementaryView, elementKind, indexPath in
-            supplementaryView.configureTitle(string: "진행중인 퀘스트")
+            supplementaryView.configureTitle(string: "완료예정 퀘스트")
         }
-        
+
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item in
             if let profile = item as? UserProfileItem {
                 return collectionView.dequeueConfiguredReusableCell(using: userProfileCellRegistration,
@@ -200,10 +200,10 @@ final class HomeViewController: UIViewController {
                                                                     for: indexPath,
                                                                     item: urgentQuest)
             }
-            
+
             return UICollectionViewCell()
         }
-        
+
         dataSource.supplementaryViewProvider = { collectionView, elementKind, indexPath in
             if elementKind == "ProfileHeader" {
                 return collectionView.dequeueConfiguredReusableSupplementary(
@@ -221,7 +221,7 @@ final class HomeViewController: UIViewController {
                     for: indexPath
                 )
             }
-            
+
             return nil
         }
     }
@@ -230,22 +230,22 @@ final class HomeViewController: UIViewController {
                                weeklyActivity: WeeklyActivityItem,
                                urgentQuests: [UrgentQuestItem]) {
         var snapshot = Snapshot()
-        
+
         snapshot.appendSections([.userProfile, .weekActivity, .urgentQuests])
         snapshot.appendItems([userProfile], toSection: .userProfile)
         snapshot.appendItems([weeklyActivity], toSection: .weekActivity)
-        snapshot.appendItems([urgentQuests], toSection: .urgentQuests)
-        
+        snapshot.appendItems(urgentQuests, toSection: .urgentQuests)
+
         self.dataSource.apply(snapshot)
     }
-    
+
     private func setBindings() {
         let viewWillAppearEvent = self.rx.viewWillAppear
-        
+
         let input = HomeViewModel.Input(viewWillAppearEvent: viewWillAppearEvent)
-        
+
         let output = viewModel.transform(input)
-        
+
         output.homeItems
             .subscribe(with: self) { owner, items in
                 owner.applySnapshot(userProfile: items.userProfileItem,

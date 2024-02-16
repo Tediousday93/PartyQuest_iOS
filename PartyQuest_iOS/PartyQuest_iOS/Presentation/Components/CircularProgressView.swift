@@ -9,7 +9,7 @@ final class CircularProgressView: UIView {
         let label = UILabel()
         label.numberOfLines = 1
         label.textColor = PQColor.buttonMain
-        label.font = PQFont.subTitle
+        label.font = PQFont.cellTitle
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -69,8 +69,8 @@ final class CircularProgressView: UIView {
     }
     
     private func configureProgressViewToBeCircular() {
-        trackLayer = createShapeLayer(strokeColor: setTrackColor.cgColor, lineWidth: 10.0, strokeEnd: 1.0)
-        progressLayer = createShapeLayer(strokeColor: setProgressColor.cgColor, lineWidth: 10.0, strokeEnd: 0.0)
+        trackLayer = createShapeLayer(strokeColor: setTrackColor.cgColor, lineWidth: 8.0, strokeEnd: 1.0)
+        progressLayer = createShapeLayer(strokeColor: setProgressColor.cgColor, lineWidth: 8.0, strokeEnd: 0.0)
         
         layer.addSublayer(trackLayer)
         layer.addSublayer(progressLayer)
@@ -80,7 +80,7 @@ final class CircularProgressView: UIView {
         let layer = CAShapeLayer()
         layer.path = UIBezierPath(
             arcCenter: CGPoint(x: frame.size.width / 2.0, y: frame.size.height / 2.0),
-            radius: frame.size.width / 3.5,
+            radius: frame.size.width / 4.0,
             startAngle: CGFloat(-0.5 * Double.pi),
             endAngle: CGFloat(1.5 * Double.pi),
             clockwise: true

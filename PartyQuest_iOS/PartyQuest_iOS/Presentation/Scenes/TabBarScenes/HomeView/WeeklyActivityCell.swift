@@ -81,7 +81,7 @@ final class WeeklyActivityCell: UICollectionViewCell {
         
         return stackView
     }()
-    
+
     let achievementRateView = CircularProgressView()
     
     private let outerStackView: UIStackView = {
@@ -90,7 +90,7 @@ final class WeeklyActivityCell: UICollectionViewCell {
         stackView.spacing = PQSpacing.side
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .init(top: 10, left: 10, bottom: 10, right: 10)
+        stackView.layoutMargins = .init(top: 20, left: 10, bottom: 20, right: 10)
         
         return stackView
     }()

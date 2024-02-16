@@ -11,20 +11,23 @@ final class UserProfileCell: UICollectionViewListCell {
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
     }()
     
     private let nicknameLabel: UILabel = {
         let label = UILabel()
-        label.font = PQFont.subTitle
+        label.font = .preferredFont(forTextStyle: .title1)
+        label.setContentHuggingPriority(.required, for: .vertical)
         
         return label
     }()
     
     private let emailLabel: UILabel = {
         let label = UILabel()
-        label.font = PQFont.basic
+        label.font = .preferredFont(forTextStyle: .callout)
+        label.setContentHuggingPriority(.defaultLow, for: .vertical)
         
         return label
     }()
@@ -33,6 +36,7 @@ final class UserProfileCell: UICollectionViewListCell {
         let stackView = UIStackView()
         stackView.spacing = 12
         stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
         
         return stackView
     }()
@@ -79,6 +83,8 @@ final class UserProfileCell: UICollectionViewListCell {
         let safe = contentView.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
+            profileImageView.widthAnchor.constraint(equalToConstant: 70),
+            profileImageView.heightAnchor.constraint(equalToConstant: 70),
             outerStackView.topAnchor.constraint(equalTo: safe.topAnchor),
             outerStackView.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
             outerStackView.trailingAnchor.constraint(equalTo: safe.trailingAnchor),

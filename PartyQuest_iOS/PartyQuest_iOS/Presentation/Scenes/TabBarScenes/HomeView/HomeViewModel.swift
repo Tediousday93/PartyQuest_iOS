@@ -21,57 +21,52 @@ extension HomeViewModel: ViewModelType {
     }
     
     struct Output {
-        let homeItems: Observable<(userProfile: UserProfile,
-                                   weekActivity: WeekActivity,
-                                   doingQuests: [Quest])>
+        let homeItems: Observable<(userProfileItem: UserProfileItem,
+                                   weeklyActivityItem: WeeklyActivityItem,
+                                   urgentQuestItems: [UrgentQuestItem])>
     }
     
     func transform(_ input: Input) -> Output {
-        let userProfile = input.viewWillAppearEvent
+        let userProfileItem = input.viewWillAppearEvent
             .map { _ in
-                UserProfile(imageData: nil,
-                            nickName: "Harry Hyeon",
-                            email: "HarryHarry@naver.com")
+                UserProfileItem(nickName: "Harry Hyeon",
+                            email: "HarryHarry@naver.com",
+                            imageName: "Memoji1")
             }
         
-        let weekActivity = input.viewWillAppearEvent
+        let weeklyActivityItem = input.viewWillAppearEvent
             .map { _ in
-                WeekActivity(questCount: 10,
-                             completeCount: 6,
-                             postCount: 4,
-                             commentCount: 7)
+                WeeklyActivityItem(questCount: 10,
+                             completeCount: 6)
             }
         
-        let doingQuests = input.viewWillAppearEvent
+        let urgentQuestItems = input.viewWillAppearEvent
             .map { _ in
                 [
-                    Quest(title: "백준 385번 풀기",
-                          description: "화이팅",
-                          partyName: "알고리즘 스터디",
-                          status: .doing,
-                          dDay: "2",
-                          partyImageUrl: "house.fill"),
-                    
-                    Quest(title: "1,2,3번 연습하기",
-                          description: "화이팅",
-                          partyName: "iOS 면접 스터디",
-                          status: .doing,
-                          dDay: "3",
-                          partyImageUrl: "house"),
-                    
-                    Quest(title: "개인책 20쪽 읽기",
-                          description: "화이팅",
-                          partyName: "독서파티",
-                          status: .doing,
-                          dDay: "3",
-                          partyImageUrl: "house")
+                    UrgentQuestItem(id: 1,
+                                    title: "QuestName",
+                                    description: "partyName",
+                                    imageName: "house.fill",
+                                    dDay: "2"),
+                    UrgentQuestItem(id: 2,
+                                    title: "QuestName",
+                                    description: "partyName",
+                                    imageName: "house.fill",
+                                    dDay: "3"),
+                    UrgentQuestItem(id: 3,
+                                    title: "QuestName",
+                                    description: "partyName",
+                                    imageName: "house.fill",
+                                    dDay: "4"),
                 ]
             }
         
-        let homeItems = Observable.combineLatest(userProfile, weekActivity, doingQuests) {
-            userProfile, weekActivity, doingQuests in
+        let homeItems = Observable.combineLatest(userProfileItem, weeklyActivityItem, urgentQuestItems) {
+            userProfileItem, weeklyActivityItem, urgentQuestItems in
             
-            return (userProfile: userProfile, weekActivity: weekActivity, doingQuests: doingQuests)
+            return (userProfileItem: userProfileItem,
+                    weeklyActivityItem: weeklyActivityItem,
+                    urgentQuestItems: urgentQuestItems)
         }
         
         return Output(homeItems: homeItems)

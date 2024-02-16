@@ -12,14 +12,14 @@ final class HomeViewController: UIViewController {
     private enum Section {
         case userProfile
         case weekActivity
-        case doingQuest
+        case urgentQuests
     }
     
     private typealias DataSource = UICollectionViewDiffableDataSource<Section, AnyHashable>
     private typealias Snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>
-    typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfile>
-    typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeekActivityCell, WeekActivity>
-    typealias DoingQuestCellRegistration = UICollectionView.CellRegistration<DoingQuestCell, Quest>
+    typealias UserProfileCellRegistration = UICollectionView.CellRegistration<UserProfileCell, UserProfileItem>
+    typealias WeekActivityCellRegistration = UICollectionView.CellRegistration<WeeklyActivityCell, WeeklyActivityItem>
+    typealias UrgentQuestCellRegistration = UICollectionView.CellRegistration<UrgentQuestCell, UrgentQuestItem>
     typealias HeaderRegistration = UICollectionView.SupplementaryRegistration<CollectionTitleHeaderView>
     
     private var dataSource: DataSource!
@@ -162,12 +162,12 @@ final class HomeViewController: UIViewController {
             cell.configure(with: userProfile)
         }
         
-        let weekActivityCellRegistration = WeekActivityCellRegistration { cell, indexPath, weekActivity in
-            cell.configure(with: weekActivity)
+        let weeklyActivityCellRegistration = WeekActivityCellRegistration { cell, indexPath, weeklyActivity in
+            cell.configure(with: weeklyActivity)
         }
         
-        let doingQuestCellRegistration = DoingQuestCellRegistration { cell, indexPath, doingQuest in
-            cell.configure(with: doingQuest)
+        let urgentQuestCellRegistration = UrgentQuestCellRegistration { cell, indexPath, urgentQuest in
+            cell.configure(with: urgentQuest)
         }
         
         let profileHeaderRegistration = HeaderRegistration(elementKind: "ProfileHeader") {
@@ -187,18 +187,18 @@ final class HomeViewController: UIViewController {
         }
         
         dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item in
-            if let profile = item as? UserProfile {
+            if let profile = item as? UserProfileItem {
                 return collectionView.dequeueConfiguredReusableCell(using: userProfileCellRegistration,
                                                                     for: indexPath,
                                                                     item: profile)
-            } else if let activity = item as? WeekActivity {
-                return collectionView.dequeueConfiguredReusableCell(using: weekActivityCellRegistration,
+            } else if let weeklyActivity = item as? WeeklyActivityItem {
+                return collectionView.dequeueConfiguredReusableCell(using: weeklyActivityCellRegistration,
                                                                     for: indexPath,
-                                                                    item: activity)
-            } else if let quest = item as? Quest {
-                return collectionView.dequeueConfiguredReusableCell(using: doingQuestCellRegistration,
+                                                                    item: weeklyActivity)
+            } else if let urgentQuest = item as? UrgentQuestItem {
+                return collectionView.dequeueConfiguredReusableCell(using: urgentQuestCellRegistration,
                                                                     for: indexPath,
-                                                                    item: quest)
+                                                                    item: urgentQuest)
             }
             
             return UICollectionViewCell()
@@ -226,13 +226,15 @@ final class HomeViewController: UIViewController {
         }
     }
     
-    private func applySnapshot(profiles: [UserProfile], activities: [WeekActivity], doingQuests: [Quest]) {
+    private func applySnapshot(userProfile: UserProfileItem,
+                               weeklyActivity: WeeklyActivityItem,
+                               urgentQuests: [UrgentQuestItem]) {
         var snapshot = Snapshot()
         
-        snapshot.appendSections([.userProfile, .weekActivity, .doingQuest])
-        snapshot.appendItems(profiles, toSection: .userProfile)
-        snapshot.appendItems(activities, toSection: .weekActivity)
-        snapshot.appendItems(doingQuests, toSection: .doingQuest)
+        snapshot.appendSections([.userProfile, .weekActivity, .urgentQuests])
+        snapshot.appendItems([userProfile], toSection: .userProfile)
+        snapshot.appendItems([weeklyActivity], toSection: .weekActivity)
+        snapshot.appendItems([urgentQuests], toSection: .urgentQuests)
         
         self.dataSource.apply(snapshot)
     }
@@ -245,11 +247,10 @@ final class HomeViewController: UIViewController {
         let output = viewModel.transform(input)
         
         output.homeItems
-            .withUnretained(self)
-            .subscribe { owner, items in
-                owner.applySnapshot(profiles: [items.userProfile],
-                                    activities: [items.weekActivity],
-                                    doingQuests: items.doingQuests)
+            .subscribe(with: self) { owner, items in
+                owner.applySnapshot(userProfile: items.userProfileItem,
+                                    weeklyActivity: items.weeklyActivityItem,
+                                    urgentQuests: items.urgentQuestItems)
             }
             .disposed(by: disposeBag)
     }

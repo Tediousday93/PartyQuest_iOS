@@ -60,11 +60,10 @@ final class UserProfileCell: UICollectionViewListCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with userProfile: UserProfile) {
-//        profileImageView.image = UIImage(data: userProfile.imageData!)
-        profileImageView.image = UIImage(systemName: "house")
-        nicknameLabel.text = userProfile.nickName
-        emailLabel.text = userProfile.email
+    func configure(with userProfileItem: UserProfileItem) {
+        profileImageView.image = UIImage(named: userProfileItem.imageName)
+        nicknameLabel.text = userProfileItem.nickName
+        emailLabel.text = userProfileItem.email
     }
     
     private func setSubViews() {

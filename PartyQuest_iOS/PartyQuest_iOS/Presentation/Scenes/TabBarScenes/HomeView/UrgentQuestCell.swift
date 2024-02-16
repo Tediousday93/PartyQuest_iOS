@@ -1,5 +1,5 @@
 //
-//  DoingQuestCell.swift
+//  UrgentQuestCell.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/12/20.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DoingQuestCell: UICollectionViewCell {
+final class UrgentQuestCell: UICollectionViewCell {
     private lazy var partyImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -93,11 +93,11 @@ final class DoingQuestCell: UICollectionViewCell {
         dDayLabel.text = ""
     }
     
-    func configure(with quest: Quest) {
-        partyImageView.image = UIImage(systemName: quest.partyImageUrl)
-        titleLabel.text = quest.title
-        subtitleLabel.text = quest.partyName
-        dDayLabel.text = "⏰" + " D-\(quest.dDay)"
+    func configure(with urgentQuestItem: UrgentQuestItem) {
+        partyImageView.image = UIImage(systemName: urgentQuestItem.imageName)
+        titleLabel.text = urgentQuestItem.title
+        subtitleLabel.text = urgentQuestItem.description
+        dDayLabel.text = "⏰" + " D-\(urgentQuestItem.dDay)"
     }
     
     private func configureContentView() {

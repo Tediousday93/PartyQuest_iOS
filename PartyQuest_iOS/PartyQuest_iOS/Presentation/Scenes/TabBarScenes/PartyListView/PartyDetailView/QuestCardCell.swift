@@ -95,11 +95,11 @@ final class QuestCardCell: UICollectionViewListCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with quest: Quest) {
-        statusBadgeImage.image = UIImage(named: quest.status.badgeImageName)
-        titleLabel.text = quest.title
-        subTitleLabel.text = quest.description
-        dDayLabel.text = "⏰" + " D-\(quest.dDay)"
+    func configure(with questItem: QuestItem) {
+        statusBadgeImage.image = UIImage(named: questItem.status.badgeImageName)
+        titleLabel.text = questItem.title
+        subTitleLabel.text = questItem.description
+        dDayLabel.text = "⏰" + " D-\(questItem.dDay)"
     }
     
     private func configureOptionButton() {

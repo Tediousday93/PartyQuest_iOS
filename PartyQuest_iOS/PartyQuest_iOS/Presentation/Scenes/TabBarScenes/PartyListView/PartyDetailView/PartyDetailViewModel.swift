@@ -23,9 +23,9 @@ extension PartyDetailViewModel: ViewModelType {
     }
     
     struct Output {
-        let todoQeusts: Observable<[Quest]>
-        let doingQeusts: Observable<[Quest]>
-        let doneQeusts: Observable<[Quest]>
+        let todoQeusts: Observable<[QuestItem]>
+        let doingQeusts: Observable<[QuestItem]>
+        let doneQeusts: Observable<[QuestItem]>
         let presentAddQuestView: Observable<Void>
     }
     
@@ -33,62 +33,55 @@ extension PartyDetailViewModel: ViewModelType {
         let quests = input.viewWillAppearEvent
             .map { _ in
                 [
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .todo,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .doing,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .todo,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .todo,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .doing,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .doing,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
-                    Quest(title: "백준 385번 풀기",
-                          description: "각자 푼 뒤에 스크린샷을 제출해주세요",
-                          partyName: "알고리즘 스터디",
-                          status: .done,
-                          dDay: "2",
-                          partyImageUrl: "dd"),
+                    QuestItem(id: 1,
+                              status: .todo,
+                              title: "백준 385번 풀기",
+                              description: "각자 푼 뒤에 스크린샷을 제출해주세요",
+                              startTime: "2024년 1월 12일",
+                              endTime: "2024년 1월 14일",
+                              dDay: "2"),
+                    QuestItem(id: 2,
+                              status: .todo,
+                              title: "백준 385번 풀기",
+                              description: "각자 푼 뒤에 스크린샷을 제출해주세요",
+                              startTime: "2024년 1월 12일",
+                              endTime: "2024년 1월 14일",
+                              dDay: "2"),
+                    QuestItem(id: 3,
+                              status: .doing,
+                              title: "백준 385번 풀기",
+                              description: "각자 푼 뒤에 스크린샷을 제출해주세요",
+                              startTime: "2024년 1월 12일",
+                              endTime: "2024년 1월 14일",
+                              dDay: "2"),
+                    QuestItem(id: 4,
+                              status: .done,
+                              title: "백준 385번 풀기",
+                              description: "각자 푼 뒤에 스크린샷을 제출해주세요",
+                              startTime: "2024년 1월 12일",
+                              endTime: "2024년 1월 14일",
+                              dDay: "2"),
+                    QuestItem(id: 5,
+                              status: .done,
+                              title: "백준 385번 풀기",
+                              description: "각자 푼 뒤에 스크린샷을 제출해주세요",
+                              startTime: "2024년 1월 12일",
+                              endTime: "2024년 1월 14일",
+                              dDay: "2"),
                 ]
             }
         
-        let todoQuest = quests
+        let todoQuests = quests
             .map { quests in
                 quests.filter { $0.status == .todo }
             }
         
-        let doingQuest = quests
+        let doingQuests = quests
             .map { quests in
                 quests.filter { $0.status == .doing }
             }
         
-        let doneQuest = quests
+        let doneQuests = quests
             .map { quests in
                 quests.filter { $0.status == .done }
             }
@@ -96,14 +89,13 @@ extension PartyDetailViewModel: ViewModelType {
         let presentAddQuestView = input.addQuestButtonTapped
             .withUnretained(self)
             .map { owner, _ in
-                print("Button Tapped")
                 owner.coordinator.toAddQuest()
             }
         
         return Output(
-            todoQeusts: todoQuest,
-            doingQeusts: doingQuest,
-            doneQeusts: doneQuest,
+            todoQeusts: todoQuests,
+            doingQeusts: doingQuests,
+            doneQeusts: doneQuests,
             presentAddQuestView: presentAddQuestView
         )
     }

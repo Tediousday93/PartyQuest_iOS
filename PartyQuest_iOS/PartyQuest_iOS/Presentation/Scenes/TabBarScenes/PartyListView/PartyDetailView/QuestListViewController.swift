@@ -14,9 +14,9 @@ final class QuestListViewController: UIViewController {
         case main
     }
     
-    private typealias DataSource = UICollectionViewDiffableDataSource<QuestListSection, Quest>
-    private typealias Snapshot = NSDiffableDataSourceSnapshot<QuestListSection, Quest>
-    typealias QuestCardCellRegistration = UICollectionView.CellRegistration<QuestCardCell, Quest>
+    private typealias DataSource = UICollectionViewDiffableDataSource<QuestListSection, QuestItem>
+    private typealias Snapshot = NSDiffableDataSourceSnapshot<QuestListSection, QuestItem>
+    typealias QuestCardCellRegistration = UICollectionView.CellRegistration<QuestCardCell, QuestItem>
     typealias AddButtonRegistration = UICollectionView.SupplementaryRegistration<CollectionReusableButton>
     
     lazy var collectionView: UICollectionView = {
@@ -30,7 +30,7 @@ final class QuestListViewController: UIViewController {
     private var dataSource: DataSource!
     private var disposeBag: DisposeBag
     let status: QuestStatus
-    let items: BehaviorRelay<[Quest]> = .init(value: [])
+    let items: BehaviorRelay<[QuestItem]> = .init(value: [])
     
     init(status: QuestStatus) {
         self.disposeBag = .init()
@@ -127,7 +127,7 @@ final class QuestListViewController: UIViewController {
         }
     }
     
-    private func applySnapshot(items: [Quest]) {
+    private func applySnapshot(items: [QuestItem]) {
         var snapshot = Snapshot()
         
         snapshot.appendSections([.main])

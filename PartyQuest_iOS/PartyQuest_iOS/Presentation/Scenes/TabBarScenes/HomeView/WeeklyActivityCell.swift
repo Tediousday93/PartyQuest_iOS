@@ -1,5 +1,5 @@
 //
-//  WeekActivityCell.swift
+//  WeeklyActivityCell.swift
 //  PartyQuest_iOS
 //
 //  Created by Harry on 2023/12/19.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WeekActivityCell: UICollectionViewCell {
+final class WeeklyActivityCell: UICollectionViewCell {
     private let bulbImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
@@ -17,22 +17,6 @@ final class WeekActivityCell: UICollectionViewCell {
     }()
     
     private let bookImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = PQColor.buttonMain
-        
-        return imageView
-    }()
-    
-    private let postImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = PQColor.buttonMain
-        
-        return imageView
-    }()
-    
-    private let commentImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = PQColor.buttonMain
@@ -66,24 +50,6 @@ final class WeekActivityCell: UICollectionViewCell {
         return label
     }()
     
-    private let postTitleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = PQFont.basicBold
-        label.text = "Total Posts"
-        
-        return label
-    }()
-    
-    private let commentTitleLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = PQFont.basicBold
-        label.text = "Total Comments"
-        
-        return label
-    }()
-    
     private let titleLabelStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -101,22 +67,6 @@ final class WeekActivityCell: UICollectionViewCell {
     }()
     
     private let completeCountLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = PQFont.basicBold
-        
-        return label
-    }()
-    
-    private let postCountLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.font = PQFont.basicBold
-        
-        return label
-    }()
-    
-    private let commentCountLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
         label.font = PQFont.basicBold
@@ -163,8 +113,6 @@ final class WeekActivityCell: UICollectionViewCell {
         
         questCountLabel.text = ""
         completeCountLabel.text = ""
-        postCountLabel.text = ""
-        commentCountLabel.text = ""
         achievementRateView.prepareToReuse()
     }
 
@@ -178,14 +126,12 @@ final class WeekActivityCell: UICollectionViewCell {
         achievementRateView.setProgressWithAnimation(duration: 1, value: rate)
     }
     
-    func configure(with weekActivity: WeekActivity) {
-        questCountLabel.text = "\(weekActivity.questCount)"
-        completeCountLabel.text = "\(weekActivity.completeCount)"
-        postCountLabel.text = "\(weekActivity.postCount)"
-        commentCountLabel.text = "\(weekActivity.commentCount)"
+    func configure(with weeklyActivityItem: WeeklyActivityItem) {
+        questCountLabel.text = "\(weeklyActivityItem.questCount)"
+        completeCountLabel.text = "\(weeklyActivityItem.completeCount)"
         achievementRateView.setProgressColor = PQColor.buttonMain
         achievementRateView.setTrackColor = PQColor.buttonMain.withAlphaComponent(0.2)
-        achievementRateView.setProgressWithAnimation(duration: 1, value: weekActivity.completeRate)
+        achievementRateView.setProgressWithAnimation(duration: 1, value: weeklyActivityItem.completeRate)
     }
     
     private func configureContentView() {
@@ -195,19 +141,13 @@ final class WeekActivityCell: UICollectionViewCell {
     private func setSubViews() {
         imageStackView.addArrangedSubview(bulbImageView)
         imageStackView.addArrangedSubview(bookImageView)
-        imageStackView.addArrangedSubview(postImageView)
-        imageStackView.addArrangedSubview(commentImageView)
         
         titleLabelStackView.addArrangedSubview(questTitleLabel)
         titleLabelStackView.addArrangedSubview(completeTitleLabel)
-        titleLabelStackView.addArrangedSubview(postTitleLabel)
-        titleLabelStackView.addArrangedSubview(commentTitleLabel)
         
         countLabelStackView.addArrangedSubview(questCountLabel)
         countLabelStackView.addArrangedSubview(completeCountLabel)
-        countLabelStackView.addArrangedSubview(postCountLabel)
-        countLabelStackView.addArrangedSubview(commentCountLabel)
-        
+
         outerStackView.addArrangedSubview(imageStackView)
         outerStackView.addArrangedSubview(titleLabelStackView)
         outerStackView.addArrangedSubview(countLabelStackView)
@@ -219,8 +159,6 @@ final class WeekActivityCell: UICollectionViewCell {
     private func configureImages() {
         bulbImageView.image = UIImage(systemName: "lightbulb.fill")
         bookImageView.image = UIImage(systemName: "book.closed.fill")
-        postImageView.image = UIImage(systemName: "note.text")
-        commentImageView.image = UIImage(systemName: "bubble.left.fill")
     }
     
     private func setConstraints() {

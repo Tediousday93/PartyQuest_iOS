@@ -1,17 +1,13 @@
 //
-//  WeekActivity.swift
+//  WeeklyActiviyItem.swift
 //  PartyQuest_iOS
 //
-//  Created by Harry on 2023/12/19.
+//  Created by Harry on 2024/02/16.
 //
 
-import Foundation
-
-struct WeekActivity: Hashable {
+struct WeeklyActivityItem: Hashable {
     let questCount: Int
     let completeCount: Int
-    let postCount: Int
-    let commentCount: Int
     
     var completeRate: Float {
         Float(completeCount) / Float(questCount)

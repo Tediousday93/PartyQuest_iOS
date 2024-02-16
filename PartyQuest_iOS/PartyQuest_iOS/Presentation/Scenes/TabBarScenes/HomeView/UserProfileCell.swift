@@ -15,7 +15,7 @@ final class UserProfileCell: UICollectionViewListCell {
         return imageView
     }()
     
-    private let nickNameLabel: UILabel = {
+    private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.font = PQFont.subTitle
         
@@ -60,15 +60,14 @@ final class UserProfileCell: UICollectionViewListCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with userProfile: UserProfile) {
-//        profileImageView.image = UIImage(data: userProfile.imageData!)
-        profileImageView.image = UIImage(systemName: "house")
-        nickNameLabel.text = userProfile.nickName
-        emailLabel.text = userProfile.email
+    func configure(with userProfileItem: UserProfileItem) {
+        profileImageView.image = UIImage(named: userProfileItem.imageName)
+        nicknameLabel.text = userProfileItem.nickName
+        emailLabel.text = userProfileItem.email
     }
     
     private func setSubViews() {
-        textStackView.addArrangedSubview(nickNameLabel)
+        textStackView.addArrangedSubview(nicknameLabel)
         textStackView.addArrangedSubview(emailLabel)
         outerStackView.addArrangedSubview(profileImageView)
         outerStackView.addArrangedSubview(textStackView)

@@ -16,7 +16,8 @@ struct UserActivity: Decodable {
 struct UrgentQuest: Decodable {
     let id: UInt64
     let partyID: UInt64
+    let questName: String
+    let partyName: String
     let partyImageName: String
-    let title: String
     let endTime: String
 }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */; };
 		4A1F24642AEA8628005B264F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24632AEA8628005B264F /* AppDelegate.swift */; };
 		4A1F24662AEA8628005B264F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24652AEA8628005B264F /* SceneDelegate.swift */; };
 		4A1F24682AEA8628005B264F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1F24672AEA8628005B264F /* WelcomeViewController.swift */; };
@@ -145,7 +144,6 @@
 
 /* Begin PBXFileReference section */
 		14039AD9F28E3F9A6990ED3A /* Pods-PartyQuest_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PartyQuest_iOS.debug.xcconfig"; path = "Target Support Files/Pods-PartyQuest_iOS/Pods-PartyQuest_iOS.debug.xcconfig"; sourceTree = "<group>"; };
-		4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogInButton.swift; sourceTree = "<group>"; };
 		4A1F24602AEA8628005B264F /* PartyQuest_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyQuest_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1F24632AEA8628005B264F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A1F24652AEA8628005B264F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -672,7 +670,6 @@
 				AD5DAB9D2AEBD36600DC30B9 /* TitledTextField.swift */,
 				AD131B522B5F8C2D00CF75C1 /* CenterTitledLabel.swift */,
 				AD59A98E2B285037005BAEEB /* LeftImageLabel.swift */,
-				4A1DFDF72B0B4E5600F477AC /* SocialLogInButton.swift */,
 				AD59A98A2B2848E2005BAEEB /* PartyItemView.swift */,
 				4A4A4F472B45270F00C99612 /* UnderlineSegmentedControl.swift */,
 			);
@@ -1068,7 +1065,6 @@
 				4A224C7E2B297A4D00D22E81 /* HomeCoordinator.swift in Sources */,
 				AD5FE5922B0C80AE001F17AA /* LogInViewController.swift in Sources */,
 				ADD87BCC2B6CC3460065B9A6 /* ModifyingListCell.swift in Sources */,
-				4A1DFDF82B0B4E5600F477AC /* SocialLogInButton.swift in Sources */,
 				4A8C5BAF2B7C96D600A5F190 /* TimePickerContentConfiguration.swift in Sources */,
 				AD5AC12A2B5F882900AA4E49 /* PartyInfoViewModel.swift in Sources */,
 				4A50AA042B0DF4430026814F /* PasswordKeychain.swift in Sources */,

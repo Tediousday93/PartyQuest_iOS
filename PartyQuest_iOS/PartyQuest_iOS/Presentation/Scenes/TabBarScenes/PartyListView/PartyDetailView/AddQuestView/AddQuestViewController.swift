@@ -133,7 +133,8 @@ final class AddQuestViewController: UIViewController {
                 content.image = UIImage(named: "Calendar")
                 content.text = "날짜"
                 content.secondaryTextProperties.color = .systemBlue
-                content.secondaryText = date?.description ?? " "
+                content.secondaryText = PQDateFormatter.shared.dateToDefaultString(from: date) ?? " "
+//                content.secondaryText = date?.description ?? " "
                 cell.contentConfiguration = content
             }
             
@@ -148,7 +149,8 @@ final class AddQuestViewController: UIViewController {
                 content.image = UIImage(named: "Clock")
                 content.text = "시간"
                 content.secondaryTextProperties.color = .systemBlue
-                content.secondaryText = time?.description ?? " "
+                content.secondaryText = PQDateFormatter.shared.dateToTimeString(from: time) ?? " "
+//                content.secondaryText = time?.description ?? " "
                 cell.contentConfiguration = content
             }
             
